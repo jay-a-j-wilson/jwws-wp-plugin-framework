@@ -2,11 +2,9 @@
 
 namespace JWWS\WP_Plugin_Framework\Template_Engine;
 
-use Exception;
-
-if (! defined(constant_name: 'ABSPATH')) {
-    exit;
-}
+// if (! defined(constant_name: 'ABSPATH')) {
+//     exit; // Exit if accessed directly.
+// }
 
 class Template {
     /**
@@ -49,7 +47,7 @@ class Template {
             return $file;
         }
 
-        throw new Exception(
+        throw new \Exception(
             message: "Template file “{$this->filename}” not found",
         );
     }

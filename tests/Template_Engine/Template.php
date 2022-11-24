@@ -2,19 +2,20 @@
 
 namespace JWWS\WP_Plugin_Framework\Tests\Template_Engine;
 
+require __DIR__ . '/../../vendor/autoload.php';
+
 /**
- * @package JWWS\WP_Plugin_Framework\Tests\Template_Engine
+ * 
  */
 class Template {
     /**
-     * @return void 
+     * @return void
      */
-    public function init(): void {
+    public static function test(): void {
         echo (new \JWWS\WP_Plugin_Framework\Template_Engine\Template(filename: __DIR__ . '/templates/template'))
             ->output()
         ;
     }
 }
 
-
-(new Template())->init();
+// Template::test();

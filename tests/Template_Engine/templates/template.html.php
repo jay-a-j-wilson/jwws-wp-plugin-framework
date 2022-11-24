@@ -1,1 +1,1 @@
-<p>Template Test</p>
+<p>Test Template</p>

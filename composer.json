@@ -1,8 +1,8 @@
 {
     "autoload": {
         "files": [
-            "src/Alias/functions.php",
-            "src/Debug/functions.php"
+            "src/functions/alias.php",
+            "src/functions/debug.php"
         ],
         "psr-4": {
             "JWWS\\WP_Plugin_Framework\\": "src/"
@@ -12,8 +12,5 @@
         "psr-4": {
             "JWWS\\WP_Plugin_Framework\\Tests\\": "tests/"
         }
-    },
-    "config": {
-        "optimize-autoloader": true
     }
 }
