@@ -1,2 +1,2 @@
 # jwws-wp-plugin-framework
-Wordpress Plugin Framework
+WordPress Plugin Framework
