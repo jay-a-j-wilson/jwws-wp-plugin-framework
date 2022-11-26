@@ -5,10 +5,6 @@ namespace JWWS\WP_Plugin_Framework\Loader\Plugin_Dependancy_Checker;
 use JWWS\WP_Plugin_Framework\Template_Engine\Template;
 use JWWS\WP_Plugin_Framework\Loader\Plugin;
 
-if (! defined(constant_name: 'ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
-
 class Plugin_Dependancy_Checker {
     /**
      * @param private Plugin $parent_plugin

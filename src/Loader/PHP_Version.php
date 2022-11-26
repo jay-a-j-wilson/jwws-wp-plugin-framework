@@ -2,10 +2,6 @@
 
 namespace JWWS\WP_Plugin_Framework\Loader;
 
-if (! defined(constant_name: 'ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
-
 class PHP_Version {
     /**
      * @param private string $min
