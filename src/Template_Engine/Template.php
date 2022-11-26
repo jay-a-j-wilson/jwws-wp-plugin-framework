@@ -2,9 +2,9 @@
 
 namespace JWWS\WP_Plugin_Framework\Template_Engine;
 
-// if (! defined(constant_name: 'ABSPATH')) {
-//     exit; // Exit if accessed directly.
-// }
+if (! defined(constant_name: 'ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
 
 class Template {
     /**
