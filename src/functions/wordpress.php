@@ -66,8 +66,7 @@ function get_taxonomy_hierarchy(
     // into this new array, but only after they find their own children.
     $children = [];
 
-    // Go through all the direct descendants of $parent, and gather their
-    // children.
+    // Go through all direct descendants of $parent, and gather their children.
     foreach ($terms as $term) {
         // Recurse to get the direct descendants of "this" term.
         $term->children = get_taxonomy_hierarchy(
