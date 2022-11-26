@@ -1,4 +1,9 @@
 {
+    "name": "jay-a-j-wilson/jwws-wp-plugin-framework",
+    "description": "A light-weight framework for WordPress plugins.",
+    "require": {
+        "php": ">=8.0"
+    },
     "autoload": {
         "files": [
             "src/functions/alias.php",
