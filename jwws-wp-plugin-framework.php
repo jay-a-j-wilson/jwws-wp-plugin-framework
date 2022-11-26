@@ -16,4 +16,4 @@ if (! defined(constant_name: 'ABSPATH')) {
 
 require __DIR__ . '/vendor/autoload.php';
 
-Tests\App::hook();
+//Tests\App::hook();
