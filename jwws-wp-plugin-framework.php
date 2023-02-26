@@ -2,7 +2,7 @@
 /*
 Plugin Name: WP Plugin Framework
 description: Dependencies for JWWS plugins.
-Version:     1.2.0
+Version:     1.2.1
 Author:      Jay Wilson
 Author URI:  https://jaywilsonwebsolutions.com
 License:     GPL2

@@ -4,7 +4,6 @@ namespace JWWS\WP_Plugin_Framework\Functions\Debug;
 
 use \DateTimeImmutable;
 use \DateTimeZone;
-use function JWWS\WP_Plugin_Framework\Functions\Alias\is_empty;
 
 /**
  * Prints variable data to a log file.
@@ -16,7 +15,9 @@ use function JWWS\WP_Plugin_Framework\Functions\Alias\is_empty;
 function log_var(mixed $var): void {
     $datetime = (new DateTimeImmutable(
         datetime: 'now',
-        timezone: new DateTimeZone(timezone: 'Australia/Brisbane'),
+        timezone: new DateTimeZone(
+            timezone: 'Australia/Brisbane'
+        ),
     ))->format('Y-m-d H:i:s');
 
     $backtrace = print_r(value: debug_backtrace()[0], return: true);
@@ -82,7 +83,7 @@ function console_log(
 ): void {
     $backtrace_json = json_encode(value: debug_backtrace()[0]);
     $output_json    = json_encode(value: $output, flags: JSON_HEX_TAG);
-    $js_code        = is_empty(var: $message)
+    $js_code        = empty($message)
         ? "console.log({$backtrace_json});console.log({$output_json});console.log('');"
         : "console.log({$backtrace_json});console.log('{$message}');console.log({$output_json});console.log('');";
 

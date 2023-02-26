@@ -150,15 +150,3 @@ function flatten(array $objects, string $key): array {
 
     return $output;
 }
-
-/**
- * Gets the product categories ordered by parent and alphabetised.
- *
- * @return array
- */
-function get_product_categories(): array {
-    return flatten(
-        objects: get_taxonomy_hierarchy(taxonomy: 'product_cat'),
-        key: 'children',
-    );
-}
