@@ -5,6 +5,19 @@ namespace JWWS\WP_Plugin_Framework\Functions\Debug;
 use function JWWS\WP_Plugin_Framework\Functions\Alias\is_empty;
 
 /**
+ * @param mixed $message
+ * 
+ * @return void 
+ */
+function log(mixed $message) {
+    file_put_contents(
+        filename: 'log.txt', 
+        data: $message.PHP_EOL , 
+        flags: FILE_APPEND | LOCK_EX
+    );
+}
+
+/**
  * Prints to console.
  *
  * @source https://stackify.com/how-to-log-to-console-in-php/
