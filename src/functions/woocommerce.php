@@ -14,7 +14,7 @@ use function JWWS\WP_Plugin_Framework\Functions\WordPress\{
  */
 function get_product_categories(): array {
     if (! is_plugin_active(plugin: 'woocommerce/woocommerce.php')) {
-        return;
+        return [];
     }
 
     return flatten(
