@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WP_Plugin_Framework\Loader;
+namespace JWWS\WPPF\Loader;
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.

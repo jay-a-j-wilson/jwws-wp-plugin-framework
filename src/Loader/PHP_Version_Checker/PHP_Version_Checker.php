@@ -1,10 +1,12 @@
 <?php
 
-namespace JWWS\WP_Plugin_Framework\Loader\PHP_Version_Checker;
+namespace JWWS\WPPF\Loader\PHP_Version_Checker;
 
-use JWWS\WP_Plugin_Framework\Template_Engine\Template;
-use JWWS\WP_Plugin_Framework\Loader\Plugin;
-use JWWS\WP_Plugin_Framework\Loader\PHP_Version;
+use JWWS\WPPF\{
+    Template_Engine\Template,
+    Loader\Plugin,
+    Loader\PHP_Version
+};
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.

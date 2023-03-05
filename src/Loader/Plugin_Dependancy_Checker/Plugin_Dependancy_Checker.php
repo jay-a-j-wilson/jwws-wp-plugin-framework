@@ -1,9 +1,11 @@
 <?php
 
-namespace JWWS\WP_Plugin_Framework\Loader\Plugin_Dependancy_Checker;
+namespace JWWS\WPPF\Loader\Plugin_Dependancy_Checker;
 
-use JWWS\WP_Plugin_Framework\Template_Engine\Template;
-use JWWS\WP_Plugin_Framework\Loader\Plugin;
+use JWWS\WPPF\{
+    Template_Engine\Template,
+    Loader\Plugin
+};
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.

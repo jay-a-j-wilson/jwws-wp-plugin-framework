@@ -5,19 +5,13 @@
         "php": ">=8.0"
     },
     "autoload": {
-        "files": [
-            "src/functions/alias.php",
-            "src/functions/debug.php",
-            "src/functions/woocommerce.php",
-            "src/functions/wordpress.php"
-        ],
         "psr-4": {
-            "JWWS\\WP_Plugin_Framework\\": "src/"
+            "JWWS\\WPPF\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "JWWS\\WP_Plugin_Framework\\Tests\\": "tests/"
+            "JWWS\\WPPF\\Tests\\": "tests/"
         }
     }
 }
