@@ -20,6 +20,6 @@ require __DIR__ . '/vendor/autoload.php';
 // Tests\Template_Engine\Template_Test::test();
 // Tests\Loader\Plugin_Test::test();
 // Tests\Loader\PHP_Version_Test::test();
-Tests\WordPress_Test::hook();
+// Tests\WordPress_Test::hook();
 // Tests\WooCommerce_Test::hook();
 
