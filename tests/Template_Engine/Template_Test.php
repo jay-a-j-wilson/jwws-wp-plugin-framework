@@ -10,20 +10,28 @@ use \JWWS\WPPF\{
 /**
  */
 class Template_Test {
-     /**
+    /**
      * Do not instantiate.
      */
     private function __construct() {
     }
-    
+
     /**
      * @return void
      */
     public static function test(): void {
-        $template = (new Template(filename: __DIR__ . '/templates/template'))
+        $template = Template::create(filename: __DIR__ . '/templates/template')
+            ->assign(names: 'data', value: 'Variable')
             ->output()
         ;
 
-        Logger::to_error_log(output: $template);
+        Logger::error_log(output: $template);
+
+        $template = Template::create(filename: __DIR__ . '/templates/template')
+        ->assign(names: ['data', 'x'], value: 'Variable')
+        ->output()
+    ;
+
+    Logger::error_log(output: $template);
     }
 }

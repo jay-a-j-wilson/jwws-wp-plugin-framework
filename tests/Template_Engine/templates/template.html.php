@@ -1,1 +1,1 @@
-<p>Test Template</p>
+<p>Test Template <?= $data; ?></p>

@@ -2,6 +2,12 @@
 
 namespace JWWS\WPPF;
 
+if (! defined(constant_name: 'ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
+/**
+ */
 final class Utility {
     /**
      * Do not instantiate.
@@ -14,14 +20,14 @@ final class Utility {
      *
      * @source https://stackoverflow.com/a/2835633
      *
-     * @param mixed $f
+     * @param mixed $value
      *
      * @return bool
      */
-    public static function is_function($f): bool {
+    public static function is_function($value): bool {
         return
-            is_string(value: $f)    && function_exists(function: $f)
-            || is_object(value: $f) && ($f instanceof \Closure)
+            is_string(value: $value)    && function_exists(function: $value)
+            || is_object(value: $value) && ($value instanceof \Closure)
         ;
     }
 

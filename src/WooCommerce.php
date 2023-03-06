@@ -2,6 +2,12 @@
 
 namespace JWWS\WPPF;
 
+if (! defined(constant_name: 'ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
+/**
+ */
 final class WooCommerce {
     /**
      * Do not instantiate.
@@ -15,10 +21,6 @@ final class WooCommerce {
      * @return array
      */
     public static function get_product_categories(): array {
-        if (! is_plugin_active(plugin: 'woocommerce/woocommerce.php')) {
-            return [];
-        }
-
         return Utility::flatten(
             objects: WordPress::get_taxonomy_hierarchy(taxonomy: 'product_cat'),
             key: 'children',

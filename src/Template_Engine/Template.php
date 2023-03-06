@@ -6,61 +6,43 @@ if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-class Template {
+/**
+ */
+final class Template {
     /**
-     */
-    private const EXT = '.html.php';
-
-    /**
-     * Template file.
-     *
-     * @var string
-     */
-    private string $file;
-
-    /**
-     * Variables to embed in template.
-     *
-     * @var array
-     */
-    private array $variables = [];
-
-    /**
-     * Template constructor.
+     * Creates template.
      *
      * @param string $filename
      */
-    public function __construct(private string $filename) {
-        $this->filename = $filename . self::EXT;
-        $this->file     = $this->check_exists(file: $this->filename);
-    }
-
-    /**
-     * @param string $file
-     *
-     * @throws Exception
-     *
-     * @return string
-     */
-    private function check_exists(string $file): string {
-        if (file_exists(filename: $file)) {
-            return $file;
-        }
-
-        throw new \Exception(
-            message: "Template file “{$this->filename}” not found",
+    public static function create(string $filename): self {
+        return new self(
+            file: File::create(name: $filename),
         );
     }
 
     /**
+     * Template constructor.
+     *
+     * @param File  $file
+     * @param array $variables variables to embed in template
+     */
+    private function __construct(
+        private File $file,
+        private array $variables = [],
+    ) {
+    }
+
+    /**
      * Assigns template variable(s).
+     * 
+     * ? Investigate why $names accepts array type.
      *
      * @param string|array $names the template variable name(s)
      * @param mixed        $value the value to assign
      *
      * @return self
      */
-    public function assign(string|array $names, mixed $value = null): self {
+    public function assign(string|array $names, mixed $value = ''): self {
         if (is_array(value: $names)) {
             foreach ($names as $name => $val) {
                 $this->{__FUNCTION__}($name, $val);
@@ -80,7 +62,7 @@ class Template {
      *
      * @return self
      */
-    public function append(string $name, mixed $value = null): self {
+    public function append(string $name, mixed $value = ''): self {
         $this->variables[$name][] = $value;
 
         return $this;
@@ -96,7 +78,7 @@ class Template {
 
         ob_start();
 
-        require $this->file;
+        require $this->file->get_name();
 
         return ob_get_clean();
     }

@@ -2,6 +2,12 @@
 
 namespace JWWS\WPPF;
 
+if (! defined(constant_name: 'ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
+/**
+ */
 final class WordPress {
     /**
      * Do not instantiate.

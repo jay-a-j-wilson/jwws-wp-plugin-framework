@@ -30,7 +30,7 @@ class WooCommerce_Test {
      * @return void
      */
     public static function test(): void {
-        Logger::to_error_log(
+        Logger::error_log(
             output: WooCommerce::get_product_categories(),
         );
     }

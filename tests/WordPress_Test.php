@@ -38,7 +38,7 @@ class WordPress_Test {
     /**
      */
     private static function get_term_name(): void {
-        Logger::to_error_log(
+        Logger::error_log(
             output: WordPress::get_term_name(
                 term: get_term_by(
                     field: 'slug',
@@ -48,7 +48,7 @@ class WordPress_Test {
             ),
         );
 
-        Logger::to_error_log(
+        Logger::error_log(
             output: WordPress::get_term_name(
                 term: get_term_by(
                     field: 'slug',
@@ -62,7 +62,7 @@ class WordPress_Test {
     /**
      */
     private static function get_taxonomy_hierarchy(): void {
-        Logger::to_error_log(
+        Logger::error_log(
             output: WordPress::get_taxonomy_hierarchy(taxonomy: 'product_cat'),
         );
     }
@@ -70,7 +70,7 @@ class WordPress_Test {
     /**
      */
     private static function get_taxonomy_hierarchy_multiple(): void {
-        Logger::to_error_log(
+        Logger::error_log(
             output: WordPress::get_taxonomy_hierarchy_multiple(
                 taxonomies: [
                     'product_tag',

@@ -2,6 +2,12 @@
 
 namespace JWWS\WPPF;
 
+if (! defined(constant_name: 'ABSPATH')) {
+    exit; // Exit if accessed directly.
+}
+
+/**
+ */
 final class Logger {
     /**
      * Do not instantiate.
@@ -19,7 +25,7 @@ final class Logger {
      *
      * @return void
      */
-    public static function to_console(
+    public static function console_log(
         mixed $output,
         string $message = '',
     ): void {
@@ -40,7 +46,7 @@ final class Logger {
      *
      * @return void
      */
-    public static function to_error_log(mixed $output): void {
+    public static function error_log(mixed $output = ''): void {
         $backtrace = print_r(value: self::get_backtrace(), return: true);
         $separator = str_repeat(string: '=', times: 200);
 
