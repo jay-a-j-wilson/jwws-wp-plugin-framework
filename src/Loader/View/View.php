@@ -11,6 +11,9 @@ if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
+/**
+ * View
+ */
 class View {
     /**
      * @param Plugin $parent_plugin

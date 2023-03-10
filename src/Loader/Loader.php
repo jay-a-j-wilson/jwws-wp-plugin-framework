@@ -40,7 +40,7 @@ class Loader {
             return;
         }
 
-        foreach ($this->plugin->get_inactive_dependencies()->get_all() as $dependant_plugin) {
+        foreach ($this->plugin->get_inactive_dependencies()->log() as $dependant_plugin) {
             add_action(
                 'admin_notices',
                 [

@@ -29,7 +29,7 @@ final class Logger {
         mixed $output,
         string $message = '',
     ): void {
-        $backtrace_json = json_encode(value: self::get_backtrace());
+        $backtrace_json = json_encode(value: self::get_backtrace(depth: 1));
         $output_json    = json_encode(value: $output, flags: JSON_HEX_TAG);
 
         $message_code = empty($message)
@@ -43,11 +43,16 @@ final class Logger {
      * Prints to error log.
      *
      * @param mixed $output
+     * @param int   $depth
      *
      * @return void
      */
-    public static function error_log(mixed $output = ''): void {
-        $backtrace = print_r(value: self::get_backtrace(), return: true);
+    public static function error_log(mixed $output = '', int $depth = 1): void {
+        $backtrace = print_r(
+            value: self::get_backtrace(depth: $depth),
+            return: true,
+        );
+
         $separator = str_repeat(string: '=', times: 200);
 
         error_log(message: "\n{$separator}\n\n{$backtrace}\n{$separator}");
@@ -55,9 +60,13 @@ final class Logger {
 
     /**
      * Gets stack trace frame data.
+     *
+     * @param int $depth
+     * 
+     * @return array
      */
-    private static function get_backtrace(): array {
-        $backtrace = debug_backtrace()[1];
+    private static function get_backtrace(int $depth): array {
+        $backtrace = debug_backtrace()[$depth];
         unset(
             $backtrace['class'],
             $backtrace['function'],

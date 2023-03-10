@@ -28,7 +28,7 @@ require __DIR__ . '/vendor/autoload.php';
 // Logger_Test::test();
 // Template_Engine\File_Test::test();
 // Template_Engine\Template_Test::test();
-// Loader\Plugin_Test::test();
+Loader\Plugin_Test::test();
 // Loader\Plugin_Collection_Test::test();
 // WordPress_Test::hook();
 // WooCommerce_Test::hook();

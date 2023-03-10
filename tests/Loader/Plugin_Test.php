@@ -21,10 +21,20 @@ class Plugin_Test {
      * @return void
      */
     public static function test(): void {
+        // self::create();
         // self::get_name();
         // self::is_active();
-        // self::add_dependencies();
-        self::has_dependecy();
+        self::add_dependencies();
+        // self::includes_dependecy();
+    }
+
+    /**
+     */
+    private static function create(): void {
+        Plugin::create_with_slug(slug: 'block-bad-queries')->log();
+        Plugin::create_with_slug(slug: 'block-bad-queries', fallback_name: 'my name')->log();
+        Plugin::create_with_slug(slug: 'a-plugin', fallback_name: 'Dep Plugin')->log();
+        Plugin::create_with_slug(slug: 'plugin')->log();
     }
 
     /**
@@ -52,27 +62,23 @@ class Plugin_Test {
     /**
      */
     private static function add_dependencies(): void {
-        $plugin = Plugin::create_with_slug(slug: 'block-bad-queries');
-        Logger::error_log(output: $plugin);
-
-        $plugin
-            ->add_dependencies(Plugin::create_with_slug(slug: 'wp-sweep'))
-            ->add_dependencies(Plugin::create_with_slug(slug: 'woocommerce'))
-        ;
-        Logger::error_log(output: $plugin);
-
-        $plugin
+        Plugin::create_with_slug(slug: 'block-bad-queries')
+            ->log()
             ->add_dependencies(
-                Plugin::create_with_slug(slug: 'elementor'),
-                Plugin::create_with_slug(slug: 'shortcoder'),
+                plugins: Plugin::create_with_slug(slug: 'wp-sweep', fallback_name: 'wp sweep'),
             )
+            ->log()
+            ->add_dependencies(
+                Plugin::create_with_slug(slug: 'elementor', fallback_name: 'elementor'),
+                Plugin::create_with_slug(slug: 'a-plugin', fallback_name: 'A Plugin'),
+            )
+            ->log()
         ;
-        Logger::error_log(output: $plugin);
     }
 
     /**
      */
-    private static function has_dependecy(): void {
+    private static function includes_dependecy(): void {
         $plugin = Plugin::create_with_slug(slug: 'block-bad-queries')
             ->add_dependencies(
                 Plugin::create_with_slug(slug: 'elementor'),
@@ -81,11 +87,11 @@ class Plugin_Test {
         ;
 
         Logger::error_log(
-            output: $plugin->has_dependecy('elementor/elementor.php'),
+            output: $plugin->includes_dependecy('elementor/elementor.php'),
         );
 
         Logger::error_log(
-            output: $plugin->has_dependecy('wp-sweep/wp-sweep.php'),
+            output: $plugin->includes_dependecy('wp-sweep/wp-sweep.php'),
         );
     }
 }

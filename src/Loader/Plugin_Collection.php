@@ -2,11 +2,16 @@
 
 namespace JWWS\WPPF\Loader;
 
+use JWWS\WPPF\Logger;
+
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
 }
 
-class Plugin_Collection {
+/**
+ * Plugin_Collection.
+ */
+class Plugin_Collection implements \IteratorAggregate {
     /**
      * Creates collection.
      *
@@ -15,13 +20,79 @@ class Plugin_Collection {
      * @return self
      */
     public static function create(Plugin ...$plugins): self {
-        return new self($plugins);
+        return new self(
+            items: $plugins,
+        );
     }
 
     /**
      * @param Plugin[] $items
      */
     private function __construct(private array $items = []) {
+    }
+
+    /**
+     * Logs object.
+     *
+     * @return self for chaining
+     */
+    public function log(): self {
+        Logger::error_log(output: $this, depth: 2);
+
+        return $this;
+    }
+
+    /**
+     */
+    public function getIterator(): Plugin_Collection_Iterator {
+        return new Plugin_Collection_Iterator(
+            collection: $this,
+        );
+    }
+
+    /**
+     */
+    public function getReverseIterator(): Plugin_Collection_Iterator {
+        return new Plugin_Collection_Iterator(
+            collection: $this,
+            is_reverse: true,
+        );
+    }
+
+    /**
+     * Gets a plugin by its key in the collection.
+     *
+     * @param string $key
+     *
+     * @return ?Plugin
+     */
+    public function get_by_key(string $key): ?Plugin {
+        return $this->items[$key] ?? null;
+    }
+
+    /**
+     * Gets a plugin by its filename.
+     *
+     * @param string $filename Example 'directory/filename.php'.
+     *
+     * @return ?Plugin
+     */
+    public function get_by_filename(string $filename): ?Plugin {
+        return array_pop(
+            array: array_filter(
+                array: $this->items,
+                callback: fn ($item) => $item->get_filename() === $filename,
+            ),
+        );
+    }
+
+    /**
+     * Returns number of plugins in collection.
+     *
+     * @param Plugin $plugin
+     */
+    public function count(): int {
+        return count($this->items);
     }
 
     /**
@@ -36,7 +107,7 @@ class Plugin_Collection {
             $this->items[] = $plugin;
         }
 
-        return $this;
+        return self::create(...$this->items);
     }
 
     /**
@@ -48,22 +119,7 @@ class Plugin_Collection {
      * @returns bool
      */
     public function includes(string $plugin): bool {
-        foreach ($this->items as $item) {
-            if ($plugin === $item->get_filename()) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
-     * Gets all plugins in collection.
-     *
-     * @return array
-     */
-    public function get_all(): array {
-        return $this->items;
+        return ! is_null(value: $this->get_by_filename(filename: $plugin));
     }
 
     /**
@@ -72,7 +128,7 @@ class Plugin_Collection {
      * @return bool
      */
     public function has_inactive(): bool {
-        return $this->get_all_inactive()->count() > 0;
+        return $this->get_inactive()->count() > 0;
     }
 
     /**
@@ -80,24 +136,12 @@ class Plugin_Collection {
      *
      * @return self
      */
-    public function get_all_inactive(): self {
-        $inactive_items = new self();
-
-        foreach ($this->items as $item) {
-            if (! $item->is_active()) {
-                $inactive_items->add($item);
-            }
-        }
-
-        return $inactive_items;
-    }
-
-    /**
-     * Returns number of plugins in collection.
-     *
-     * @param Plugin $plugin
-     */
-    public function count(): int {
-        return count($this->items);
+    public function get_inactive(): self {
+        return self::create(
+            ...array_filter(
+                array: $this->items,
+                callback: fn (Plugin $item) => ! $item->is_active(),
+            ),
+        );
     }
 }
