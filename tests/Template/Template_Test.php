@@ -1,10 +1,10 @@
 <?php
 
-namespace JWWS\WPPF\Tests\Template_Engine;
+namespace JWWS\WPPF\Tests\Template;
 
 use \JWWS\WPPF\{
-    Template_Engine\Template,
-    Logger
+    Template\Template,
+    Log\Error_Log
 };
 
 /**
@@ -25,13 +25,13 @@ class Template_Test {
             ->output()
         ;
 
-        Logger::error_log(output: $template);
+        Error_Log::print(output: $template);
 
         $template = Template::create(filename: __DIR__ . '/templates/template')
-        ->assign(names: ['data', 'x'], value: 'Variable')
-        ->output()
-    ;
+            ->assign(names: ['data', 'x'], value: 'Variable')
+            ->output()
+        ;
 
-    Logger::error_log(output: $template);
+        Error_Log::print(output: $template);
     }
 }

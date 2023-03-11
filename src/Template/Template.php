@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WPPF\Template_Engine;
+namespace JWWS\WPPF\Template;
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -16,7 +16,7 @@ final class Template {
      */
     public static function create(string $filename): self {
         return new self(
-            file: File::create(name: $filename),
+            file: Template_File::create(name: $filename),
         );
     }
 
@@ -27,7 +27,7 @@ final class Template {
      * @param array $variables variables to embed in template
      */
     private function __construct(
-        private File $file,
+        private Template_File $file,
         private array $variables = [],
     ) {
     }

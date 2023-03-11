@@ -1,15 +1,15 @@
 <?php
 
-namespace JWWS\WPPF\Tests\Template_Engine;
+namespace JWWS\WPPF\Tests\Template;
 
 use \JWWS\WPPF\{
-    Template_Engine\File,
-    Logger
+    Template\Template_File,
+    Log\Error_Log
 };
 
 /**
  */
-class File_Test {
+class Template_File_Test {
     /**
      * Do not instantiate.
      */
@@ -20,12 +20,12 @@ class File_Test {
      * @return void
      */
     public static function test(): void {
-        Logger::error_log(
-            output: File::create(name: __DIR__ . '/templates/template')
+        Error_Log::print(
+            output: Template_File::create(name: __DIR__ . '/templates/template')
                 ->get_name(),
         );
 
-        // Logger::error_log(
+        // Error_Log::print(
         //     output: File::create(name: __DIR__ . '/templates/template2')
         //         ->get_name(),
         // );

@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Tests;
 
 use \JWWS\WPPF\{
     WooCommerce,
-    Logger
+    Log\Error_Log
 };
 
 /**
@@ -30,7 +30,7 @@ class WooCommerce_Test {
      * @return void
      */
     public static function test(): void {
-        Logger::error_log(
+        Error_Log::print(
             output: WooCommerce::get_product_categories(),
         );
     }

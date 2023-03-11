@@ -1,8 +1,8 @@
 <?php
 
-namespace JWWS\WPPF\Loader;
+namespace JWWS\WPPF\Loader\Plugin;
 
-use JWWS\WPPF\Logger;
+use JWWS\WPPF\Log\Error_Log;
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -32,20 +32,9 @@ class Plugin_Collection implements \IteratorAggregate {
     }
 
     /**
-     * Logs object.
-     *
-     * @return self for chaining
-     */
-    public function log(): self {
-        Logger::error_log(output: $this, depth: 2);
-
-        return $this;
-    }
-
-    /**
      */
     public function getIterator(): Plugin_Collection_Iterator {
-        return new Plugin_Collection_Iterator(
+        return Plugin_Collection_Iterator::create(
             collection: $this,
         );
     }
@@ -53,10 +42,19 @@ class Plugin_Collection implements \IteratorAggregate {
     /**
      */
     public function getReverseIterator(): Plugin_Collection_Iterator {
-        return new Plugin_Collection_Iterator(
+        return Plugin_Collection_Iterator::create(
             collection: $this,
             is_reverse: true,
         );
+    }
+
+    /**
+     * Returns number of plugins in collection.
+     *
+     * @param Plugin $plugin
+     */
+    public function count(): int {
+        return count($this->items);
     }
 
     /**
@@ -87,12 +85,38 @@ class Plugin_Collection implements \IteratorAggregate {
     }
 
     /**
-     * Returns number of plugins in collection.
+     * Gets all inactive plugins in collection.
      *
-     * @param Plugin $plugin
+     * @return self
      */
-    public function count(): int {
-        return count($this->items);
+    public function get_inactive(): self {
+        return self::create(
+            ...array_filter(
+                array: $this->items,
+                callback: fn (Plugin $item) => ! $item->is_active(),
+            ),
+        );
+    }
+
+    /**
+     * Has inactive plugin.
+     *
+     * @return bool
+     */
+    public function has_inactive(): bool {
+        return $this->get_inactive()->count() > 0;
+    }
+
+    /**
+     * Checks if collection contains plugin.
+     *
+     * @param string $plugin Path to plugin file relative to plugin's directory.
+     *                       Example 'directory/filename.php'.
+     *
+     * @returns bool
+     */
+    public function includes(string $plugin): bool {
+        return ! is_null(value: $this->get_by_filename(filename: $plugin));
     }
 
     /**
@@ -111,37 +135,13 @@ class Plugin_Collection implements \IteratorAggregate {
     }
 
     /**
-     * Checks if collection contains plugin.
+     * Prints object to error log.
      *
-     * @param string $plugin Path to plugin file relative to plugin's directory.
-     *                       Example 'directory/filename.php'.
-     *
-     * @returns bool
+     * @return self for chaining
      */
-    public function includes(string $plugin): bool {
-        return ! is_null(value: $this->get_by_filename(filename: $plugin));
-    }
+    public function log(): self {
+        Error_Log::print(output: $this, depth: 2);
 
-    /**
-     * Has inactive plugin.
-     *
-     * @return bool
-     */
-    public function has_inactive(): bool {
-        return $this->get_inactive()->count() > 0;
-    }
-
-    /**
-     * Gets all inactive plugins in collection.
-     *
-     * @return self
-     */
-    public function get_inactive(): self {
-        return self::create(
-            ...array_filter(
-                array: $this->items,
-                callback: fn (Plugin $item) => ! $item->is_active(),
-            ),
-        );
+        return $this;
     }
 }

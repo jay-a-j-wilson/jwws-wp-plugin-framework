@@ -1,10 +1,10 @@
 <?php
 
-namespace JWWS\WPPF\Tests\Loader;
+namespace JWWS\WPPF\Tests\Loader\Plugin;
 
 use \JWWS\WPPF\{
-    Loader\Plugin,
-    Logger
+    Loader\Plugin\Plugin,
+    Log\Error_Log
 };
 
 /**
@@ -21,11 +21,44 @@ class Plugin_Test {
      * @return void
      */
     public static function test(): void {
+        // self::has_dependencies();
+        // self::append_dependencies_to_listing();
         // self::create();
         // self::get_name();
         // self::is_active();
-        self::add_dependencies();
+        // self::add_dependencies();
         // self::includes_dependecy();
+    }
+
+    /**
+     */
+    private static function has_dependencies(): void {
+        $plugin_1 = Plugin::create_with_slug(slug: 'jwws-wp-open-row-actions')
+            ->has_dependencies()
+        ;
+
+        Error_Log::print(output: $plugin_1);
+
+        $plugin_2 = Plugin::create_with_slug(slug: 'jwws-wp-open-row-actions')
+            ->add_dependencies(
+                Plugin::create_with_slug(slug: 'airplane-mode', fallback_name: 'Airplane Mode'),
+                Plugin::create_with_slug(slug: 'block-bad-queries', fallback_name: 'BBQ Firewall'),
+            )->has_dependencies()
+        ;
+
+        Error_Log::print(output: $plugin_2);
+    }
+
+    /**
+     */
+    private static function append_dependencies_to_listing(): void {
+        Plugin::create_with_slug(slug: 'jwws-wp-open-row-actions')
+            ->add_dependencies(
+                Plugin::create_with_slug(slug: 'airplane-mode', fallback_name: 'Airplane Mode'),
+                // Plugin::create_with_slug(slug: 'block-bad-queries', fallback_name: 'BBQ Firewall'),
+            )
+
+        ;
     }
 
     /**
@@ -42,18 +75,18 @@ class Plugin_Test {
     private static function get_name(): void {
         $plugin = Plugin::create_with_slug(slug: 'block-bad-queries');
 
-        Logger::error_log(output: $plugin->get_name());
+        Error_Log::print(output: $plugin->get_name());
     }
 
     /**
      */
     private static function is_active(): void {
-        Logger::error_log(
+        Error_Log::print(
             output: Plugin::create_with_slug(slug: 'block-bad-queries')
                 ->is_active(),
         );
 
-        Logger::error_log(
+        Error_Log::print(
             output: Plugin::create_with_slug(slug: 'wp-sweep')
                 ->is_active(),
         );
@@ -86,11 +119,11 @@ class Plugin_Test {
             )
         ;
 
-        Logger::error_log(
+        Error_Log::print(
             output: $plugin->includes_dependecy('elementor/elementor.php'),
         );
 
-        Logger::error_log(
+        Error_Log::print(
             output: $plugin->includes_dependecy('wp-sweep/wp-sweep.php'),
         );
     }

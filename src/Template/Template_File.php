@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WPPF\Template_Engine;
+namespace JWWS\WPPF\Template;
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -8,11 +8,7 @@ if (! defined(constant_name: 'ABSPATH')) {
 
 /**
  */
-class File {
-    /**
-     */
-    private static string $extension = '.html.php';
-
+class Template_File {
     /**
      * @param string $name
      *
@@ -22,11 +18,15 @@ class File {
         $filename = $name . self::$extension;
 
         if (file_exists(filename: $filename)) {
-            return new self($filename);
+            return new self(name: $filename);
         }
 
         throw new \Exception(message: "Template file “{$filename}” not found");
     }
+
+    /**
+     */
+    private static string $extension = '.html.php';
 
     /**
      * @param string $name

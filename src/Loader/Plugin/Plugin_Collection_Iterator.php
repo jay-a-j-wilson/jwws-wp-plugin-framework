@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WPPF\Loader;
+namespace JWWS\WPPF\Loader\Plugin;
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -18,7 +18,7 @@ class Plugin_Collection_Iterator implements \Iterator {
      */
     public static function create(
         Plugin_Collection $collection,
-        bool $is_reverse,
+        bool $is_reverse = false,
     ): self {
         return new self(
             collection: $collection,
@@ -27,19 +27,19 @@ class Plugin_Collection_Iterator implements \Iterator {
     }
 
     /**
-     * @var int
-     */
-    private int $position = 0;
-
-    /**
      * @param Plugin_Collection $collection
      * @param bool              $is_reverse
      */
-    public function __construct(
+    private function __construct(
         private Plugin_Collection $collection,
-        private bool $is_reverse = false,
+        private bool $is_reverse,
     ) {
     }
+
+    /**
+     * @var int
+     */
+    private int $position = 0;
 
     /**
      * @return void

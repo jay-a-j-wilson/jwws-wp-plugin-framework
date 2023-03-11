@@ -1,0 +1,1 @@
+<strong>Requires:</strong> <?= $plugin_names; ?>

@@ -1,11 +1,11 @@
 <?php
 
-namespace JWWS\WPPF\Tests\Loader;
+namespace JWWS\WPPF\Tests\Loader\Plugin;
 
 use \JWWS\WPPF\{
-    Loader\Plugin,
-    Loader\Plugin_Collection,
-    Logger
+    Loader\Plugin\Plugin,
+    Loader\Plugin\Plugin_Collection,
+    Log\Error_Log
 };
 
 class Plugin_Collection_Test {
@@ -35,7 +35,6 @@ class Plugin_Collection_Test {
      * @return void
      */
     public static function test(): void {
-        self::has_inactive();
         // self::log();
         // self::get_inactive();
         // self::getIterator();
@@ -53,11 +52,11 @@ class Plugin_Collection_Test {
             Plugin::create_with_slug(slug: 'query-monitor'),
         );
 
-        Logger::error_log(output: $plugin_collection2->has_inactive());
+        Error_Log::print(output: $plugin_collection2->has_inactive());
 
         $plugin_collection = self::get_plugin_collection();
 
-        Logger::error_log(output: $plugin_collection->has_inactive());
+        Error_Log::print(output: $plugin_collection->has_inactive());
     }
 
     /**
@@ -65,7 +64,7 @@ class Plugin_Collection_Test {
     private static function get_inactive(): void {
         $plugin_collection = self::get_plugin_collection();
 
-        Logger::error_log(output: $plugin_collection->get_inactive());
+        Error_Log::print(output: $plugin_collection->get_inactive());
     }
 
     /**
@@ -100,13 +99,13 @@ class Plugin_Collection_Test {
             Plugin::create_with_path(path: 'post-cloner/wp-post-cloner.php'),
         );
 
-        Logger::error_log(output: $plugin_collection->count());
+        Error_Log::print(output: $plugin_collection->count());
 
         $plugin_collection->add(
             plugin: Plugin::create_with_slug(slug: 'perfmatters'),
         );
 
-        Logger::error_log(output: $plugin_collection->count());
+        Error_Log::print(output: $plugin_collection->count());
     }
 
     /**
@@ -114,11 +113,11 @@ class Plugin_Collection_Test {
     private static function includes(): void {
         $plugin_collection = self::get_plugin_collection();
 
-        Logger::error_log(
+        Error_Log::print(
             output: $plugin_collection->includes(plugin: 'woocommerce/woocommerce.php'),
         );
 
-        Logger::error_log(
+        Error_Log::print(
             output: $plugin_collection->includes(plugin: 'airplane-mode/airplane-mode.php'),
         );
     }
@@ -128,11 +127,11 @@ class Plugin_Collection_Test {
     private static function get_by_filename(): void {
         $plugin_collection = self::get_plugin_collection();
 
-        Logger::error_log(
+        Error_Log::print(
             output: $plugin_collection->get_by_filename(filename: 'woocommerce/woocommerce.php'),
         );
 
-        Logger::error_log(
+        Error_Log::print(
             output: $plugin_collection->get_by_filename(filename: 'invalid/filename.php'),
         );
     }
@@ -142,8 +141,8 @@ class Plugin_Collection_Test {
     private static function get_by_key(): void {
         $plugin_collection = self::get_plugin_collection();
 
-        Logger::error_log(output: $plugin_collection);
-        Logger::error_log(output: $plugin_collection->get_by_key(key: 1));
+        Error_Log::print(output: $plugin_collection);
+        Error_Log::print(output: $plugin_collection->get_by_key(key: 1));
     }
 
     /**
@@ -151,14 +150,14 @@ class Plugin_Collection_Test {
     private static function getIterator(): void {
         $iterator = self::get_plugin_collection()->getIterator();
 
-        // Logger::error_log(output: $iterator);
+        // Error_Log::print(output: $iterator);
 
         foreach (self::get_plugin_collection() as $plugin) {
-            Logger::error_log(output: $plugin);
+            Error_Log::print(output: $plugin);
         }
 
         while ($iterator->valid()) {
-            Logger::error_log(output: $iterator->current());
+            Error_Log::print(output: $iterator->current());
             $iterator->current();
             $iterator->next();
         }

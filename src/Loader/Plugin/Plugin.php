@@ -1,8 +1,11 @@
 <?php
 
-namespace JWWS\WPPF\Loader;
+namespace JWWS\WPPF\Loader\Plugin;
 
-use JWWS\WPPF\Logger;
+use JWWS\WPPF\{
+    Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta,
+    Log\Error_Log
+};
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -28,7 +31,7 @@ class Plugin {
         string $fallback_name = '',
     ): self {
         return new self(
-            filename: "{$slug}/{$slug}.php",
+            file: Plugin_File::create(name: "{$slug}/{$slug}.php"),
             fallback_name: $fallback_name,
         );
     }
@@ -49,20 +52,25 @@ class Plugin {
         string $fallback_name = '',
     ): self {
         return new self(
-            filename: $path,
+            file: Plugin_File::create(name: $path),
             fallback_name: $fallback_name,
         );
     }
 
     /**
-     * @var Plugin_Collection
+     * @param Plugin_File $file
+     * @param string      $fallback_name
      */
-    private Plugin_Collection $dependencies;
+    private function __construct(
+        private Plugin_File $file,
+        private string $fallback_name,
+    ) {
+        $this->dependencies = Plugin_Collection::create();
 
-    /**
-     * @var string
-     */
-    private string $path = '';
+        $this->name = $this->file->exists()
+            ? $this->fetch_name()
+            : $this->fallback_name;
+    }
 
     /**
      * @var string
@@ -70,26 +78,9 @@ class Plugin {
     private string $name = '';
 
     /**
-     * @var bool
+     * @var Plugin_Collection
      */
-    private bool $is_installed = false;
-
-    /**
-     * @param string $filename
-     * @param string $fallback_name
-     */
-    private function __construct(
-        private string $filename,
-        private string $fallback_name,
-    ) {
-        $this->dependencies = Plugin_Collection::create();
-        $this->path         = trailingslashit(string: WP_PLUGIN_DIR) . $this->filename;
-        $this->is_installed = file_exists(filename: $this->path);
-
-        $this->name = $this->is_installed
-            ? $this->fetch_name()
-            : $this->fallback_name;
-    }
+    private Plugin_Collection $dependencies;
 
     /**
      * Returns the plugin's name as set in its metadata.
@@ -110,18 +101,16 @@ class Plugin {
             require_once ABSPATH . 'wp-admin/includes/plugin.php';
         }
 
-        return get_plugin_data(plugin_file: $this->path)['Name'];
+        return get_plugin_data(plugin_file: $this->file->get_path())['Name'];
     }
 
     /**
-     * Logs object.
+     * Checks if plugin has a fallback name.
      *
-     * @return self for chaining
+     * @return string
      */
-    public function log(): self {
-        Logger::error_log(output: $this, depth: 2);
-
-        return $this;
+    public function has_fallback_name(): bool {
+        return ! empty($this->fallback_name);
     }
 
     /**
@@ -142,7 +131,7 @@ class Plugin {
      * @return string
      */
     public function get_filename(): string {
-        return $this->filename;
+        return $this->file->get_name();
     }
 
     /**
@@ -151,7 +140,18 @@ class Plugin {
      * @return bool
      */
     public function is_active(): bool {
-        return is_plugin_active(plugin: $this->filename);
+        return is_plugin_active(plugin: $this->file->get_name());
+    }
+
+    /**
+     * Checks if plugin meets activation criteria.
+     *
+     * @return bool
+     */
+    public function can_activate(): bool {
+        return ! is_admin()
+        || ! current_user_can(capability: 'activate_plugins')
+        || ! $this->has_inactive_dependencies();
     }
 
     /**
@@ -160,16 +160,7 @@ class Plugin {
      * @return bool
      */
     public function deactivate(): void {
-        deactivate_plugins(plugins: $this->filename);
-    }
-
-    /**
-     * Checks if plugin has a fallback name.
-     *
-     * @return string
-     */
-    public function has_fallback_name(): bool {
-        return ! empty($this->fallback_name);
+        deactivate_plugins(plugins: $this->file->get_name());
     }
 
     /**
@@ -188,19 +179,7 @@ class Plugin {
 
         $this->dependencies->add(...$plugins);
 
-        return $this;
-    }
-
-    /**
-     * Checks if plugin has dependency of plugin.
-     *
-     * @param string $plugin Path to plugin file relative to plugin's directory.
-     *                       Example 'directory/filename.php'.
-     *
-     * @return bool
-     */
-    public function includes_dependecy(string $plugin): bool {
-        return $this->dependencies->includes(plugin: $plugin);
+        return $this->append_dependencies_to_listing();
     }
 
     /**
@@ -210,6 +189,30 @@ class Plugin {
      */
     public function get_dependencies(): Plugin_Collection {
         return $this->dependencies;
+    }
+
+    /**
+     * Checks if plugins has dependent plugins.
+     *
+     * @return bool
+     */
+    public function has_dependencies(): bool {
+        return $this->dependencies->count() > 0;
+    }
+
+    /**
+     * Returns the plugin's dependent plugins.
+     *
+     * @return array
+     */
+    public function get_dependencies_names(): array {
+        $names = [];
+
+        foreach ($this->dependencies as $dependency) {
+            $names[] = $dependency->get_name();
+        }
+
+        return $names;
     }
 
     /**
@@ -228,5 +231,39 @@ class Plugin {
      */
     public function has_inactive_dependencies(): bool {
         return $this->dependencies->has_inactive();
+    }
+
+    /**
+     * Checks if plugin has dependency of plugin.
+     *
+     * @param string $plugin Path to plugin file relative to plugin's directory.
+     *                       Example 'directory/filename.php'.
+     *
+     * @return bool
+     */
+    public function includes_dependecy(string $plugin): bool {
+        return $this->dependencies->includes(plugin: $plugin);
+    }
+
+    /**
+     * @docs https://developer.wordpress.org/reference/hooks/plugin_row_meta/
+     *
+     * @return self for chaining
+     */
+    public function append_dependencies_to_listing(): self {
+        Plugin_Row_Meta::hook(plugin: $this);
+
+        return $this;
+    }
+
+    /**
+     * Prints object to error log.
+     *
+     * @return self for chaining
+     */
+    public function log(): self {
+        Error_Log::print(output: $this, depth: 2);
+
+        return $this;
     }
 }

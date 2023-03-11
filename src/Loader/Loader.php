@@ -2,7 +2,11 @@
 
 namespace JWWS\WPPF\Loader;
 
-use JWWS\WPPF\Loader\View\View;
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Loader\Hooks\Actions\{
+    Admin_Init,
+    Deactivated_Plugin
+};
 
 if (! defined(constant_name: 'ABSPATH')) {
     exit; // Exit if accessed directly.
@@ -14,7 +18,7 @@ class Loader {
      *
      * @param Plugin $plugin
      *
-     * @return self
+     * @return self for chaining
      */
     public static function create(Plugin $plugin): self {
         return new self(
@@ -29,43 +33,24 @@ class Loader {
     }
 
     /**
-     * @return void
+     * Prevent plugin activation if dependant plugins are not active.
+
+     * @return self for chaining
      */
-    public function activate(): void {
-        if (
-            ! is_admin()
-            || ! current_user_can(capability: 'activate_plugins')
-            || ! $this->plugin->has_inactive_dependencies()
-        ) {
-            return;
-        }
+    public function hook_admin_init(): self {
+        Admin_Init::hook(plugin: $this->plugin);
 
-        foreach ($this->plugin->get_inactive_dependencies()->log() as $dependant_plugin) {
-            add_action(
-                'admin_notices',
-                [
-                    View::create(
-                        parent_plugin: $dependant_plugin,
-                        child_plugin: $this->plugin,
-                    ),
-                    'render',
-                ],
-            );
-        }
-
-        $this->plugin->deactivate();
-
-        unset($_GET['activate']);
+        return $this;
     }
 
     /**
-     * @param string $plugin path to plugin file relative to plugin's directory
-     *
-     * @return void
+     * Disables a plugin if dependant plugin is deactivated.
+     * 
+     * @return self for chaining
      */
-    public function deactivate(string $plugin): void {
-        if ($this->plugin->includes_dependecy(plugin: $plugin)) {
-            $this->plugin->deactivate();
-        }
+    public function hook_deactivated_plugin(): self {
+        Deactivated_Plugin::hook(plugin: $this->plugin);
+
+        return $this;
     }
 }
