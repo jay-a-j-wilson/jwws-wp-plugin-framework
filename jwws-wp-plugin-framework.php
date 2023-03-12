@@ -25,11 +25,11 @@ if (! defined(constant_name: 'ABSPATH')) {
 
 require __DIR__ . '/vendor/autoload.php';
 
-Log\Error_Log_Test::test();
-Log\Console_Log\Console_Log_Test::test();
-Template\Template_File_Test::test();
-Template\Template_Test::test();
-Loader\Plugin\Plugin_Test::test();
-Loader\Plugin\Plugin_Collection_Test::test();
-WordPress_Test::hook();
-WooCommerce_Test::hook();
+// Log\Error_Log_Test::test();
+// Log\Console_Log\Console_Log_Test::test();
+// Template\Template_File_Test::test();
+// Template\Template_Test::test();
+// Loader\Plugin\Plugin_Test::test();
+// Loader\Plugin\Plugin_Collection_Test::test();
+// WordPress_Test::hook();
+// WooCommerce_Test::hook();
