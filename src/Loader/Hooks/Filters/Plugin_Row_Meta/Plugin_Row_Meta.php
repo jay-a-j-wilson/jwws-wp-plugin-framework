@@ -3,18 +3,17 @@
 namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta;
 
 use JWWS\WPPF\{
-    Template\Template,
-    Loader\Plugin\Plugin
+    Security\Security,
+    Template\Template\Template,
+    Loader\Plugin\Plugin\Plugin
 };
 
-if (! defined(constant_name: 'ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
+Security::stop_direct_access();
 
 /**
  * Filter.
  */
-class Plugin_Row_Meta {
+final class Plugin_Row_Meta {
     /**
      * @param Plugin $plugin
      *
@@ -55,7 +54,7 @@ class Plugin_Row_Meta {
         }
 
         // you can still use array_unshift() to add links at the beginning
-        $plugin_meta[] = Template::create(filename: __DIR__ . '/templates/template')
+        $plugin_meta[] = Template::create_from(filename: __DIR__ . '/templates/template')
             ->assign(
                 names: 'plugin_names',
                 value: implode(

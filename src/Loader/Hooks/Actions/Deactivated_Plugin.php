@@ -2,15 +2,16 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions;
 
-use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\{
+    Security\Security,
+    Loader\Plugin\Plugin\Plugin
+};
 
-if (! defined(constant_name: 'ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
+Security::stop_direct_access();
 
 /**
  */
-class Deactivated_Plugin {
+final class Deactivated_Plugin {
     /**
      * @param Plugin $plugin
      *

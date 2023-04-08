@@ -3,17 +3,16 @@
 namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Notices;
 
 use JWWS\WPPF\{
-    Template\Template,
-    Loader\Plugin\Plugin
+    Security\Security,
+    Template\Template\Template,
+    Loader\Plugin\Plugin\Plugin
 };
 
-if (! defined(constant_name: 'ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
+Security::stop_direct_access();
 
 /**
  */
-class Admin_Notices {
+final class Admin_Notices {
     /**
      * @param Plugin $dependant_plugin
      * @param Plugin $plugin
@@ -53,7 +52,7 @@ class Admin_Notices {
      * @return void
      */
     public function callback(): void {
-        echo Template::create(filename: __DIR__ . '/templates/template')
+        echo Template::create_from(filename: __DIR__ . '/templates/template')
             ->assign(names: 'parent_plugin', value: $this->parent_plugin)
             ->assign(names: 'child_plugin', value: $this->child_plugin)
             ->output()

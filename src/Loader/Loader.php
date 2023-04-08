@@ -2,17 +2,18 @@
 
 namespace JWWS\WPPF\Loader;
 
-use JWWS\WPPF\Loader\Plugin\Plugin;
-use JWWS\WPPF\Loader\Hooks\Actions\{
-    Admin_Init,
-    Deactivated_Plugin
+use JWWS\WPPF\{
+    Security\Security,
+    Loader\Plugin\Plugin\Plugin,
+    Loader\Hooks\Actions\Admin_Init,
+    Loader\Hooks\Actions\Deactivated_Plugin
 };
 
-if (! defined(constant_name: 'ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
+Security::stop_direct_access();
 
-class Loader {
+/**
+ */
+final class Loader {
     /**
      * Creates loader.
      *
@@ -34,7 +35,7 @@ class Loader {
 
     /**
      * Prevent plugin activation if dependant plugins are not active.
-
+     *
      * @return self for chaining
      */
     public function hook_admin_init(): self {
@@ -45,7 +46,7 @@ class Loader {
 
     /**
      * Disables a plugin if dependant plugin is deactivated.
-     * 
+     *
      * @return self for chaining
      */
     public function hook_deactivated_plugin(): self {

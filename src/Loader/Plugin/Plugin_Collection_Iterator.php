@@ -2,14 +2,17 @@
 
 namespace JWWS\WPPF\Loader\Plugin;
 
-if (! defined(constant_name: 'ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
+use JWWS\WPPF\{
+    Security\Security,
+    Loader\Plugin\Plugin\Plugin,
+    Loader\Plugin\Plugin_Collection\Plugin_Collection
+};
+
+Security::stop_direct_access();
 
 /**
- * Plugin_Collection_Iterator.
  */
-class Plugin_Collection_Iterator implements \Iterator {
+final class Plugin_Collection_Iterator implements \Iterator {
     /**
      * @param Plugin_Collection $collection
      * @param bool              $is_reverse

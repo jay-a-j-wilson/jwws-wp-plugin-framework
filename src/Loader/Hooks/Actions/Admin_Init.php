@@ -2,18 +2,17 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions;
 
-use JWWS\WPPF\Loader\{
-    Hooks\Actions\Admin_Notices\Admin_Notices,
-    Plugin\Plugin
+use JWWS\WPPF\{
+    Security\Security,
+    Loader\Hooks\Actions\Admin_Notices\Admin_Notices,
+    Loader\Plugin\Plugin\Plugin
 };
 
-if (! defined(constant_name: 'ABSPATH')) {
-    exit; // Exit if accessed directly.
-}
+Security::stop_direct_access();
 
 /**
  */
-class Admin_Init {
+final class Admin_Init {
     /**
      * @param Plugin $plugin
      *
