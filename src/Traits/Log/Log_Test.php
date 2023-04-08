@@ -3,10 +3,10 @@
 namespace JWWS\WPPF\Traits\Log;
 
 use JWWS\WPPF\{
-    Security\Security,
-    Testing\Abstract_Test,
-    Testing\Test_Primitive,
-    Testing\Test_Object
+    Common\Security\Security,
+    Common\Testing\Abstract_Test,
+    Common\Testing\Test_Data\Test_Primitive,
+    Common\Testing\Test_Data\Test_Object,
 };
 
 Security::stop_direct_access();

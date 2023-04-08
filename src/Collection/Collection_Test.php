@@ -3,10 +3,11 @@
 namespace JWWS\WPPF\Collection;
 
 use JWWS\WPPF\{
-    Security\Security,
-    Testing\Abstract_Test,
+    Common\Security\Security,
+    Common\Testing\Abstract_Test,
     Logger\Error_Logger\Error_Logger,
-    WordPress\WordPress
+    WooCommerce\WooCommerce,
+    WordPress\Terms\Product\Categories\Categories as Product_Categories
 };
 
 Security::stop_direct_access();
@@ -63,22 +64,14 @@ final class Collection_Test extends Abstract_Test {
      * @return void
      */
     private static function map_product_category(): void {
-        // Error_Logger::log(get_term_by(
-        //     field: 'name',
-        //     value: 'cases',
-        //     taxonomy: 'product_cat',
-        // ));
-
-        // return;
         Collection::create_from(items: [
             0 => 36473,
             1 => 36481,
         ])
             ->log()
             ->map(
-                callback: fn (int $item): string => 
-                    WordPress::get_product_category_by_id(id: $item)
-                        ->name . " [#{$item}]",
+                callback: fn (int $item): string => Product_Categories::create()
+                    ->find_by_id(id: $item)->name . " [#{$item}]",
             )
             ->log()
         ;

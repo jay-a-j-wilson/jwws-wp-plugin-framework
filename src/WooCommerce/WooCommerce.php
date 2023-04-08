@@ -3,9 +3,9 @@
 namespace JWWS\WPPF\WooCommerce;
 
 use JWWS\WPPF\{
-    Security\Security,
-    Utility\Utility,
-    WordPress\WordPress
+    Common\Security\Security,
+    Common\Utilities\Generic,
+    WordPress\Utilities\Generic as WordPress
 };
 
 Security::stop_direct_access();
@@ -21,25 +21,12 @@ final class WooCommerce {
     }
 
     /**
-     * @param int $id
-     *
-     * @return WP_Term
-     */
-    public static function get_product_category_by_id(int $id): \WP_Term {
-        return get_term_by(
-            field: 'id',
-            value: $id,
-            taxonomy: 'product_cat',
-        );
-    }
-
-    /**
      * Gets the product categories ordered by parent and alphabetised.
      *
      * @return array
      */
     public static function get_product_categories(): array {
-        return Utility::flatten(
+        return Generic::flatten(
             objects: WordPress::get_taxonomy_hierarchy(taxonomy: 'product_cat'),
             key: 'children',
         );

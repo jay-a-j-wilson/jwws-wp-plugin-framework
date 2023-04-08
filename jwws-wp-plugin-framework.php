@@ -25,31 +25,32 @@ use JWWS\WPPF\{
     Traits\Var_Dump_R\Var_Dump_R_Test,
     Traits\Var_Export_R\Var_Export_R_Test,
     Traits\Log\Log_Test,
-    Security\Security,
-    WordPress\Terms\Product_Categories\Product_Categories_Test,
-    WordPress\Terms\Product_Tags\Product_Tags_Test,
-    WordPress\Terms\Categories\Categories_Test,
-    WordPress\Terms\Tags\Tags_Test
+    Common\Security\Security,
+    WordPress\Terms\Product,
+    WordPress\Terms\Post,
+    WordPress\Utilities\Generic_Test
 };
 
 require __DIR__ . '/vendor/autoload.php';
 
 Security::stop_direct_access();
 
-// Categories_Test::run();
-// Tags_Test::run();
-Product_Tags_Test::run();
-// Product_Categories_Test::run();
-// Log_Test::run();
-// Collection_Test::run();
-// Var_Dump_R_Test::run();
-// Var_Export_R_Test::run();
-// Console_Logger_Test::run();
-// Error_Logger_Test::run();
-// Template_File_Test::run();
-// Template_Test::run();
-// Plugin_Test::run();
-// Plugin_Collection_Test::run();
-// WordPress_Test::run();
-// WooCommerce_Test::run();
-// Backtrace_Test::run();
+Post\Categories\Categories_Test::run();
+Post\Tags\Tags_Test::run();
+
+Product\Categories\Categories_Test::run();
+Product\Tags\Tags_Test::run();
+
+Log_Test::run();
+Collection_Test::run();
+Var_Dump_R_Test::run();
+Var_Export_R_Test::run();
+Console_Logger_Test::run();
+Error_Logger_Test::run();
+Template_File_Test::run();
+Template_Test::run();
+Plugin_Test::run();
+Plugin_Collection_Test::run();
+Generic_Test::run();
+WooCommerce_Test::run();
+Backtrace_Test::run();

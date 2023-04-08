@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader\Plugin\Plugin_Collection;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Loader\Plugin\Plugin\Plugin,
     Loader\Plugin\Plugin_Collection_Iterator,
     Traits\Log\Log

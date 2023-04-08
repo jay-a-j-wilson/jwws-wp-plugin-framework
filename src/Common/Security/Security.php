@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WPPF\Security;
+namespace JWWS\WPPF\Common\Security;
 
 Security::stop_direct_access();
 

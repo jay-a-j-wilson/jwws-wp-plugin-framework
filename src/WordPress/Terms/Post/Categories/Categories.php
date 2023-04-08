@@ -1,9 +1,9 @@
 <?php
 
-namespace JWWS\WPPF\WordPress\Terms\Categories;
+namespace JWWS\WPPF\WordPress\Terms\Post\Categories;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     WordPress\Terms\Abstract_Terms
 };
 

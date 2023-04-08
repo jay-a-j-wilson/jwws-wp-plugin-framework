@@ -1,10 +1,10 @@
 <?php
 
-namespace JWWS\WPPF\WordPress;
+namespace JWWS\WPPF\WordPress\Utilities;
 
 use JWWS\WPPF\{
-    Security\Security,
-    Testing\Abstract_Test,
+    Common\Security\Security,
+    Common\Testing\Abstract_Test,
     Logger\Error_Logger\Error_Logger
 };
 
@@ -12,7 +12,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class WordPress_Test extends Abstract_Test {
+final class Generic_Test extends Abstract_Test {
     /**
      * @return void
      */
@@ -36,7 +36,7 @@ final class WordPress_Test extends Abstract_Test {
      */
     private static function get_term_name(): void {
         Error_Logger::log(
-            output: WordPress::get_term_name(
+            output: Generic::get_term_name(
                 term: get_term_by(
                     field: 'slug',
                     value: 'bluetooth',
@@ -46,7 +46,7 @@ final class WordPress_Test extends Abstract_Test {
         );
 
         Error_Logger::log(
-            output: WordPress::get_term_name(
+            output: Generic::get_term_name(
                 term: get_term_by(
                     field: 'slug',
                     value: 'cases',
@@ -60,7 +60,7 @@ final class WordPress_Test extends Abstract_Test {
      */
     private static function get_taxonomy_hierarchy(): void {
         Error_Logger::log(
-            output: WordPress::get_taxonomy_hierarchy(taxonomy: 'product_cat'),
+            output: Generic::get_taxonomy_hierarchy(taxonomy: 'product_cat'),
         );
     }
 
@@ -68,7 +68,7 @@ final class WordPress_Test extends Abstract_Test {
      */
     private static function get_taxonomy_hierarchy_multiple(): void {
         Error_Logger::log(
-            output: WordPress::get_taxonomy_hierarchy_multiple(
+            output: Generic::get_taxonomy_hierarchy_multiple(
                 taxonomies: [
                     'product_tag',
                     'product_cat',

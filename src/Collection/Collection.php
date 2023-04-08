@@ -5,7 +5,7 @@ namespace JWWS\WPPF\Collection;
 use JWWS\WPPF\{
     Traits\Log\Log,
     Logger\Error_Logger\Error_Logger,
-    Security\Security
+    Common\Security\Security
 };
 
 Security::stop_direct_access();

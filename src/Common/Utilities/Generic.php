@@ -1,14 +1,14 @@
 <?php
 
-namespace JWWS\WPPF\Utility;
+namespace JWWS\WPPF\Common\Utilities;
 
-use JWWS\WPPF\Security\Security;
+use JWWS\WPPF\Common\Security\Security;
 
 Security::stop_direct_access();
 
 /**
  */
-final class Utility {
+final class Generic {
     /**
      * Do not instantiate.
      */

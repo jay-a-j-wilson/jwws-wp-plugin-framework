@@ -1,9 +1,9 @@
 <?php
 
-namespace JWWS\WPPF\Testing;
+namespace JWWS\WPPF\Common\Testing\Test_Data;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Traits\Log\Log
 };
 

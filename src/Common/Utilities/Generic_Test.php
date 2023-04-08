@@ -1,9 +1,9 @@
 <?php
 
-namespace JWWS\WPPF\Utility;
+namespace JWWS\WPPF\Common\Utilities;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Testing\Abstract_Test
 };
 
@@ -11,7 +11,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class Utility_Test extends Abstract_Test {
+final class Generic_Test extends Abstract_Test {
     /**
      * @return void
      */

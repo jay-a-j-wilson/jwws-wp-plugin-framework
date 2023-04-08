@@ -1,15 +1,15 @@
 <?php
 
-namespace JWWS\WPPF\WordPress;
+namespace JWWS\WPPF\WordPress\Utilities;
 
-use JWWS\WPPF\Security\Security;
+use JWWS\WPPF\Common\Security\Security;
 
 Security::stop_direct_access();
 
 /**
  * Utility
  */
-final class WordPress {
+final class Generic {
     /**
      * Do not instantiate.
      */

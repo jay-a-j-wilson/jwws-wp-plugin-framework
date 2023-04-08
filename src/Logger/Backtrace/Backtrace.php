@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\Logger\Backtrace;
 
-use JWWS\WPPF\Security\Security;
+use JWWS\WPPF\Common\Security\Security;
 
 Security::stop_direct_access();
 

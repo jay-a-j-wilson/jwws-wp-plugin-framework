@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader\Plugin\Plugin_File;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Traits\Log\Log
 };
 

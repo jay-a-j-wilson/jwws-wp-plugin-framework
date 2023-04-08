@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\WordPress\Terms;
 
-use JWWS\WPPF\Security\Security;
+use JWWS\WPPF\Common\Security\Security;
 
 Security::stop_direct_access();
 

@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader\Hooks\Actions;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Loader\Hooks\Actions\Admin_Notices\Admin_Notices,
     Loader\Plugin\Plugin\Plugin
 };

@@ -3,9 +3,9 @@
 namespace JWWS\WPPF\Traits\Var_Dump_R;
 
 use JWWS\WPPF\{
-    Security\Security,
-    Testing\Abstract_Test,
-    Testing\Test_Primitive
+    Common\Security\Security,
+    Common\Testing\Abstract_Test,
+    Common\Testing\Test_Data\Test_Primitive
 };
 
 Security::stop_direct_access();

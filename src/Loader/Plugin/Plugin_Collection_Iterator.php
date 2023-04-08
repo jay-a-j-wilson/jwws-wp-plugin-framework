@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader\Plugin;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Loader\Plugin\Plugin\Plugin,
     Loader\Plugin\Plugin_Collection\Plugin_Collection
 };

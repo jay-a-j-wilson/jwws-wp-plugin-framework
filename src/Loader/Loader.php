@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Loader\Plugin\Plugin\Plugin,
     Loader\Hooks\Actions\Admin_Init,
     Loader\Hooks\Actions\Deactivated_Plugin

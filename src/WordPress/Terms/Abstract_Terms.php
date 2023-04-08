@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\WordPress\Terms;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     WordPress\Terms\Terms
 };
 

@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Template\Template;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Template\Template_File\Template_File
 };
 

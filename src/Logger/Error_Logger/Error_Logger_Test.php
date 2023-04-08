@@ -3,10 +3,9 @@
 namespace JWWS\WPPF\Logger\Error_Logger;
 
 use JWWS\WPPF\{
-    Security\Security,
-    Testing\Abstract_Test,
-    Testing\Test_Primitive,
-
+    Common\Security\Security,
+    Common\Testing\Abstract_Test,
+    Common\Testing\Test_Data\Test_Primitive,
 };
 
 Security::stop_direct_access();

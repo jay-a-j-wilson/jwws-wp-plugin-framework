@@ -1,9 +1,9 @@
 <?php
 
-namespace JWWS\WPPF\WordPress\Terms\Tags;
+namespace JWWS\WPPF\WordPress\Terms\Product\Tags;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     WordPress\Terms\Abstract_Terms
 };
 
@@ -15,5 +15,5 @@ final class Tags extends Abstract_Terms {
     /**
      * @var string
      */
-    protected string $taxonomy = 'post_tag';
+    protected string $taxonomy = 'product_tag';
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace JWWS\WPPF\Testing;
+namespace JWWS\WPPF\Common\Testing\Test_Data;
 
-use JWWS\WPPF\Security\Security;
+use JWWS\WPPF\Common\Security\Security;
 
 Security::stop_direct_access();
 

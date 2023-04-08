@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Template\Template\Template,
     Loader\Plugin\Plugin\Plugin
 };

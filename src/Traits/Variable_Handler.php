@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Traits;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Traits\Var_Dump_R\Var_Dump_R,
     Traits\Var_Export_R\Var_Export_R,
 };

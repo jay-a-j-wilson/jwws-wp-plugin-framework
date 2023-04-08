@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Logger\Error_Logger;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Logger\Abstract_Logger,
     Logger\Logger,
     Traits\Variable_Handler,

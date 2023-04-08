@@ -1,14 +1,14 @@
 <?php
 
-namespace JWWS\WPPF\Testing;
+namespace JWWS\WPPF\Common\Testing;
 
-use JWWS\WPPF\Security\Security;
+use JWWS\WPPF\Common\Security\Security;
 
 Security::stop_direct_access();
 
 /**
  */
-abstract class Abstract_Test {
+abstract class Abstract_Test implements Test {
     /**
      * Do not instatiate.
      *

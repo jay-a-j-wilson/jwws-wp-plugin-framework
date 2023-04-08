@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Logger\Console_Logger;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     Template\Template\Template,
     Logger\Abstract_Logger,
     Logger\Logger

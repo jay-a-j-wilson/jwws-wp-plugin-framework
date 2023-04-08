@@ -3,8 +3,8 @@
 namespace JWWS\WPPF\Template\Template_File\Template_File_Test;
 
 use \JWWS\WPPF\{
-    Security\Security,
-    Testing\Abstract_Test,
+    Common\Security\Security,
+    Common\Testing\Abstract_Test,
     Template\Template_File\Template_File,
     Logger\Error_Logger\Error_Logger,
 };

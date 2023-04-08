@@ -3,8 +3,8 @@
 namespace JWWS\WPPF\Logger\Console_Logger;
 
 use JWWS\WPPF\{
-    Security\Security,
-    Testing\Abstract_Test
+    Common\Security\Security,
+    Common\Testing\Abstract_Test
 };
 
 Security::stop_direct_access();

@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WPPF\Loader\Plugin\Plugin_File;
+namespace JWWS\WPPF\WordPress\Testing;
 
 use JWWS\WPPF\{
     Common\Security\Security,
@@ -11,10 +11,14 @@ Security::stop_direct_access();
 
 /**
  */
-final class Plugin_File_Test extends Abstract_Test {
+abstract class Abstract_WP_Test extends Abstract_Test implements WP_Test {
     /**
      * @return void
      */
     public static function run(): void {
+        add_action(
+            'wp_loaded',
+            [new static(), 'hook'],
+        );
     }
 }

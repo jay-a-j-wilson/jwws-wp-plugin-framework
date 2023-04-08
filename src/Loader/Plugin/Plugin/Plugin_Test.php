@@ -3,8 +3,8 @@
 namespace JWWS\WPPF\Loader\Plugin\Plugin;
 
 use JWWS\WPPF\{
-    Security\Security,
-    Testing\Abstract_Test,
+    Common\Security\Security,
+    Common\Testing\Abstract_Test,
     Logger\Error_Logger\Error_Logger
 };
 

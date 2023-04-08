@@ -1,9 +1,9 @@
 <?php
 
-namespace JWWS\WPPF\WordPress\Terms\Product_Categories;
+namespace JWWS\WPPF\WordPress\Terms\Product\Categories;
 
 use JWWS\WPPF\{
-    Security\Security,
+    Common\Security\Security,
     WordPress\Terms\Abstract_Terms
 };
 
@@ -11,7 +11,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class Product_Categories extends Abstract_Terms {
+final class Categories extends Abstract_Terms {
     /**
      * @var string
      */
