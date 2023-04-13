@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Template\Template_File\Template_File_Test;
 
 use \JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test,
+    Common\Testing\Test,
     Template\Template_File\Template_File,
     Logger\Error_Logger\Error_Logger,
 };
@@ -13,7 +13,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class Template_File_Test extends Abstract_Test {
+final class Template_File_Test extends Test {
     /**
      * @return void
      */
@@ -26,7 +26,7 @@ final class Template_File_Test extends Abstract_Test {
      */
     public static function get_name(): void {
         Error_Logger::log(
-            output: Template_File::create_from(name: __DIR__ . '/templates/template')
+            output: Template_File::of(name: __DIR__ . '/templates/template')
                 ->get_name(),
         );
     }

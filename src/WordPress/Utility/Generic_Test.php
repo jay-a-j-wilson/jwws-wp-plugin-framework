@@ -1,10 +1,10 @@
 <?php
 
-namespace JWWS\WPPF\WordPress\Utilities;
+namespace JWWS\WPPF\WordPress\Utility;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test,
+    Common\Testing\Test,
     Logger\Error_Logger\Error_Logger
 };
 
@@ -12,7 +12,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class Generic_Test extends Abstract_Test {
+final class Generic_Test extends Test {
     /**
      * @return void
      */

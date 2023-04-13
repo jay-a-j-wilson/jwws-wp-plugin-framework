@@ -4,14 +4,14 @@ namespace JWWS\WPPF\Loader\Plugin\Plugin_File;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test,
+    Common\Testing\Test,
 };
 
 Security::stop_direct_access();
 
 /**
  */
-final class Plugin_File_Test extends Abstract_Test {
+final class Plugin_File_Test extends Test {
     /**
      * @return void
      */

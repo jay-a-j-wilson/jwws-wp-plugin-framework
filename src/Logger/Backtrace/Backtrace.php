@@ -2,11 +2,15 @@
 
 namespace JWWS\WPPF\Logger\Backtrace;
 
-use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\{
+    Collection\Collection,
+    Common\Security\Security
+};
 
 Security::stop_direct_access();
 
 /**
+ * ! intergrate.
  */
 final class Backtrace {
     /**
@@ -14,71 +18,22 @@ final class Backtrace {
      */
     public static function create(): self {
         return new self(
-            stack_frames: debug_backtrace(),
-        );
-    }
-
-    /**
-     * @param array $stack_frames
-     */
-    private function __construct(private array $stack_frames) {
-    }
-
-    /**
-     * @param callable $callback
-     *
-     * @return static
-     */
-    public function filter_by_key(callable $callback): static {
-        return $this->filter(
-            callback: $callback,
-            mode: ARRAY_FILTER_USE_KEY,
-        );
-    }
-
-    /**
-     * @param callable $callback
-     * @param int      $mode
-     *
-     * @return static
-     */
-    private function filter(callable $callback, int $mode): self {
-        return new self(
-            stack_frames: array_filter(
-                array: $this->stack_frames,
-                callback: $callback,
-                mode: $mode,
+            stack_frames: Collection::of(
+                items: debug_backtrace(),
             ),
         );
     }
 
     /**
-     * @param mixed $key
-     *
-     * @return self
+     * @param Collection $stack_frames
      */
-    public function pluck(mixed $key): self {
-        return new self(
-            stack_frames: array_column(
-                array: $this->stack_frames,
-                column_key: $key,
-            ),
-        );
+    private function __construct(private Collection $stack_frames) {
     }
 
     /**
-     * @return $this
+     * @return Collection
      */
-    public function log(): self {
-        $object = print_r(
-            value: $this,
-            return: true,
-        );
-
-        $separator = str_repeat(string: '=', times: 200);
-
-        error_log(message: "\n{$separator}\n\n{$object}\n{$separator}");
-
-        return $this;
+    public function get_stack_frames(): Collection {
+        return $this->stack_frames;
     }
 }

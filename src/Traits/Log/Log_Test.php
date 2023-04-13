@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Traits\Log;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test,
+    Common\Testing\Test,
     Common\Testing\Test_Data\Test_Primitive,
     Common\Testing\Test_Data\Test_Object,
 };
@@ -13,7 +13,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class Log_Test extends Abstract_Test {
+final class Log_Test extends Test {
     use Log;
     use Test_Primitive;
 

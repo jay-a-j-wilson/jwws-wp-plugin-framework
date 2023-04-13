@@ -2,17 +2,23 @@
 
 namespace JWWS\WPPF\WordPress\Testing;
 
-use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\{
+    Common\Security\Security,
+    Common\Testing\Test,
+};
 
 Security::stop_direct_access();
 
 /**
  */
-interface WP_Test {
+abstract class WP_Test extends Test {
     /**
-     * Hooks into WordPress and runs tests.
-     *
      * @return void
      */
-    public function hook(): void;
+    public static function run(): void {
+        add_action(
+            'wp_loaded',
+            [new static(), 'hook'],
+        );
+    }
 }

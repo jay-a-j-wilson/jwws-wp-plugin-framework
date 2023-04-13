@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Logger\Error_Logger;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test,
+    Common\Testing\Test,
     Common\Testing\Test_Data\Test_Primitive,
 };
 
@@ -12,7 +12,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class Error_Logger_Test extends Abstract_Test {
+final class Error_Logger_Test extends Test {
     use Test_Primitive;
 
     /**

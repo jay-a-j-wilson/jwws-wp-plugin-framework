@@ -52,7 +52,7 @@ final class Admin_Notices {
      * @return void
      */
     public function callback(): void {
-        echo Template::create_from(filename: __DIR__ . '/templates/template')
+        echo Template::of(filename: __DIR__ . '/templates/template')
             ->assign(names: 'parent_plugin', value: $this->parent_plugin)
             ->assign(names: 'child_plugin', value: $this->child_plugin)
             ->output()

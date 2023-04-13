@@ -4,32 +4,22 @@ namespace JWWS\WPPF\Collection;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test,
+    Common\Testing\Test,
     Logger\Error_Logger\Error_Logger,
-    WooCommerce\WooCommerce,
-    WordPress\Terms\Product\Categories\Categories as Product_Categories
+    Common\Testing\Test_Data\Test_Object_1,
+    Common\Testing\Test_Data\Test_Object_2
 };
 
 Security::stop_direct_access();
 
 /**
  */
-final class Collection_Test extends Abstract_Test {
-    /**
-     * @return void
-     */
-    public static function run(): void {
-        add_action(
-            'wp_loaded',
-            [__CLASS__, 'hook'],
-        );
-    }
-
+final class Collection_Test extends Test {
     /**
      * @return Collection
      */
     private static function get_collection(): Collection {
-        return Collection::create_from(items: [
+        return Collection::of(items: [
             'title'                 => 'Mouse',
             'nav_title'             => '',
             'notes'                 => '',
@@ -51,6 +41,16 @@ final class Collection_Test extends Abstract_Test {
     /**
      * @return void
      */
+    public static function run(): void {
+        add_action(
+            'wp_loaded',
+            [__CLASS__, 'hook'],
+        );
+    }
+
+    /**
+     * @return void
+     */
     public static function hook(): void {
         self::map_product_category();
         // self::offset();
@@ -63,18 +63,32 @@ final class Collection_Test extends Abstract_Test {
     /**
      * @return void
      */
-    private static function map_product_category(): void {
-        Collection::create_from(items: [
-            0 => 36473,
-            1 => 36481,
-        ])
-            ->log()
-            ->map(
-                callback: fn (int $item): string => Product_Categories::create()
-                    ->find_by_id(id: $item)->name . " [#{$item}]",
-            )
-            ->log()
+    public static function generics(): void {
+        /**
+         * @var Collection<Test_Object_1>
+         */
+        $x = Collection::of(
+            [Test_Object_1::create()],
+        )
+            ->add(item: Test_Object_2::create())
         ;
+    }
+
+    /**
+     * @return void
+     */
+    private static function map_product_category(): void {
+        // Collection::create_from(items: [
+        //     0 => 36473,
+        //     1 => 36481,
+        // ])
+        //     ->log()
+        //     ->map(
+        //         callback: fn (int $item): string => Product_Categories::create()
+        //             ->find_by_id(id: $item)->name . " [#{$item}]",
+        //     )
+        //     ->log()
+        // ;
     }
 
     /**

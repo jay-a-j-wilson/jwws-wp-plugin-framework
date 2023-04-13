@@ -5,21 +5,14 @@ namespace JWWS\WPPF\Logger\Console_Logger;
 use JWWS\WPPF\{
     Common\Security\Security,
     Template\Template\Template,
-    Logger\Abstract_Logger,
-    Logger\Logger
+    Logger\Logger,
 };
 
 Security::stop_direct_access();
 
 /**
  */
-final class Console_Logger extends Abstract_Logger implements Logger {
-    /**
-     * Do not instantiate.
-     */
-    private function __construct() {
-    }
-
+final class Console_Logger extends Logger {
     /**
      * Prints to console.
      *
@@ -34,7 +27,7 @@ final class Console_Logger extends Abstract_Logger implements Logger {
         mixed $output,
         string $message = '',
     ): mixed {
-        echo Template::create_from(filename: __DIR__ . '/templates/template')
+        echo Template::of(filename: __DIR__ . '/templates/template')
             ->assign(names: 'message', value: $message)
             ->assign(
                 names: 'backtrace',

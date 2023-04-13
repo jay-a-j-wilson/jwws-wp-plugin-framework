@@ -4,7 +4,7 @@ namespace JWWS\WPPF\WooCommerce;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test,
+    Common\Testing\Test,
     Logger\Error_Logger\Error_Logger
 };
 
@@ -12,7 +12,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class WooCommerce_Test extends Abstract_Test {
+final class WooCommerce_Test extends Test {
     /**
      * @return void
      */

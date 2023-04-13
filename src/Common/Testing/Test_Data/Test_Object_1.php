@@ -11,7 +11,7 @@ Security::stop_direct_access();
 
 /**
  */
-class Test_Object {
+class Test_Object_1 {
     use Log;
 
     /**
@@ -21,14 +21,10 @@ class Test_Object {
     }
 
     /**
-     * @param int    $int
-     * @param string $string
+     * @param int $int
      *
      * @return void
      */
-    private function __construct(
-        private int $int = 123,
-        private string $string = 'abc',
-    ) {
+    private function __construct(private int $int = 1) {
     }
 }

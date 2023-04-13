@@ -3,32 +3,34 @@
 namespace JWWS\WPPF\Collection;
 
 use JWWS\WPPF\{
+    Common\Security\Security,
     Traits\Log\Log,
-    Logger\Error_Logger\Error_Logger,
-    Common\Security\Security
 };
 
 Security::stop_direct_access();
 
 /**
- * @package JWWS\ACA
+ * @template T
  */
-class Collection implements \Countable, \ArrayAccess, \IteratorAggregate {
+class Collection implements
+    \Countable,
+    \ArrayAccess,
+    \IteratorAggregate {
     use Log;
 
     /**
-     * @param array $items
+     * @param array<T> $items
      *
      * @return static
      */
-    public static function create_from(array $items): static {
+    public static function of(array $items): static {
         return new static(
             items: $items,
         );
     }
 
     /**
-     * @param array $items
+     * @param array<T> $items
      *
      * @return void
      */
@@ -36,62 +38,16 @@ class Collection implements \Countable, \ArrayAccess, \IteratorAggregate {
     }
 
     /**
-     * @return int
-     */
-    public function count(): int {
-        return count(value: $this->items);
-    }
-
-    /**
      * Adds an item to the collection.
      *
-     * @param mixed $item
-     *
-     * @return $this
-     */
-    public function add(mixed $item) {
-        $this->items[] = $item;
-
-        return $this;
-    }
-
-    /**
-     * Reverses items order.
-     *
-     * @return static
-     */
-    public function reverse(): static {
-        return new static(
-            items: array_reverse(
-                array: $this->items,
-                preserve_keys: true,
-            ),
-        );
-    }
-
-    /**
-     * Determines if the collection is empty or not.
-     *
-     * @return bool
-     */
-    public function is_empty(): bool {
-        return empty($this->items);
-    }
-
-    /**
-     * Fetches the values of a given key.
-     *
-     * @param mixed $key
+     * @param T $item
      *
      * @return self
      */
-    public function pluck(mixed $key): static {
-        return new static(
-            items: array_column(
-                array: $this->items,
-                column_key: $key,
-            ),
-        );
+    public function add(mixed $item): self {
+        $this->items[] = $item;
+
+        return $this;
     }
 
     /**
@@ -162,6 +118,45 @@ class Collection implements \Countable, \ArrayAccess, \IteratorAggregate {
     }
 
     /**
+     * Reverses items order.
+     *
+     * @return static
+     */
+    public function reverse(): static {
+        return new static(
+            items: array_reverse(
+                array: $this->items,
+                preserve_keys: true,
+            ),
+        );
+    }
+
+    /**
+     * Fetches the values of a given key.
+     *
+     * @param mixed $key
+     *
+     * @return self
+     */
+    public function pluck(mixed $key): static {
+        return new static(
+            items: array_column(
+                array: $this->items,
+                column_key: $key,
+            ),
+        );
+    }
+
+    /**
+     * Determines if the collection is empty or not.
+     *
+     * @return bool
+     */
+    public function is_empty(): bool {
+        return empty($this->items);
+    }
+
+    /**
      * @param mixed $key
      *
      * @return bool
@@ -174,7 +169,6 @@ class Collection implements \Countable, \ArrayAccess, \IteratorAggregate {
     }
 
     /**
-     * @param mixed $key
      * @param mixed $value
      *
      * @return bool
@@ -194,15 +188,34 @@ class Collection implements \Countable, \ArrayAccess, \IteratorAggregate {
     }
 
     /**
+     * @param string $separator
+     *
+     * @return string
+     */
+    public function to_string(string $separator = ', '): string {
+        return implode(
+            separator: $separator,
+            array: $this->items,
+        );
+    }
+
+    /**
+     * @return int
+     */
+    public function count(): int {
+        return count(value: $this->items);
+    }
+
+    /**
      * Determines if an item exists at an offset.
      *
-     * @param mixed $offset
+     * @param mixed $key
      *
      * @return bool
      */
-    public function offsetExists(mixed $offset): bool {
+    public function offsetExists(mixed $key): bool {
         return array_key_exists(
-            key: $offset,
+            key: $key,
             array: $this->items,
         );
     }
@@ -210,37 +223,37 @@ class Collection implements \Countable, \ArrayAccess, \IteratorAggregate {
     /**
      * Gets an item at a given offset.
      *
-     * @param mixed $offset
+     * @param mixed $key
      *
      * @return mixed
      */
-    public function offsetGet(mixed $offset): mixed {
-        return $this->items[$offset];
+    public function offsetGet(mixed $key): mixed {
+        return $this->items[$key];
     }
 
     /**
      * Sets the item at a given offset.
      *
-     * @param mixed $offset
      * @param mixed $value
+     * @param mixed $key
      *
      * @return void
      */
-    public function offsetSet(mixed $offset, mixed $value): void {
-        is_null(value: $offset)
-            ? $this->items[]        = $value
-            : $this->items[$offset] = $value;
+    public function offsetSet(mixed $key, mixed $value): void {
+        is_null(value: $key)
+            ? $this->items[]     = $value
+            : $this->items[$key] = $value;
     }
 
     /**
      * Unsets the item at a given offset.
      *
-     * @param mixed $offset
+     * @param mixed $key
      *
      * @return void
      */
-    public function offsetUnset(mixed $offset): void {
-        unset($this->items[$offset]);
+    public function offsetUnset(mixed $key): void {
+        unset($this->items[$key]);
     }
 
     /**

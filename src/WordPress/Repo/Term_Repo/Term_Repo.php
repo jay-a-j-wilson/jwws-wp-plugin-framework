@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WPPF\WordPress\Terms;
+namespace JWWS\WPPF\WordPress\Repo\Term_Repo;
 
 use JWWS\WPPF\Common\Security\Security;
 
@@ -9,16 +9,13 @@ Security::stop_direct_access();
 /**
  * ViewModel Repository.
  */
-interface Terms {
+interface Term_Repo {
     /**
-     * @return static
+     * @param string $taxonomy_names
+     *
+     * @return self
      */
-    public static function create(): static;
-
-    /**
-     * @return \WP_Term[]
-     */
-    public function list_all(): array;
+    public static function of(string ...$taxonomy_names): self;
 
     /**
      * @param int $id

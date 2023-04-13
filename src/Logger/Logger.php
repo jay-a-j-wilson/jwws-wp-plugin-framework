@@ -8,13 +8,37 @@ Security::stop_direct_access();
 
 /**
  */
-Interface Logger {
+abstract class Logger {
     /**
-     * Logs the log.
+     * Do not instantiate.
+     */
+    protected function __construct() {
+    }
+
+    /**
+     * Logs the output.
      *
      * @param mixed $output
-     * 
-     * @return mixed $output let pass through
+     *
+     * @return mixed $output lets orginal variable pass through
      */
-    public static function log(mixed $output): mixed;
+    abstract public static function log(mixed $output): mixed;
+
+    /**
+     * Gets stack trace frame data.
+     *
+     * @param int $depth
+     *
+     * @return array
+     */
+    protected static function get_backtrace(int $depth): array {
+        $backtrace = debug_backtrace()[$depth];
+        unset(
+            $backtrace['class'],
+            $backtrace['function'],
+            $backtrace['type'],
+        );
+
+        return $backtrace;
+    }
 }

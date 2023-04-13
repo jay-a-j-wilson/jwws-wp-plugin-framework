@@ -54,7 +54,7 @@ final class Plugin_Row_Meta {
         }
 
         // you can still use array_unshift() to add links at the beginning
-        $plugin_meta[] = Template::create_from(filename: __DIR__ . '/templates/template')
+        $plugin_meta[] = Template::of(filename: __DIR__ . '/templates/template')
             ->assign(
                 names: 'plugin_names',
                 value: implode(

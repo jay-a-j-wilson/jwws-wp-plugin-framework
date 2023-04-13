@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WPPF\WordPress\Utilities;
+namespace JWWS\WPPF\WordPress\Utility;
 
 use JWWS\WPPF\Common\Security\Security;
 

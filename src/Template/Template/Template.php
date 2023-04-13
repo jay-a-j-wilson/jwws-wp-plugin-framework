@@ -17,9 +17,9 @@ final class Template {
      *
      * @param string $filename
      */
-    public static function create_from(string $filename): self {
+    public static function of(string $filename): self {
         return new self(
-            file: Template_File::create_from(name: $filename),
+            file: Template_File::of(name: $filename),
         );
     }
 
@@ -77,7 +77,7 @@ final class Template {
      * @return string
      */
     public function output(): string {
-        extract($this->variables);
+        extract(array: $this->variables);
 
         ob_start();
 

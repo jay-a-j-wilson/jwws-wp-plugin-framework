@@ -15,7 +15,10 @@ trait Var_Export_R {
      *
      * @return string|string[]|null|void
      */
-    private static function pretty_var_export_r(mixed $value, bool $return = false) {
+    private static function pretty_var_export_r(
+        mixed $value,
+        bool $return = false,
+    ) {
         $contents = preg_replace(
             pattern: "/=>\n[ ]+/m",
             replacement: ' => ',
@@ -38,7 +41,10 @@ trait Var_Export_R {
      *
      * @return string|false|void
      */
-    private static function var_export_r(mixed $value, bool $return = false): string|bool {
+    private static function var_export_r(
+        mixed $value,
+        bool $return = false,
+    ): string|bool {
         ob_start();
         var_export(value: $value);
         $contents = ob_get_clean();

@@ -4,14 +4,14 @@ namespace JWWS\WPPF\Logger\Console_Logger;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test
+    Common\Testing\Test
 };
 
 Security::stop_direct_access();
 
 /**
  */
-final class Console_Logger_Test extends Abstract_Test {
+final class Console_Logger_Test extends Test {
     /**
      * @return void
      */

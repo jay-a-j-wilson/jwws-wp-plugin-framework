@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Plugin_Collection;
 
 use \JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Abstract_Test,
+    Common\Testing\Test,
     Loader\Plugin\Plugin\Plugin,
     Loader\Plugin\Plugin_Collection\Plugin_Collection,
     Logger\Error_Logger\Error_Logger
@@ -14,7 +14,7 @@ Security::stop_direct_access();
 
 /**
  */
-final class Plugin_Collection_Test extends Abstract_Test {
+final class Plugin_Collection_Test extends Test {
     /**
      * Data.
      */

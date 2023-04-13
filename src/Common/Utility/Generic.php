@@ -1,6 +1,6 @@
 <?php
 
-namespace JWWS\WPPF\Common\Utilities;
+namespace JWWS\WPPF\Common\Utility;
 
 use JWWS\WPPF\Common\Security\Security;
 
