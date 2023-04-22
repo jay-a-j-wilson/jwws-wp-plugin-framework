@@ -13,7 +13,7 @@ Security::stop_direct_access();
  */
 final class Description_Header extends Header {
     /**
-     * @return self
+     * Undocumented function.
      */
     protected static function type(): string {
         return 'Description';

@@ -11,10 +11,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class WP_Taxonomy_Repo_Test extends WP_Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public function hook(): void {
         $this->list_all();
@@ -22,8 +23,6 @@ final class WP_Taxonomy_Repo_Test extends WP_Test {
 
     /**
      * @param string $taxonomy
-     *
-     * @return void
      */
     private function list_all(): void {
         Error_Logger::log(

@@ -12,15 +12,15 @@ Security::stop_direct_access();
  */
 abstract class Array_Value_Object extends Value_Object {
     /**
-     * @param array $value
+     * Undocumented function.
      */
-    protected function __construct(protected array $value) {
+    protected function __construct(protected readonly array $value) {
     }
 
     /**
-     * @return array
+     * Undocumented function.
      */
-    public function value(): array {
+    final public function value(): array {
         return $this->value;
     }
 }

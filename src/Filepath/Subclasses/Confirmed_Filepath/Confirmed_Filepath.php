@@ -15,11 +15,7 @@ Security::stop_direct_access();
  */
 final class Confirmed_Filepath extends Filepath {
     /**
-     * @param string $path
-     *
      * @throws \InvalidArgumentException if the file does not exist
-     *
-     * @return string
      */
     protected static function validate(string $path): string {
         Assertion::of(value: $path)->file_exists();

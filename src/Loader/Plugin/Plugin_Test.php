@@ -10,10 +10,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Plugin_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::create();
@@ -27,6 +28,7 @@ final class Plugin_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function create(): void {
         Plugin::of_slug(
@@ -41,6 +43,7 @@ final class Plugin_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function get_name(): void {
         Error_Logger::log(
@@ -61,6 +64,7 @@ final class Plugin_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function is_active(): void {
         Error_Logger::log(
@@ -89,6 +93,7 @@ final class Plugin_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function add_dependencies(): void {
         Plugin::of_slug(
@@ -112,6 +117,7 @@ final class Plugin_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function get_dependencies_names(): void {
         Error_Logger::log(
@@ -135,6 +141,7 @@ final class Plugin_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function has_dependencies(): void {
         Error_Logger::log(
@@ -165,6 +172,7 @@ final class Plugin_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function append_dependencies_to_listing(): void {
         Plugin::of_slug(
@@ -182,6 +190,7 @@ final class Plugin_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function contains_dependecy(): void {
         $plugin = Plugin::of_slug(

@@ -15,9 +15,7 @@ Security::stop_direct_access();
  */
 final class CSS_Factory extends Factory {
     /**
-     * @param string $path
-     *
-     * @return CSS_Ext
+     * Undocumented function.
      */
     protected static function ext_type(string $path): CSS_Ext {
         return CSS_Ext::of(path: $path);

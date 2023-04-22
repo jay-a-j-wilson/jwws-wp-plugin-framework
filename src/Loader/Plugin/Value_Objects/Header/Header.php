@@ -19,15 +19,11 @@ Security::stop_direct_access();
 abstract class Header extends String_Value_Object {
     /**
      * Returns the header type.
-     *
-     * @return string
      */
     abstract protected static function type(): string;
 
     /**
      * @param string $basename the plugin's basename
-     *
-     * @return static
      */
     final public static function of(string $basename): static {
         return new static(
@@ -39,10 +35,6 @@ abstract class Header extends String_Value_Object {
 
     /**
      * Returns the plugin header.
-     *
-     * @param string $path
-     *
-     * @return array
      */
     private static function header(string $path): array {
         return self::plugin_data(
@@ -54,9 +46,7 @@ abstract class Header extends String_Value_Object {
     }
 
     /**
-     * @param Confirmed_Filepath $path
-     *
-     * @return array
+     * Undocumented function.
      */
     private static function plugin_data(Confirmed_Filepath $path): array {
         self::ensure_get_plugin_data_func_is_available();
@@ -70,8 +60,6 @@ abstract class Header extends String_Value_Object {
     /**
      * Ensures function get_plugin_data() is available.
      * get_plugin_data() is NOT available by default (not even in admin).
-     *
-     * @return void
      */
     private static function ensure_get_plugin_data_func_is_available(): void {
         if (! function_exists(function: 'get_plugin_data')) {

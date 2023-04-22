@@ -13,7 +13,7 @@ Security::stop_direct_access();
  */
 final class Entire_Directory extends Directory {
     /**
-     * @return int
+     * Undocumented function.
      */
     protected static function levels(): int {
         return 0;

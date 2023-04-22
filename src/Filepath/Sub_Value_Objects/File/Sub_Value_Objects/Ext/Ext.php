@@ -15,15 +15,11 @@ Security::stop_direct_access();
 abstract class Ext extends String_Value_Object {
     /**
      * Returns the string of the subclass' extension type.
-     *
-     * @return string
      */
     abstract protected static function ext(): string;
 
     /**
-     * @param string $path
-     *
-     * @return self
+     * Undocumented function.
      */
     final public static function of(string $path): self {
         return new static(
@@ -34,20 +30,14 @@ abstract class Ext extends String_Value_Object {
     }
 
     /**
-     * @param string $path
-     *
-     * @return string
+     * Undocumented function.
      */
     private static function extension(string $path): string {
         return pathinfo(path: $path, flags: PATHINFO_EXTENSION);
     }
 
     /**
-     * @param string $ext
-     *
      * @throws \InvalidArgumentException if blank
-     *
-     * @return string
      */
     private static function validate(string $ext): string {
         Assertion::of(value: $ext)

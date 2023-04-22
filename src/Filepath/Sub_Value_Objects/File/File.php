@@ -16,10 +16,7 @@ Security::stop_direct_access();
  */
 final class File extends String_Value_Object {
     /**
-     * @param Name $name
-     * @param Ext  $ext
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function of(Name $name, Ext $ext): self {
         return new self(

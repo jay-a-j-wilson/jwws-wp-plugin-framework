@@ -16,15 +16,15 @@ Security::stop_direct_access();
  */
 final class WP_Taxonomy_Repo extends Repo implements Taxonomy_Repo {
     /**
-     * @param string $taxonomy
-     *
-     * @return static
+     * Undocumented function.
      */
     public static function create(): self {
         return new self();
     }
 
     /**
+     * Undocumented function.
+     *
      * @return Collection<\WP_Taxonomy>
      */
     public function list_all(): Collection {
@@ -34,11 +34,9 @@ final class WP_Taxonomy_Repo extends Repo implements Taxonomy_Repo {
     }
 
     /**
-     * @param string $name
+     * Undocumented function.
      *
      * @throws \Exception
-     *
-     * @return \WP_Taxonomy
      */
     public function find_by_name(string $name): \WP_Taxonomy {
         $taxonomies = get_taxonomies(

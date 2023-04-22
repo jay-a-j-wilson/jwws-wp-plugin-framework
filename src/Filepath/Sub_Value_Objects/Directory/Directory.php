@@ -18,15 +18,11 @@ abstract class Directory extends String_Value_Object {
      * Returns the parent directory level to return.
      *
      * @param int $levels 0 for all
-     *
-     * @return int
      */
     abstract protected static function levels(): int;
 
     /**
-     * @param string $path
-     *
-     * @return static
+     * Undocumented function.
      */
     final public static function of(string $path): static {
         Assertion::of(value: $path)->not_empty();
@@ -36,7 +32,8 @@ abstract class Directory extends String_Value_Object {
         );
 
         Assertion::of(value: $directory)
-            ->not_empty(message: 'Directory must not be empty');
+            ->not_empty(message: 'Directory must not be empty')
+        ;
 
         return new static(
             value: $directory,
@@ -44,9 +41,7 @@ abstract class Directory extends String_Value_Object {
     }
 
     /**
-     * @param string $path
-     *
-     * @return string
+     * Undocumented function.
      */
     private static function directory(string $path): string {
         return Collection::of(...explode(
@@ -59,9 +54,7 @@ abstract class Directory extends String_Value_Object {
     }
 
     /**
-     * @param string $path
-     *
-     * @return string
+     * Undocumented function.
      */
     private static function format(string $path): string {
         return $path === '.'

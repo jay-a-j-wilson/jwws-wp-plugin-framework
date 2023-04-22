@@ -11,11 +11,9 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class WooCommerce_Test extends Test {
-    /**
-     * @return void
-     */
     public static function run(): void {
         add_action(
             'wp_loaded',
@@ -24,7 +22,7 @@ final class WooCommerce_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function hook(): void {
         Error_Logger::log(

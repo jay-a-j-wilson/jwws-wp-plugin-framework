@@ -10,10 +10,11 @@ use JWWS\WPPF\Loader\Plugin\Value_Objects\Basename\Basename;
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Path_Test extends WP_Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function hook(): void {
         self::of();
@@ -21,19 +22,19 @@ final class Path_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of(): void {
-        Path::of(basename: Basename::of(path: 'elementor/elementor.php'))
+        Path::of(basename: Basename::of(basename: 'elementor/elementor.php'))
             ->log()
         ;
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of_invalid(): void {
-        Path::of(basename: Basename::of(path: 'invalid/invalid/invalid.php'))
+        Path::of(basename: Basename::of(basename: 'invalid/invalid/invalid.php'))
             ->log()
         ;
     }

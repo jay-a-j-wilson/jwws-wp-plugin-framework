@@ -17,19 +17,11 @@ Security::stop_direct_access();
 abstract class Factory {
     /**
      * Returns file ext type.
-     *
-     * @param string $path
-     *
-     * @return Ext
      */
     abstract protected static function ext_type(string $path): Ext;
 
     /**
      * Creates File object.
-     *
-     * @param string $path
-     *
-     * @return File
      */
     final public static function of(string $path): File {
         return File::of(

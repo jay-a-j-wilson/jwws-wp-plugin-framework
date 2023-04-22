@@ -12,20 +12,21 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Log_Test extends Test {
     use Log;
     use Test_Primitive;
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::log_test();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function log_test(): void {
         Test_Object::create()->log();

@@ -7,6 +7,7 @@ use JWWS\WPPF\Common\Security\Security;
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Generic {
     /**
@@ -22,8 +23,6 @@ final class Generic {
      *
      * @param array  $objects array of objects to flatten
      * @param string $key     object property by which to flatten e.g. 'children'
-     *
-     * @return array
      */
     public static function flatten(array $objects, string $key): array {
         $output = [];

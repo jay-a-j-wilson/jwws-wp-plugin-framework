@@ -6,13 +6,8 @@ use JWWS\WPPF\Common\Security\Security;
 
 Security::stop_direct_access();
 
-/**
- */
 trait Var_Dump_R {
     /**
-     * @param mixed $value
-     * @param bool  $return
-     *
      * @return string|string[]|null|void
      */
     private static function pretty_var_dump_r(
@@ -36,9 +31,6 @@ trait Var_Dump_R {
     }
 
     /**
-     * @param mixed $value
-     * @param bool  $return
-     *
      * @return string|false|void
      */
     private static function var_dump_r(

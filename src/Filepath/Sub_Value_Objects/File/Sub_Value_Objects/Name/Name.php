@@ -14,9 +14,7 @@ Security::stop_direct_access();
  */
 final class Name extends String_Value_Object {
     /**
-     * @param string $path
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function of(string $path): self {
         // Assertion::of(value: $path)->valid_chars();
@@ -29,11 +27,7 @@ final class Name extends String_Value_Object {
     }
 
     /**
-     * @param string $filename
-     *
      * @throws \InvalidArgumentException if blank
-     *
-     * @return string
      */
     private static function validate(string $filename): string {
         Assertion::of(value: $filename)

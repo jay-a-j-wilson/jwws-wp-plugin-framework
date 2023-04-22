@@ -14,10 +14,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Collection_Test extends Test {
     /**
-     * @return Collection
+     * Undocumented function.
      */
     private static function get_collection(): Collection {
         return Collection::of(items: [
@@ -40,7 +41,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::slice_positive();
@@ -65,7 +66,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function slice_positive(): void {
         Error_Logger::log(
@@ -82,7 +83,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function slice_negative(): void {
         Error_Logger::log(
@@ -99,7 +100,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function of_single(): void {
         Error_Logger::log(
@@ -108,7 +109,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function of_multiple(): void {
         Error_Logger::log(
@@ -117,7 +118,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function of_array(): void {
         Error_Logger::log(
@@ -126,7 +127,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function of_multiple_object(): void {
         Error_Logger::log(
@@ -155,6 +156,9 @@ final class Collection_Test extends Test {
         );
     }
 
+    /**
+     * Undocumented function.
+     */
     public static function add_single(): void {
         Collection::of(
             items: [
@@ -172,7 +176,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function add_multiple(): void {
         Collection::of(
@@ -192,7 +196,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function generics(): void {
         // @var Collection<Test_Object_1>
@@ -204,7 +208,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function map_product_category(): void {
         // Collection::create_from(items: [
@@ -221,7 +225,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function pluck_array(): void {
         Error_Logger::log(
@@ -253,7 +257,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function pluck_object(): void {
         Error_Logger::log(
@@ -285,7 +289,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function contains_key_true(): void {
         self::get_collection()->contains_key(key: 'notes')
@@ -294,7 +298,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function contains_key_false(): void {
         self::get_collection()->contains_key(key: 'invalid_prop')
@@ -303,7 +307,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function offset(): void {
         self::get_collection()['thumbnail'] === 15549
@@ -312,7 +316,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function filter_by_key(): void {
         Error_Logger::log(
@@ -322,7 +326,7 @@ final class Collection_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function map(): void {
         Error_Logger::log(

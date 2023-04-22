@@ -14,10 +14,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Factory_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::of_php(path: 'dir/subdir/filename.php');
@@ -25,9 +26,7 @@ final class Factory_Test extends Test {
     }
 
     /**
-     * @param string $path
-     *
-     * @return void
+     * Undocumented function.
      */
     private static function of_php(string $path): void {
         Error_Logger::log(

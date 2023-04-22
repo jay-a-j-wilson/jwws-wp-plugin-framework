@@ -19,8 +19,6 @@ trait File {
      * @param string $message the error message to include in the exception
      *
      * @throws \InvalidArgumentException
-     *
-     * @return self
      */
     public function valid_chars(string $message = ''): self {
         if (! preg_match(pattern: '/[<>:"\/\\\|\?\*]/', subject: $this->value)) {
@@ -39,8 +37,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @retun self
      */
     public function directory(string $message = ''): self {
         if (is_dir(filename: $this->value)) {
@@ -59,8 +55,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @retun self
      */
     public function file(string $message = ''): self {
         if (is_file(filename: $this->value)) {
@@ -79,8 +73,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @retun self
      */
     public function file_exists(string $message = ''): self {
         if (file_exists(filename: $this->value)) {
@@ -101,8 +93,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @retun self
      */
     public function extension(string $ext, string $message = ''): self {
         if (strtolower(string: $this->value) === strtolower(string: $ext)) {
@@ -121,8 +111,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function readable(string $message = ''): self {
         if (is_readable(filename: $this->value)) {
@@ -141,8 +129,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function writable(string $message = ''): self {
         if (is_writable(filename: $this->value)) {
@@ -161,8 +147,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function executable(string $message = ''): self {
         if (is_executable(filename: $this->value)) {
@@ -181,8 +165,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function blank(string $message = ''): self {
         if (filesize(filename: $this->value) === 0) {
@@ -202,8 +184,6 @@ trait File {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function has_size(int $size, string $message = ''): self {
         if (filesize(filename: $this->value) === $size) {

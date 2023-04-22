@@ -17,7 +17,7 @@ Security::stop_direct_access();
  */
 final class WP_Term_Repo extends Repo implements Term_Repo {
     /**
-     * @return self
+     * Undocumented function.
      */
     public static function create(): self {
         return new self(
@@ -27,9 +27,7 @@ final class WP_Term_Repo extends Repo implements Term_Repo {
     }
 
     /**
-     * @param string $taxonomy_names
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function of(string ...$taxonomy_names): self {
         return new self(
@@ -43,14 +41,14 @@ final class WP_Term_Repo extends Repo implements Term_Repo {
     }
 
     /**
-     * @param Collection $taxonomies
-     *
-     * @return void
+     * Undocumented function.
      */
     private function __construct(private Collection $taxonomies) {
     }
 
     /**
+     * Undocumented function.
+     *
      * @return Collection<\WP_Term>
      */
     public function list_all(): Collection {
@@ -65,9 +63,7 @@ final class WP_Term_Repo extends Repo implements Term_Repo {
     }
 
     /**
-     * @param int $id
-     *
-     * @return \WP_Term
+     * Undocumented function.
      */
     public function find_by_id(int $id): \WP_Term {
         $term           = get_term(term: $id);

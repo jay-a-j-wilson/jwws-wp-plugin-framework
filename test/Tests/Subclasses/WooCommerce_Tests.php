@@ -11,17 +11,18 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented function.
  */
 final class WooCommerce_Tests extends Tests {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::woocommerce();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function woocommerce(): void {
         WooCommerce_Test::run();

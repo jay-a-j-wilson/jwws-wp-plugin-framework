@@ -11,17 +11,18 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Collection_Tests extends Tests {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::collection();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function collection(): void {
         Collection_Test::run();

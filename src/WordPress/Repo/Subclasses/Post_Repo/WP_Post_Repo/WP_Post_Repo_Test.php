@@ -7,10 +7,11 @@ use JWWS\WPPF\{Common\Security\Security, Logger\Error_Logger\Error_Logger, WordP
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class WP_Post_Repo_Test extends WP_Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public function hook(): void {
         // $this->create();
@@ -23,9 +24,7 @@ final class WP_Post_Repo_Test extends WP_Test {
     }
 
     /**
-     * @param string $taxonomy
-     *
-     * @return void
+     * Undocumented function.
      */
     private function list_all(): void {
         WP_Post_Repo::create()
@@ -34,6 +33,9 @@ final class WP_Post_Repo_Test extends WP_Test {
         ;
     }
 
+    /**
+     * Undocumented function.
+     */
     private function create(): void {
         Error_Logger::log(
             output: WP_Post_Repo::create(),
@@ -41,7 +43,7 @@ final class WP_Post_Repo_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private function create_from_post(): void {
         Error_Logger::log(
@@ -50,7 +52,7 @@ final class WP_Post_Repo_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private function create_from_post_page(): void {
         Error_Logger::log(
@@ -59,7 +61,7 @@ final class WP_Post_Repo_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private function find_by_id_product_pass(): void {
         Error_Logger::log(
@@ -69,7 +71,7 @@ final class WP_Post_Repo_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private function find_by_id_product_fail(): void {
         Error_Logger::log(
@@ -79,9 +81,7 @@ final class WP_Post_Repo_Test extends WP_Test {
     }
 
     /**
-     * @param string $taxonomy
-     *
-     * @return void
+     * Undocumented function.
      */
     private function list_all_product(): void {
         Error_Logger::log(

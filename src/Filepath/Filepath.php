@@ -11,16 +11,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
- * Represents a filepath.
- *
  * Will always return a directory and a file
  */
 abstract class Filepath extends String_Value_Object {
     /**
-     * @param Directory $directory
-     * @param File      $file
-     *
-     * @return self
+     * Undocumented function.
      */
     final public static function of(Directory $directory, File $file): static {
         return new static(
@@ -31,9 +26,7 @@ abstract class Filepath extends String_Value_Object {
     }
 
     /**
-     * @param string $path
-     *
-     * @return string
+     * Undocumented function.
      */
     protected static function validate(string $path): string {
         return $path;

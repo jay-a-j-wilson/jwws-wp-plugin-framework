@@ -11,17 +11,18 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Assertion_Tests extends Tests {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::assertion();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function assertion(): void {
         Assertion_Test::run();

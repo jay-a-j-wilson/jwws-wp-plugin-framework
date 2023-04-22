@@ -10,14 +10,13 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
-class Test_User {
+final class Test_User {
     use Log;
 
     /**
-     * @param int    $id
-     * @param string $first_name
-     * @param string $last_name
+     * Undocumented function.
      */
     public static function of(
         int $id,
@@ -32,11 +31,7 @@ class Test_User {
     }
 
     /**
-     * @param int    $id
-     * @param string $first_name
-     * @param string $last_name
-     *
-     * @return void
+     * Undocumented function.
      */
     private function __construct(
         private int $id,
@@ -46,21 +41,21 @@ class Test_User {
     }
 
     /**
-     * @return int
+     * Undocumented function.
      */
     public function get_id(): int {
         return $this->id;
     }
 
     /**
-     * @return string
+     * Undocumented function.
      */
     public function get_first_name(): string {
         return $this->first_name;
     }
 
     /**
-     * @return string
+     * Undocumented function.
      */
     public function get_last_name(): string {
         return $this->last_name;

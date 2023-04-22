@@ -17,7 +17,7 @@ Security::stop_direct_access();
  */
 final class WP_Post_Repo extends Repo implements Post_Repo {
     /**
-     * @return self
+     * Undocumented function.
      */
     public static function create(): self {
         return new self(
@@ -27,9 +27,7 @@ final class WP_Post_Repo extends Repo implements Post_Repo {
     }
 
     /**
-     * @param string $post_type_names
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function of(string ...$post_type_names): self {
         return new self(
@@ -43,6 +41,8 @@ final class WP_Post_Repo extends Repo implements Post_Repo {
     }
 
     /**
+     * Undocumented function.
+     *
      * @param Collection<\WP_Post_Type> $types
      *
      * @return void
@@ -51,6 +51,8 @@ final class WP_Post_Repo extends Repo implements Post_Repo {
     }
 
     /**
+     * Undocumented function.
+     *
      * @return Collection<\WP_Post>
      */
     public function list_all(): Collection {
@@ -66,9 +68,7 @@ final class WP_Post_Repo extends Repo implements Post_Repo {
     }
 
     /**
-     * @param int $id
-     *
-     * @return \WP_Post
+     * Undocumented function.
      */
     public function find_by_id(int $id): \WP_Post {
         $post       = get_post(post: $id);

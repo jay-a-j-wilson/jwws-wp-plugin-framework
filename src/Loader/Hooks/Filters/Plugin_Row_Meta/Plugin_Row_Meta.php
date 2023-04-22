@@ -15,9 +15,7 @@ Security::stop_direct_access();
  */
 final class Plugin_Row_Meta {
     /**
-     * @param Plugin $plugin
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function hook(Plugin $plugin): void {
         add_filter(
@@ -29,7 +27,7 @@ final class Plugin_Row_Meta {
     }
 
     /**
-     * @param Plugin $plugin
+     * Undocumented function.
      */
     private function __construct(private Plugin $plugin) {
     }
@@ -45,8 +43,6 @@ final class Plugin_Row_Meta {
      * @param string $plugin_file path to the plugin file relative to the
      *                            plugins directory
      *                            exmaple "plugin-folder/plugin-name.php"
-     *
-     * @return void
      */
     public function callback(array $plugin_meta, string $plugin_file): array {
         if (! $this->plugin->has_dependencies()) {

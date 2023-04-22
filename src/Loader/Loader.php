@@ -12,14 +12,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Loader {
     /**
      * Creates loader.
-     *
-     * @param Plugin $plugin
-     *
-     * @return self for chaining
      */
     public static function of(Plugin $plugin): self {
         return new self(
@@ -28,15 +25,13 @@ final class Loader {
     }
 
     /**
-     * @param Plugin $plugin
+     * Undocumented function.
      */
     private function __construct(private Plugin $plugin) {
     }
 
     /**
      * Prevent plugin activation if dependant plugins are not active.
-     *
-     * @return self for chaining
      */
     public function hook_admin_init(): self {
         Admin_Init::hook(plugin: $this->plugin);
@@ -46,8 +41,6 @@ final class Loader {
 
     /**
      * Disables a plugin if dependant plugin is deactivated.
-     *
-     * @return self for chaining
      */
     public function hook_deactivated_plugin(): self {
         Deactivated_Plugin::hook(plugin: $this->plugin);

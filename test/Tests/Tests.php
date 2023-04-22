@@ -7,6 +7,7 @@ use JWWS\WPPF\Common\Security\Security;
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 abstract class Tests {
     /**
@@ -18,7 +19,7 @@ abstract class Tests {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     abstract public static function run(): void;
 }

@@ -5,6 +5,7 @@ namespace JWWS\WPPF\Common\Security;
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Security {
     /**
@@ -15,8 +16,6 @@ final class Security {
 
     /**
      * Stops current scripts if url is accessed directly.
-     *
-     * @return void
      */
     public static function stop_direct_access(): void {
         if (defined(constant_name: 'ABSPATH')) {

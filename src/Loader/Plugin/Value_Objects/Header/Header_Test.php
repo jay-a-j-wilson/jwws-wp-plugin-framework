@@ -10,17 +10,18 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Header_Test extends WP_Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function hook(): void {
         self::value();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function value(): void {
         Error_Logger::log(

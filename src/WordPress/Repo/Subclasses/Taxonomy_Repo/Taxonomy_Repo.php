@@ -11,9 +11,7 @@ Security::stop_direct_access();
  */
 interface Taxonomy_Repo {
     /**
-     * @param string $name
-     *
-     * @return \WP_Taxonomy
+     * Undocumented function.
      */
     public function find_by_name(string $name): \WP_Taxonomy;
 }

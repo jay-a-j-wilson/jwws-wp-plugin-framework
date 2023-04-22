@@ -11,7 +11,7 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
- * Utility
+ * Utility.
  */
 final class WooCommerce {
     /**
@@ -22,8 +22,6 @@ final class WooCommerce {
 
     /**
      * Gets the product categories ordered by parent and alphabetised.
-     *
-     * @return array
      */
     public static function get_product_categories(): array {
         return Generic::flatten(

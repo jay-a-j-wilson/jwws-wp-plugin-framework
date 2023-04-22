@@ -10,10 +10,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented trait.
  */
 trait Log {
     /**
-     * @return $this
+     * Undocumented function.
      */
     public function log(): self {
         Error_Logger::log_verbose(output: $this);

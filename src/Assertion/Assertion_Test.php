@@ -10,17 +10,18 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Assertion_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::boolean();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function boolean(): void {
         Assertion::of(value: '2')

@@ -10,10 +10,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Name_Header_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::value();
@@ -21,7 +22,7 @@ final class Name_Header_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function value(): void {
         Error_Logger::log(
@@ -31,7 +32,7 @@ final class Name_Header_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function equals(): void {
         Error_Logger::log(

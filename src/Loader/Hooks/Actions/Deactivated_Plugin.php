@@ -9,12 +9,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Deactivated_Plugin {
     /**
-     * @param Plugin $plugin
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function hook(Plugin $plugin): void {
         add_filter(
@@ -26,7 +25,7 @@ final class Deactivated_Plugin {
     }
 
     /**
-     * @param Plugin $plugin
+     * Undocumented function.
      */
     private function __construct(private Plugin $plugin) {
     }
@@ -38,8 +37,6 @@ final class Deactivated_Plugin {
      *
      * @param string $plugin path to the plugin file relative to the plugins
      *                       directory
-     *
-     * @return void
      */
     public function callback(string $plugin): void {
         if ($this->plugin->contains_dependecy(basename: $plugin)) {

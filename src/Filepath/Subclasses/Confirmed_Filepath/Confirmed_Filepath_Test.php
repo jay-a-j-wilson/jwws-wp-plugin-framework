@@ -16,10 +16,11 @@ use JWWS\WPPF\Filepath\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Confirmed_Filepath_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         $filepath = trailingslashit(string: WP_PLUGIN_DIR) . 'invalid/plugin.php';
@@ -32,9 +33,7 @@ final class Confirmed_Filepath_Test extends Test {
     }
 
     /**
-     * @param string $path
-     *
-     * @return void
+     * Undocumented function.
      */
     private static function of_entire(string $path): void {
         Error_Logger::log(
@@ -46,9 +45,7 @@ final class Confirmed_Filepath_Test extends Test {
     }
 
     /**
-     * @param string $path
-     *
-     * @return void
+     * Undocumented function.
      */
     private static function of_immediate(string $path): void {
         Error_Logger::log(

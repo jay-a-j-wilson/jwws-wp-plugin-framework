@@ -14,6 +14,7 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Plugin {
     use Log;
@@ -24,11 +25,8 @@ final class Plugin {
      * Use when the plugin's directory name is the same as the plugin's main
      * filename.
      *
-     * @param string $slug
      * @param string $fallback_name will be overwitten by plugin's name if it's
      *                              installed
-     *
-     * @return self
      */
     public static function of_slug(
         string $slug,
@@ -49,8 +47,6 @@ final class Plugin {
      * @param string $basename      example "directory/filename.php"
      * @param string $fallback_name will be overwitten by plugin's name if it's
      *                              installed
-     *
-     * @return self
      */
     public static function of_basename(
         string $basename,
@@ -66,21 +62,17 @@ final class Plugin {
     }
 
     /**
-     * @param Basename   $basename
-     * @param Name       $name
-     * @param Collection $dependencies
+     * Undocumented function.
      */
     private function __construct(
         private Basename $basename,
         private Name $name,
-        private Collection $dependencies = new Collection,
+        private Collection $dependencies = new Collection(),
     ) {
     }
 
     /**
      * Deactivates plugin.
-     *
-     * @return bool
      */
     public function deactivate(): void {
         deactivate_plugins(plugins: $this->basename->value());
@@ -88,8 +80,6 @@ final class Plugin {
 
     /**
      * Checks if active.
-     *
-     * @return bool
      */
     public function is_active(): bool {
         return is_plugin_active(plugin: $this->basename->value());
@@ -97,8 +87,6 @@ final class Plugin {
 
     /**
      * Checks if plugin meets activation criteria.
-     *
-     * @return bool
      */
     public function can_activate(): bool {
         return ! is_admin()
@@ -108,10 +96,6 @@ final class Plugin {
 
     /**
      * Adds a plugin dependency.
-     *
-     * @param self $plugins
-     *
-     * @return self for chaining
      */
     public function add_dependencies(self ...$plugins): self {
         $this->dependencies->add(...$plugins);
@@ -121,8 +105,6 @@ final class Plugin {
 
     /**
      * Returns the plugin's name.
-     *
-     * @return string
      */
     public function name(): string {
         return $this->name->value();
@@ -132,8 +114,6 @@ final class Plugin {
      * Returns the plugin's filename.
      *
      * Example: "plugin-folder/plugin-filename.php"
-     *
-     * @return string
      */
     public function basename(): string {
         return $this->basename->value();
@@ -141,8 +121,6 @@ final class Plugin {
 
     /**
      * Returns the plugin's dependent plugins.
-     *
-     * @return Collection
      */
     public function dependencies(): Collection {
         return $this->dependencies;
@@ -150,8 +128,6 @@ final class Plugin {
 
     /**
      * Returns the plugin's inactive dependent plugins.
-     *
-     * @return Collection
      */
     public function inactive_dependencies(): Collection {
         return $this->dependencies
@@ -163,8 +139,6 @@ final class Plugin {
 
     /**
      * Returns the plugin's dependent plugins.
-     *
-     * @return Collection
      */
     public function dependencies_names(): Collection {
         return $this->dependencies
@@ -176,8 +150,6 @@ final class Plugin {
 
     /**
      * Checks if plugins has dependent plugins.
-     *
-     * @return bool
      */
     public function has_dependencies(): bool {
         return $this->dependencies->count() > 0;
@@ -185,8 +157,6 @@ final class Plugin {
 
     /**
      * Checks if plugins has inactive dependent plugins.
-     *
-     * @return bool
      */
     public function has_inactive_dependencies(): bool {
         return $this->inactive_dependencies()->count() > 0;
@@ -196,8 +166,6 @@ final class Plugin {
      * Checks if plugin has dependency of plugin.
      *
      * @param string $basename Example 'directory/filename.php'.
-     *
-     * @return bool
      */
     public function contains_dependecy(string $basename): bool {
         return $this->dependencies
@@ -207,8 +175,6 @@ final class Plugin {
 
     /**
      * @docs https://developer.wordpress.org/reference/hooks/plugin_row_meta/
-     *
-     * @return self for chaining
      */
     public function append_dependencies_to_listing(): self {
         Plugin_Row_Meta::hook(plugin: $this);

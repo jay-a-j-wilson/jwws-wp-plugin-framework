@@ -2,8 +2,10 @@
 
 namespace JWWS\WPPF\Common\Value_Object\Subclasses;
 
-use JWWS\WPPF\Common\Security\Security;
-use JWWS\WPPF\Common\Value_Object\Value_Object;
+use JWWS\WPPF\Common\{
+    Security\Security,
+    Value_Object\Value_Object
+};
 
 Security::stop_direct_access();
 
@@ -12,15 +14,15 @@ Security::stop_direct_access();
  */
 abstract class String_Value_Object extends Value_Object {
     /**
-     * @param string $value
+     * Undocumented function.
      */
-    protected function __construct(protected string $value) {
+    protected function __construct(protected readonly string $value) {
     }
 
     /**
-     * @return string
+     * Undocumented function.
      */
-    public function value(): string {
+    final public function value(): string {
         return $this->value;
     }
 }

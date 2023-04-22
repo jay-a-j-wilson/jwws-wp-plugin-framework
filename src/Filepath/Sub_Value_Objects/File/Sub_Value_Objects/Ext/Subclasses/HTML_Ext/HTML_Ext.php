@@ -14,7 +14,7 @@ Security::stop_direct_access();
  */
 final class HTML_Ext extends Ext {
     /**
-     * @return string
+     * Undocumented function.
      */
     protected static function ext(): string {
         return 'html';

@@ -14,18 +14,18 @@ Security::stop_direct_access();
  */
 abstract class Repo {
     /**
-     * @return self
+     * Undocumented function.
      */
     abstract public static function create(): self;
 
     /**
-     * @return void
+     * Undocumented function.
      */
     protected function __construct() {
     }
 
     /**
-     * @return array
+     * Undocumented function.
      */
     abstract public function list_all(): Collection;
 }

@@ -17,12 +17,9 @@ trait Type {
      *
      * @param string $type    the expected type of the value
      * @param string $message the error message to include in the exception
-     * @param string $type
      *
      * @throws \InvalidArgumentException if the value is not of the expected
      *                                   type
-     *
-     * @return self
      */
     public function type(string $type, string $message = ''): self {
         if (gettype(value: $this->value) === $type) {
@@ -42,8 +39,6 @@ trait Type {
      *                        fails.
      *
      * @throws InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function instance_of(string $class, string $message = ''): self {
         if ($this->value instanceof $class) {
@@ -62,8 +57,6 @@ trait Type {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function string(string $message = ''): self {
         if (is_string(value: $this->value)) {
@@ -82,8 +75,6 @@ trait Type {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function numeric(string $message = ''): self {
         if (is_numeric(value: $this->value)) {
@@ -119,10 +110,6 @@ trait Type {
      * Asserts value is a function.
      *
      * @source https://stackoverflow.com/a/2835633
-     *
-     * @param string $message
-     *
-     * @return bool
      */
     public function function(string $message = ''): bool {
         if (is_string(value: $this->value) && function_exists(function: $this->value)) {

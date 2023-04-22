@@ -10,12 +10,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Admin_Init {
     /**
-     * @param Plugin $plugin
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function hook(Plugin $plugin): void {
         add_filter(
@@ -27,7 +26,7 @@ final class Admin_Init {
     }
 
     /**
-     * @param Plugin $plugin
+     * Undocumented function.
      */
     private function __construct(private Plugin $plugin) {
     }
@@ -36,8 +35,6 @@ final class Admin_Init {
      * Fires as an admin screen or script is being initialized.
      *
      * @docs https://developer.wordpress.org/reference/hooks/admin_init/
-     *
-     * @return void
      */
     public function callback(): void {
         if ($this->plugin->can_activate()) {

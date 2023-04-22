@@ -13,10 +13,9 @@ Security::stop_direct_access();
  */
 final class Version_Header extends Header {
     /**
-     * @return self
+     * Undocumented function.
      */
     protected static function type(): string {
         return 'Version';
     }
 }
-

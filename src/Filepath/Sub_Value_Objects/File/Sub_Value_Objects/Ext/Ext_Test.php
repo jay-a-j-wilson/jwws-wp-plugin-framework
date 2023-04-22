@@ -10,10 +10,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Ext_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
     }

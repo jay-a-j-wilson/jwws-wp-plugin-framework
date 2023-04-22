@@ -20,8 +20,6 @@ trait Str {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return void
      */
     public function contains(string $needle, string $message = ''): self {
         if (str_contains(haystack: $this->value, needle: $needle)) {
@@ -41,8 +39,6 @@ trait Str {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function starts_with(string $prefix, string $message = ''): self {
         if (str_starts_with(haystack: $this->value, needle: $prefix)) {
@@ -62,8 +58,6 @@ trait Str {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function ends_with(string $suffix, string $message = ''): self {
         if (str_ends_with(haystack: $this->value, needle: $suffix)) {

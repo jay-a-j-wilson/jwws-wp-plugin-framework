@@ -7,6 +7,7 @@ use JWWS\WPPF\Common\Security\Security;
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 abstract class Test {
     /**
@@ -18,14 +19,12 @@ abstract class Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     abstract public static function run(): void;
 
     /**
      * Prints test passing to error log.
-     *
-     * @return array
      */
     protected static function log_passed(): void {
         self::log(grade: 'PASSED');
@@ -33,18 +32,13 @@ abstract class Test {
 
     /**
      * Prints test failing to error log.
-     *
-     * @return array
      */
     protected static function log_failed(): void {
         self::log(grade: 'FAILED');
     }
 
     /**
-     * @param string $grade
-     * @param string $test
-     *
-     * @return void
+     * Undocumented function.
      */
     private static function log(string $grade): void {
         $backtrace = debug_backtrace()[2];

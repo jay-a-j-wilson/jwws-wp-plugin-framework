@@ -16,8 +16,6 @@ Security::stop_direct_access();
 final class Path extends String_Value_Object {
     /**
      * @param string $basename example plugin-folder/plugin-file.php
-     *
-     * @return self
      */
     public static function of(string $basename): self {
         return new self(

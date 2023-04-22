@@ -11,12 +11,13 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Error_Logger_Test extends Test {
     use Test_Primitive;
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         // self::log();
@@ -27,7 +28,7 @@ final class Error_Logger_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function log_associate_array_mixed(): void {
         Error_Logger::log(output: self::associate_array_mixed());
@@ -35,7 +36,7 @@ final class Error_Logger_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function log_int(): void {
         Error_Logger::log(output: self::int_1());
@@ -43,21 +44,21 @@ final class Error_Logger_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function log_array_int(): void {
         Error_Logger::log(output: self::array_int());
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function log(): void {
         Error_Logger::log(output: self::log_passed());
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function log_as_argument(): void {
         $var = 'variable';

@@ -11,18 +11,16 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class WP_User_Repo_Test extends WP_Test {
-    /**
-     * @return void
-     */
     public function hook(): void {
         $this->find_by_id();
         $this->list_all();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private function find_by_id(): void {
         Error_Logger::log(
@@ -32,7 +30,7 @@ final class WP_User_Repo_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private function list_all(): void {
         Error_Logger::log(

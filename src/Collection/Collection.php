@@ -10,17 +10,16 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Collection implements
-    \Countable,
     \ArrayAccess,
+    \Countable,
     \IteratorAggregate {
     use Log;
 
     /**
-     * @param mixed $items
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function of(mixed ...$items): self {
         return new self(
@@ -29,8 +28,6 @@ final class Collection implements
     }
 
     /**
-     * @param array $items
-     *
      * @return void
      */
     public function __construct(private array $items = []) {
@@ -38,10 +35,6 @@ final class Collection implements
 
     /**
      * Adds an item to the collection.
-     *
-     * @param mixed $items
-     *
-     * @return self
      */
     public function add(mixed ...$items): self {
         foreach ($items as $item) {
@@ -52,9 +45,7 @@ final class Collection implements
     }
 
     /**
-     * @param callable $callback
-     *
-     * @return self
+     * Undocumented function.
      */
     public function each(callable $callback): self {
         foreach ($this->items as $item) {
@@ -65,9 +56,7 @@ final class Collection implements
     }
 
     /**
-     * @param callable $callback
-     *
-     * @return self
+     * Undocumented function.
      */
     public function map(callable $callback): self {
         return self::of(
@@ -79,9 +68,7 @@ final class Collection implements
     }
 
     /**
-     * @param callable $callback
-     *
-     * @return self
+     * Undocumented function.
      */
     public function filter_by_value(callable $callback): self {
         return $this->filter(
@@ -91,9 +78,7 @@ final class Collection implements
     }
 
     /**
-     * @param callable $callback
-     *
-     * @return self
+     * Undocumented function.
      */
     public function filter_by_key(callable $callback): self {
         return $this->filter(
@@ -103,10 +88,7 @@ final class Collection implements
     }
 
     /**
-     * @param callable $callback
-     * @param int      $mode
-     *
-     * @return self
+     * Undocumented function.
      */
     private function filter(callable $callback, int $mode): self {
         return self::of(
@@ -120,8 +102,6 @@ final class Collection implements
 
     /**
      * Reverses items order.
-     *
-     * @return self
      */
     public function reverse(): self {
         return self::of(
@@ -135,10 +115,6 @@ final class Collection implements
     /**
      * Fetches the values of a given key.
      * Keys in objects must be public.
-     *
-     * @param mixed $key
-     *
-     * @return self
      */
     public function pluck(mixed $key): self {
         return self::of(
@@ -153,11 +129,6 @@ final class Collection implements
 
     /**
      * Extracts a slice of the collection.
-     *
-     * @param int      $offset
-     * @param int|null $length
-     *
-     * @return self
      */
     public function slice(int $offset, ?int $length = null): self {
         return self::of(
@@ -172,17 +143,13 @@ final class Collection implements
 
     /**
      * Determines if the collection is empty or not.
-     *
-     * @return bool
      */
     public function is_empty(): bool {
         return empty($this->items);
     }
 
     /**
-     * @param mixed $key
-     *
-     * @return bool
+     * Undocumented function.
      */
     public function contains_key(mixed $key): bool {
         return array_key_exists(
@@ -192,9 +159,7 @@ final class Collection implements
     }
 
     /**
-     * @param mixed $value
-     *
-     * @return bool
+     * Undocumented function.
      */
     public function contains_value(mixed $value): bool {
         return in_array(
@@ -204,16 +169,14 @@ final class Collection implements
     }
 
     /**
-     * @return array
+     * Undocumented function.
      */
     public function to_array(): array {
         return $this->items;
     }
 
     /**
-     * @param string $separator
-     *
-     * @return string
+     * Undocumented function.
      */
     public function to_string(string $separator = ', '): string {
         return implode(
@@ -223,7 +186,7 @@ final class Collection implements
     }
 
     /**
-     * @return int
+     * Undocumented function.
      */
     public function count(): int {
         return count(value: $this->items);
@@ -231,10 +194,6 @@ final class Collection implements
 
     /**
      * Determines if an item exists at an offset.
-     *
-     * @param mixed $key
-     *
-     * @return bool
      */
     public function offsetExists(mixed $key): bool {
         return array_key_exists(
@@ -245,10 +204,6 @@ final class Collection implements
 
     /**
      * Gets an item at a given offset.
-     *
-     * @param mixed $key
-     *
-     * @return mixed
      */
     public function offsetGet(mixed $key): mixed {
         return $this->items[$key];
@@ -256,11 +211,6 @@ final class Collection implements
 
     /**
      * Sets the item at a given offset.
-     *
-     * @param mixed $value
-     * @param mixed $key
-     *
-     * @return void
      */
     public function offsetSet(mixed $key, mixed $value): void {
         is_null(value: $key)
@@ -270,17 +220,13 @@ final class Collection implements
 
     /**
      * Unsets the item at a given offset.
-     *
-     * @param mixed $key
-     *
-     * @return void
      */
     public function offsetUnset(mixed $key): void {
         unset($this->items[$key]);
     }
 
     /**
-     * @return \ArrayIterator
+     * Undocumented function.
      */
     public function getIterator(): \ArrayIterator {
         return new \ArrayIterator(

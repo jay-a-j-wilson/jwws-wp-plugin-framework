@@ -11,16 +11,12 @@ Security::stop_direct_access();
  */
 interface Post_Repo {
     /**
-     * @param string $post_type_names
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function of(string ...$post_type_names): self;
 
     /**
-     * @param int $id
-     *
-     * @return \WP_Post
+     * Undocumented function.
      */
     public function find_by_id(int $id): \WP_Post;
 }

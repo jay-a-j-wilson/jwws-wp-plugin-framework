@@ -10,12 +10,13 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class File_Test extends Test {
     use File;
-    
+
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
     }

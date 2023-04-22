@@ -19,8 +19,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @retun self
      */
     public function true(string $message = ''): self {
         if ($this->value === true) {
@@ -39,8 +37,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @retun self
      */
     public function false(string $message = ''): self {
         if ($this->value === false) {
@@ -59,8 +55,6 @@ trait Comparison {
      *                        the assertion fails
      *
      * @throws \InvalidArgumentException if the value is empty or null
-     *
-     * @return self
      */
     public function empty(string $message = ''): self {
         if (empty($this->value)) {
@@ -79,8 +73,6 @@ trait Comparison {
      *                        the assertion fails
      *
      * @throws \InvalidArgumentException if the value is empty or null
-     *
-     * @return self
      */
     public function not_empty(string $message = ''): self {
         if (! empty($this->value)) {
@@ -99,8 +91,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the value is not null
-     *
-     * @return self
      */
     public function null(string $message = ''): self {
         if ($this->value === null) {
@@ -119,8 +109,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the value is null
-     *
-     * @return self
      */
     public function not_null(string $message = ''): self {
         if ($this->value !== null) {
@@ -140,8 +128,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function same(mixed $value, string $message = ''): self {
         if ($this->value === $value) {
@@ -161,8 +147,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function equal(mixed $value, string $message = ''): self {
         if ($this->value == $value) {
@@ -182,8 +166,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function greater_than(mixed $min, string $message = ''): self {
         if ($this->value > $min) {
@@ -203,8 +185,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function greater_than_or_equal(mixed $min, string $message = ''): self {
         if ($this->value >= $min) {
@@ -224,8 +204,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function less_than(mixed $max, string $message = ''): self {
         if ($this->value < $max) {
@@ -245,8 +223,6 @@ trait Comparison {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @return self
      */
     public function less_than_or_equal(mixed $max, string $message = ''): self {
         if ($this->value <= $max) {

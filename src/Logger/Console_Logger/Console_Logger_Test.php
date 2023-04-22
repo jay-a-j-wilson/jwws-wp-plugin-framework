@@ -10,10 +10,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Console_Logger_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::log();
@@ -21,14 +22,14 @@ final class Console_Logger_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function log(): void {
         Console_Logger::log(output: self::log_passed());
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function log_as_argument(): void {
         $var = 'variable';

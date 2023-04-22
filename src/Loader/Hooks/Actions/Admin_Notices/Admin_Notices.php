@@ -11,13 +11,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Admin_Notices {
     /**
-     * @param Plugin $dependant_plugin
-     * @param Plugin $plugin
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function hook(Plugin $dependant_plugin, Plugin $plugin): void {
         add_filter(
@@ -35,8 +33,7 @@ final class Admin_Notices {
     }
 
     /**
-     * @param Plugin $parent_plugin
-     * @param Plugin $child_plugin
+     * Undocumented function.
      */
     private function __construct(
         private Plugin $parent_plugin,
@@ -46,20 +43,18 @@ final class Admin_Notices {
 
     /**
      * Prints admin screen notices.
-     * 
+     *
      * @docs https://developer.wordpress.org/reference/hooks/admin_notices/
-     * 
-     * @return void
      */
     public function callback(): void {
         echo Template::of(path: __DIR__ . '/templates/template.html.php')
             ->assign(
-                names: 'parent_plugin_name', 
-                value: $this->parent_plugin->name()
+                names: 'parent_plugin_name',
+                value: $this->parent_plugin->name(),
             )
             ->assign(
-                names: 'child_plugin_name', 
-                value: $this->child_plugin->name()
+                names: 'child_plugin_name',
+                value: $this->child_plugin->name(),
             )
             ->output()
         ;

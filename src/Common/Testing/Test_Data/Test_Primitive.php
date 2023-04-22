@@ -7,24 +7,27 @@ use JWWS\WPPF\Common\Security\Security;
 Security::stop_direct_access();
 
 /**
+ * Undocumented trait.
  */
 trait Test_Primitive {
     /**
-     * @return int
+     * Undocumented function.
      */
     public static function int_0(): int {
         return 0;
     }
 
     /**
-     * @return int
+     * Undocumented function.
      */
     public static function int_1(): int {
         return 1;
     }
 
     /**
-     * @return string
+     * Undocumented function.
+     *
+     * @return int
      */
     public static function string_abc(): string {
         return 'abc';
@@ -45,7 +48,7 @@ trait Test_Primitive {
     }
 
     /**
-     * @return array
+     * Undocumented function.
      */
     public static function associate_array_mixed(): array {
         return [

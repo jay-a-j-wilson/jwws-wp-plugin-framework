@@ -13,17 +13,18 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class File_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::of();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of(): void {
         $path = 'dir/subdir/filename.php';

@@ -11,13 +11,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Name extends String_Value_Object {
     /**
-     * @param string $basename
      * @param string $fallback_name example "Plugin"
-     *
-     * @return self
      */
     public static function of(
         string $basename,
@@ -33,11 +31,6 @@ final class Name extends String_Value_Object {
 
     /**
      * Selects name.
-     *
-     * @param Basename $basename
-     * @param string   $fallback_name
-     *
-     * @return string
      */
     private static function name(
         Basename $basename,

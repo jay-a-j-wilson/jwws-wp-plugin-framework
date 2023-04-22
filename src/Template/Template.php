@@ -12,12 +12,11 @@ use JWWS\WPPF\Filepath\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Template {
     /**
      * Creates template.
-     *
-     * @param string $path
      */
     public static function of(string $path): self {
         return new self(
@@ -31,8 +30,7 @@ final class Template {
     /**
      * Template constructor.
      *
-     * @param Confirmed_Filepath $filepath
-     * @param array              $variables variables to embed in template
+     * @param array $variables variables to embed in template
      */
     private function __construct(
         private Confirmed_Filepath $filepath,
@@ -47,8 +45,6 @@ final class Template {
      *
      * @param string|array $names the template variable name(s)
      * @param mixed        $value the value to assign
-     *
-     * @return self
      */
     public function assign(string|array $names, mixed $value = ''): self {
         if (is_array(value: $names)) {
@@ -67,8 +63,6 @@ final class Template {
      *
      * @param string $name  the template variable name
      * @param mixed  $value the value to assign
-     *
-     * @return self
      */
     public function append(string $name, mixed $value = ''): self {
         $this->variables[$name][] = $value;
@@ -78,8 +72,6 @@ final class Template {
 
     /**
      * Returns template to user.
-     *
-     * @return string
      */
     public function output(): string {
         extract(array: $this->variables);

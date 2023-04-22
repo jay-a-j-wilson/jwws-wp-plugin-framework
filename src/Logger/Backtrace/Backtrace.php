@@ -10,11 +10,13 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
+ *
  * ! intergrate.
  */
 final class Backtrace {
     /**
-     * @return self
+     * Undocumented function.
      */
     public static function create(): self {
         return new self(
@@ -25,13 +27,13 @@ final class Backtrace {
     }
 
     /**
-     * @param Collection $stack_frames
+     * Undocumented function.
      */
     private function __construct(private Collection $stack_frames) {
     }
 
     /**
-     * @return Collection
+     * Undocumented function.
      */
     public function get_stack_frames(): Collection {
         return $this->stack_frames;

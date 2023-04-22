@@ -10,10 +10,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Name_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::of();
@@ -24,7 +25,7 @@ final class Name_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of(): void {
         Error_Logger::log(
@@ -34,7 +35,7 @@ final class Name_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of_valid_file_path_chars_pass(): void {
         Error_Logger::log(
@@ -44,7 +45,7 @@ final class Name_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of_valid_file_path_chars_fail(): void {
         Error_Logger::log(
@@ -54,7 +55,7 @@ final class Name_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of_no_ext(): void {
         Error_Logger::log(
@@ -64,7 +65,7 @@ final class Name_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of_no_filename(): void {
         Error_Logger::log(

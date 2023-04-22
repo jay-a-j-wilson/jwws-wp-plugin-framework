@@ -13,7 +13,7 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
- * Provides assertion methods.
+ * Undocumented class.
  */
 final class Assertion {
     use Comparison,
@@ -22,9 +22,7 @@ final class Assertion {
         Type;
 
     /**
-     * @param mixed $value
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function of(mixed $value): self {
         return new self(
@@ -33,7 +31,7 @@ final class Assertion {
     }
 
     /**
-     * @param mixed $value the value to assert
+     * Undocumented function.
      */
     private function __construct(private mixed $value) {
     }

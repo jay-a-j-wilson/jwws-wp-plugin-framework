@@ -11,16 +11,12 @@ Security::stop_direct_access();
  */
 interface Term_Repo {
     /**
-     * @param string $taxonomy_names
-     *
-     * @return self
+     * Undocumented function.
      */
     public static function of(string ...$taxonomy_names): self;
 
     /**
-     * @param int $id
-     *
-     * @return \WP_Term
+     * Undocumented function.
      */
     public function find_by_id(int $id): \WP_Term;
 }

@@ -10,19 +10,19 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
-class Test_Object_2 {
+final class Test_Object_2 {
     use Log;
 
     /**
+     * Undocumented function.
      */
     public static function create(): self {
         return new self();
     }
 
     /**
-     * @param int $int
-     *
      * @return void
      */
     private function __construct(private int $int = 2) {

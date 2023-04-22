@@ -11,11 +11,9 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Generic_Test extends Test {
-    /**
-     * @return void
-     */
     public static function run(): void {
         add_action(
             'wp_loaded',
@@ -24,7 +22,7 @@ final class Generic_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function hook(): void {
         self::get_term_name();
@@ -33,6 +31,7 @@ final class Generic_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function get_term_name(): void {
         Error_Logger::log(
@@ -57,6 +56,7 @@ final class Generic_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function get_taxonomy_hierarchy(): void {
         Error_Logger::log(
@@ -65,6 +65,7 @@ final class Generic_Test extends Test {
     }
 
     /**
+     * Undocumented function.
      */
     private static function get_taxonomy_hierarchy_multiple(): void {
         Error_Logger::log(

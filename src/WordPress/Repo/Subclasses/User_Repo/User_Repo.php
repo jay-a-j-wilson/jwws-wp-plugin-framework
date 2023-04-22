@@ -11,9 +11,7 @@ Security::stop_direct_access();
  */
 interface User_Repo {
     /**
-     * @param int $id
-     *
-     * @return \WP_User
+     * Undocumented function.
      */
     public function find_by_id(int $id): \WP_User;
 }

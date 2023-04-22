@@ -11,17 +11,18 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Template_Tests extends Tests {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::template();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function template(): void {
         Template_Test\Template_Test::run();

@@ -7,7 +7,7 @@ use JWWS\WPPF\Common\Security\Security;
 Security::stop_direct_access();
 
 /**
- * Utility
+ * Utility.
  */
 final class Generic {
     /**
@@ -20,8 +20,6 @@ final class Generic {
      * Returns term name and appends a hyphen for each level of nesting.
      *
      * @param WP_Term $term
-     *
-     * @return string
      */
     public static function get_term_name(\WP_Term $term): string {
         // Allow for empty name.
@@ -50,11 +48,8 @@ final class Generic {
      *
      * @source https://www.daggerhartlab.com/wordpress-get-taxonomy-hierarchy-including-children
      *
-     * @param array  $taxonomies taxonomy slugs
-     * @param int    $parent     starting parent term id
-     * @param string $order_by
-     *
-     * @return array
+     * @param array $taxonomies taxonomy slugs
+     * @param int   $parent     starting parent term id
      */
     public static function get_taxonomy_hierarchy_multiple(
         array $taxonomies,
@@ -83,11 +78,7 @@ final class Generic {
      *
      * @source https://www.daggerhartlab.com/wordpress-get-taxonomy-hierarchy-including-children
      *
-     * @param string $taxonomy
-     * @param int    $parent   - parent term id
-     * @param string $order_by
-     *
-     * @return array
+     * @param int $parent - parent term id
      */
     public static function get_taxonomy_hierarchy(
         string $taxonomy,

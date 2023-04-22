@@ -16,8 +16,12 @@ use JWWS\WPPF\Filepath\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Unconfirmed_Filepath_Test extends Test {
+    /**
+     * Undocumented function.
+     */
     public static function run(): void {
         $filepath = trailingslashit(string: WP_PLUGIN_DIR) . 'elementor/elementor.php';
         $filename = 'elementor.php';
@@ -29,9 +33,7 @@ final class Unconfirmed_Filepath_Test extends Test {
     }
 
     /**
-     * @param string $path
-     *
-     * @return void
+     * Undocumented function.
      */
     private static function of_entire(string $path): void {
         Error_Logger::log(
@@ -43,9 +45,7 @@ final class Unconfirmed_Filepath_Test extends Test {
     }
 
     /**
-     * @param string $path
-     *
-     * @return void
+     * Undocumented function.
      */
     private static function of_immediate(string $path): void {
         Error_Logger::log(

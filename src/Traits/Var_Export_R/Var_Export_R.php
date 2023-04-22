@@ -7,12 +7,10 @@ use JWWS\WPPF\Common\Security\Security;
 Security::stop_direct_access();
 
 /**
+ * Undocumented trait.
  */
 trait Var_Export_R {
     /**
-     * @param mixed $value
-     * @param bool  $return
-     *
      * @return string|string[]|null|void
      */
     private static function pretty_var_export_r(
@@ -36,9 +34,6 @@ trait Var_Export_R {
     }
 
     /**
-     * @param mixed $value
-     * @param bool  $return
-     *
      * @return string|false|void
      */
     private static function var_export_r(

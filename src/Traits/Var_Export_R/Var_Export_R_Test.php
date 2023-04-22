@@ -11,13 +11,14 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Var_Export_R_Test extends Test {
-    use Var_Export_R;
     use Test_Primitive;
+    use Var_Export_R;
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::var_export_r_test();
@@ -25,7 +26,7 @@ final class Var_Export_R_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function var_export_r_test(): void {
         error_log(
@@ -37,7 +38,7 @@ final class Var_Export_R_Test extends Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function pretty_var_export_r_test(): void {
         error_log(

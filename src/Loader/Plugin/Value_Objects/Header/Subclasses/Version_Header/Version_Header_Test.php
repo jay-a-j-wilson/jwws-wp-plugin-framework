@@ -10,17 +10,18 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Version_Header_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function run(): void {
         self::value();
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function value(): void {
         Error_Logger::log(

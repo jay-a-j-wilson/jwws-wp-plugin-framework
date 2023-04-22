@@ -4,7 +4,8 @@ namespace JWWS\WPPF\Loader\Plugin\Value_Objects\Directory;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Subclasses\String_Value_Object};
+    Common\Value_Object\Subclasses\String_Value_Object
+};
 
 Security::stop_direct_access();
 
@@ -13,11 +14,11 @@ Security::stop_direct_access();
  */
 final class Directory extends String_Value_Object {
     /**
-     * @return self
+     * Undocumented function.
      */
     public static function create(): self {
         return new self(
-            value: trailingslashit(string: WP_PLUGIN_DIR)
+            value: trailingslashit(string: WP_PLUGIN_DIR),
         );
     }
 }

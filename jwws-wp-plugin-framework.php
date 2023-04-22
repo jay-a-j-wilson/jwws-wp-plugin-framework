@@ -11,8 +11,10 @@
 
 namespace JWWS\WPPF;
 
-use JWWS\WPPF\Common\Security\Security;
-use JWWS\WPPF\Test\Test;
+use JWWS\WPPF\{
+    Common\Security\Security,
+    Test\Test
+};
 
 require __DIR__ . '/vendor/autoload.php';
 

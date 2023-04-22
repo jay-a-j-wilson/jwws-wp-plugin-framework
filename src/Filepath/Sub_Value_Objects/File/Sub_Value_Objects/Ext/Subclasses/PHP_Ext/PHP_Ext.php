@@ -13,7 +13,7 @@ Security::stop_direct_access();
  */
 final class PHP_Ext extends Ext {
     /**
-     * @return string
+     * Undocumented function.
      */
     protected static function ext(): string {
         return 'php';

@@ -11,10 +11,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class WP_Post_Type_Repo_Test extends WP_Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public function hook(): void {
         $this->filter();
@@ -26,7 +27,7 @@ final class WP_Post_Type_Repo_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private function filter(): void {
         WP_Post_Type_Repo::create()
@@ -38,9 +39,7 @@ final class WP_Post_Type_Repo_Test extends WP_Test {
     }
 
    /**
-    * @param string $taxonomy
-    *
-    * @return void
+    * Undocumented function.
     */
    private function list_all(): void {
        Error_Logger::log(
@@ -51,9 +50,7 @@ final class WP_Post_Type_Repo_Test extends WP_Test {
    }
 
    /**
-    * @param string $taxonomy
-    *
-    * @return void
+    * Undocumented function.
     */
    private function find_by_name_post(): void {
        Error_Logger::log(
@@ -63,9 +60,7 @@ final class WP_Post_Type_Repo_Test extends WP_Test {
    }
 
     /**
-     * @param string $taxonomy
-     *
-     * @return void
+     * Undocumented function.
      */
     private function find_by_name_invalid(): void {
         Error_Logger::log(
@@ -75,7 +70,7 @@ final class WP_Post_Type_Repo_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private function find_by_name_attachment(): void {
         Error_Logger::log(

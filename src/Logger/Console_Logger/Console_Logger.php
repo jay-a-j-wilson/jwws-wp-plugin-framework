@@ -11,17 +11,13 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Console_Logger extends Logger {
     /**
      * Prints to console.
      *
      * @source https://stackify.com/how-to-log-to-console-in-php/
-     *
-     * @param mixed  $output
-     * @param string $message
-     *
-     * @return mixed
      */
     public static function log(
         mixed $output,

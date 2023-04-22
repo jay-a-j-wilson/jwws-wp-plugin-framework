@@ -10,10 +10,11 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Basename_Test extends WP_Test {
     /**
-     * @return void
+     * Undocumented function.
      */
     public static function hook(): void {
         self::of();
@@ -22,36 +23,36 @@ final class Basename_Test extends WP_Test {
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of(): void {
         Error_Logger::log(
             output: Basename::of(
-                path: 'elementor/elementor.php',
+                basename: 'elementor/elementor.php',
             )
                 ->value(),
         );
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of_sub_dir(): void {
         Error_Logger::log(
             output: Basename::of(
-                path: 'dir/dir/file.php',
+                basename: 'dir/dir/file.php',
             )
                 ->value(),
         );
     }
 
     /**
-     * @return void
+     * Undocumented function.
      */
     private static function of_no_dir(): void {
         Error_Logger::log(
             output: Basename::of(
-                path: 'file.php',
+                basename: 'file.php',
             )
                 ->value(),
         );

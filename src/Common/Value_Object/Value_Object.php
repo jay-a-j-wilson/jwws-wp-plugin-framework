@@ -6,7 +6,8 @@ use JWWS\WPPF\{
     Common\Security\Security,
     Common\Value_Object\Interfaces\Equatable,
     Common\Value_Object\Interfaces\Valueable,
-    Traits\Log\Log,};
+    Traits\Log\Log
+};
 
 Security::stop_direct_access();
 
@@ -14,22 +15,20 @@ Security::stop_direct_access();
  * Represents a value object.
  */
 abstract class Value_Object implements
-    Valueable,
+    \Stringable,
     Equatable,
-    \Stringable {
+    Valueable {
     use Log;
 
     /**
-     * @param self $other
-     *
-     * @return bool
+     * Undocumented function.
      */
-    public function equals(self $other): bool {
+    final public function equals(self $other): bool {
         return $this->value() === $other->value();
     }
 
     /**
-     * @return string
+     * Undocumented function.
      */
     public function __toString(): string {
         return (string) $this->value();

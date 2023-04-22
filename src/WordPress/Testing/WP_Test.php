@@ -10,16 +10,17 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 abstract class WP_Test extends Test {
     /**
-     * @return void
+     * Undocumented function.
      */
-    public static function run(): void {
+    final public static function run(): void {
         add_action(
             'wp_loaded',
             [new static(), 'hook'],
-            1
+            1,
         );
     }
 }

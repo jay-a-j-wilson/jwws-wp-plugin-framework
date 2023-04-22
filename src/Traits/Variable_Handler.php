@@ -11,6 +11,7 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented trait.
  */
 trait Variable_Handler {
     use Var_Dump_R;

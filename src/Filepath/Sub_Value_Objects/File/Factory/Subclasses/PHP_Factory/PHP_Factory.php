@@ -15,9 +15,7 @@ Security::stop_direct_access();
  */
 final class PHP_Factory extends Factory {
     /**
-     * @param string $path
-     *
-     * @return PHP_Ext
+     * Undocumented function.
      */
     protected static function ext_type(string $path): PHP_Ext {
         return PHP_Ext::of(path: $path);

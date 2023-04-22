@@ -12,17 +12,13 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
+ * Undocumented class.
  */
 final class Error_Logger extends Logger {
     use Variable_Handler;
 
     /**
      * Prints to error log.
-     *
-     * @param mixed $output
-     * @param int   $depth
-     *
-     * @return mixed
      */
     public static function log(mixed $output, int $depth = 1): mixed {
         error_log(message: self::generate_message(
@@ -38,11 +34,6 @@ final class Error_Logger extends Logger {
 
     /**
      * Prints to error log with variable types.
-     *
-     * @param mixed $output
-     * @param int   $depth
-     *
-     * @return mixed
      */
     public static function log_verbose(mixed $output, int $depth = 1): mixed {
         error_log(message: self::generate_message(
@@ -57,10 +48,7 @@ final class Error_Logger extends Logger {
     }
 
     /**
-     * @param string $contents
-     * @param int    $depth
-     *
-     * @return string
+     * Undocumented function.
      */
     private static function generate_message(
         string $contents,
