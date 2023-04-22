@@ -10,44 +10,45 @@ use JWWS\WPPF\{
 Security::stop_direct_access();
 
 /**
- * @template T
  */
-class Collection implements
+final class Collection implements
     \Countable,
     \ArrayAccess,
     \IteratorAggregate {
     use Log;
 
     /**
-     * @param array<T> $items
+     * @param mixed $items
      *
-     * @return static
+     * @return self
      */
-    public static function of(array $items): static {
-        return new static(
-            items: $items,
+    public static function of(mixed ...$items): self {
+        return new self(
+            $items,
         );
     }
 
     /**
-     * @param array<T> $items
+     * @param array $items
      *
      * @return void
      */
-    public function __construct(private array $items) {
+    public function __construct(private array $items = []) {
     }
 
     /**
      * Adds an item to the collection.
      *
-     * @param T $item
+     * @param mixed $items
      *
      * @return self
      */
-    public function add(mixed $item): self {
-        $this->items[] = $item;
+    public function add(mixed ...$items): self {
+        foreach ($items as $item) {
+            $this->items[] = $item;
+        }
 
-        return $this;
+        return self::of(...$this->items);
     }
 
     /**
@@ -66,11 +67,11 @@ class Collection implements
     /**
      * @param callable $callback
      *
-     * @return static
+     * @return self
      */
-    public function map(callable $callback): static {
-        return new static(
-            items: array_map(
+    public function map(callable $callback): self {
+        return self::of(
+            ...array_map(
                 callback: $callback,
                 array: $this->items,
             ),
@@ -80,9 +81,9 @@ class Collection implements
     /**
      * @param callable $callback
      *
-     * @return static
+     * @return self
      */
-    public function filter_by_value(callable $callback): static {
+    public function filter_by_value(callable $callback): self {
         return $this->filter(
             callback: $callback,
             mode: 0,
@@ -92,9 +93,9 @@ class Collection implements
     /**
      * @param callable $callback
      *
-     * @return static
+     * @return self
      */
-    public function filter_by_key(callable $callback): static {
+    public function filter_by_key(callable $callback): self {
         return $this->filter(
             callback: $callback,
             mode: ARRAY_FILTER_USE_KEY,
@@ -105,11 +106,11 @@ class Collection implements
      * @param callable $callback
      * @param int      $mode
      *
-     * @return static
+     * @return self
      */
-    private function filter(callable $callback, int $mode): static {
-        return new static(
-            items: array_filter(
+    private function filter(callable $callback, int $mode): self {
+        return self::of(
+            ...array_filter(
                 array: $this->items,
                 callback: $callback,
                 mode: $mode,
@@ -120,11 +121,11 @@ class Collection implements
     /**
      * Reverses items order.
      *
-     * @return static
+     * @return self
      */
-    public function reverse(): static {
-        return new static(
-            items: array_reverse(
+    public function reverse(): self {
+        return self::of(
+            ...array_reverse(
                 array: $this->items,
                 preserve_keys: true,
             ),
@@ -133,16 +134,38 @@ class Collection implements
 
     /**
      * Fetches the values of a given key.
+     * Keys in objects must be public.
      *
      * @param mixed $key
      *
      * @return self
      */
-    public function pluck(mixed $key): static {
-        return new static(
-            items: array_column(
+    public function pluck(mixed $key): self {
+        return self::of(
+            ...$this->map(
+                fn (mixed $item): mixed => is_object(value: $item)
+                    ? $item->$key
+                    : $item[$key],
+            )
+                ->to_array(),
+        );
+    }
+
+    /**
+     * Extracts a slice of the collection.
+     *
+     * @param int      $offset
+     * @param int|null $length
+     *
+     * @return self
+     */
+    public function slice(int $offset, ?int $length = null): self {
+        return self::of(
+            ...array_slice(
                 array: $this->items,
-                column_key: $key,
+                offset: $offset,
+                length: $length,
+                preserve_keys: true,
             ),
         );
     }

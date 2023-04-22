@@ -16,22 +16,6 @@ final class Generic {
     }
 
     /**
-     * Finds whether a variable is a function.
-     *
-     * @source https://stackoverflow.com/a/2835633
-     *
-     * @param mixed $value
-     *
-     * @return bool
-     */
-    public static function is_function($value): bool {
-        return
-            is_string(value: $value)    && function_exists(function: $value)
-            || is_object(value: $value) && ($value instanceof \Closure)
-        ;
-    }
-
-    /**
      * Flattens an array of objects containing nested objects to one level.
      *
      * @source https://stackoverflow.com/a/48084541

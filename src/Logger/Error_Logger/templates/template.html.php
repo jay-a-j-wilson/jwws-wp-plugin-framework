@@ -1,8 +1,12 @@
 <?= str_repeat(string: '=', times: $separator_length); ?>
 <?= $newline_char; ?>
-FILE: <?= $backtrace['file']; ?>
+FILE:     <?= $file; ?>
 <?= $newline_char; ?>
-LINE: <?= $backtrace['line']; ?>
+LINE:     <?= $line; ?>
+<?= $newline_char; ?>
+CLASS:    <?= $class; ?>
+<?= $newline_char; ?>
+FUNCTION: <?= $function; ?>
 <?= $newline_char; ?>
 <?= str_repeat(string: '.', times: $separator_length); ?>
 <?= $newline_char; ?>

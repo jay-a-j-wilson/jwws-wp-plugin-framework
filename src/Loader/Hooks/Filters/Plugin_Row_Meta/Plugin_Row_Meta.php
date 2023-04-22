@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Template\Template\Template,
-    Loader\Plugin\Plugin\Plugin
+    Loader\Plugin\Plugin,
+    Template\Template
 };
 
 Security::stop_direct_access();
@@ -35,12 +35,16 @@ final class Plugin_Row_Meta {
     }
 
     /**
-     * Filters the array of row meta for each plugin in the Plugins list table
-     * 
+     * Filters the array of row meta for each plugin in the Plugins list table.
+     *
      * @docs https://developer.wordpress.org/reference/hooks/plugin_row_meta/
-     * 
-     * @param array  $plugin_meta
-     * @param string $plugin_file
+     *
+     * @param array  $plugin_meta an array of the plugin's metadata, including
+     *                            the version, author, author URI, and plugin
+     *                            URI
+     * @param string $plugin_file path to the plugin file relative to the
+     *                            plugins directory
+     *                            exmaple "plugin-folder/plugin-name.php"
      *
      * @return void
      */
@@ -49,18 +53,17 @@ final class Plugin_Row_Meta {
             return $plugin_meta;
         }
 
-        if ($plugin_file !== $this->plugin->get_filename()) {
+        if ($plugin_file !== $this->plugin->basename()) {
             return $plugin_meta;
         }
 
         // you can still use array_unshift() to add links at the beginning
-        $plugin_meta[] = Template::of(filename: __DIR__ . '/templates/template')
+        $plugin_meta[] = Template::of(path: __DIR__ . '/templates/template.html.php')
             ->assign(
                 names: 'plugin_names',
-                value: implode(
-                    separator: ', ',
-                    array: $this->plugin->get_dependencies_names(),
-                ),
+                value: $this->plugin
+                    ->dependencies_names()
+                    ->to_string(),
             )
             ->output()
         ;

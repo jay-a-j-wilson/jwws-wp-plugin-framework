@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Logger\Console_Logger;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Template\Template\Template,
+    Template\Template,
     Logger\Logger,
 };
 
@@ -27,7 +27,7 @@ final class Console_Logger extends Logger {
         mixed $output,
         string $message = '',
     ): mixed {
-        echo Template::of(filename: __DIR__ . '/templates/template')
+        echo Template::of(path: __DIR__ . '/templates/template.html.php')
             ->assign(names: 'message', value: $message)
             ->assign(
                 names: 'backtrace',

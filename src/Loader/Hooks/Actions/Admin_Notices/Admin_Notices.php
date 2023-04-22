@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Notices;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Template\Template\Template,
-    Loader\Plugin\Plugin\Plugin
+    Loader\Plugin\Plugin,
+    Template\Template
 };
 
 Security::stop_direct_access();
@@ -52,9 +52,15 @@ final class Admin_Notices {
      * @return void
      */
     public function callback(): void {
-        echo Template::of(filename: __DIR__ . '/templates/template')
-            ->assign(names: 'parent_plugin', value: $this->parent_plugin)
-            ->assign(names: 'child_plugin', value: $this->child_plugin)
+        echo Template::of(path: __DIR__ . '/templates/template.html.php')
+            ->assign(
+                names: 'parent_plugin_name', 
+                value: $this->parent_plugin->name()
+            )
+            ->assign(
+                names: 'child_plugin_name', 
+                value: $this->child_plugin->name()
+            )
             ->output()
         ;
     }

@@ -4,8 +4,7 @@ namespace JWWS\WPPF\Loader\Hooks\Actions;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Loader\Plugin\Plugin\Plugin
-};
+    Loader\Plugin\Plugin};
 
 Security::stop_direct_access();
 
@@ -43,7 +42,7 @@ final class Deactivated_Plugin {
      * @return void
      */
     public function callback(string $plugin): void {
-        if ($this->plugin->includes_dependecy(plugin: $plugin)) {
+        if ($this->plugin->contains_dependecy(basename: $plugin)) {
             $this->plugin->deactivate();
         }
     }

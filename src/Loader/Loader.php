@@ -4,9 +4,9 @@ namespace JWWS\WPPF\Loader;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Loader\Plugin\Plugin\Plugin,
     Loader\Hooks\Actions\Admin_Init,
-    Loader\Hooks\Actions\Deactivated_Plugin
+    Loader\Hooks\Actions\Deactivated_Plugin,
+    Loader\Plugin\Plugin
 };
 
 Security::stop_direct_access();
@@ -21,7 +21,7 @@ final class Loader {
      *
      * @return self for chaining
      */
-    public static function create(Plugin $plugin): self {
+    public static function of(Plugin $plugin): self {
         return new self(
             plugin: $plugin,
         );

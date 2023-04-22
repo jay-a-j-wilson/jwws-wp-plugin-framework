@@ -19,6 +19,7 @@ abstract class WP_Test extends Test {
         add_action(
             'wp_loaded',
             [new static(), 'hook'],
+            1
         );
     }
 }

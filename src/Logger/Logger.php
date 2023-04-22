@@ -34,8 +34,8 @@ abstract class Logger {
     protected static function get_backtrace(int $depth): array {
         $backtrace = debug_backtrace()[$depth];
         unset(
-            $backtrace['class'],
-            $backtrace['function'],
+            // $backtrace['class'],
+            // $backtrace['function'],
             $backtrace['type'],
         );
 

@@ -5,7 +5,7 @@ namespace JWWS\WPPF\Logger\Error_Logger;
 use JWWS\WPPF\{
     Common\Security\Security,
     Logger\Logger,
-    Template\Template\Template,
+    Template\Template,
     Traits\Variable_Handler,
 };
 
@@ -66,13 +66,25 @@ final class Error_Logger extends Logger {
         string $contents,
         int $depth,
     ): string {
-        return Template::of(filename: __DIR__ . '/templates/template')
+        return Template::of(path: __DIR__ . '/templates/template.html.php')
             ->assign(names: 'newline_char', value: "\n")
             ->assign(names: 'separator_length', value: 210)
             ->assign(names: 'contents', value: $contents)
             ->assign(
-                names: 'backtrace',
-                value: self::get_backtrace(depth: $depth + 1),
+                names: 'class',
+                value: self::get_backtrace(depth: $depth + 2)['class'],
+            )
+            ->assign(
+                names: 'function',
+                value: self::get_backtrace(depth: $depth + 2)['function'],
+            )
+            ->assign(
+                names: 'file',
+                value: self::get_backtrace(depth: $depth + 1)['file'],
+            )
+            ->assign(
+                names: 'line',
+                value: self::get_backtrace(depth: $depth + 1)['line'],
             )
             ->output()
         ;

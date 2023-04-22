@@ -25,8 +25,6 @@ abstract class Test {
     /**
      * Prints test passing to error log.
      *
-     * @param string $test use __METHOD__
-     *
      * @return array
      */
     protected static function log_passed(): void {
@@ -35,8 +33,6 @@ abstract class Test {
 
     /**
      * Prints test failing to error log.
-     *
-     * @param string $test use __METHOD__
      *
      * @return array
      */
