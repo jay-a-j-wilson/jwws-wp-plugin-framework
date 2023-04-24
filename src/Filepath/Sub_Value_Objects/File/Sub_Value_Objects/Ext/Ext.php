@@ -5,18 +5,20 @@ namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext;
 use JWWS\WPPF\{
     Assertion\Assertion,
     Common\Security\Security,
-    Common\Value_Object\Subclasses\String_Value_Object};
+    Common\Value_Object\Value_Object,
+    Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Enums\Type
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Represents a file's extension.
  */
-abstract class Ext extends String_Value_Object {
+abstract class Ext extends Value_Object {
     /**
-     * Returns the string of the subclass' extension type.
+     * Returns the extension type.
      */
-    abstract protected static function ext(): string;
+    abstract protected static function type(): Type;
 
     /**
      * Undocumented function.
@@ -42,7 +44,7 @@ abstract class Ext extends String_Value_Object {
     private static function validate(string $ext): string {
         Assertion::of(value: $ext)
             ->not_empty()
-            ->extension(ext: static::ext())
+            ->extension(ext: static::type()->value)
         ;
 
         return $ext;

@@ -7,7 +7,7 @@ use JWWS\WPPF\{
     Traits\Log\Log,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
@@ -15,11 +15,12 @@ Security::stop_direct_access();
 final class Collection implements
     \ArrayAccess,
     \Countable,
-    \IteratorAggregate {
+    \IteratorAggregate,
+    \Stringable {
     use Log;
 
     /**
-     * Undocumented function.
+     * Factory method.
      */
     public static function of(mixed ...$items): self {
         return new self(
@@ -56,7 +57,7 @@ final class Collection implements
     }
 
     /**
-     * Undocumented function.
+     * Applies the callback to the elements of the collection.
      */
     public function map(callable $callback): self {
         return self::of(
@@ -88,7 +89,8 @@ final class Collection implements
     }
 
     /**
-     * Undocumented function.
+     * Iterates over each value in the collection passing them to the callback
+     * function.
      */
     private function filter(callable $callback, int $mode): self {
         return self::of(
@@ -114,6 +116,7 @@ final class Collection implements
 
     /**
      * Fetches the values of a given key.
+     *
      * Keys in objects must be public.
      */
     public function pluck(mixed $key): self {
@@ -149,7 +152,7 @@ final class Collection implements
     }
 
     /**
-     * Undocumented function.
+     * Checks if the given key or index exists in the collection.
      */
     public function contains_key(mixed $key): bool {
         return array_key_exists(
@@ -159,7 +162,7 @@ final class Collection implements
     }
 
     /**
-     * Undocumented function.
+     * Checks if a value exists in the collection.
      */
     public function contains_value(mixed $value): bool {
         return in_array(
@@ -169,16 +172,16 @@ final class Collection implements
     }
 
     /**
-     * Undocumented function.
+     * Converts collection to an array type variable.
      */
     public function to_array(): array {
         return $this->items;
     }
 
     /**
-     * Undocumented function.
+     * Joins collection elements with a string.
      */
-    public function to_string(string $separator = ', '): string {
+    public function implode(string $separator = ', '): string {
         return implode(
             separator: $separator,
             array: $this->items,
@@ -186,7 +189,7 @@ final class Collection implements
     }
 
     /**
-     * Undocumented function.
+     * Counts all elements in the collection.
      */
     public function count(): int {
         return count(value: $this->items);
@@ -232,5 +235,14 @@ final class Collection implements
         return new \ArrayIterator(
             array: $this->items,
         );
+    }
+
+    /**
+     * {@inheritDoc}
+     *
+     * Returns as comma separated list: `a, b, c, d`
+     */
+    public function __toString(): string {
+        return implode(separator: ', ', array: $this->items);
     }
 }

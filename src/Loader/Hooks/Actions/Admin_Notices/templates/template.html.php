@@ -4,6 +4,6 @@
         <strong><?= $child_plugin_name; ?></strong>
         plugin needs the
         <strong><?= $parent_plugin_name; ?></strong>
-        plugin to be installed and active.
+        plugin to be installed and activated.
     </p>
 </div>

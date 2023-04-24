@@ -2,20 +2,25 @@
 
 namespace JWWS\WPPF\Filepath;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Common\Testing\Test,
-};
+use PHPUnit\Framework\Attributes\Test;
+use PHPUnit\Framework\TestCase;
 
-Security::stop_direct_access();
-
-/**
- * Undocumented class.
- */
-final class Filepath_Test extends Test {
+final class Filepath_Test extends TestCase {
     /**
-     * Undocumented function.
+     * @test
      */
-    public static function run(): void {
+    public function can_run(): void {
+        $this->assertTrue(true);
+    }
+
+    /**
+     * @testx
+     */
+    public function can_echo_class_name(): void {
+        $this->expectOutputString(
+            Filepath::class,
+        );
+
+        echo __NAMESPACE__ . '\Filepath';
     }
 }

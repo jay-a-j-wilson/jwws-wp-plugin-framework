@@ -9,7 +9,7 @@ use JWWS\WPPF\Filepath\{
     Sub_Value_Objects\File\Factory\Subclasses\PHP_Factory\PHP_Factory,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
@@ -78,7 +78,7 @@ final class Template {
 
         ob_start();
 
-        require $this->filepath->value();
+        require $this->filepath->value;
 
         return ob_get_clean();
     }

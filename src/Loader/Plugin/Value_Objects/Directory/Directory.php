@@ -4,15 +4,15 @@ namespace JWWS\WPPF\Loader\Plugin\Value_Objects\Directory;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Subclasses\String_Value_Object
+    Common\Value_Object\Value_Object
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
- * Represents the plugin directory.
+ * Represents the WordPress plugin directory.
  */
-final class Directory extends String_Value_Object {
+final class Directory extends Value_Object {
     /**
      * Undocumented function.
      */

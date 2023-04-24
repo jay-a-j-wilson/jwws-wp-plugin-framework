@@ -5,14 +5,15 @@ namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name;
 use JWWS\WPPF\{
     Assertion\Assertion,
     Common\Security\Security,
-    Common\Value_Object\Subclasses\String_Value_Object,};
+    Common\Value_Object\Value_Object
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Represents a filename.
  */
-final class Name extends String_Value_Object {
+final class Name extends Value_Object {
     /**
      * Undocumented function.
      */
@@ -21,9 +22,16 @@ final class Name extends String_Value_Object {
 
         return new self(
             value: self::validate(
-                filename: pathinfo(path: $path, flags: PATHINFO_FILENAME),
+                filename: self::filename(path: $path),
             ),
         );
+    }
+
+    /**
+     * Undocumented function.
+     */
+    private static function filename(string $path): string {
+        return pathinfo(path: $path, flags: PATHINFO_FILENAME);
     }
 
     /**

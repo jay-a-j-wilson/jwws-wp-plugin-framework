@@ -6,14 +6,15 @@ use JWWS\WPPF\{
     Assertion\Assertion,
     Collection\Collection,
     Common\Security\Security,
-    Common\Value_Object\Subclasses\String_Value_Object};
+    Common\Value_Object\Value_Object
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Represents a directory.
  */
-abstract class Directory extends String_Value_Object {
+abstract class Directory extends Value_Object {
     /**
      * Returns the parent directory level to return.
      *
@@ -41,7 +42,7 @@ abstract class Directory extends String_Value_Object {
     }
 
     /**
-     * Undocumented function.
+     * Returns directory from the path.
      */
     private static function directory(string $path): string {
         return Collection::of(...explode(
@@ -49,12 +50,13 @@ abstract class Directory extends String_Value_Object {
             string: dirname(path: $path),
         ))
             ->slice(offset: -static::levels())
-            ->to_string(separator: DIRECTORY_SEPARATOR)
+            ->implode(separator: DIRECTORY_SEPARATOR)
         ;
     }
 
     /**
-     * Undocumented function.
+     * Removes the period (.) from empty directories for cleaner filepath
+     * building.
      */
     private static function format(string $path): string {
         return $path === '.'

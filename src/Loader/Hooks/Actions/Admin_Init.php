@@ -5,9 +5,10 @@ namespace JWWS\WPPF\Loader\Hooks\Actions;
 use JWWS\WPPF\{
     Common\Security\Security,
     Loader\Hooks\Actions\Admin_Notices\Admin_Notices,
-    Loader\Plugin\Plugin};
+    Loader\Plugin\Plugin
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
@@ -43,12 +44,11 @@ final class Admin_Init {
 
         $this->plugin
             ->inactive_dependencies()
-            ->each(
-                callback: fn (Plugin $dependant_plugin) => Admin_Notices::hook(
+            ->each(callback: fn (Plugin $dependant_plugin) =>
+                Admin_Notices::hook(
                     dependant_plugin: $dependant_plugin,
                     plugin: $this->plugin,
-                ),
-            )
+                ))
         ;
 
         $this->plugin->deactivate();

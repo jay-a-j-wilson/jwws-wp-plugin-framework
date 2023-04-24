@@ -8,7 +8,7 @@ use JWWS\WPPF\Filepath\{
     Sub_Value_Objects\File\Sub_Value_Objects\Ext\Subclasses\PHP_Ext\PHP_Ext
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * PHP File factory.

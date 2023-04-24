@@ -2,12 +2,11 @@
     "name": "jay-a-j-wilson/jwws-wp-plugin-framework",
     "description": "A light-weight framework for WordPress plugins.",
     "require": {
-        "php": ">=8.0"
+        "php": ">=8.1"
     },
     "autoload": {
         "psr-4": {
-            "JWWS\\WPPF\\": "src/",
-            "JWWS\\WPPF\\Test\\": "test/"
+            "JWWS\\WPPF\\": "src/"
         }
     }
 }

@@ -1,54 +1,47 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Subclasses\PHP_Ext;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Logger\Error_Logger\Error_Logger,
-    WordPress\Testing\WP_Test};
+use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\{
+    CoversClass,
+    Test,
+    TestDox,
+    TestWith
+};
+use PHPUnit\Framework\TestCase;
 
-Security::stop_direct_access();
-
-/**
- * Undocumented class.
- */
-final class PHP_Ext_Test extends WP_Test {
-    /**
-     * Undocumented function.
-     */
-    public static function hook(): void {
-        self::of();
-        self::of_two_ext();
-        self::of_bad_ext();
-    }
-
-    /**
-     * Undocumented function.
-     */
-    private static function of(): void {
-        Error_Logger::log(
-            output: PHP_Ext::of(path: 'filename.php')
-                ->value(),
+#[CoversClass(PHP_Ext::class)]
+final class PHP_Ext_Test extends TestCase {
+    #[Test]
+    public function can_be_created_with_valid_code(): void {
+        $this->assertInstanceOf(
+            expected: PHP_Ext::class,
+            actual: PHP_Ext::of(path: 'file.php'),
         );
     }
 
-    /**
-     * Undocumented function.
-     */
-    private static function of_two_ext(): void {
-        Error_Logger::log(
-            output: PHP_Ext::of(path: 'filename.html.php')
-                ->value(),
+    #[Test]
+    #[TestDox('Valid path $path ends in "php".')]
+    #[TestWith(['file.php'])]
+    #[TestWith(['dir/file.php'])]
+    #[TestWith(['dir/subdir/file.php'])]
+    public function valid_argument_should_pass(mixed $path): void {
+        $this->assertEquals(
+            expected: 'php',
+            actual: PHP_Ext::of(path: $path),
         );
     }
 
-    /**
-     * Undocumented function.
-     */
-    private static function of_bad_ext(): void {
-        Error_Logger::log(
-            output: PHP_Ext::of(path: 'filename.html')
-                ->value(),
-        );
+    #[Test]
+    #[TestDox('Invalid path $path does not end in "php".')]
+    #[TestWith([''])]
+    #[TestWith(['file.php.'])]
+    #[TestWith(['file.css'])]
+    #[TestWith(['dir/file.html'])]
+    #[TestWith(['dir/subdir/file.js'])]
+    public function invalid_argument_should_throw_exception(mixed $path): void {
+        $this->expectException(exception: InvalidArgumentException::class);
+        PHP_Ext::of(path: $path);
     }
 }

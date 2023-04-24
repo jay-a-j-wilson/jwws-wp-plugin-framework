@@ -6,10 +6,11 @@ use JWWS\WPPF\{
     Collection\Collection,
     Common\Security\Security,
     WordPress\Repo\Repo,
-    WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo
+    WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo,
+    Assertion\Assertion
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * ViewModel Repository.
@@ -29,7 +30,7 @@ final class WP_Post_Type_Repo extends Repo implements Post_Type_Repo {
      */
     public function list_all(): Collection {
         return Collection::of(
-            items: get_post_types(output: 'objects'),
+            ...get_post_types(output: 'objects'),
         );
     }
 
@@ -44,9 +45,9 @@ final class WP_Post_Type_Repo extends Repo implements Post_Type_Repo {
             output: 'objects',
         );
 
-        if (empty($post_types)) {
-            throw new \Exception("Post type '{$name}' not found.");
-        }
+        Assertion::of(value: $post_types)
+            ->not_empty(message: "Post type '{$name}' not found.")
+        ;
 
         return $post_types[$name];
     }

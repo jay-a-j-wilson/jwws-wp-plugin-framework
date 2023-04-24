@@ -11,7 +11,7 @@ use JWWS\WPPF\{
     Traits\Log\Log
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
@@ -25,7 +25,7 @@ final class Plugin {
      * Use when the plugin's directory name is the same as the plugin's main
      * filename.
      *
-     * @param string $fallback_name will be overwitten by plugin's name if it's
+     * @param string $fallback_name will be overwritten by plugin's name if it's
      *                              installed
      */
     public static function of_slug(
@@ -45,7 +45,7 @@ final class Plugin {
      * filename.
      *
      * @param string $basename      example "directory/filename.php"
-     * @param string $fallback_name will be overwitten by plugin's name if it's
+     * @param string $fallback_name will be overwritten by plugin's name if it's
      *                              installed
      */
     public static function of_basename(
@@ -65,9 +65,9 @@ final class Plugin {
      * Undocumented function.
      */
     private function __construct(
-        private Basename $basename,
-        private Name $name,
-        private Collection $dependencies = new Collection(),
+        public readonly Basename $basename,
+        public readonly Name $name,
+        public readonly Collection $dependencies = new Collection(),
     ) {
     }
 
@@ -75,14 +75,14 @@ final class Plugin {
      * Deactivates plugin.
      */
     public function deactivate(): void {
-        deactivate_plugins(plugins: $this->basename->value());
+        deactivate_plugins(plugins: $this->basename->value);
     }
 
     /**
      * Checks if active.
      */
     public function is_active(): bool {
-        return is_plugin_active(plugin: $this->basename->value());
+        return is_plugin_active(plugin: $this->basename->value);
     }
 
     /**
@@ -104,29 +104,6 @@ final class Plugin {
     }
 
     /**
-     * Returns the plugin's name.
-     */
-    public function name(): string {
-        return $this->name->value();
-    }
-
-    /**
-     * Returns the plugin's filename.
-     *
-     * Example: "plugin-folder/plugin-filename.php"
-     */
-    public function basename(): string {
-        return $this->basename->value();
-    }
-
-    /**
-     * Returns the plugin's dependent plugins.
-     */
-    public function dependencies(): Collection {
-        return $this->dependencies;
-    }
-
-    /**
      * Returns the plugin's inactive dependent plugins.
      */
     public function inactive_dependencies(): Collection {
@@ -143,7 +120,7 @@ final class Plugin {
     public function dependencies_names(): Collection {
         return $this->dependencies
             ->map(
-                callback: fn (Plugin $dependency): string => $dependency->name(),
+                callback: fn (Plugin $dependency): string => $dependency->name->value,
             )
         ;
     }
@@ -167,10 +144,17 @@ final class Plugin {
      *
      * @param string $basename Example 'directory/filename.php'.
      */
-    public function contains_dependecy(string $basename): bool {
+    public function contains_dependency(string $basename): bool {
         return $this->dependencies
             ->contains_value(value: $basename)
         ;
+    }
+
+    /**
+     * @param string $basename Example 'directory/filename.php'.
+     */
+    public function basename_equals(string $basename): bool {
+        return $this->basename->value === $basename;
     }
 
     /**

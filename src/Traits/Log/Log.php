@@ -7,7 +7,7 @@ use JWWS\WPPF\{
     Logger\Error_Logger\Error_Logger,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented trait.

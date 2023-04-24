@@ -6,10 +6,12 @@ use JWWS\WPPF\{
     Collection\Collection,
     Common\Security\Security,
     WordPress\Repo\Repo,
-    WordPress\Repo\Subclasses\User_Repo\User_Repo
+    WordPress\Repo\Subclasses\User_Repo\User_Repo,
+    Assertion\Assertion,
+    WordPress\Utility\Utility as WordPress,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * ViewModel Repository.
@@ -35,11 +37,9 @@ final class WP_User_Repo extends Repo implements User_Repo {
 
     /**
      * Undocumented function.
-     *
-     * @param string $id
      */
     public function find_by_id(int $id): \WP_User {
-        return get_user_by(
+        return WordPress::get_user_by(
             field: 'id',
             value: $id,
         );

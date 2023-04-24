@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Logger;
 
 use JWWS\WPPF\Common\Security\Security;
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
@@ -19,7 +19,7 @@ abstract class Logger {
     /**
      * Logs the output.
      *
-     * @return mixed $output lets orginal variable pass through
+     * @return mixed $output lets original variable pass through
      */
     abstract public static function log(mixed $output): mixed;
 

@@ -6,10 +6,11 @@ use JWWS\WPPF\{
     Collection\Collection,
     Common\Security\Security,
     WordPress\Repo\Repo,
-    WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo
+    WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo,
+    Assertion\Assertion
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * ViewModel Repository.
@@ -29,7 +30,7 @@ final class WP_Taxonomy_Repo extends Repo implements Taxonomy_Repo {
      */
     public function list_all(): Collection {
         return Collection::of(
-            items: get_taxonomies(output: 'objects'),
+            ...get_taxonomies(output: 'objects'),
         );
     }
 
@@ -44,11 +45,9 @@ final class WP_Taxonomy_Repo extends Repo implements Taxonomy_Repo {
             output: 'objects',
         );
 
-        if (empty($taxonomies)) {
-            throw new \Exception(
-                message: "Taxonomy type '{$name}' not found.",
-            );
-        }
+        Assertion::of(value: $taxonomies)
+            ->not_empty(message: "Taxonomy type '{$name}' not found.")
+        ;
 
         return $taxonomies[$name];
     }

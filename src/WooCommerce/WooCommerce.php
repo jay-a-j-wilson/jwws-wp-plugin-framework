@@ -5,10 +5,10 @@ namespace JWWS\WPPF\WooCommerce;
 use JWWS\WPPF\{
     Common\Security\Security,
     Common\Utility\Generic,
-    WordPress\Utility\Generic as WordPress
+    WordPress\Utility\Utility as WordPress
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Utility.
@@ -21,7 +21,7 @@ final class WooCommerce {
     }
 
     /**
-     * Gets the product categories ordered by parent and alphabetised.
+     * Gets the product categories ordered by parent and alphabetized.
      */
     public static function get_product_categories(): array {
         return Generic::flatten(

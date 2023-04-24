@@ -4,18 +4,20 @@ namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Subcla
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Ext};
+    Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Ext,
+    Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Enums\Type
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
- * Represents a js file's extension.
+ * Represents a js file extension.
  */
 final class JS_Ext extends Ext {
     /**
      * Undocumented function.
      */
-    protected static function ext(): string {
-        return 'js';
+    protected static function type(): Type {
+        return Type::JS;
     }
 }

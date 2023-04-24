@@ -8,7 +8,7 @@ use JWWS\WPPF\{
     Traits\Var_Export_R\Var_Export_R,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented trait.

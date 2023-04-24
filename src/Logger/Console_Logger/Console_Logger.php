@@ -8,10 +8,10 @@ use JWWS\WPPF\{
     Logger\Logger,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
- * Undocumented class.
+ * Web browser console logger.
  */
 final class Console_Logger extends Logger {
     /**

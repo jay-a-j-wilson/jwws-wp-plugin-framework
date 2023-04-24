@@ -4,16 +4,17 @@ namespace JWWS\WPPF\Loader\Plugin\Value_Objects\Name;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Subclasses\String_Value_Object,
+    Common\Value_Object\Value_Object,
     Loader\Plugin\Value_Objects\Basename\Basename,
-    Loader\Plugin\Value_Objects\Header\Subclasses\Name_Header\Name_Header};
+    Loader\Plugin\Value_Objects\Header\Subclasses\Name_Header\Name_Header
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
- * Undocumented class.
+ * The plugin name.
  */
-final class Name extends String_Value_Object {
+final class Name extends Value_Object {
     /**
      * @param string $fallback_name example "Plugin"
      */
@@ -23,21 +24,22 @@ final class Name extends String_Value_Object {
     ): self {
         return new self(
             value: self::name(
-                basename: Basename::of(basename: $basename),
+                basename: $basename,
                 fallback_name: $fallback_name,
             ),
         );
     }
 
     /**
-     * Selects name.
+     * Retrieves the plugin name from its header comment or defaults to the
+     * specified fallback name.
      */
     private static function name(
-        Basename $basename,
+        string $basename,
         string $fallback_name,
     ): string {
         try {
-            return Name_Header::of(basename: $basename)->value();
+            return Name_Header::of(basename: $basename)->value;
         } catch (\Exception $e) {
             return $fallback_name;
         }

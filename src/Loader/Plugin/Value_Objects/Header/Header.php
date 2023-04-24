@@ -4,23 +4,26 @@ namespace JWWS\WPPF\Loader\Plugin\Value_Objects\Header;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Subclasses\String_Value_Object,
-    Loader\Plugin\Value_Objects\Path\Path};
+    Common\Value_Object\Value_Object,
+    Loader\Plugin\Value_Objects\Path\Path,
+    Loader\Plugin\Value_Objects\Header\Enums\Type
+};
 use JWWS\WPPF\Filepath\{
     Sub_Value_Objects\Directory\Subclasses\Entire_Directory\Entire_Directory,
     Sub_Value_Objects\File\Factory\Subclasses\PHP_Factory\PHP_Factory,
-    Subclasses\Confirmed_Filepath\Confirmed_Filepath,};
+    Subclasses\Confirmed_Filepath\Confirmed_Filepath
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Represents the plugin's header value object.
  */
-abstract class Header extends String_Value_Object {
+abstract class Header extends Value_Object {
     /**
      * Returns the header type.
      */
-    abstract protected static function type(): string;
+    abstract protected static function type(): Type;
 
     /**
      * @param string $basename the plugin's basename
@@ -29,7 +32,7 @@ abstract class Header extends String_Value_Object {
         return new static(
             value: self::header(
                 path: Path::of(basename: $basename),
-            )[static::type()],
+            )[static::type()->value],
         );
     }
 
@@ -53,7 +56,7 @@ abstract class Header extends String_Value_Object {
 
         // https://developer.wordpress.org/reference/functions/get_plugin_data/
         return get_plugin_data(
-            plugin_file: $path->value(),
+            plugin_file: $path->value,
         );
     }
 

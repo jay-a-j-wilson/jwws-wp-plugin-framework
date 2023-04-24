@@ -4,18 +4,20 @@ namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Subcla
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Ext};
+    Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Ext,
+    Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Ext\Enums\Type
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
- * Represents a php file's extension.
+ * Represents a php file extension.
  */
 final class PHP_Ext extends Ext {
     /**
      * Undocumented function.
      */
-    protected static function ext(): string {
-        return 'php';
+    protected static function type(): Type {
+        return Type::PHP;
     }
 }

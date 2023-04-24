@@ -6,7 +6,7 @@ use JWWS\WPPF\{
     Common\Security\Security,
     Loader\Plugin\Plugin};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
@@ -39,7 +39,7 @@ final class Deactivated_Plugin {
      *                       directory
      */
     public function callback(string $plugin): void {
-        if ($this->plugin->contains_dependecy(basename: $plugin)) {
+        if ($this->plugin->contains_dependency(basename: $plugin)) {
             $this->plugin->deactivate();
         }
     }

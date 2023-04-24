@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Traits\Var_Dump_R;
 
 use JWWS\WPPF\Common\Security\Security;
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 trait Var_Dump_R {
     /**

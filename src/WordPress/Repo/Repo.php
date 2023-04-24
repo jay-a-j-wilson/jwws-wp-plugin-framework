@@ -7,25 +7,25 @@ use JWWS\WPPF\{
     Collection\Collection,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * ViewModel Repository.
  */
 abstract class Repo {
     /**
-     * Undocumented function.
+     * Factory method.
      */
     abstract public static function create(): self;
 
     /**
-     * Undocumented function.
+     * Enforces use of factory method.
      */
     protected function __construct() {
     }
 
     /**
-     * Undocumented function.
+     * Returns all repository elements.
      */
     abstract public function list_all(): Collection;
 }

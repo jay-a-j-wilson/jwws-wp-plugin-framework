@@ -6,7 +6,7 @@ use JWWS\WPPF\{
     Common\Security\Security,
     Filepath\Sub_Value_Objects\Directory\Directory};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Represents the parent folder.

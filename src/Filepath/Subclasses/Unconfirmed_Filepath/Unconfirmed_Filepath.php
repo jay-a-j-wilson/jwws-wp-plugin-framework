@@ -7,7 +7,7 @@ use JWWS\WPPF\{
     Filepath\Filepath
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Represents a filepath that may exist.

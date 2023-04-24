@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\Common\Security;
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
@@ -22,7 +22,8 @@ final class Security {
             return;
         }
 
-        error_log('Direct url access attempted.');
+        error_log(message: 'Direct url access attempted.');
+        // error_log(message: print_r(value: debug_backtrace(), return: true));
 
         exit;
     }

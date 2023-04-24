@@ -4,16 +4,16 @@ namespace JWWS\WPPF\Assertion;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Assertion\Comparison\Comparison,
-    Assertion\File\File,
-    Assertion\Str\Str,
-    Assertion\Type\Type
+    Assertion\Traits\Comparison\Comparison,
+    Assertion\Traits\File\File,
+    Assertion\Traits\Str\Str,
+    Assertion\Traits\Type\Type,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
- * Undocumented class.
+ * Provides assertion methods.
  */
 final class Assertion {
     use Comparison,
@@ -22,7 +22,7 @@ final class Assertion {
         Type;
 
     /**
-     * Undocumented function.
+     * Static factory method.
      */
     public static function of(mixed $value): self {
         return new self(
@@ -31,7 +31,7 @@ final class Assertion {
     }
 
     /**
-     * Undocumented function.
+     * Enforces construction with static factory method.
      */
     private function __construct(private mixed $value) {
     }

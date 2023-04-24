@@ -8,14 +8,14 @@ use JWWS\WPPF\{
     Template\Template
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
  */
 final class Admin_Notices {
     /**
-     * Undocumented function.
+     * Hooks into 'admin_notices' filter.
      */
     public static function hook(Plugin $dependant_plugin, Plugin $plugin): void {
         add_filter(
@@ -50,11 +50,11 @@ final class Admin_Notices {
         echo Template::of(path: __DIR__ . '/templates/template.html.php')
             ->assign(
                 names: 'parent_plugin_name',
-                value: $this->parent_plugin->name(),
+                value: $this->parent_plugin->name,
             )
             ->assign(
                 names: 'child_plugin_name',
-                value: $this->child_plugin->name(),
+                value: $this->child_plugin->name,
             )
             ->output()
         ;

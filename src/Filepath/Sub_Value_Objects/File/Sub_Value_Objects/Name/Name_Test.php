@@ -1,76 +1,47 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Common\Testing\Test,
-    Logger\Error_Logger\Error_Logger};
+use InvalidArgumentException;
+use PHPUnit\Framework\Attributes\{
+    CoversClass,
+    Test,
+    TestDox,
+    TestWith
+};
+use PHPUnit\Framework\TestCase;
 
-Security::stop_direct_access();
-
-/**
- * Undocumented class.
- */
-final class Name_Test extends Test {
-    /**
-     * Undocumented function.
-     */
-    public static function run(): void {
-        self::of();
-        // self::of_no_ext();
-        // self::of_no_filename();
-        self::of_valid_file_path_chars_pass();
-        self::of_valid_file_path_chars_fail();
-    }
-
-    /**
-     * Undocumented function.
-     */
-    private static function of(): void {
-        Error_Logger::log(
-            output: Name::of(path: 'dir/subdir/filename.ext')
-                ->value(),
+#[CoversClass(Name::class)]
+final class Name_Test extends TestCase {
+    #[Test]
+    public function can_be_created_with_valid_code(): void {
+        $this->assertInstanceOf(
+            expected: Name::class,
+            actual: Name::of(path: 'file.php'),
         );
     }
 
-    /**
-     * Undocumented function.
-     */
-    private static function of_valid_file_path_chars_pass(): void {
-        Error_Logger::log(
-            output: Name::of(path: 'dir/subdir/filename')
-                ->value(),
+    #[Test]
+    #[TestDox('Valid filename $path is "file".')]
+    #[TestWith(['file.php'])]
+    #[TestWith(['dir/file.php'])]
+    #[TestWith(['dir/subdir/file.php'])]
+    public function valid_argument_should_pass(mixed $path): void {
+        $this->assertEquals(
+            expected: 'file',
+            actual: Name::of(path: $path),
         );
     }
 
-    /**
-     * Undocumented function.
-     */
-    private static function of_valid_file_path_chars_fail(): void {
-        Error_Logger::log(
-            output: Name::of(path: 'dir/subdir/#filename')
-                ->value(),
-        );
-    }
-
-    /**
-     * Undocumented function.
-     */
-    private static function of_no_ext(): void {
-        Error_Logger::log(
-            output: Name::of(path: 'dir/subdir/filename')
-                ->value(),
-        );
-    }
-
-    /**
-     * Undocumented function.
-     */
-    private static function of_no_filename(): void {
-        Error_Logger::log(
-            output: Name::of(path: 'dir/subdir/.ext')
-                ->value(),
-        );
+    #[Test]
+    #[TestDox('Invalid filename $path is not "file".')]
+    #[TestWith([''])]
+    #[TestWith(['.php'])]
+    #[TestWith(['\file.css'])]
+    #[TestWith(['dir/.html'])]
+    #[TestWith(['dir/subdir/.js'])]
+    public function invalid_argument_should_throw_exception(mixed $path): void {
+        $this->expectException(exception: InvalidArgumentException::class);
+        Name::of(path: $path);
     }
 }

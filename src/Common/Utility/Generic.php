@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Common\Utility;
 
 use JWWS\WPPF\Common\Security\Security;
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.

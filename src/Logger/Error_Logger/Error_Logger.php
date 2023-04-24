@@ -9,7 +9,7 @@ use JWWS\WPPF\{
     Traits\Variable_Handler,
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.

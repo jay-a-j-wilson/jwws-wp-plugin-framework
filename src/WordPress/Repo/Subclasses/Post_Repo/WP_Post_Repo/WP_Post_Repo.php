@@ -6,11 +6,13 @@ use JWWS\WPPF\{
     Collection\Collection,
     Common\Security\Security,
     WordPress\Repo\Repo,
+    WordPress\Repo\Subclasses\Post_Type_Repo\WP_Post_Type_Repo\WP_Post_Type_Repo,
     WordPress\Repo\Subclasses\Post_Repo\Post_Repo,
-    WordPress\Repo\Subclasses\Post_Type_Repo\WP_Post_Type_Repo\WP_Post_Type_Repo
+    WordPress\Utility\Utility as WordPress,
+    Assertion\Assertion
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * ViewModel Repository.
@@ -34,7 +36,7 @@ final class WP_Post_Repo extends Repo implements Post_Repo {
             types: WP_Post_Type_Repo::create()
                 ->list_all()
                 ->filter_by_value(
-                    callback: fn (\WP_Post_Type $type): bool => Collection::of(items: $post_type_names)
+                    callback: fn (\WP_Post_Type $type): bool => Collection::of(...$post_type_names)
                         ->contains_value(value: $type->name),
                 ),
         );
@@ -71,15 +73,21 @@ final class WP_Post_Repo extends Repo implements Post_Repo {
      * Undocumented function.
      */
     public function find_by_id(int $id): \WP_Post {
-        $post       = get_post(post: $id);
-        $type_names = $this->types->pluck(key: 'name');
+        return $this->validate(post: WordPress::get_post(post: $id));
+    }
 
-        if (! $type_names->contains_value(value: $post->post_type)) {
-            throw new \Exception(
-                message: "Post with id '{$id}' not found with post type '{$type_names->to_string()}'.",
-            );
-        }
+    /**
+     * Checks post is found with type.
+     *
+     * @throws \Exception
+     */
+    private function validate(\WP_Post $post): \WP_Post {
+        $names = $this->types->pluck(key: 'name');
 
-        return get_post(post: $id);
+        Assertion::of(value: $names->contains_value(value: $post->post_type))
+            ->true(message: "Post with id '{$post->ID}' not found with post type '{$names}'.")
+        ;
+
+        return $post;
     }
 }

@@ -9,7 +9,7 @@ use JWWS\WPPF\{
     Loader\Plugin\Plugin
 };
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.

@@ -4,16 +4,17 @@ namespace JWWS\WPPF\Filepath;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Subclasses\String_Value_Object,
+    Common\Value_Object\Value_Object,
     Filepath\Sub_Value_Objects\Directory\Directory,
-    Filepath\Sub_Value_Objects\File\File};
+    Filepath\Sub_Value_Objects\File\File
+};
 
-Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Will always return a directory and a file
  */
-abstract class Filepath extends String_Value_Object {
+abstract class Filepath extends Value_Object {
     /**
      * Undocumented function.
      */
