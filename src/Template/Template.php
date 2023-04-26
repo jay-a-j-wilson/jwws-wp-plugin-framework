@@ -1,12 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Template;
 
 use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Filepath\{
-    Subclasses\Confirmed_Filepath\Confirmed_Filepath,
     Sub_Value_Objects\Directory\Subclasses\Entire_Directory\Entire_Directory,
     Sub_Value_Objects\File\Factory\Subclasses\PHP_Factory\PHP_Factory,
+    Subclasses\Confirmed_Filepath\Confirmed_Filepath,
 };
 
 // Security::stop_direct_access();

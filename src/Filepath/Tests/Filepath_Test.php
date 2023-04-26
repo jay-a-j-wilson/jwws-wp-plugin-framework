@@ -1,19 +1,18 @@
 <?php
 
-namespace JWWS\WPPF\Assertion\Traits\Comparison;
+namespace JWWS\WPPF\Filepath;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Testing\Tests};
+    Common\Testing\Tests,
+};
 
 // Security::stop_direct_access();
 
 /**
  * Undocumented class.
  */
-final class Comparison_Tests extends Tests {
-    use Comparison;
-
+final class Filepath_Test extends Tests {
     /**
      * Undocumented function.
      */

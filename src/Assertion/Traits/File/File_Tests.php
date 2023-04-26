@@ -11,7 +11,7 @@ use JWWS\WPPF\{
 /**
  * Undocumented class.
  */
-final class File_Testss extends Tests {
+final class File_Tests extends Tests {
     use File;
 
     /**

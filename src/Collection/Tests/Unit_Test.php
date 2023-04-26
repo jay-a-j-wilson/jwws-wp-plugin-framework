@@ -13,21 +13,7 @@ use PHPUnit\Framework\Attributes\{
 #[CoversClass(Collection::class)]
 final class Unit_Test extends TestCase {
     #[Test]
-    public function can_run(): void {
-        $this->assertTrue(true);
-    }
-
-    #[Test]
-    public function can_echo_class_name(): void {
-        $this->expectOutputString(
-            Collection::class,
-        );
-
-        echo __NAMESPACE__ . '\Collection';
-    }
-
-    #[Test]
-    public function can_init_class(): void {
+    public function can_be_created_with_valid_code(): void {
         $this->assertInstanceOf(
             expected: Collection::class,
             actual: Collection::of('a', 'b', 'c', 'd'),

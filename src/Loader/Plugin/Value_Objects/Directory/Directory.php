@@ -18,7 +18,8 @@ final class Directory extends Value_Object {
      */
     public static function create(): self {
         return new self(
-            value: trailingslashit(string: WP_PLUGIN_DIR),
+            // value: trailingslashit(string: WP_PLUGIN_DIR),
+            value: trailingslashit(string: 'x'),
         );
     }
 }

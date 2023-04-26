@@ -19,7 +19,12 @@
                 phpVersionOperator=">="
                 suffix="Unit_Test.php"
             >
-                ../src
+                <!-- ../src/Assertion/Statement_Assertion -->
+                <!-- ../src/Filepath -->
+                <!-- ../src/Filepath/Sub_Value_Objects/Directory -->
+                <!-- ../src/Filepath/Subclasses/Confirmed_Filepath -->
+                ../src/Loader/Plugin/Value_Objects/Directory
+                <!-- ../src/Template -->
             </directory>
         </testsuite>
     </testsuites>

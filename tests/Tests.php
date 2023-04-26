@@ -3,16 +3,16 @@
 namespace JWWS\WPPF\Tests;
 
 use JWWS\WPPF\Common\Security\Security;
-use JWWS\WPPF\Test\Tests\Subclasses\{
-    Assertion_Tests,
-    Collection_Tests,
-    Filepath_Tests,
-    Loader_Tests,
-    Logger_Tests,
-    Template_Tests,
-    Traits_Tests,
-    WooCommerce_Tests,
-    WordPres_Tests
+use JWWS\WPPF\Tests\Test\Subclasses\{
+    Assertion_Test,
+    Collection_Test,
+    Filepath_Test,
+    Loader_Test,
+    Logger_Test,
+    Template_Test,
+    Traits_Test,
+    WooCommerce_Test,
+    WordPres_Test
 };
 
 Security::stop_direct_access();
@@ -25,14 +25,13 @@ final class Tests {
      * Undocumented function.
      */
     public static function run(): void {
-        // Assertion_Tests::run();
-        // Collection_Tests::run();
-        // Filepath_Tests::run();
-        // Loader_Tests::run();
-        // Logger_Tests::run();
-        // Template_Tests::run();
-        // Traits_Tests::run();
-        // WooCommerce_Tests::run();
-        // WordPres_Tests::run();
+        // Assertion_Test::run();
+        // Collection_Test::run();
+        Filepath_Test::run();
+        // Loader_Test::run();
+        // Logger_Test::run();
+        // Traits_Test::run();
+        // WooCommerce_Test::run();
+        // WordPres_Test::run();
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Assertion\Traits\Type;
 
@@ -67,7 +67,7 @@ trait Type {
     }
 
     /**
-     * Asserts value is numeic.
+     * Asserts value is numeric.
      *
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
@@ -91,8 +91,6 @@ trait Type {
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
-     *
-     * @retun self
      */
     public function boolean(string $message = ''): self {
         if (is_bool(value: $this->value)) {

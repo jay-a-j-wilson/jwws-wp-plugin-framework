@@ -10,7 +10,7 @@ use PHPUnit\Framework\Attributes\{
     CoversClass
 };
 
-#[CoversClass(Assertion::class)]
+#[CoversClass(className: Assertion::class)]
 final class Unit_Test extends TestCase {
     #[Test]
     public function can_run(): void {

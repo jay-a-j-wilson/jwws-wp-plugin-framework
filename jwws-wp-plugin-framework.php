@@ -11,13 +11,6 @@
 
 namespace JWWS\WPPF;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Tests\Tests
-};
-
 require __DIR__ . '/vendor/autoload.php';
 
-// Security::stop_direct_access();
-
-// Tests::run();
+Tests\Tests::run();

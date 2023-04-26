@@ -6,12 +6,12 @@ use JWWS\WPPF\{
     Common\Security\Security,
     Common\Testing\Tests};
 
-//// Security::stop_direct_access();
+// Security::stop_direct_access();
 
 /**
  * Undocumented class.
  */
-final class Str_Testss extends Tests {
+final class Str_Tests extends Tests {
     use Str;
 
     /**

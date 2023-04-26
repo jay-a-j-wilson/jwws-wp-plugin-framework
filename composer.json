@@ -6,7 +6,12 @@
     },
     "autoload": {
         "psr-4": {
-            "JWWS\\WPPF\\": "src/"
+            "JWWS\\WPPF\\": "src/",
+            "JWWS\\WPPF\\Tests\\": "tests/"
         }
+    },
+    "require-dev": {
+        "10up/wp_mock": "^0.5.0",
+        "phpunit/phpunit": "^9.6"
     }
 }
