@@ -12,7 +12,7 @@ use JWWS\WPPF\Tests\Test\Subclasses\{
     Template_Test,
     Traits_Test,
     WooCommerce_Test,
-    WordPres_Test
+    WordPress_Test
 };
 
 Security::stop_direct_access();
@@ -27,11 +27,11 @@ final class Tests {
     public static function run(): void {
         // Assertion_Test::run();
         // Collection_Test::run();
-        Filepath_Test::run();
+        // Filepath_Test::run();
         // Loader_Test::run();
         // Logger_Test::run();
         // Traits_Test::run();
         // WooCommerce_Test::run();
-        // WordPres_Test::run();
+        WordPress_Test::run();
     }
 }

@@ -10,14 +10,16 @@ use JWWS\WPPF\Filepath\{
 };
 use PHPUnit\Framework\Attributes\{
     CoversClass,
+    DataProvider,
     Test,
     TestDox,
-    TestWith,
-    DataProvider
+    TestWith
 };
 use PHPUnit\Framework\TestCase;
 
-#[CoversClass(className: Name::class)]
+/**
+ * @cover Confirmed_Filepath
+ */
 final class Unit_Test extends TestCase {
     public static function data_provider(): array {
         return [
@@ -26,9 +28,17 @@ final class Unit_Test extends TestCase {
         ];
     }
 
-    #[Test]
-    #[TestDox(text: 'Valid path "$path" exists.')]
-    #[DataProvider(methodName: 'data_provider')]
+    // #[Test]
+    // #[TestDox(text: 'Valid path "$path" exists.')]
+    // #[DataProvider(methodName: 'data_provider')]
+    
+    /**
+     * @test
+     *
+     * @testdox Valid path "$path" exists.
+     *
+     * @dataProvider data_provider
+     */
     public function pass(string $path): void {
         $this->expectNotToPerformAssertions();
         Confirmed_Filepath::of(
@@ -47,6 +57,4 @@ final class Unit_Test extends TestCase {
             file: PHP_Factory::of(path: $path),
         );
     }
-
-
 }

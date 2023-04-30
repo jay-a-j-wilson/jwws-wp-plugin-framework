@@ -26,7 +26,7 @@ final class Statement_Assertion {
      *
      * @throws \InvalidArgumentException if the assertion fails
      */
-    public function true(string $message = ''): self {
+    public function is_true(string $message = ''): self {
         if ($this->statement == true) {
             return $this;
         }
@@ -44,7 +44,7 @@ final class Statement_Assertion {
      *
      * @throws \InvalidArgumentException if the assertion fails
      */
-    public function not_true(string $message = ''): self {
+    public function is_not_true(string $message = ''): self {
         if ($this->statement != true) {
             return $this;
         }
@@ -62,7 +62,7 @@ final class Statement_Assertion {
      *
      * @throws \InvalidArgumentException if the assertion fails
      */
-    public function false(string $message = ''): self {
+    public function is_false(string $message = ''): self {
         if ($this->statement == false) {
             return $this;
         }
@@ -80,7 +80,7 @@ final class Statement_Assertion {
      *
      * @throws \InvalidArgumentException if the assertion fails
      */
-    public function not_false(string $message = ''): self {
+    public function is_not_false(string $message = ''): self {
         if ($this->statement != false) {
             return $this;
         }

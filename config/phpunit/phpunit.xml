@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit
+    bootstrap="../../tests/phpunit/bootstrap.php"
+    backupGlobals="false"
+    colors="true"
+    executionOrder="random"
+    testdox="true"
+>
+    <testsuites>
+        <testsuite name="all">
+            <directory suffix=".php">
+                ../../src/*/Tests
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/Tests
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/Tests
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/Tests
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/Tests
+            </directory>
+        </testsuite>
+        <testsuite name="unit">
+            <directory suffix=".php">
+                ../../src/*/Tests/Unit
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/Tests/Unit
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/Tests/Unit
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/Tests/Unit
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/Tests/Unit
+            </directory>
+        </testsuite>
+        <testsuite name="integration">
+            <directory suffix=".php">
+                ../../src/WordPress
+            </directory>
+        </testsuite>
+    </testsuites>
+</phpunit>

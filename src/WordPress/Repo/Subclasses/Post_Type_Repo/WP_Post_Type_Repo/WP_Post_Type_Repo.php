@@ -1,13 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Post_Type_Repo\WP_Post_Type_Repo;
 
 use JWWS\WPPF\{
+    Assertion\Assertion,
+    Assertion\WordPress_Assertion\WordPress_Assertion,
     Collection\Collection,
     Common\Security\Security,
     WordPress\Repo\Repo,
-    WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo,
-    Assertion\Assertion
+    WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo
 };
 
 // Security::stop_direct_access();
@@ -17,14 +18,14 @@ use JWWS\WPPF\{
  */
 final class WP_Post_Type_Repo extends Repo implements Post_Type_Repo {
     /**
-     * Undocumented function.
+     * Factory method.
      */
     public static function create(): self {
         return new self();
     }
 
     /**
-     * Undocumented function.
+     * Returns an object collection of all registered post type.
      *
      * @return Collection<\WP_Post_Type>
      */
@@ -35,11 +36,13 @@ final class WP_Post_Type_Repo extends Repo implements Post_Type_Repo {
     }
 
     /**
-     * Undocumented function.
+     * Searches repo for registered post type object.
      *
-     * @throws \Exception
+     * @throws \InvalidArgumentException if not found
      */
     public function find_by_name(string $name): \WP_Post_Type {
+        WordPress_Assertion::of(string: $name)->slug();
+
         $post_types = get_post_types(
             args: ['name' => $name],
             output: 'objects',

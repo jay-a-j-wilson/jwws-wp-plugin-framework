@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\WP_Post_Repo;
 
+use InvalidArgumentException;
 use JWWS\WPPF\{
     Collection\Collection,
     Common\Security\Security,
@@ -11,6 +12,7 @@ use JWWS\WPPF\{
     WordPress\Utility\Utility as WordPress,
     Assertion\Assertion
 };
+use WP_Post;
 
 // Security::stop_direct_access();
 
@@ -59,7 +61,7 @@ final class WP_Post_Repo extends Repo implements Post_Repo {
      */
     public function list_all(): Collection {
         return Collection::of(
-            items: get_posts(args: [
+            ...get_posts(args: [
                 'post_type' => $this->types
                     ->pluck(key: 'name')
                     ->to_array(),
@@ -79,7 +81,7 @@ final class WP_Post_Repo extends Repo implements Post_Repo {
     /**
      * Checks post is found with type.
      *
-     * @throws \Exception
+     * @throws \InvalidArgumentException
      */
     private function validate(\WP_Post $post): \WP_Post {
         $names = $this->types->pluck(key: 'name');

@@ -15,7 +15,7 @@ use JWWS\WPPF\{
  */
 final class PHP_Ext extends Ext {
     /**
-     * Undocumented function.
+     * Returns a PHP extension type.
      */
     protected static function type(): Type {
         return Type::PHP;

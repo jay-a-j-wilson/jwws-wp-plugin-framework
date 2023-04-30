@@ -5,7 +5,10 @@ namespace JWWS\WPPF\Filepath;
 use PHPUnit\Framework\Attributes\Test;
 use PHPUnit\Framework\TestCase;
 
-final class Filepath_Test extends TestCase {
+/**
+ * @cover Filepath
+ */
+final class Unit_Test extends TestCase {
     /**
      * @test
      */
@@ -14,7 +17,7 @@ final class Filepath_Test extends TestCase {
     }
 
     /**
-     * @testx
+     * @test
      */
     public function can_echo_class_name(): void {
         $this->expectOutputString(

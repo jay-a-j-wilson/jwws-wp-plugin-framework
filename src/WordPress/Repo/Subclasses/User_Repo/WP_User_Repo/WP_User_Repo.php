@@ -18,14 +18,14 @@ use JWWS\WPPF\{
  */
 final class WP_User_Repo extends Repo implements User_Repo {
     /**
-     * Undocumented function.
+     * Factory method
      */
     public static function create(): self {
         return new self();
     }
 
     /**
-     * Undocumented function.
+     * Returns an object collection of all registered users.
      *
      * @return Collection<\WP_User>
      */

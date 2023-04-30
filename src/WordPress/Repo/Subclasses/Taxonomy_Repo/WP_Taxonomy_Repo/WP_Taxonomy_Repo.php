@@ -24,7 +24,7 @@ final class WP_Taxonomy_Repo extends Repo implements Taxonomy_Repo {
     }
 
     /**
-     * Undocumented function.
+     * Returns an object collection of all registered taxonomies.
      *
      * @return Collection<\WP_Taxonomy>
      */

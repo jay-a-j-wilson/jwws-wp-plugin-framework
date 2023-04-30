@@ -80,8 +80,8 @@ final class String_Assertion {
      * Asserts string contains a specified substring.
      *
      * @param string $substring the substring to search for
-     * @param string $message   Optional. The message to include if the assertion
-     *                          fails.
+     * @param string $message   Optional. The message to include if the
+     *                          assertion fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
      */
@@ -142,12 +142,30 @@ final class String_Assertion {
      * @throws \InvalidArgumentException if the assertion fails
      */
     public function alphabetic(string $message = ''): self {
-        if (ctype_alpha($this->string)) {
+        if (ctype_alpha(text: $this->string)) {
             return $this;
         }
 
         throw new \InvalidArgumentException(
             message: $message ?: "Value '{$this->string}' must be alphabetic.",
+        );
+    }
+
+    /**
+     * Asserts string is alphanumeric.
+     *
+     * @param string $message Optional. The message to include if the assertion
+     *                        fails.
+     *
+     * @throws \InvalidArgumentException if the assertion fails
+     */
+    public function alphanumeric(string $message = ''): self {
+        if (ctype_alnum(text: $this->string)) {
+            return $this;
+        }
+
+        throw new \InvalidArgumentException(
+            message: $message ?: "Value '{$this->string}' must be alphanumeric.",
         );
     }
 }

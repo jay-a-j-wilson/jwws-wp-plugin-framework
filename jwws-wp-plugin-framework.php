@@ -13,4 +13,4 @@ namespace JWWS\WPPF;
 
 require __DIR__ . '/vendor/autoload.php';
 
-Tests\Tests::run();
+// Tests\Tests::run();
