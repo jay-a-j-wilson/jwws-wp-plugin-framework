@@ -7,8 +7,8 @@ use JWWS\WPPF\{
     Common\Value_Object\Value_Object,
 };
 use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Directory\Subclasses\Immediate_Directory\Immediate_Directory,
-    Sub_Value_Objects\File\Factory\Subclasses\PHP_Factory\PHP_Factory,
+    Sub_Value_Objects\Dir\Subclasses\Immediate_Dir\Immediate_Dir,
+    Sub_Value_Objects\File\Subclasses\PHP_File\PHP_File,
     Subclasses\Unconfirmed_Filepath\Unconfirmed_Filepath,
 };
 
@@ -24,11 +24,9 @@ final class Basename extends Value_Object {
     public static function of(string $basename): self {
         return new self(
             value: Unconfirmed_Filepath::of(
-                directory: Immediate_Directory::of(path: $basename),
-                file: PHP_Factory::of(path: $basename),
+                dir: Immediate_Dir::of(path: $basename),
+                file: PHP_File::of(path: $basename),
             ),
         );
     }
 }
-
-// Basename::of('x')

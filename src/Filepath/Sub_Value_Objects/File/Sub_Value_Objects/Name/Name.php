@@ -1,9 +1,9 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name;
 
 use JWWS\WPPF\{
-    Assertion\Assertion,
+    Assertion\String_Assertion\String_Assertion,
     Common\Security\Security,
     Common\Value_Object\Value_Object
 };
@@ -15,9 +15,10 @@ use JWWS\WPPF\{
  */
 final class Name extends Value_Object {
     /**
-     * Undocumented function.
+     * Factory method.
      */
     public static function of(string $path): self {
+        String_Assertion::of(string: $path)->not_empty();
         // Assertion::of(value: $path)->valid_chars();
 
         return new self(
@@ -38,7 +39,7 @@ final class Name extends Value_Object {
      * @throws \InvalidArgumentException if blank
      */
     private static function validate(string $filename): string {
-        Assertion::of(value: $filename)
+        String_Assertion::of(string: $filename)
             ->not_empty(message: 'Filename cannot be empty.')
         ;
 

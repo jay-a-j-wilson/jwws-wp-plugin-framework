@@ -5,7 +5,6 @@ namespace JWWS\WPPF\Loader\Plugin\Value_Objects\Name;
 use JWWS\WPPF\{
     Common\Security\Security,
     Common\Value_Object\Value_Object,
-    Loader\Plugin\Value_Objects\Basename\Basename,
     Loader\Plugin\Value_Objects\Header\Subclasses\Name_Header\Name_Header
 };
 

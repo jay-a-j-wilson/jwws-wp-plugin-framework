@@ -19,7 +19,7 @@ final class Filepath_Test extends Test {
         // self::unconfirmed_filepath();
         self::confirmed_filepath();
         // self::entire_directory();
-        // self::immediate_directory();
+        // self::Immediate_Dir();
         // self::factory();
         // self::php_ext();
         // self::html_ext();
@@ -45,8 +45,8 @@ final class Filepath_Test extends Test {
 
     /**
      */
-    private static function immediate_directory(): void {
-        Filepath\Sub_Value_Objects\Directory\Subclasses\Immediate_Directory\Tests\Immediate_Directory_Test::run();
+    private static function Immediate_Dir(): void {
+        Filepath\Sub_Value_Objects\Directory\Subclasses\Immediate_Dir\Tests\Immediate_Dir_Test::run();
     }
 
     /**

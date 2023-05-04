@@ -5,12 +5,12 @@ namespace JWWS\WPPF\Loader\Plugin\Value_Objects\Header;
 use JWWS\WPPF\{
     Common\Security\Security,
     Common\Value_Object\Value_Object,
-    Loader\Plugin\Value_Objects\Path\Path,
+    Loader\Plugin\Value_Objects\Filepath\Filepath,
     Loader\Plugin\Value_Objects\Header\Enums\Type
 };
 use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Directory\Subclasses\Entire_Directory\Entire_Directory,
-    Sub_Value_Objects\File\Factory\Subclasses\PHP_Factory\PHP_Factory,
+    Sub_Value_Objects\Dir\Subclasses\Full_Dir\Full_Dir,
+    Sub_Value_Objects\File\Subclasses\PHP_File\PHP_File,
     Subclasses\Confirmed_Filepath\Confirmed_Filepath
 };
 
@@ -31,19 +31,19 @@ abstract class Header extends Value_Object {
     final public static function of(string $basename): static {
         return new static(
             value: self::header(
-                path: Path::of(basename: $basename),
-            )[static::type()->value],
+                path: Filepath::of(basename: $basename),
+            ),
         );
     }
 
     /**
      * Returns the plugin header.
      */
-    private static function header(string $path): array {
+    private static function header(string $path): string {
         return self::plugin_data(
             path: Confirmed_Filepath::of(
-                directory: Entire_Directory::of(path: $path),
-                file: PHP_Factory::of(path: $path),
+                dir: Full_Dir::of(path: $path),
+                file: PHP_File::of(path: $path),
             ),
         );
     }
@@ -51,13 +51,13 @@ abstract class Header extends Value_Object {
     /**
      * Undocumented function.
      */
-    private static function plugin_data(Confirmed_Filepath $path): array {
+    private static function plugin_data(Confirmed_Filepath $path): string {
         self::ensure_get_plugin_data_func_is_available();
 
         // https://developer.wordpress.org/reference/functions/get_plugin_data/
         return get_plugin_data(
             plugin_file: $path->value,
-        );
+        )[static::type()->value];
     }
 
     /**

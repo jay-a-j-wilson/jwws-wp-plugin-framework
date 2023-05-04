@@ -17,9 +17,9 @@ final class Confirmed_Filepath extends Filepath {
     /**
      * @throws \InvalidArgumentException if the file does not exist
      */
-    protected static function validate(string $path): string {
-        Assertion::of(value: $path)->file_exists();
+    protected static function validate(string $filepath): string {
+        Assertion::of(value: $filepath)->file_exists();
 
-        return $path;
+        return $filepath;
     }
 }

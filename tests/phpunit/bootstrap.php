@@ -13,6 +13,7 @@ if (! file_exists($test_lib_bootstrap_file)) {
 $GLOBALS['wp_tests_options'] = [
     'active_plugins' => [
         'wp-simple-plugin/wp-simple-plugin.php',
+        'akismet/akismet'
     ],
     'wpsp_test' => true,
 ];

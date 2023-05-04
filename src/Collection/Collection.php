@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Collection;
 
@@ -22,6 +22,13 @@ final class Collection implements
     /**
      * Factory method.
      */
+    public static function create(): self {
+        return new self();
+    }
+
+    /**
+     * Factory method.
+     */
     public static function of(mixed ...$items): self {
         return new self(
             $items,
@@ -31,7 +38,7 @@ final class Collection implements
     /**
      * @return void
      */
-    public function __construct(private array $items = []) {
+    private function __construct(private array $items = []) {
     }
 
     /**
@@ -43,6 +50,13 @@ final class Collection implements
         }
 
         return self::of(...$this->items);
+    }
+
+    /**
+     * Clears all items from the collection.
+     */
+    public function clear(): self {
+        return self::create();
     }
 
     /**

@@ -43,6 +43,24 @@ final class Path_Assertion {
     }
 
     /**
+     * Asserts path belongs to an existing file or directory.
+     *
+     * @param string $message Optional. The message to include if the assertion
+     *                        fails.
+     *
+     * @throws \InvalidArgumentException if the assertion fails
+     */
+    public function exists(string $message = ''): self {
+        if (file_exists(filename: $this->path)) {
+            return $this;
+        }
+
+        throw new \InvalidArgumentException(
+            message: $message ?: "Path '{$this->path}' does not belong to an existing file or directory.",
+        );
+    }
+
+    /**
      * Asserts path is a directory (not a file).
      *
      * @param string $message Optional. The message to include if the assertion
@@ -75,64 +93,6 @@ final class Path_Assertion {
 
         throw new \InvalidArgumentException(
             message: $message ?: "Path '{$this->path}' must be a file.",
-        );
-    }
-
-    /**
-     * Asserts path contains a directory.
-     *
-     * @param string $message Optional. The message to include if the assertion
-     *                        fails.
-     *
-     * @throws \InvalidArgumentException if the assertion fails
-     */
-    public function contains_dir(string $message = ''): self {
-        if (str_contains(haystack: $this->path, needle: '/')) {
-            return $this;
-        }
-
-        throw new \InvalidArgumentException(
-            message: $message ?: "Path '{$this->path}' does not contain a directory.",
-        );
-    }
-
-    /**
-     * Asserts path has the specified file extension.
-     *
-     * @param string $ext     The file extension to check for
-     *                        (e.g. "jpg", "txt", etc.).
-     * @param string $message Optional. The message to include if the assertion
-     *                        fails.
-     *
-     * @throws \InvalidArgumentException if the assertion fails
-     */
-    public function has_extension(string $ext, string $message = ''): self {
-        $actual_ext = pathinfo(path: $this->path, flags: PATHINFO_EXTENSION);
-
-        if (strtolower(string: $actual_ext) === strtolower(string: $ext)) {
-            return $this;
-        }
-
-        throw new \InvalidArgumentException(
-            message: $message ?: "Path must have a '{$ext}' file extension type. Type '{$actual_ext}' found.",
-        );
-    }
-
-    /**
-     * Asserts path belongs to an existing file or directory.
-     *
-     * @param string $message Optional. The message to include if the assertion
-     *                        fails.
-     *
-     * @throws \InvalidArgumentException if the assertion fails
-     */
-    public function exists(string $message = ''): self {
-        if (file_exists(filename: $this->path)) {
-            return $this;
-        }
-
-        throw new \InvalidArgumentException(
-            message: $message ?: "Path '{$this->path}' does not belong to an existing file or directory.",
         );
     }
 
@@ -191,39 +151,20 @@ final class Path_Assertion {
     }
 
     /**
-     * Asserts file is empty (has no content).
+     * Asserts path contains a directory.
      *
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
      * @throws \InvalidArgumentException if the assertion fails
      */
-    public function blank(string $message = ''): self {
-        if (filesize(filename: $this->path) === 0) {
+    public function contains_dir(string $message = ''): self {
+        if (str_contains(haystack: $this->path, needle: '/')) {
             return $this;
         }
 
         throw new \InvalidArgumentException(
-            message: $message ?: "File '{$this->path}' must be empty (have no content).",
-        );
-    }
-
-    /**
-     * Asserts file has a specific file size.
-     *
-     * @param int    $size    the expected file size in bytes
-     * @param string $message Optional. The message to include if the assertion
-     *                        fails.
-     *
-     * @throws \InvalidArgumentException if the assertion fails
-     */
-    public function has_size(int $size, string $message = ''): self {
-        if (filesize(filename: $this->path) === $size) {
-            return $this;
-        }
-
-        throw new \InvalidArgumentException(
-            message: $message ?: "File '{$this->path}' must have size of '{$size}' bytes.",
+            message: $message ?: "Path '{$this->path}' does not contain a directory.",
         );
     }
 }

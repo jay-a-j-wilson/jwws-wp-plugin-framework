@@ -3,62 +3,53 @@
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Tests\Unit;
 
 use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name;
-use PHPUnit\Framework\Attributes\{
-    CoversClass,
-    Test,
-    TestDox,
-    TestWith
-};
 use PHPUnit\Framework\TestCase;
 
-// #[CoversClass(Name::class)]
 /**
  * @covers Name
  */
 final class Of extends TestCase {
-    // #[Test]
-    // #[TestDox('Valid filename $path is "file".')]
-    // #[TestWith(data: ['file.php'])]
-    // #[TestWith(data: ['dir/file.php'])]
-    // #[TestWith(data: ['dir/subdir/file.php'])]
-
     /**
      * @test
      *
-     * @testdox 'Valid filename $path is "file".'
+     * @dataProvider pass_data_provider
      *
-     * @testWith
-     * ["file.php"]
-     * ["dir/file.php"]
-     * ["dir/subdir/file.php"]
+     * @testdox pass: $_dataName arg $arg returns "file"
      */
-    public function pass(mixed $path): void {
+    public function pass(mixed $arg): void {
         $this->assertEquals(
             expected: 'file',
-            actual: Name::of(path: $path),
+            actual: Name::of(path: $arg),
         );
     }
 
-    // #[Test]
-    // #[TestDox('Invalid filename $path is not "file".')]
-    // #[TestWith(data: [''])]
-    // #[TestWith(data: ['.php'])]
-    // #[TestWith(data: ['dir/.html'])]
-    // #[TestWith(data: ['dir/subdir/.js'])]
+    public static function pass_data_provider(): array {
+        return [
+            'basic'         => ['file.php'],
+            'no ext'        => ['file'],
+            'in dir'        => ['dir/file.php'],
+            'in nested dir' => ['dir/sub_dir/file.php'],
+        ];
+    }
 
     /**
      * @test
      *
-     * @testdox 'Invalid filename $path is not "file".'
+     * @dataProvider throw_data_provider
      *
-     * @testWith
-     * [""]
-     * [".php"]
-     * ["dir/.html"]
-     * ["dir/subdir/.js"]
+     * @testdox throw: $_dataName arg $arg throws e
      */
-    public function throw(mixed $path): void {
+    public function throw(mixed $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        Name::of(path: $path);
+        Name::of(path: $arg);
+    }
+
+    public static function throw_data_provider(): array {
+        return [
+            'empty'                      => [''],
+            'no filename'                => ['.ext'],
+            'in dir, no filename'        => ['dir/.ext'],
+            'in nested dir, no filename' => ['dir/sub_dir/.ext'],
+        ];
     }
 }

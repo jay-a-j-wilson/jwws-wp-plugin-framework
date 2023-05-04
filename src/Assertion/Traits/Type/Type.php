@@ -105,6 +105,9 @@ trait Type {
     /**
      * Asserts value is a function.
      *
+     * @param string $message Optional. The message to include if the assertion
+     *                        fails.
+     *
      * @source https://stackoverflow.com/a/2835633
      */
     public function function(string $message = ''): bool {

@@ -55,7 +55,6 @@ final class Error_Logger extends Logger {
         int $depth,
     ): string {
         return Template::of(path: __DIR__ . '/templates/template.html.php')
-            ->assign(names: 'newline_char', value: "\n")
             ->assign(names: 'separator_length', value: 210)
             ->assign(names: 'contents', value: $contents)
             ->assign(

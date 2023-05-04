@@ -1,16 +1,16 @@
 <?= str_repeat(string: '=', times: $separator_length); ?>
-<?= $newline_char; ?>
+<?= PHP_EOL; ?>
 FILE:     <?= $file; ?>
-<?= $newline_char; ?>
+<?= PHP_EOL; ?>
 LINE:     <?= $line; ?>
-<?= $newline_char; ?>
+<?= PHP_EOL; ?>
 CLASS:    <?= $class; ?>
-<?= $newline_char; ?>
+<?= PHP_EOL; ?>
 FUNCTION: <?= $function; ?>
 <?= $newline_char; ?>
 <?= str_repeat(string: '.', times: $separator_length); ?>
-<?= $newline_char; ?>
-<?= $newline_char; ?>
+<?= PHP_EOL; ?>
+<?= PHP_EOL; ?>
 <?= $contents; ?>
-<?= $newline_char; ?>
+<?= PHP_EOL; ?>
 <?= str_repeat(string: '=', times: $separator_length); ?>

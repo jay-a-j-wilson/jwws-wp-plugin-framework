@@ -3,7 +3,7 @@
     bootstrap="../../tests/phpunit/bootstrap.php"
     backupGlobals="false"
     colors="true"
-    executionOrder="random"
+    verbose="true"
     testdox="true"
 >
     <testsuites>
@@ -43,7 +43,19 @@
         </testsuite>
         <testsuite name="integration">
             <directory suffix=".php">
-                ../../src/WordPress
+                ../../src/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/Tests/Integration
             </directory>
         </testsuite>
     </testsuites>

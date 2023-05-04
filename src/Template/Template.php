@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Template;
 
 use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Directory\Subclasses\Entire_Directory\Entire_Directory,
-    Sub_Value_Objects\File\Factory\Subclasses\PHP_Factory\PHP_Factory,
+    Sub_Value_Objects\Dir\Subclasses\Full_Dir\Full_Dir,
+    Sub_Value_Objects\File\Subclasses\PHP_File\PHP_File,
     Subclasses\Confirmed_Filepath\Confirmed_Filepath,
 };
 
@@ -21,8 +21,8 @@ final class Template {
     public static function of(string $path): self {
         return new self(
             filepath: Confirmed_Filepath::of(
-                directory: Entire_Directory::of(path: $path),
-                file: PHP_Factory::of(path: $path),
+                dir: Full_Dir::of(path: $path),
+                file: PHP_File::of(path: $path),
             ),
         );
     }
