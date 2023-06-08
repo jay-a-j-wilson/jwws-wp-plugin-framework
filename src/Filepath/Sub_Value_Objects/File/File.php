@@ -12,6 +12,8 @@ use JWWS\WPPF\{
 // Security::stop_direct_access();
 
 /**
+ * @codeCoverageIgnore
+ *
  * Represents a file basename.
  */
 abstract class File extends Value_Object {

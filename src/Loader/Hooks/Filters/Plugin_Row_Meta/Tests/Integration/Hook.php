@@ -1,0 +1,65 @@
+<?php declare(strict_types=1);
+
+namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Tests\Integration;
+
+use JWWS\WPPF\Loader\{
+    Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta,
+    Plugin\Plugin,
+    Tests\Integration\Fixtures\Akismet_Plugin
+};
+
+/**
+ * @covers \JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta
+ *
+ * @internal
+ */
+final class Hook extends \WP_UnitTestCase {
+    private Plugin_Row_Meta $sut;
+
+    private string $hook = 'plugin_row_meta';
+
+    private string $method = 'callback';
+
+    protected function setUp(): void {
+        parent::setUp();
+
+        $this->sut = Plugin_Row_Meta::of(
+            plugin: self::createStub(originalClassName: Plugin::class),
+        );
+    }
+
+    /**
+     * @test
+     */
+    public function pass(): void {
+        self::assertFalse(
+            condition: has_filter(
+                $this->hook,
+                [
+                    $this->sut,
+                    $this->method,
+                ],
+            ),
+        );
+    }
+
+    /**
+     * @test
+     *
+     * @depends pass
+     */
+    public function pass_filter(): void {
+        $this->sut->hook();
+
+        self::assertSame(
+            expected: 10,
+            actual: has_filter(
+                $this->hook,
+                [
+                    $this->sut,
+                    $this->method,
+                ],
+            ),
+        );
+    }
+}

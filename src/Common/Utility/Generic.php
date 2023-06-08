@@ -37,7 +37,7 @@ final class Generic {
             // and add it to the output array
             $output[] = $object;
 
-            // Recursively flatten the array of children
+            // recursively flatten the array of children
             $children = self::flatten(objects: $children, key: $key);
 
             // and add the result to the output array

@@ -18,7 +18,7 @@ final class Name extends Value_Object {
      * Factory method.
      */
     public static function of(string $path): self {
-        String_Assertion::of(string: $path)->not_empty();
+        String_Assertion::of(string: $path)->is_not_empty();
         // Assertion::of(value: $path)->valid_chars();
 
         return new self(
@@ -40,7 +40,7 @@ final class Name extends Value_Object {
      */
     private static function validate(string $filename): string {
         String_Assertion::of(string: $filename)
-            ->not_empty(message: 'Filename cannot be empty.')
+            ->is_not_empty(message: 'Filename cannot be empty.')
         ;
 
         return $filename;

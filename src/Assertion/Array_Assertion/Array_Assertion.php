@@ -16,7 +16,7 @@ final class Array_Assertion {
     }
 
     /**
-     * @param array $array The array to be tested
+     * @return void
      */
     private function __construct(private array $array) {
     }
@@ -29,7 +29,7 @@ final class Array_Assertion {
      *
      * @throws \InvalidArgumentException if the value is empty or null
      */
-    public function empty(string $message = ''): self {
+    public function is_empty(string $message = ''): self {
         if (empty($this->array)) {
             return $this;
         }
@@ -47,7 +47,7 @@ final class Array_Assertion {
      *
      * @throws \InvalidArgumentException if the value is empty or null
      */
-    public function not_empty(string $message = ''): self {
+    public function is_not_empty(string $message = ''): self {
         if (! empty($this->array)) {
             return $this;
         }

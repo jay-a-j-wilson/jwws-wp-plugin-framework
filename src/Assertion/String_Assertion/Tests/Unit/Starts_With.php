@@ -3,62 +3,51 @@
 namespace JWWS\WPPF\Assertion\String_Assertion\Tests\Unit;
 
 use JWWS\WPPF\Assertion\String_Assertion\String_Assertion;
-use PHPUnit\Framework\Attributes\{
-    CoversClass,
-    Test,
-    TestDox,
-    TestWith
-};
 use PHPUnit\Framework\TestCase;
 
-// #[CoversClass(className: String_Assertion::class)]
 /**
- * @covers String_Assertion
+ * @covers \JWWS\WPPF\Assertion\String_Assertion\String_Assertion
+ *
+ * @internal
  */
 final class Starts_With extends TestCase {
-    // #[Test]
-    // #[TestDox(text: '"$string" starts with "$prefix"')]
-    // #[TestWith(data: ['hello world', 'he'])]
-    // #[TestWith(data: ['hello world', 'hello'])]
-    // #[TestWith(data: ['hello world', 'hello w'])]
-
     /**
      * @test
      *
-     * @testdox "$string" starts with "$prefix"
+     * @dataProvider pass_data_provider
      *
-     * @testWith
-     * ["hello world", "he"]
-     * ["hello world", "hello"]
-     * ["hello world", "hello w"]
+     * @testdox pass[$_dataName] => $string starts with $prefix
      */
     public function pass(string $string, mixed $prefix): void {
         $this->expectNotToPerformAssertions();
-        String_Assertion::of(string: $string)
-            ->starts_with(prefix: $prefix)
-        ;
+        String_Assertion::of(string: $string)->starts_with(prefix: $prefix);
     }
 
-    // #[Test]
-    // #[TestDox(text: '"$string" not starts with "$prefix"')]
-    // #[TestWith(data: ['hello world', 'foo'])]
-    // #[TestWith(data: ['hello world', 'world'])]
-    // #[TestWith(data: ['hello world', ' hello'])]
+    public static function pass_data_provider(): iterable {
+        yield ['hello world', 'he'];
+
+        yield ['hello world', 'hello'];
+
+        yield ['hello world', 'hello w'];
+    }
 
     /**
      * @test
      *
-     * @testdox "$string" not starts with "$prefix"
+     * @dataProvider throw_data_provider
      *
-     * @testWith
-     * ["hello world", "foo"]
-     * ["hello world", "world"]
-     * ["hello world", " hello w"]
+     * @testdox throw[$_dataName] => $string not starts with $prefix
      */
     public function throw(string $string, string $prefix): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        String_Assertion::of(string: $string)
-            ->starts_with(prefix: $prefix)
-        ;
+        String_Assertion::of(string: $string)->starts_with(prefix: $prefix);
+    }
+
+    public static function throw_data_provider(): iterable {
+        yield ['hello world', 'foo'];
+
+        yield ['hello world', 'world'];
+
+        yield ['hello world', ' hello w'];
     }
 }

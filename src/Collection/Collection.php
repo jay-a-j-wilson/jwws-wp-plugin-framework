@@ -83,6 +83,28 @@ final class Collection implements
     }
 
     /**
+     * Flattens the collection.
+     */
+    public function flatten(float $levels = INF): self {
+        $result = [];
+
+        foreach ($this->items as $item) {
+            $result = [
+                ...$result,
+                ...(
+                    is_array(value: $item) && $levels > 0
+                        ? self::of(...$item)
+                            ->flatten(levels: $levels - 1)
+                            ->to_array()
+                        : [$item]
+                ),
+            ];
+        }
+
+        return self::of(...$result);
+    }
+
+    /**
      * Undocumented function.
      */
     public function filter_by_value(callable $callback): self {
@@ -257,6 +279,7 @@ final class Collection implements
      * Returns as comma separated list: `a, b, c, d`
      */
     public function __toString(): string {
-        return implode(separator: ', ', array: $this->items);
+        return self::of(...$this->items)->flatten()->implode();
+        // return implode(separator: ', ', array: $this->items);
     }
 }

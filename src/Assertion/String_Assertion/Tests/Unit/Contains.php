@@ -3,64 +3,53 @@
 namespace JWWS\WPPF\Assertion\String_Assertion\Tests\Unit;
 
 use JWWS\WPPF\Assertion\String_Assertion\String_Assertion;
-use PHPUnit\Framework\Attributes\{
-    CoversClass,
-    Test,
-    TestDox,
-    TestWith
-};
 use PHPUnit\Framework\TestCase;
 
-// #[CoversClass(className: String_Assertion::class)]
 /**
- * @covers String_Assertion
+ * @covers \JWWS\WPPF\Assertion\String_Assertion\String_Assertion
+ *
+ * @internal
  */
 final class Contains extends TestCase {
-    // #[Test]
-    // #[TestDox(text: '"$string" contains "$substring"')]
-    // #[TestWith(data: ['hello world', 'hello'])]
-    // #[TestWith(data: ['hello world', 'world'])]
-    // #[TestWith(data: ['hello world', 'o w'])]
-
     /**
      * @test
      *
-     * @testdox "$string" contains "$substring"
+     * @dataProvider pass_data_provider
      *
-     * @testWith
-     * ["hello world", "hello"]
-     * ["hello world", "world"]
-     * ["hello world", "o w"]
+     * @testdox pass[$_dataName] => $string contains $substring
      */
     public function pass(string $string, mixed $substring): void {
         $this->expectNotToPerformAssertions();
-        String_Assertion::of(string: $string)
-            ->contains(substring: $substring)
-        ;
+        String_Assertion::of(string: $string)->contains(substring: $substring);
     }
 
-    // #[Test]
-    // #[TestDox(text: '"$string" not contains "$substring"')]
-    // #[TestWith(data: ['hello world', 'foo'])]
-    // #[TestWith(data: ['hello world', ' he'])]
-    // #[TestWith(data: ['hello world', 'helllo '])]
-    // #[TestWith(data: ['hello world', 'w orld '])]
+    public static function pass_data_provider(): iterable {
+        yield ['hello world', 'hello'];
+
+        yield ['hello world', 'world'];
+
+        yield ['hello world', 'o w'];
+    }
 
     /**
      * @test
      *
-     * @testdox "$string" not contains "$substring"
+     * @dataProvider throw_data_provider
      *
-     * @testWith
-     * ["hello world", "foo"]
-     * ["hello world", " he"]
-     * ["hello world", "helllo "]
-     * ["hello world", " w orld"]
+     * @testdox throw[$_dataName] => $string not contains $substring
      */
     public function throw(string $string, mixed $substring): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        String_Assertion::of(string: $string)
-            ->contains(substring: $substring)
-        ;
+        String_Assertion::of(string: $string)->contains(substring: $substring);
+    }
+
+    public static function throw_data_provider(): iterable {
+        yield ['hello world', 'foo'];
+
+        yield ['hello world', ' he'];
+
+        yield ['hello world', 'helllo '];
+
+        yield ['hello world', ' w orld'];
     }
 }

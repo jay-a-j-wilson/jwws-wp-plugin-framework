@@ -10,6 +10,8 @@ use JWWS\WPPF\{
 // Security::stop_direct_access();
 
 /**
+ * @codeCoverageIgnore
+ *
  * Value object base class.
  */
 abstract class Value_Object implements \Stringable {

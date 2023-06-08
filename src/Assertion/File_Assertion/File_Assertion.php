@@ -23,7 +23,7 @@ final class File_Assertion {
     }
 
     /**
-     * @param string $filepath the filepath to be tested
+     * @return void
      */
     private function __construct(private string $filepath) {
     }

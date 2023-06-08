@@ -7,6 +7,8 @@ use JWWS\WPPF\Common\Security\Security;
 // Security::stop_direct_access();
 
 /**
+ * @codeCoverageIgnore
+ *
  * Undocumented class.
  */
 abstract class Logger {

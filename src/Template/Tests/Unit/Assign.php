@@ -6,21 +6,39 @@ use JWWS\WPPF\Template\Template;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @cover Template
+ * @covers \JWWS\WPPF\Template\Template
+ *
+ * @internal
  */
 final class Assign extends TestCase {
     /**
      * @test
+     *
+     * @dataProvider pass_data_provider
+     *
+     * @testdox pass[$_dataName] => $arg_1, $arg_2, $arg_3
      */
-    public function pass(): void {
-        $this->expectOutputString(
-            expectedString: Template::of(
-                path: __DIR__ . '/templates/template.html.php',
-            )
-                ->assign(names: 'data', value: 'Variable')
+    public function pass(string $arg_1, mixed $arg_2, string $arg_3): void {
+        self::expectOutputString(
+            expectedString: Template::of(path: $arg_1)
+                ->assign(key: 'data', value: $arg_2)
                 ->output(),
         );
 
-        echo '<p>Test Template Variable</p>';
+        echo $arg_3;
+    }
+
+    public static function pass_data_provider(): iterable {
+        yield 'basic' => [
+            __DIR__ . '/templates/basic.html.php',
+            'Variable',
+            '<p>Test Basic Template Variable</p>',
+        ];
+
+        yield 'array' => [
+            __DIR__ . '/templates/array.html.php',
+            ['a', 'b', 'c'],
+            '<p>Test Array Template a, b, c</p>',
+        ];
     }
 }

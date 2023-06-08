@@ -6,7 +6,9 @@ use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers User_Repo
+ * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo
+ *
+ * @internal
  */
 final class Create extends TestCase {
     /**
@@ -21,7 +23,7 @@ final class Create extends TestCase {
      * @test
      */
     public function pass(): void {
-        $this->assertInstanceOf(
+        self::assertInstanceOf(
             expected: User_Repo::class,
             actual: User_Repo::create(),
         );

@@ -5,14 +5,16 @@ namespace JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Tests\Integration;
 use JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo;
 
 /**
- * @covers Taxonomy_Repo
+ * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo
+ *
+ * @internal
  */
 final class List_All extends \WP_UnitTestCase {
     /**
      * @test
      */
     public function pass(): void {
-        $this->assertCount(
+        self::assertCount(
             expectedCount: 7,
             haystack: Taxonomy_Repo::create()->list_all(),
         );

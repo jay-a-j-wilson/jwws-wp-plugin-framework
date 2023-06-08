@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Loader;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Loader\Hooks\Actions\Admin_Init,
-    Loader\Hooks\Actions\Deactivated_Plugin,
+    Loader\Hooks\Actions\Admin_Init\Admin_Init,
+    Loader\Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin,
     Loader\Plugin\Plugin
 };
 
@@ -34,7 +34,7 @@ final class Loader {
      * Prevent plugin activation if dependant plugins are not active.
      */
     public function hook_admin_init(): self {
-        Admin_Init::hook(plugin: $this->plugin);
+        Admin_Init::of(plugin: $this->plugin)->hook();
 
         return $this;
     }
@@ -43,7 +43,7 @@ final class Loader {
      * Disables a plugin if dependant plugin is deactivated.
      */
     public function hook_deactivated_plugin(): self {
-        Deactivated_Plugin::hook(plugin: $this->plugin);
+        Deactivated_Plugin::of(plugin: $this->plugin)->hook();
 
         return $this;
     }

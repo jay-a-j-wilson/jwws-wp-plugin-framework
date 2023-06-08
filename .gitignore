@@ -2,3 +2,7 @@
 /vendor
 /bin
 /.idea
+
+/config/phpunit/cache
+/config/phpunit/coverage
+/config/phpunit/logs

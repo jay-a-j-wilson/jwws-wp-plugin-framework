@@ -6,7 +6,9 @@ use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Name
+ * @covers \JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name
+ *
+ * @internal
  */
 final class Of extends TestCase {
     /**
@@ -17,19 +19,20 @@ final class Of extends TestCase {
      * @testdox pass: $_dataName arg $arg returns "file"
      */
     public function pass(mixed $arg): void {
-        $this->assertEquals(
+        self::assertEquals(
             expected: 'file',
             actual: Name::of(path: $arg),
         );
     }
 
-    public static function pass_data_provider(): array {
-        return [
-            'basic'         => ['file.php'],
-            'no ext'        => ['file'],
-            'in dir'        => ['dir/file.php'],
-            'in nested dir' => ['dir/sub_dir/file.php'],
-        ];
+    public static function pass_data_provider(): iterable {
+        yield 'basic' => ['file.php'];
+
+        yield 'no ext' => ['file'];
+
+        yield 'in dir' => ['dir/file.php'];
+
+        yield 'in nested dir' => ['dir/sub_dir/file.php'];
     }
 
     /**
@@ -44,12 +47,13 @@ final class Of extends TestCase {
         Name::of(path: $arg);
     }
 
-    public static function throw_data_provider(): array {
-        return [
-            'empty'                      => [''],
-            'no filename'                => ['.ext'],
-            'in dir, no filename'        => ['dir/.ext'],
-            'in nested dir, no filename' => ['dir/sub_dir/.ext'],
-        ];
+    public static function throw_data_provider(): iterable {
+        yield 'empty' => [''];
+
+        yield 'no filename' => ['.ext'];
+
+        yield 'in dir, no filename' => ['dir/.ext'];
+
+        yield 'in nested dir, no filename' => ['dir/sub_dir/.ext'];
     }
 }

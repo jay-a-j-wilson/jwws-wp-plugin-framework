@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Notices;
 
@@ -15,30 +15,37 @@ use JWWS\WPPF\{
  */
 final class Admin_Notices {
     /**
+     * Factory method.
+     */
+    public static function of(Plugin $plugin, Plugin $dependency): self {
+        return new self(
+            plugin: $plugin,
+            dependency: $dependency,
+        );
+    }
+
+    /**
+     * @return void
+     */
+    private function __construct(
+        private Plugin $plugin,
+        private Plugin $dependency,
+    ) {
+    }
+
+    /**
      * Hooks into 'admin_notices' filter.
      */
-    public static function hook(Plugin $dependant_plugin, Plugin $plugin): void {
-        add_filter(
+    public function hook(): void {
+        add_action(
             'admin_notices',
             [
-                new self(
-                    parent_plugin: $dependant_plugin,
-                    child_plugin: $plugin,
-                ),
+                $this,
                 'callback',
             ],
             10,
             2,
         );
-    }
-
-    /**
-     * Undocumented function.
-     */
-    private function __construct(
-        private Plugin $parent_plugin,
-        private Plugin $child_plugin,
-    ) {
     }
 
     /**
@@ -48,14 +55,8 @@ final class Admin_Notices {
      */
     public function callback(): void {
         echo Template::of(path: __DIR__ . '/templates/template.html.php')
-            ->assign(
-                names: 'parent_plugin_name',
-                value: $this->parent_plugin->name,
-            )
-            ->assign(
-                names: 'child_plugin_name',
-                value: $this->child_plugin->name,
-            )
+            ->assign(key: 'plugin_name', value: $this->plugin->name)
+            ->assign(key: 'dependency_name', value: $this->dependency->name)
             ->output()
         ;
     }

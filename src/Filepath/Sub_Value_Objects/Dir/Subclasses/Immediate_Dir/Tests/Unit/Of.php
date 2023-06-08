@@ -6,7 +6,9 @@ use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Subclasses\Immediate_Dir\Immediate_
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Immediate_Dir
+ * @covers \JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Subclasses\Immediate_Dir\Immediate_Dir
+ *
+ * @internal
  */
 final class Of extends TestCase {
     /**
@@ -17,38 +19,41 @@ final class Of extends TestCase {
      * @testdox pass: $_dataName arg $arg returns $expected
      */
     public function pass(string $arg, string $expected): void {
-        $this->assertEquals(
+        self::assertEquals(
             expected: $expected,
             actual: Immediate_Dir::of(path: $arg),
         );
     }
 
-    public static function pass_data_provider(): array {
-        return [
-            'basic' => [
-                'dir/file.ext',
-                'dir/',
-            ],
-            'no filename' => [
-                'dir/.ext',
-                'dir/',
-            ],
-            'nested dir' => [
-                'dir/sub_dir/file.ext',
-                'sub_dir/',
-            ],
-            'nested dir, no filename' => [
-                'dir/sub_dir/sub_sub_dir/.ext',
-                'sub_sub_dir/',
-            ],
-            'nested dir, no filename, no ext' => [
-                'dir/sub_dir/sub_sub_dir/',
-                'sub_dir/',
-            ],
-            'nested dir, no filename, no ext, no forward slash' => [
-                'dir/sub_dir/sub_sub_dir',
-                'sub_dir/',
-            ],
+    public static function pass_data_provider(): iterable {
+        yield 'basic' => [
+            'dir/file.ext',
+            'dir/',
+        ];
+
+        yield 'no filename' => [
+            'dir/.ext',
+            'dir/',
+        ];
+
+        yield 'nested dir' => [
+            'dir/sub_dir/file.ext',
+            'sub_dir/',
+        ];
+
+        yield 'nested dir, no filename' => [
+            'dir/sub_dir/sub_sub_dir/.ext',
+            'sub_sub_dir/',
+        ];
+
+        yield 'nested dir, no filename, no ext' => [
+            'dir/sub_dir/sub_sub_dir/',
+            'sub_dir/',
+        ];
+
+        yield 'nested dir, no filename, no ext, no forward slash' => [
+            'dir/sub_dir/sub_sub_dir',
+            'sub_dir/',
         ];
     }
 
@@ -64,13 +69,15 @@ final class Of extends TestCase {
         Immediate_Dir::of(path: $arg);
     }
 
-    public static function throw_data_provider(): array {
-        return [
-            'empty'               => [''],
-            'no dir'              => ['file.php'],
-            'no dir, no filename' => ['.php'],
-            'no dir, no ext'      => ['file.'],
-            'no filename, no ext' => ['dir'],
-        ];
+    public static function throw_data_provider(): iterable {
+        yield 'empty' => [''];
+
+        yield 'no dir' => ['file.php'];
+
+        yield 'no dir, no filename' => ['.php'];
+
+        yield 'no dir, no ext' => ['file.'];
+
+        yield 'no filename, no ext' => ['dir'];
     }
 }

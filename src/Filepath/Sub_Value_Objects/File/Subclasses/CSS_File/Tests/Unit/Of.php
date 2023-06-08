@@ -6,7 +6,9 @@ use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Subclasses\CSS_File\CSS_File;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers CSS_File
+ * @covers \JWWS\WPPF\Filepath\Sub_Value_Objects\File\Subclasses\CSS_File\CSS_File
+ *
+ * @internal
  */
 final class Of extends TestCase {
     /**
@@ -17,18 +19,19 @@ final class Of extends TestCase {
      * @testdox pass: $_dataName arg $arg returns "filename.css"
      */
     public function pass(string $arg): void {
-        $this->assertEquals(
+        self::assertEquals(
             expected: 'filename.css',
             actual: CSS_File::of(path: $arg)->value,
         );
     }
 
-    public static function pass_data_provider(): array {
-        return [
-            'basic'               => ['filename.css'],
-            'no ext'              => ['filename'],
-            'nested dir'          => ['dir/sub_dir/filename.css'],
-            'nested dir, dif ext' => ['dir/sub_dir/filename.php'],
-        ];
+    public static function pass_data_provider(): iterable {
+        yield 'basic' => ['filename.css'];
+
+        yield 'no ext' => ['filename'];
+
+        yield 'nested dir' => ['dir/sub_dir/filename.css'];
+
+        yield 'nested dir, dif ext' => ['dir/sub_dir/filename.php'];
     }
 }

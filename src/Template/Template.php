@@ -16,7 +16,7 @@ use JWWS\WPPF\Filepath\{
  */
 final class Template {
     /**
-     * Creates template.
+     * Factory method.
      */
     public static function of(string $path): self {
         return new self(
@@ -28,9 +28,7 @@ final class Template {
     }
 
     /**
-     * Template constructor.
-     *
-     * @param array $variables variables to embed in template
+     * @return void
      */
     private function __construct(
         private Confirmed_Filepath $filepath,
@@ -39,33 +37,10 @@ final class Template {
     }
 
     /**
-     * Assigns template variable(s).
-     *
-     * ? Investigate why $names accepts array type.
-     *
-     * @param string|array $names the template variable name(s)
-     * @param mixed        $value the value to assign
+     * Assigns a value to a specific key in the template.
      */
-    public function assign(string|array $names, mixed $value = ''): self {
-        if (is_array(value: $names)) {
-            foreach ($names as $name => $val) {
-                $this->{__FUNCTION__}($name, $val);
-            }
-        } else {
-            $this->variables[$names] = $value;
-        }
-
-        return $this;
-    }
-
-    /**
-     * Append an element to an assigned array.
-     *
-     * @param string $name  the template variable name
-     * @param mixed  $value the value to assign
-     */
-    public function append(string $name, mixed $value = ''): self {
-        $this->variables[$name][] = $value;
+    public function assign(string $key, mixed $value = ''): self {
+        $this->variables[$key] = $value;
 
         return $this;
     }
@@ -80,6 +55,6 @@ final class Template {
 
         require $this->filepath->value;
 
-        return ob_get_clean();
+        return trim(string: ob_get_clean());
     }
 }

@@ -5,7 +5,9 @@ namespace JWWS\WPPF\WordPress\Repo\Subclasses\Post_Type_Repo\Tests\Integration;
 use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo;
 
 /**
- * @covers Post_Type_Repo
+ * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo
+ *
+ * @internal
  */
 final class List_All extends \WP_UnitTestCase {
     /**
@@ -25,7 +27,7 @@ final class List_All extends \WP_UnitTestCase {
      * @test
      */
     public function pass(): void {
-        $this->assertCount(
+        self::assertCount(
             expectedCount: 14,
             haystack: Post_Type_Repo::create()->list_all(),
         );

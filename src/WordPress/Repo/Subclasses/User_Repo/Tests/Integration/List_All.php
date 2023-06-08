@@ -2,12 +2,16 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\Tests\Integration;
 
-use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo;
+use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\{
+    User_Repo,
+    Tests\Integration\Fixtures\Fixture
+};
+
 
 /**
- * @covers WP_User_Repo
+ * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo
  */
-final class List_All extends Utility {
+final class List_All extends Fixture {
     /**
      * @test
      */

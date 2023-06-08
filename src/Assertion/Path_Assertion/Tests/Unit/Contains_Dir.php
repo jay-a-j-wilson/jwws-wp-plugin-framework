@@ -6,36 +6,48 @@ use JWWS\WPPF\Assertion\Path_Assertion\Path_Assertion;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Path_Assertion
+ * @covers \JWWS\WPPF\Assertion\Path_Assertion\Path_Assertion
+ *
+ * @internal
  */
 final class Contains_Dir extends TestCase {
     /**
      * @test
      *
-     * @testdox "$path" contains directory.
+     * @dataProvider pass_data_provider
      *
-     * @testWith
-     * ["folder/file.txt"]
-     * ["folder/.txt"]
-     * ["folder/subfolder/file.html"]
+     * @testdox pass[$_dataName] => $arg contains directory.
      */
-    public function pass(string $path): void {
+    public function pass(string $arg): void {
         $this->expectNotToPerformAssertions();
-        Path_Assertion::of(path: $path)->contains_dir();
+        Path_Assertion::of(path: $arg)->contains_dir();
+    }
+
+    public static function pass_data_provider(): iterable {
+        yield ['folder/file.txt'];
+
+        yield ['folder/.txt'];
+
+        yield ['folder/subfolder/file.html'];
     }
 
     /**
      * @test
      *
-     * @testdox "$path" not contains directory.
+     * @dataProvider throw_data_provider
      *
-     * @testWith
-     * ["file.txt"]
-     * [".txt"]
-     * ["txt"]
+     * @testdox throw[$_dataName] => $arg not contains directory.
      */
-    public function throw(string $path): void {
+    public function throw(string $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        Path_Assertion::of(path: $path)->contains_dir();
+        Path_Assertion::of(path: $arg)->contains_dir();
+    }
+
+    public static function throw_data_provider(): iterable {
+        yield ['file.txt'];
+
+        yield ['.txt'];
+
+        yield ['file.html.php'];
     }
 }

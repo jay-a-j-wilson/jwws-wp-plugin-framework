@@ -12,6 +12,8 @@ use JWWS\WPPF\{
 // Security::stop_direct_access();
 
 /**
+ * @codeCoverageIgnore
+ *
  * Represents a directory.
  */
 abstract class Dir extends Value_Object {
@@ -26,14 +28,14 @@ abstract class Dir extends Value_Object {
      * Undocumented function.
      */
     final public static function of(string $path): static {
-        String_Assertion::of(string: $path)->not_empty();
+        String_Assertion::of(string: $path)->is_not_empty();
 
         $dir = self::format(
             path: self::dir(path: $path),
         );
 
         String_Assertion::of(string: $dir)
-            ->not_empty(message: 'Directory must not be empty.')
+            ->is_not_empty(message: 'Directory must not be empty.')
         ;
 
         return new static(

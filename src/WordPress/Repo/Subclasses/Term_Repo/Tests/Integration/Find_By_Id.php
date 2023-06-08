@@ -2,36 +2,39 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Tests\Integration;
 
-use JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Term_Repo;
+use JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\{
+    Term_Repo,
+    Tests\Integration\Fixtures\Fixture
+};
 
 /**
- * @covers Term_Repo
+ * @covers JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Term_Repo
  */
-final class Find_By_Id extends Utility {
+final class Find_By_Id extends Fixture {
     /**
      * @test
      *
      * @dataProvider pass_data_provider
      *
-     * @testdox pass: ($_dataName) $arg_2 with id $arg_1 found
+     * @testdox pass[$_dataName] => term with id $arg found
      */
-    public function pass(int $arg_1, string $arg_2): void {
+    public function pass(int $arg): void {
         $this->assertSame(
-            expected: $arg_1,
-            actual: Term_Repo::of(taxonomy_names: $arg_2)
-                ->find_by_id(id: $arg_1)
-                ->ID,
+            expected: $arg,
+            actual: Term_Repo::create()->find_by_id(id: $arg)->term_id,
         );
     }
 
-    public static function pass_data_provider(): array {
-        return [
-            [1, 'category'],
-            [2, 'category'],
-            [3, 'category'],
-            [4, 'post_tag'],
-            [5, 'post_tag'],
-        ];
+    public static function pass_data_provider(): iterable {
+        yield [1];
+
+        yield [2];
+
+        yield [3];
+
+        yield [4];
+
+        yield [5];
     }
 
     /**
@@ -39,20 +42,18 @@ final class Find_By_Id extends Utility {
      *
      * @dataProvider throw_data_provider
      *
-     * @testdox throw: ($_dataName) args $arg_1, $arg_2 throws e
+     * @testdox throw[$_dataName] => $arg
      */
-    public function throw(int $arg_1, string $arg_2): void {
+    public function throw(int $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        Term_Repo::of(post_type_names: $arg_2)
-            ->find_by_id(id: $arg_1)
-        ;
+        Term_Repo::create()->find_by_id(id: $arg);
     }
 
-    public static function throw_data_provider(): array {
-        return [
-            'exists, empty type' => [1, ''],
-            'exists, wrong type' => [4, 'category'],
-            'not exists'         => [6, 'post_tag'],
-        ];
+    public static function throw_data_provider(): iterable {
+        yield 'zero' => [0];
+
+        yield 'negative' => [-1];
+
+        yield 'not exists' => [6];
     }
 }

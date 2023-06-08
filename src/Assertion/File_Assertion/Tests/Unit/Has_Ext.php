@@ -6,7 +6,9 @@ use JWWS\WPPF\Assertion\File_Assertion\File_Assertion;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers File_Assertion
+ * @covers \JWWS\WPPF\Assertion\File_Assertion\File_Assertion
+ *
+ * @internal
  */
 final class Has_Ext extends TestCase {
     /**
@@ -14,20 +16,21 @@ final class Has_Ext extends TestCase {
      *
      * @dataProvider pass_data_provider
      *
-     * @testdox "$filepath" is "$ext".
+     * @testdox pass[$_dataName] => $arg_1 has ext $arg_2.
      */
-    public function pass(string $filepath, string $ext): void {
+    public function pass(string $arg_1, string $arg_2): void {
         $this->expectNotToPerformAssertions();
-        File_Assertion::of(filepath: $filepath)->has_ext(ext: $ext);
+        File_Assertion::of(filepath: $arg_1)->has_ext(ext: $arg_2);
     }
 
-    public static function pass_data_provider(): array {
-        return [
-            ['file.php', 'php'],
-            ['folder/file.txt', 'txt'],
-            ['folder/subfolder/file.html', 'html'],
-            ['.php', 'php'],
-        ];
+    public static function pass_data_provider(): iterable {
+        yield 'basic' => ['file.php', 'php'];
+
+        yield 'no filename' => ['.php', 'php'];
+
+        yield 'in dir' => ['folder/file.txt', 'txt'];
+
+        yield 'in nested dir' => ['folder/subfolder/file.html', 'html'];
     }
 
     /**
@@ -35,19 +38,20 @@ final class Has_Ext extends TestCase {
      *
      * @dataProvider throw_data_provider
      *
-     * @testdox "$filepath" is not "$ext".
+     * @testdox pass[$_dataName] => $arg_1 not has ext $arg_2.
      */
-    public function throw(string $filepath, string $ext): void {
+    public function throw(string $arg_1, string $arg_2): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        File_Assertion::of(filepath: $filepath)->has_ext(ext: $ext);
+        File_Assertion::of(filepath: $arg_1)->has_ext(ext: $arg_2);
     }
 
-    public static function throw_data_provider(): array {
-        return [
-            ['php', 'php'],
-            ['file.php', 'txt'],
-            ['folder/file.txt', 'html'],
-            ['folder/subfolder/file.html', 'php'],
-        ];
+    public static function throw_data_provider(): iterable {
+        yield 'basic' => ['file.php', 'txt'];
+
+        yield 'no file ext' => ['php', 'php'];
+
+        yield 'in dir' => ['folder/file.txt', 'html'];
+
+        yield 'in nested dir' => ['folder/subfolder/file.html', 'php'];
     }
 }

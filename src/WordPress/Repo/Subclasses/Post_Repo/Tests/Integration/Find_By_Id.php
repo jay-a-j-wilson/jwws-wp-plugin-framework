@@ -2,99 +2,60 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Tests\Integration;
 
-use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Post_Repo;
+use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\{
+    Post_Repo,
+    Tests\Integration\Fixtures\Fixture
+};
 
 /**
- * @covers Post_Repo
+ * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Post_Repo
+ *
+ * @internal
  */
-final class Find_By_Id extends Utility {
+final class Find_By_Id extends Fixture {
     /**
      * @test
      *
-     * @dataProvider create_pass_data_provider
+     * @dataProvider pass_data_provider
      *
-     * @testdox create_pass: post with id $arg found
+     * @testdox pass[$_dataName] => $arg
      */
-    public function create_pass(int $arg): void {
+    public function pass(int $arg): void {
         $this->assertSame(
             expected: $arg,
-            actual: Post_Repo::create()
-                ->find_by_id(id: $arg)
-                ->ID,
+            actual: Post_Repo::create()->find_by_id(id: $arg)->ID,
         );
     }
 
-    public static function create_pass_data_provider(): array {
-        return [
-            [1],
-            [2],
-            [3],
-            [4],
-            [5],
-        ];
+    public static function pass_data_provider(): iterable {
+        yield [1];
+
+        yield [2];
+
+        yield [3];
+
+        yield [4];
+
+        yield [5];
     }
 
     /**
      * @test
      *
-     * @dataProvider create_throw_data_provider
+     * @dataProvider throw_data_provider
      *
-     * @testdox create_throw: ($_dataName) arg $arg throws e
+     * @testdox throw[$_dataName] $arg
      */
-    public function create_throw(int $arg): void {
+    public function throw(int $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);
         Post_Repo::create()->find_by_id(id: $arg);
     }
 
-    public static function create_throw_data_provider(): array {
-        return [
-            'not exists' => [6, 'post'],
-        ];
-    }
+    public static function throw_data_provider(): iterable {
+        yield 'zero' => [0];
 
-    /**
-     * @test
-     *
-     * @dataProvider of_pass_data_provider
-     *
-     * @testdox of_pass: $arg_2 with id $arg_1 found
-     */
-    public function of_pass(int $arg_1, string $arg_2): void {
-        $this->assertSame(
-            expected: $arg_1,
-            actual: Post_Repo::of(post_type_names: $arg_2)
-                ->find_by_id(id: $arg_1)
-                ->ID,
-        );
-    }
+        yield 'negative' => [-1];
 
-    public static function of_pass_data_provider(): array {
-        return [
-            [1, 'post'],
-            [2, 'post'],
-            [3, 'post'],
-            [4, 'page'],
-            [5, 'page'],
-        ];
-    }
-
-    /**
-     * @test
-     *
-     * @dataProvider of_throw_data_provider
-     *
-     * @testdox of_throw: ($_dataName) args $arg_1, $arg_2 throws e
-     */
-    public function of_throw(int $arg_1, string $arg_2): void {
-        $this->expectException(exception: \InvalidArgumentException::class);
-        Post_Repo::of(post_type_names: $arg_2)->find_by_id(id: $arg_1);
-    }
-
-    public static function of_throw_data_provider(): array {
-        return [
-            'exists, empty type' => [1, ''],
-            'exists, wrong type' => [4, 'post'],
-            'not exists'         => [6, 'post'],
-        ];
+        yield 'not exists' => [6];
     }
 }

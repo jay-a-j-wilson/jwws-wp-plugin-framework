@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    bootstrap="../../tests/phpunit/bootstrap.php"
+    bootstrap="../../tests/phpunit/Bootstrap.php"
     backupGlobals="false"
+    cacheResultFile="./cache/.phpunit.result.cache"
     colors="true"
     verbose="true"
     testdox="true"
 >
+    <!-- testsuites -->
     <testsuites>
+        <!-- all -->
         <testsuite name="all">
             <directory suffix=".php">
                 ../../src/*/Tests
@@ -23,7 +26,11 @@
             <directory suffix=".php">
                 ../../src/*/*/*/*/*/Tests
             </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/Tests
+            </directory>
         </testsuite>
+        <!-- unit -->
         <testsuite name="unit">
             <directory suffix=".php">
                 ../../src/*/Tests/Unit
@@ -40,7 +47,11 @@
             <directory suffix=".php">
                 ../../src/*/*/*/*/*/Tests/Unit
             </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/Tests/Unit
+            </directory>
         </testsuite>
+        <!-- integration -->
         <testsuite name="integration">
             <directory suffix=".php">
                 ../../src/*/Tests/Integration
@@ -52,11 +63,68 @@
                 ../../src/*/*/*/Tests/Integration
             </directory>
             <directory suffix=".php">
+                ../../src/*/*/*/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
                 ../../src/*/*/*/*/*/Tests/Integration
             </directory>
             <directory suffix=".php">
                 ../../src/*/*/*/*/*/*/Tests/Integration
             </directory>
         </testsuite>
+        <!-- debug -->
+        <testsuite name="debug">
+            <!-- <directory suffix=".php">
+                ../../src/WordPress/Repo/Subclasses/Post_Repo/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/WordPress/Repo/Subclasses/Term_Repo/Tests/Integration
+            </directory> -->
+            <directory suffix=".php">
+                ../../src/WordPress/Utility/Tests/Integration
+            </directory>
+        </testsuite>
     </testsuites>
+    <!-- coverage -->
+    <coverage
+        cacheDirectory="./coverage/cache"
+        pathCoverage="false"
+        ignoreDeprecatedCodeUnits="true"
+        includeUncoveredFiles="true"
+        processUncoveredFiles="false"
+        disableCodeCoverageIgnore="false"
+    >
+        <include>
+            <directory suffix=".php">../../src/</directory>
+        </include>
+        <exclude>
+            <directory suffix=".php">../../src/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/*/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/*/*/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/*/*/*/*/Tests</directory>
+        </exclude>
+        <report>
+            <html outputDirectory="./coverage/report/html" />
+            <!-- <php outputFile="./coverage/report/php/index.php" /> -->
+        </report>
+    </coverage>
+    <!-- logging -->
+    <logging>
+        <testdoxHtml outputFile="./logs/log.html" />
+    </logging>
+    <!-- extensions -->
+    <extensions>
+        <extension class="JWWS\WPPF\Tests\PHPUnit\Extension\Hook\Bypass_Finals_Hook" />
+    </extensions>
+    <!-- php -->
+    <php>
+        <ini name="display_errors" value="true" />
+        <ini name="xdebug.mode" value="coverage" />
+        <ini name="xdebug.start_with_request" value="yes" />
+        <ini name="xdebug.client_host" value="localhost" />
+        <ini name="xdebug.client_port" value="9003" />
+        <ini name="xdebug.idekey" value="VSCODE" />
+    </php>
 </phpunit>

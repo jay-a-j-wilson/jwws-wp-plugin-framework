@@ -12,6 +12,8 @@ use JWWS\WPPF\{
 // Security::stop_direct_access();
 
 /**
+ * @codeCoverageIgnore
+ *
  * Will always return a directory and a file.
  */
 abstract class Filepath extends Value_Object {

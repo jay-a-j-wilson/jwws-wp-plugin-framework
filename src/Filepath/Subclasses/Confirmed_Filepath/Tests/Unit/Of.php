@@ -10,7 +10,9 @@ use JWWS\WPPF\Filepath\{
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Confirmed_Filepath
+ * @covers \JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath
+ *
+ * @internal
  */
 final class Of extends TestCase {
     /**
@@ -29,15 +31,18 @@ final class Of extends TestCase {
         );
     }
 
-    public static function pass_data_provider(): array {
-        return [
-            ['folder/file_1.php'],
-            ['folder/file_1.txt'],
-            ['file_1.txt'],
-            ['file_2.txt'],
-            ['file_1.php'],
-            ['file_1'],
-        ];
+    public static function pass_data_provider(): iterable {
+        yield ['folder/file_1.php'];
+
+        yield ['folder/file_1.txt'];
+
+        yield ['file_1.txt'];
+
+        yield ['file_2.txt'];
+
+        yield ['file_1.php'];
+
+        yield ['file_1'];
     }
 
     /**
@@ -56,11 +61,11 @@ final class Of extends TestCase {
         );
     }
 
-    public static function throw_data_provider(): array {
-        return [
-            ['folder/foo.txt'],
-            ['foo.txt'],
-            ['bar.txt'],
-        ];
+    public static function throw_data_provider(): iterable {
+        yield ['folder/foo.txt'];
+
+        yield ['foo.txt'];
+
+        yield ['bar.txt'];
     }
 }

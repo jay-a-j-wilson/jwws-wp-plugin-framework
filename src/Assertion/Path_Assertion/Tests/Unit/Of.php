@@ -6,7 +6,7 @@ use JWWS\WPPF\Assertion\Path_Assertion\Path_Assertion;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers Path_Assertion
+ * @covers JWWS\WPPF\Assertion\Path_Assertion\Path_Assertion
  */
 final class Of extends TestCase {
     /**

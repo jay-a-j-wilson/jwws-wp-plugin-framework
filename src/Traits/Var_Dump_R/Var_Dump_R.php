@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Traits\Var_Dump_R;
 
@@ -15,11 +15,15 @@ trait Var_Dump_R {
         bool $return = false,
     ) {
         $contents = preg_replace(
-            pattern: "/=>\n[ ]+/m",
-            replacement: ' => ',
-            subject: self::var_dump_r(
-                value: $value,
-                return: true,
+            pattern: "/{\n\\s*}/m",
+            replacement: '{}',
+            subject: preg_replace(
+                pattern: "/=>\n[ ]+/m",
+                replacement: ' => ',
+                subject: self::var_dump_r(
+                    value: $value,
+                    return: true,
+                ),
             ),
         );
 

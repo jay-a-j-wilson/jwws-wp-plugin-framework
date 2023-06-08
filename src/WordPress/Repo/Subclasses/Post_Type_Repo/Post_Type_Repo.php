@@ -4,7 +4,7 @@ namespace JWWS\WPPF\WordPress\Repo\Subclasses\Post_Type_Repo;
 
 use JWWS\WPPF\{
     Assertion\Array_Assertion\Array_Assertion,
-    Assertion\WordPress_Assertion\WordPress_Assertion,
+    Assertion\WordPress_Assertion\Slug\Slug as WordPress_Slug_Assertion,
     Collection\Collection,
     Common\Security\Security,
     WordPress\Repo\Repo,
@@ -17,15 +17,6 @@ use JWWS\WPPF\{
  */
 final class Post_Type_Repo extends Repo {
     /**
-     * Factory method.
-     */
-    public static function create(): self {
-        return new self();
-    }
-
-    /**
-     * Returns an object collection of all registered post type.
-     *
      * @return Collection<\WP_Post_Type>
      */
     public function list_all(): Collection {
@@ -35,12 +26,10 @@ final class Post_Type_Repo extends Repo {
     }
 
     /**
-     * Searches repo for registered post type object.
-     *
      * @throws \InvalidArgumentException if not found
      */
     public function find_by_name(string $name): \WP_Post_Type {
-        WordPress_Assertion::of(string: $name)->slug();
+        WordPress_Slug_Assertion::of(slug: $name)->is_valid();
 
         $post_types = get_post_types(
             args: ['name' => $name],
@@ -48,7 +37,7 @@ final class Post_Type_Repo extends Repo {
         );
 
         Array_Assertion::of(array: $post_types)
-            ->not_empty(message: "Post type '{$name}' not found.")
+            ->is_not_empty(message: "Post type '{$name}' not found.")
         ;
 
         return $post_types[$name];

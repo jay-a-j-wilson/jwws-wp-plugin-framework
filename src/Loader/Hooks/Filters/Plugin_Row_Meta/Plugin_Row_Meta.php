@@ -1,12 +1,12 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta;
 
 use JWWS\WPPF\{
+    Collection\Collection,
     Common\Security\Security,
     Loader\Plugin\Plugin,
-    Template\Template,
-    Collection\Collection
+    Template\Template
 };
 
 // Security::stop_direct_access();
@@ -16,21 +16,30 @@ use JWWS\WPPF\{
  */
 final class Plugin_Row_Meta {
     /**
-     * Undocumented function.
+     * Factory method.
      */
-    public static function hook(Plugin $plugin): void {
-        add_filter(
-            'plugin_row_meta',
-            [new self(plugin: $plugin), 'callback'],
-            10,
-            2,
+    public static function of(Plugin $plugin): self {
+        return new self(
+            plugin: $plugin,
         );
     }
 
     /**
-     * Undocumented function.
+     * @return void
      */
-    private function __construct(private Plugin $plugin) {
+    public function __construct(private Plugin $plugin) {
+    }
+
+    /**
+     * Hooks into WordPress.
+     */
+    public function hook(): void {
+        add_filter(
+            'plugin_row_meta',
+            [$this, 'callback'],
+            10,
+            2,
+        );
     }
 
     /**
@@ -54,24 +63,9 @@ final class Plugin_Row_Meta {
             return $plugin_meta;
         }
 
-        return Collection::of($plugin_meta)
-            ->add($this->list_dependencies())
+        return Collection::of(...$plugin_meta)
+            ->add(items: $this->plugin->render_dependencies())
             ->to_array()
-        ;
-    }
-
-    /**
-     * List the plugin's dependency's names.
-     */
-    private function list_dependencies(): string {
-        return Template::of(path: __DIR__ . '/templates/template.html.php')
-            ->assign(
-                names: 'plugin_names',
-                value: $this->plugin
-                    ->dependencies_names()
-                    ->implode(),
-            )
-            ->output()
         ;
     }
 }

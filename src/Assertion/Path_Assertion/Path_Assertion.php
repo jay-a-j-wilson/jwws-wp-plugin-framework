@@ -20,26 +20,9 @@ final class Path_Assertion {
     }
 
     /**
-     * @param string $string the path to be tested
+     * @return void
      */
     private function __construct(private string $path) {
-    }
-
-    /**
-     * Asserts filepath string contains only valid characters.
-     *
-     * @param string $message the error message to include in the exception
-     *
-     * @throws \InvalidArgumentException
-     */
-    public function valid_chars(string $message = ''): self {
-        if (! preg_match(pattern: '/[<>:"\/\\\|\?\*]/', subject: $this->path)) {
-            return $this;
-        }
-
-        throw new \InvalidArgumentException(
-            message: $message ?: "Path '{$this->path}' must not contain invalid characters.",
-        );
     }
 
     /**

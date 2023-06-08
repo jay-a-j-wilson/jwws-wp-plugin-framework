@@ -1,25 +1,31 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\WordPress\Repo;
 
 use JWWS\WPPF\{
-    Common\Security\Security,
     Collection\Collection,
+    Common\Security\Security,
 };
 
 // Security::stop_direct_access();
 
 /**
- * ViewModel Repository.
+ * @codeCoverageIgnore
+ *
+ * ViewModel Repository
  */
 abstract class Repo {
     /**
      * Factory method.
      */
-    abstract public static function create(): self;
+    final public static function create(): static {
+        return new static();
+    }
 
     /**
      * Enforces use of factory method.
+     *
+     * @return void
      */
     protected function __construct() {
     }

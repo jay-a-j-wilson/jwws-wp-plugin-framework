@@ -16,9 +16,45 @@ final class String_Assertion {
     }
 
     /**
-     * @param string $string The string to be tested
+     * @return void
      */
     private function __construct(private string $string) {
+    }
+
+    /**
+     * Asserts string is alphabetic.
+     *
+     * @param string $message Optional. The message to include if the assertion
+     *                        fails.
+     *
+     * @throws \InvalidArgumentException if the assertion fails
+     */
+    public function is_alphabetic(string $message = ''): self {
+        if (ctype_alpha(text: $this->string)) {
+            return $this;
+        }
+
+        throw new \InvalidArgumentException(
+            message: $message ?: "Value '{$this->string}' must be alphabetic.",
+        );
+    }
+
+    /**
+     * Asserts string is alphanumeric.
+     *
+     * @param string $message Optional. The message to include if the assertion
+     *                        fails.
+     *
+     * @throws \InvalidArgumentException if the assertion fails
+     */
+    public function is_alphanumeric(string $message = ''): self {
+        if (ctype_alnum(text: $this->string)) {
+            return $this;
+        }
+
+        throw new \InvalidArgumentException(
+            message: $message ?: "Value '{$this->string}' must be alphanumeric.",
+        );
     }
 
     /**
@@ -29,7 +65,7 @@ final class String_Assertion {
      *
      * @throws \InvalidArgumentException if the value is empty or null
      */
-    public function empty(string $message = ''): self {
+    public function is_empty(string $message = ''): self {
         if (empty($this->string) && $this->string !== '0') {
             return $this;
         }
@@ -40,14 +76,14 @@ final class String_Assertion {
     }
 
     /**
-     * Asserts string is not empty or null.
+     * Asserts string is not empty.
      *
      * @param string $message a custom message to include in the exception if
      *                        the assertion fails
      *
      * @throws \InvalidArgumentException if the value is empty or null
      */
-    public function not_empty(string $message = ''): self {
+    public function is_not_empty(string $message = ''): self {
         if (! empty($this->string) || $this->string === '0') {
             return $this;
         }
@@ -58,26 +94,26 @@ final class String_Assertion {
     }
 
     /**
-     * Asserts string is equal to a specified value.
+     * Asserts string is equal to a given value.
      *
-     * @param string $string  The expected value
+     * @param mixed  $value   The expected value
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
      * @throws \InvalidArgumentException
      */
-    public function equals(string $string, string $message = ''): self {
-        if ($this->string === $string) {
+    public function is_equal(mixed $value, string $message = ''): self {
+        if ($this->string == $value) {
             return $this;
         }
 
         throw new \InvalidArgumentException(
-            message: $message ?: "String '{$this->string}' is not equal to '{$string}'.",
+            message: $message ?: "String '{$this->string}' must be equal to '{$value}'.",
         );
     }
 
     /**
-     * Asserts string contains a specified substring.
+     * Asserts string contains a given substring.
      *
      * @param string $substring the substring to search for
      * @param string $message   Optional. The message to include if the
@@ -96,7 +132,7 @@ final class String_Assertion {
     }
 
     /**
-     * Asserts string starts with a specified prefix.
+     * Asserts string starts with a given prefix.
      *
      * @param string $prefix  the prefix to check for
      * @param string $message Optional. The message to include if the assertion
@@ -115,7 +151,7 @@ final class String_Assertion {
     }
 
     /**
-     * Asserts string value ends with a specified suffix.
+     * Asserts string value ends with a given suffix.
      *
      * @param string $suffix  the suffix to check for
      * @param string $message Optional. The message to include if the assertion
@@ -130,42 +166,6 @@ final class String_Assertion {
 
         throw new \InvalidArgumentException(
             message: $message ?: "String '{$this->string}' must end with '{$suffix}'.",
-        );
-    }
-
-    /**
-     * Asserts string is alphabetic.
-     *
-     * @param string $message Optional. The message to include if the assertion
-     *                        fails.
-     *
-     * @throws \InvalidArgumentException if the assertion fails
-     */
-    public function alphabetic(string $message = ''): self {
-        if (ctype_alpha(text: $this->string)) {
-            return $this;
-        }
-
-        throw new \InvalidArgumentException(
-            message: $message ?: "Value '{$this->string}' must be alphabetic.",
-        );
-    }
-
-    /**
-     * Asserts string is alphanumeric.
-     *
-     * @param string $message Optional. The message to include if the assertion
-     *                        fails.
-     *
-     * @throws \InvalidArgumentException if the assertion fails
-     */
-    public function alphanumeric(string $message = ''): self {
-        if (ctype_alnum(text: $this->string)) {
-            return $this;
-        }
-
-        throw new \InvalidArgumentException(
-            message: $message ?: "Value '{$this->string}' must be alphanumeric.",
         );
     }
 }
