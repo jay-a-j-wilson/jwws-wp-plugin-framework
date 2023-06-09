@@ -43,14 +43,16 @@ final class Deactivated_Plugin {
     /**
      * Fires after a plugin is deactivated.
      *
-     * @docs https://developer.wordpress.org/reference/hooks/deactivated_plugin/
+     * @link https://developer.wordpress.org/reference/hooks/deactivated_plugin/
      *
      * @param string $plugin path to the plugin file relative to the plugins
      *                       directory
      */
     public function callback(string $plugin): void {
-        if ($this->plugin->contains_dependency(basename: $plugin)) {
-            $this->plugin->deactivate();
+        if (! $this->plugin->contains_dependency(basename: $plugin)) {
+            return;
         }
+
+        $this->plugin->deactivate();
     }
 }

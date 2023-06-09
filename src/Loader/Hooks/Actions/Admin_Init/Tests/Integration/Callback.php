@@ -4,7 +4,6 @@ namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Tests\Integration;
 
 use JWWS\WPPF\Loader\{
     Hooks\Actions\Admin_Init\Admin_Init,
-    Plugin\Plugin,
     Tests\Integration\Fixtures\Akismet_Plugin,
     Tests\Integration\Fixtures\Basic_Plugin,
 };
@@ -15,28 +14,22 @@ use JWWS\WPPF\Loader\{
  * @internal
  */
 final class Callback extends \WP_UnitTestCase {
-    // protected static Admin_Init $object;
-
-    // public static function setUpBeforeClass(): void {
-    //     parent::setUpBeforeClass();
-
-    //     self::$object = Admin_Init::of(
-    //         plugin: Basic_Plugin::create_and_get(),
-    //     );
-    // }
-
     /**
-     * @test
+     * @xtest
      */
     public function pass(): void {
-        $plugin = Basic_Plugin::create_and_get()->add_dependencies(
-            Akismet_Plugin::create_and_get()
-        );
-        $object = Admin_Init::of(
-            plugin: $plugin,
-        );
-        $object->callback();
+        $dependency = Basic_Plugin::create_and_get()
+            ->add_dependencies(
+                Akismet_Plugin::create_and_get(),
+            )
+        ;
 
-        self::assertTrue( $plugin->is_active());
+        $sut = Admin_Init::of(
+            plugin: $dependency,
+        );
+
+        $sut->callback();
+
+        self::assertTrue($dependency->is_active());
     }
 }

@@ -2,7 +2,10 @@
 
 namespace JWWS\WPPF\Loader\Tests\Integration\Fixtures;
 
-use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Loader\Plugin\{
+    Plugin,
+    Standard_Plugin\Standard_Plugin
+};
 
 /**
  * @internal
@@ -20,7 +23,7 @@ final class Akismet_Plugin {
      */
     public static function create(): self {
         return new self(
-            value: Plugin::of_slug(
+            value: Standard_Plugin::of_slug(
                 slug: 'akismet',
                 fallback_name: 'Akismet',
             ),

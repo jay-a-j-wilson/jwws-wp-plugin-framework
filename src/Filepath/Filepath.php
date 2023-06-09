@@ -8,6 +8,7 @@ use JWWS\WPPF\{
     Filepath\Sub_Value_Objects\Dir\Dir,
     Filepath\Sub_Value_Objects\File\File
 };
+use JWWS\WPPF\Common\Value_Object\Base_Value_Object;
 
 // Security::stop_direct_access();
 
@@ -16,7 +17,7 @@ use JWWS\WPPF\{
  *
  * Will always return a directory and a file.
  */
-abstract class Filepath extends Value_Object {
+abstract class Filepath extends Base_Value_Object {
     /**
      * Factory method.
      */

@@ -54,7 +54,7 @@ final class Callback extends \WP_UnitTestCase {
 
         yield 'invalid basename' => [
             Akismet_Plugin::create_and_get()
-                ->add_dependencies(Basic_Plugin::create_and_get()),
+                ->add_dependencies(plugins: Basic_Plugin::create_and_get()),
             'plugin/plugin.php',
             $meta_data,
             $meta_data,
@@ -62,7 +62,7 @@ final class Callback extends \WP_UnitTestCase {
 
         yield 'valid' => [
             Akismet_Plugin::create_and_get()
-                ->add_dependencies(Basic_Plugin::create_and_get()),
+                ->add_dependencies(plugins: Basic_Plugin::create_and_get()),
             'akismet/akismet.php',
             $meta_data,
             [...$meta_data, '<strong>Requires:</strong> Plugin'],

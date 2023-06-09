@@ -16,7 +16,7 @@ final class Of extends TestCase {
      *
      * @dataProvider pass_data_provider
      *
-     * @testdox pass: $_dataName arg $arg returns "file"
+     * @testdox pass[$_dataName] => arg $arg returns "file"
      */
     public function pass(mixed $arg): void {
         self::assertEquals(
@@ -40,7 +40,7 @@ final class Of extends TestCase {
      *
      * @dataProvider throw_data_provider
      *
-     * @testdox throw: $_dataName arg $arg throws e
+     * @testdox throw[$_dataName] => arg $arg throws e
      */
     public function throw(mixed $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);

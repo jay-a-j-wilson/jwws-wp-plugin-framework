@@ -11,5 +11,6 @@
 ./vendor/bin/phpunit -c config/phpunit/phpunit.xml --verbose
 ./vendor/bin/phpunit -c config/phpunit/phpunit.xml --testsuite unit
 ./vendor/bin/phpunit -c config/phpunit/phpunit.xml --testsuite integration 
+./vendor/bin/phpunit -c config/phpunit/phpunit.xml --testsuite debug
 ./vendor/bin/phpunit --list-suites
 ./vendor/bin/phpunit --testsuite unit

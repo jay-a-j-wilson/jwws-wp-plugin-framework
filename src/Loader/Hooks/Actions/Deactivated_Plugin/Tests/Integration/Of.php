@@ -3,9 +3,8 @@
 namespace JWWS\WPPF\Loader\Hooks\Action\Deactivated_Plugin\Tests\Integration;
 
 use JWWS\WPPF\Loader\{
-    Tests\Integration\Fixtures\Basic_Plugin,
     Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin,
-    Plugin\Plugin
+    Tests\Integration\Fixtures\Basic_Plugin,
 };
 use PHPUnit\Framework\TestCase;
 
@@ -15,21 +14,15 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 final class Of extends TestCase {
-    protected static Plugin $plugin;
-
-    public static function setUpBeforeClass(): void {
-        parent::setUpBeforeClass();
-
-        self::$plugin = Basic_Plugin::create_and_get();
-    }
-
     /**
      * @test
      */
     public function pass(): void {
         self::assertInstanceOf(
             expected: Deactivated_Plugin::class,
-            actual: Deactivated_Plugin::of(plugin: self::$plugin),
+            actual: Deactivated_Plugin::of(
+                plugin: Basic_Plugin::create_and_get(),
+            ),
         );
     }
 }

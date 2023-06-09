@@ -15,7 +15,7 @@ final class Of extends \WP_UnitTestCase {
      *
      * @dataProvider pass_data_provider
      *
-     * @testdox pass: $_dataName args [$arg_1, $arg_2]
+     * @testdox pass[$_dataName] => args [$arg_1, $arg_2]
      */
     public function pass(string $arg_1, string $arg_2): void {
         self::assertEquals(

@@ -15,21 +15,13 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 final class Of extends TestCase {
-    protected static Plugin $plugin;
-
-    public static function setUpBeforeClass(): void {
-        parent::setUpBeforeClass();
-
-        self::$plugin = Basic_Plugin::create_and_get();
-    }
-
     /**
      * @test
      */
     public function pass(): void {
         self::assertInstanceOf(
             expected: Loader::class,
-            actual: Loader::of(plugin: self::$plugin),
+            actual: Loader::of(plugin: Basic_Plugin::create_and_get()),
         );
     }
 }

@@ -14,15 +14,7 @@ use JWWS\WPPF\{
  *
  * Value object base class.
  */
-abstract class Value_Object implements \Stringable {
-    use Log;
-
-    /**
-     * Enforces use of static factory method.
-     */
-    final protected function __construct(public readonly mixed $value) {
-    }
-
+interface Value_Object extends \Stringable {
     /**
      * Compares this object with another object for equality.
      *
@@ -32,9 +24,7 @@ abstract class Value_Object implements \Stringable {
      *
      * @return bool true if the objects are equal, false otherwise
      */
-    final public function equals(self $other): bool {
-        return $this->value === $other->value;
-    }
+    public function equals(Value_Object $other): bool;
 
     /**
      * {@inheritDoc}
@@ -42,7 +32,5 @@ abstract class Value_Object implements \Stringable {
      * Used by factory methods to create complex value objects with cleaner
      * syntax.
      */
-    final public function __toString(): string {
-        return (string) $this->value;
-    }
+    public function __toString(): string;
 }

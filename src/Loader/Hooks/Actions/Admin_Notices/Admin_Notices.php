@@ -39,10 +39,7 @@ final class Admin_Notices {
     public function hook(): void {
         add_action(
             'admin_notices',
-            [
-                $this,
-                'callback',
-            ],
+            [$this, 'callback'],
             10,
             2,
         );
@@ -55,8 +52,8 @@ final class Admin_Notices {
      */
     public function callback(): void {
         echo Template::of(path: __DIR__ . '/templates/template.html.php')
-            ->assign(key: 'plugin_name', value: $this->plugin->name)
-            ->assign(key: 'dependency_name', value: $this->dependency->name)
+            ->assign(key: 'plugin_name', value: $this->plugin->name())
+            ->assign(key: 'dependency_name', value: $this->dependency->name())
             ->output()
         ;
     }

@@ -2,10 +2,12 @@
 <phpunit
     bootstrap="../../tests/phpunit/Bootstrap.php"
     backupGlobals="false"
-    cacheResultFile="./cache/.phpunit.result.cache"
+    cacheResultFile="cache/.phpunit.result.cache"
     colors="true"
     verbose="true"
     testdox="true"
+    stopOnError="true"
+    stopOnFailure="true"
 >
     <!-- testsuites -->
     <testsuites>
@@ -80,14 +82,17 @@
             <directory suffix=".php">
                 ../../src/WordPress/Repo/Subclasses/Term_Repo/Tests/Integration
             </directory> -->
-            <directory suffix=".php">
+            <!-- <directory suffix=".php">
                 ../../src/WordPress/Utility/Tests/Integration
+            </directory> -->
+            <directory suffix=".php">
+                ../../src/Loader/Hooks/Filters/Plugin_Row_Meta/Tests/Integration
             </directory>
         </testsuite>
     </testsuites>
     <!-- coverage -->
     <coverage
-        cacheDirectory="./coverage/cache"
+        cacheDirectory="coverage/cache"
         pathCoverage="false"
         ignoreDeprecatedCodeUnits="true"
         includeUncoveredFiles="true"
@@ -106,18 +111,18 @@
             <directory suffix=".php">../../src/*/*/*/*/*/*/Tests</directory>
         </exclude>
         <report>
-            <html outputDirectory="./coverage/report/html" />
+            <html outputDirectory="coverage/report/html" />
             <!-- <php outputFile="./coverage/report/php/index.php" /> -->
         </report>
     </coverage>
     <!-- logging -->
     <logging>
-        <testdoxHtml outputFile="./logs/log.html" />
+        <testdoxHtml outputFile="logs/log.html" />
     </logging>
     <!-- extensions -->
-    <extensions>
+    <!-- <extensions>
         <extension class="JWWS\WPPF\Tests\PHPUnit\Extension\Hook\Bypass_Finals_Hook" />
-    </extensions>
+    </extensions> -->
     <!-- php -->
     <php>
         <ini name="display_errors" value="true" />

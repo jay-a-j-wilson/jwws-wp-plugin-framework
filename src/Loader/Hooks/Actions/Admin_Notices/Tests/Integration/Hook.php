@@ -14,16 +14,16 @@ use JWWS\WPPF\Loader\{
  * @internal
  */
 final class Hook extends \WP_UnitTestCase {
-    protected static string $hook = 'admin_notices';
+    private const HOOK = 'admin_notices';
 
-    protected static Admin_Notices $object;
+    private const METHOD = 'callback';
 
-    protected static string $method = 'callback';
+    protected static Admin_Notices $sut;
 
     public static function setUpBeforeClass(): void {
         parent::setUpBeforeClass();
 
-        self::$object = Admin_Notices::of(
+        self::$sut = Admin_Notices::of(
             plugin: Basic_Plugin::create_and_get(),
             dependency: Akismet_Plugin::create_and_get(),
         );
@@ -35,10 +35,10 @@ final class Hook extends \WP_UnitTestCase {
     public function pass(): void {
         self::assertFalse(
             condition: has_action(
-                self::$hook,
+                self::HOOK,
                 [
-                    self::$object,
-                    self::$method,
+                    self::$sut,
+                    self::METHOD,
                 ],
             ),
         );
@@ -50,15 +50,15 @@ final class Hook extends \WP_UnitTestCase {
      * @depends pass
      */
     public function pass_action(): void {
-        self::$object->hook();
+        self::$sut->hook();
 
         self::assertSame(
             expected: 10,
             actual: has_action(
-                self::$hook,
+                self::HOOK,
                 [
-                    self::$object,
-                    self::$method,
+                    self::$sut,
+                    self::METHOD,
                 ],
             ),
         );

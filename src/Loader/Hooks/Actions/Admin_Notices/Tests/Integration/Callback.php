@@ -35,9 +35,9 @@ final class Callback extends \WP_UnitTestCase {
 <div class="notice notice-error">
     <p>
         Sorry, the
-        <strong>{$plugin->name}</strong>
+        <strong>{$plugin->name()}</strong>
         plugin needs the
-        <strong>{$dependency->name}</strong>
+        <strong>{$dependency->name()}</strong>
         plugin to be installed and activated.
     </p>
 </div>

@@ -16,17 +16,6 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 final class Of extends TestCase {
-    protected static Plugin $basic_plugin;
-
-    protected static Plugin $akismet_plugin;
-
-    public static function setUpBeforeClass(): void {
-        parent::setUpBeforeClass();
-
-        self::$basic_plugin   = Basic_Plugin::create_and_get();
-        self::$akismet_plugin = Akismet_Plugin::create_and_get();
-    }
-
     /**
      * @test
      */
@@ -34,8 +23,8 @@ final class Of extends TestCase {
         self::assertInstanceOf(
             expected: Admin_Notices::class,
             actual: Admin_Notices::of(
-                plugin: self::$basic_plugin,
-                dependency: self::$akismet_plugin,
+                plugin: Basic_Plugin::create_and_get(),
+                dependency: Akismet_Plugin::create_and_get(),
             ),
         );
     }

@@ -14,11 +14,11 @@ use JWWS\WPPF\Loader\{
  * @internal
  */
 final class Hook extends \WP_UnitTestCase {
+    private const HOOK = 'plugin_row_meta';
+
+    private const METHOD = 'callback';
+
     private Plugin_Row_Meta $sut;
-
-    private string $hook = 'plugin_row_meta';
-
-    private string $method = 'callback';
 
     protected function setUp(): void {
         parent::setUp();
@@ -34,10 +34,10 @@ final class Hook extends \WP_UnitTestCase {
     public function pass(): void {
         self::assertFalse(
             condition: has_filter(
-                $this->hook,
+                self::HOOK,
                 [
                     $this->sut,
-                    $this->method,
+                    self::METHOD,
                 ],
             ),
         );
@@ -54,10 +54,10 @@ final class Hook extends \WP_UnitTestCase {
         self::assertSame(
             expected: 10,
             actual: has_filter(
-                $this->hook,
+                self::HOOK,
                 [
                     $this->sut,
-                    $this->method,
+                    self::METHOD,
                 ],
             ),
         );
