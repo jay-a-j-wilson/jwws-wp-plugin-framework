@@ -6,6 +6,7 @@ use JWWS\WPPF\{
     Assertion\Array_Assertion\Array_Assertion,
     Assertion\WordPress_Assertion\Slug\Slug as WordPress_Slug_Assertion,
     Collection\Collection,
+    Collection\Standard_Collection\Standard_Collection,
     Common\Security\Security,
     WordPress\Repo\Repo,
 };
@@ -20,7 +21,7 @@ final class Post_Type_Repo extends Repo {
      * @return Collection<\WP_Post_Type>
      */
     public function list_all(): Collection {
-        return Collection::of(
+        return Standard_Collection::of(
             ...get_post_types(output: 'objects'),
         );
     }

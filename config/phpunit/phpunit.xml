@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    bootstrap="../../tests/phpunit/Bootstrap.php"
+    bootstrap="../../tests/PHPUnit/bootstrap.php"
     backupGlobals="false"
     cacheResultFile="cache/.phpunit.result.cache"
     colors="true"
@@ -119,10 +119,6 @@
     <logging>
         <testdoxHtml outputFile="logs/log.html" />
     </logging>
-    <!-- extensions -->
-    <!-- <extensions>
-        <extension class="JWWS\WPPF\Tests\PHPUnit\Extension\Hook\Bypass_Finals_Hook" />
-    </extensions> -->
     <!-- php -->
     <php>
         <ini name="display_errors" value="true" />

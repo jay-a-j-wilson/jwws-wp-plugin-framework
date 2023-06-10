@@ -6,6 +6,7 @@ use JWWS\WPPF\{
     Assertion\Boolean_Assertion\Boolean_Assertion,
     Assertion\WordPress_Assertion\Id\Id as WordPress_Id_Assertion,
     Collection\Collection,
+    Collection\Standard_Collection\Standard_Collection,
     WordPress\Repo\Repo,
     WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo,
 };
@@ -18,7 +19,7 @@ final class Post_Repo extends Repo {
      * @return Collection<\WP_Post>
      */
     public function list_all(): Collection {
-        return Collection::of(
+        return Standard_Collection::of(
             ...get_posts(args: [
                 'numberposts' => -1,
                 'post_status' => 'publish',

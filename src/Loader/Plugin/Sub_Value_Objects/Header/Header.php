@@ -4,13 +4,13 @@ namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Value_Object,
+    Common\Value_Object\Base_Value_Object\Base_Value_Object,
     Loader\Plugin\Sub_Value_Objects\Filepath\Filepath,
     Loader\Plugin\Sub_Value_Objects\Header\Enums\Type
 };
 use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Dir\Subclasses\Full_Dir\Full_Dir,
-    Sub_Value_Objects\File\Subclasses\PHP_File\PHP_File,
+    Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir,
+    Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File,
     Subclasses\Confirmed_Filepath\Confirmed_Filepath
 };
 
@@ -21,7 +21,7 @@ use JWWS\WPPF\Filepath\{
  *
  * Represents the plugin's header value object.
  */
-abstract class Header extends Value_Object {
+abstract class Header extends Base_Value_Object {
     /**
      * Returns the header type.
      */

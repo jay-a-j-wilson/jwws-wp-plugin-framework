@@ -4,11 +4,10 @@ namespace JWWS\WPPF\Filepath;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Value_Object,
+    Common\Value_Object\Base_Value_Object\Base_Value_Object,
     Filepath\Sub_Value_Objects\Dir\Dir,
     Filepath\Sub_Value_Objects\File\File
 };
-use JWWS\WPPF\Common\Value_Object\Base_Value_Object;
 
 // Security::stop_direct_access();
 

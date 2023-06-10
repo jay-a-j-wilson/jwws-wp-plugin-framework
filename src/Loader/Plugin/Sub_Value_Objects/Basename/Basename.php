@@ -4,11 +4,11 @@ namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Value_Object,
+    Common\Value_Object\Base_Value_Object\Base_Value_Object,
 };
 use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Dir\Subclasses\Immediate_Dir\Immediate_Dir,
-    Sub_Value_Objects\File\Subclasses\PHP_File\PHP_File,
+    Sub_Value_Objects\Dir\Base_Dir\Subclasses\Immediate_Dir\Immediate_Dir,
+    Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File,
     Subclasses\Unconfirmed_Filepath\Unconfirmed_Filepath,
 };
 
@@ -17,7 +17,7 @@ use JWWS\WPPF\Filepath\{
 /**
  * Represents a WordPress Plugin's basename.
  */
-final class Basename extends Value_Object {
+final class Basename extends Base_Value_Object {
     /**
      * @param string $path the plugin's basename "plugin-folder/plugin-file.php"
      */

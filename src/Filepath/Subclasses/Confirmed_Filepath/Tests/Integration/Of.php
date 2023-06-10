@@ -3,8 +3,8 @@
 namespace JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Tests\Integration;
 
 use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Dir\Subclasses\Full_Dir\Full_Dir,
-    Sub_Value_Objects\File\Subclasses\PHP_File\PHP_File,
+    Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir,
+    Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File,
     Subclasses\Confirmed_Filepath\Confirmed_Filepath
 };
 use PHPUnit\Framework\TestCase;
@@ -15,16 +15,22 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 final class Of extends TestCase {
+    private function full_path(string $path): string {
+        return __DIR__ . "/test_files/{$path}";
+    }
+
     /**
      * @test
      *
      * @dataProvider pass_data_provider
      *
-     * @testdox pass: arg $arg exists.
+     * @testdox pass[$_dataName] => arg $arg exists.
      */
     public function pass(string $arg): void {
         $this->expectNotToPerformAssertions();
-        $path = __DIR__ . "/test_files/{$arg}";
+
+        $path = $this->full_path(path: $arg);
+
         Confirmed_Filepath::of(
             dir: Full_Dir::of(path: $path),
             file: PHP_File::of(path: $path),
@@ -50,11 +56,13 @@ final class Of extends TestCase {
      *
      * @dataProvider throw_data_provider
      *
-     * @testdox throw: arg $arg not exist.
+     * @testdox throw[$_dataName] => arg $arg not exist.
      */
     public function throw(string $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        $path = __DIR__ . "/test_files/{$arg}";
+
+        $path = $this->full_path(path: $arg);
+
         Confirmed_Filepath::of(
             dir: Full_Dir::of(path: $path),
             file: PHP_File::of(path: $path),

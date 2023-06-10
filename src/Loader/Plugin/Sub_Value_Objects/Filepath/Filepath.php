@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Value_Object,
+    Common\Value_Object\Base_Value_Object\Base_Value_Object,
     Loader\Plugin\Sub_Value_Objects\Basename\Basename,
     Loader\Plugin\Sub_Value_Objects\Dir\Dir
 };
@@ -14,7 +14,7 @@ use JWWS\WPPF\{
 /**
  * Represents a plugin's filepath.
  */
-final class Filepath extends Value_Object {
+final class Filepath extends Base_Value_Object {
     /**
      * @param string $basename example plugin-folder/plugin-file.php
      */

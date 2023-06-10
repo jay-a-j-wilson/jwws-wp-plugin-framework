@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Value_Object
+    Common\Value_Object\Base_Value_Object\Base_Value_Object
 };
 
 // Security::stop_direct_access();
@@ -12,7 +12,7 @@ use JWWS\WPPF\{
 /**
  * Represents the WordPress plugin directory.
  */
-final class Dir extends Value_Object {
+final class Dir extends Base_Value_Object {
     /**
      * Factory method.
      */

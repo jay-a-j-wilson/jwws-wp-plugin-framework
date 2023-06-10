@@ -5,7 +5,7 @@ namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name;
 use JWWS\WPPF\{
     Assertion\String_Assertion\String_Assertion,
     Common\Security\Security,
-    Common\Value_Object\Value_Object
+    Common\Value_Object\Base_Value_Object\Base_Value_Object
 };
 
 // Security::stop_direct_access();
@@ -13,7 +13,7 @@ use JWWS\WPPF\{
 /**
  * Represents a filename.
  */
-final class Name extends Value_Object {
+final class Name extends Base_Value_Object {
     /**
      * Factory method.
      */

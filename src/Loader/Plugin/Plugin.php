@@ -2,12 +2,14 @@
 
 namespace JWWS\WPPF\Loader\Plugin;
 
+// @codeCoverageIgnoreStart
 use JWWS\WPPF\{
     Collection\Collection,
     Common\Security\Security,
     Loader\Plugin\Sub_Value_Objects\Basename\Basename,
     Loader\Plugin\Sub_Value_Objects\Name\Name,
 };
+// @codeCoverageIgnoreEnd
 
 interface Plugin {
     /**

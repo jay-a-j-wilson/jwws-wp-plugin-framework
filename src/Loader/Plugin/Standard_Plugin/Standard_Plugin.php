@@ -4,6 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin;
 
 use JWWS\WPPF\{
     Collection\Collection,
+    Collection\Standard_Collection\Standard_Collection,
     Common\Security\Security,
     Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta,
     Loader\Plugin\Plugin,
@@ -48,7 +49,7 @@ final class Standard_Plugin implements Plugin {
         private readonly Basename $basename,
         private readonly Name $name,
     ) {
-        $this->dependencies = Collection::create();
+        $this->dependencies = Standard_Collection::create();
     }
 
     private readonly Collection $dependencies;

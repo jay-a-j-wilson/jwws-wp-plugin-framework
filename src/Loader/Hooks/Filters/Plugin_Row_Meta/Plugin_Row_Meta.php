@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta;
 
 use JWWS\WPPF\{
-    Collection\Collection,
+    Collection\Standard_Collection\Standard_Collection,
     Common\Security\Security,
     Loader\Plugin\Plugin,
     Template\Template
@@ -63,7 +63,7 @@ final class Plugin_Row_Meta {
             return $plugin_meta;
         }
 
-        return Collection::of(...$plugin_meta)
+        return Standard_Collection::of(...$plugin_meta)
             ->add(items: $this->plugin->render_dependencies())
             ->to_array()
         ;

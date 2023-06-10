@@ -19,7 +19,7 @@ final class Contains_Key extends TestCase {
      * @testdox pass[$_dataName] => $arg_1 contains $arg_2
      */
     public function pass(array $arg_1, int|string $arg_2): void {
-        $this->expectNotToPerformAssertions();
+        self::expectNotToPerformAssertions();
         Array_Assertion::of(array: $arg_1)->contains_key(key: $arg_2);
     }
 

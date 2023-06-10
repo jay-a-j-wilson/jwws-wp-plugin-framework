@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Logger;
 
@@ -15,8 +15,7 @@ abstract class Logger {
     /**
      * Do not instantiate.
      */
-    protected function __construct() {
-    }
+    protected function __construct() {}
 
     /**
      * Logs the output.

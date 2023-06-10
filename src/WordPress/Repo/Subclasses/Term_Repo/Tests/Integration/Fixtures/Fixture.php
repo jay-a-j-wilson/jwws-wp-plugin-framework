@@ -2,16 +2,17 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Tests\Integration\Fixtures;
 
-use JWWS\WPPF\Tests\Traits\Printable;
-use JWWS\WPPF\Tests\Traits\WordPress\Term_Factory;
-use JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo;
+use JWWS\WPPF\{
+    Tests\PHPUnit\WordPress\Factory\Term_Factory,
+    Tests\Traits\Printable,
+    WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo
+};
 
 /**
  * Fixture implementation.
  */
 abstract class Fixture extends \WP_UnitTestCase {
     use Printable;
-    use Term_Factory;
 
     /**
      * Creates terms for testing.
@@ -20,7 +21,7 @@ abstract class Fixture extends \WP_UnitTestCase {
         parent::setUpBeforeClass();
 
         foreach (range(start: 2, end: 3) as $id) {
-            self::insert_wp_term(
+            Term_Factory::insert_wp_term(
                 term_id: $id,
                 term_name: "Term {$id}",
                 taxonomy: 'category',
@@ -28,7 +29,7 @@ abstract class Fixture extends \WP_UnitTestCase {
         }
 
         foreach (range(start: 4, end: 5) as $id) {
-            self::insert_wp_term(
+            Term_Factory::insert_wp_term(
                 term_id: $id,
                 term_name: "Term {$id}",
                 taxonomy: 'post_tag',

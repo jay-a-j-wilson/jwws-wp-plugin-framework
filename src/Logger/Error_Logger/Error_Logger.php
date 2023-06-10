@@ -1,9 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Logger\Error_Logger;
 
 use JWWS\WPPF\{
     Common\Security\Security,
+    Common\Utility\Variable,
     Logger\Logger,
     Template\Template,
     Traits\Variable_Handler,
@@ -15,8 +16,6 @@ use JWWS\WPPF\{
  * Undocumented class.
  */
 final class Error_Logger extends Logger {
-    use Variable_Handler;
-
     /**
      * Prints to error log.
      */
@@ -37,7 +36,7 @@ final class Error_Logger extends Logger {
      */
     public static function log_verbose(mixed $output, int $depth = 1): mixed {
         error_log(message: self::generate_message(
-            contents: self::pretty_var_dump_r(
+            contents: Variable::pretty_var_dump_r(
                 value: self::get_backtrace(depth: $depth)['args'][0],
                 return: true,
             ),
@@ -55,22 +54,22 @@ final class Error_Logger extends Logger {
         int $depth,
     ): string {
         return Template::of(path: __DIR__ . '/templates/template.html.php')
-            ->assign(names: 'separator_length', value: 210)
-            ->assign(names: 'contents', value: $contents)
+            ->assign(key: 'separator_length', value: 210)
+            ->assign(key: 'contents', value: $contents)
             ->assign(
-                names: 'class',
+                key: 'class',
                 value: self::get_backtrace(depth: $depth + 2)['class'],
             )
             ->assign(
-                names: 'function',
+                key: 'function',
                 value: self::get_backtrace(depth: $depth + 2)['function'],
             )
             ->assign(
-                names: 'file',
+                key: 'file',
                 value: self::get_backtrace(depth: $depth + 1)['file'],
             )
             ->assign(
-                names: 'line',
+                key: 'line',
                 value: self::get_backtrace(depth: $depth + 1)['line'],
             )
             ->output()

@@ -3,34 +3,43 @@
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Tests\Integration;
 
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath
  *
  * @internal
  */
-final class Of extends \WP_UnitTestCase {
+final class Of extends TestCase {
     /**
      * @test
-     *
-     * @dataProvider pass_data_provider
-     *
-     * @testdox pass: $_dataName arg $arg returns ".../wp-content/plugins/dir/filename.php"
      */
-    public function pass(string $arg): void {
-        self::assertStringEndsWith(
-            suffix: '/wp-content/plugins/dir/filename.php',
-            string: Filepath::of(basename: $arg)->value,
+    public function pass(): void {
+        self::assertInstanceOf(
+            expected: Filepath::class,
+            actual: Filepath::of(basename: 'dir/file.ext'),
         );
     }
 
-    public static function pass_data_provider(): iterable {
-        yield 'basic' => ['dir/filename.php'];
+    /**
+     * @test
+     *
+     * @dataProvider throw_data_provider
+     *
+     * @testdox throw[$_dataName] => arg $arg throws e
+     */
+    public function throw(mixed $arg): void {
+        self::expectException(exception: \InvalidArgumentException::class);
+        Filepath::of(basename: $arg);
+    }
 
-        yield 'non php ext' => ['dir/filename.txt'];
+    public static function throw_data_provider(): iterable {
+        yield 'empty' => [''];
 
-        yield 'no ext' => ['dir/filename'];
+        yield 'no dir' => ['file.ext'];
 
-        yield 'nested dir' => ['sup_dir/dir/filename.php'];
+        yield 'no filename' => ['dir/.ext'];
+
+        yield 'no dir, no filename' => ['.ext'];
     }
 }

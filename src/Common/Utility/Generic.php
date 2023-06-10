@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Common\Utility;
 
@@ -13,8 +13,7 @@ final class Generic {
     /**
      * Do not instantiate.
      */
-    private function __construct() {
-    }
+    private function __construct() {}
 
     /**
      * Flattens an array of objects containing nested objects to one level.
@@ -29,10 +28,10 @@ final class Generic {
 
         foreach ($objects as $object) {
             // separate its children
-            $children = $object->$key ?? [];
+            $children = $object->{$key} ?? [];
 
             // delete its nested objects
-            $object->$key = [];
+            $object->{$key} = [];
 
             // and add it to the output array
             $output[] = $object;

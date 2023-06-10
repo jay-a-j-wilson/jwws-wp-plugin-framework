@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name;
 
 use JWWS\WPPF\{
     Common\Security\Security,
-    Common\Value_Object\Value_Object,
+    Common\Value_Object\Base_Value_Object\Base_Value_Object,
     Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Name_Header\Name_Header
 };
 
@@ -13,7 +13,7 @@ use JWWS\WPPF\{
 /**
  * The plugin name.
  */
-final class Name extends Value_Object {
+final class Name extends Base_Value_Object {
     /**
      * @param string $fallback_name example "Plugin"
      */

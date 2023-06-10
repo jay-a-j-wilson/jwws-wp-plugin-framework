@@ -2,284 +2,132 @@
 
 namespace JWWS\WPPF\Collection;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Traits\Log\Log,
-};
+use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
 
-/**
- * Undocumented class.
- */
-final class Collection implements
+interface Collection extends
     \ArrayAccess,
     \Countable,
     \IteratorAggregate,
     \Stringable {
-    use Log;
+    /**
+     * Factory method.
+     */
+    public static function create(): self;
 
     /**
      * Factory method.
      */
-    public static function create(): self {
-        return new self();
-    }
-
-    /**
-     * Factory method.
-     */
-    public static function of(mixed ...$items): self {
-        return new self(
-            $items,
-        );
-    }
-
-    /**
-     * @return void
-     */
-    private function __construct(private array $items = []) {
-    }
+    public static function of(mixed ...$items): self;
 
     /**
      * Adds an item to the collection.
      */
-    public function add(mixed ...$items): self {
-        foreach ($items as $item) {
-            $this->items[] = $item;
-        }
-
-        return self::of(...$this->items);
-    }
+    public function add(mixed ...$items): self;
 
     /**
      * Clears all items from the collection.
      */
-    public function clear(): self {
-        return self::create();
-    }
+    public function clear(): self;
 
-    /**
-     * Undocumented function.
-     */
-    public function each(callable $callback): self {
-        foreach ($this->items as $item) {
-            $callback($item);
-        }
-
-        return $this;
-    }
+    public function each(callable $callback): self;
 
     /**
      * Applies the callback to the elements of the collection.
      */
-    public function map(callable $callback): self {
-        return self::of(
-            ...array_map(
-                callback: $callback,
-                array: $this->items,
-            ),
-        );
-    }
+    public function map(callable $callback): self;
 
     /**
      * Flattens the collection.
      */
-    public function flatten(float $levels = INF): self {
-        $result = [];
+    public function flatten(float $levels = INF): self;
 
-        foreach ($this->items as $item) {
-            $result = [
-                ...$result,
-                ...(
-                    is_array(value: $item) && $levels > 0
-                        ? self::of(...$item)
-                            ->flatten(levels: $levels - 1)
-                            ->to_array()
-                        : [$item]
-                ),
-            ];
-        }
+    public function filter_by_value(callable $callback): self;
 
-        return self::of(...$result);
-    }
-
-    /**
-     * Undocumented function.
-     */
-    public function filter_by_value(callable $callback): self {
-        return $this->filter(
-            callback: $callback,
-            mode: 0,
-        );
-    }
-
-    /**
-     * Undocumented function.
-     */
-    public function filter_by_key(callable $callback): self {
-        return $this->filter(
-            callback: $callback,
-            mode: ARRAY_FILTER_USE_KEY,
-        );
-    }
-
-    /**
-     * Iterates over each value in the collection passing them to the callback
-     * function.
-     */
-    private function filter(callable $callback, int $mode): self {
-        return self::of(
-            ...array_filter(
-                array: $this->items,
-                callback: $callback,
-                mode: $mode,
-            ),
-        );
-    }
+    public function filter_by_key(callable $callback): self;
 
     /**
      * Reverses items order.
      */
-    public function reverse(): self {
-        return self::of(
-            ...array_reverse(
-                array: $this->items,
-                preserve_keys: true,
-            ),
-        );
-    }
+    public function reverse(): self;
 
     /**
      * Fetches the values of a given key.
      *
      * Keys in objects must be public.
      */
-    public function pluck(mixed $key): self {
-        return self::of(
-            ...$this->map(
-                fn (mixed $item): mixed => is_object(value: $item)
-                    ? $item->$key
-                    : $item[$key],
-            )
-                ->to_array(),
-        );
-    }
+    public function pluck(mixed $key): self;
 
     /**
      * Extracts a slice of the collection.
      */
-    public function slice(int $offset, ?int $length = null): self {
-        return self::of(
-            ...array_slice(
-                array: $this->items,
-                offset: $offset,
-                length: $length,
-                preserve_keys: true,
-            ),
-        );
-    }
+    public function slice(int $offset, ?int $length = null): self;
 
     /**
      * Determines if the collection is empty or not.
      */
-    public function is_empty(): bool {
-        return empty($this->items);
-    }
+    public function is_empty(): bool;
 
     /**
      * Checks if the given key or index exists in the collection.
      */
-    public function contains_key(mixed $key): bool {
-        return array_key_exists(
-            key: $key,
-            array: $this->items,
-        );
-    }
+    public function contains_key(mixed $key): bool;
 
     /**
      * Checks if a value exists in the collection.
      */
-    public function contains_value(mixed $value): bool {
-        return in_array(
-            needle: $value,
-            haystack: $this->items,
-        );
-    }
+    public function contains_value(mixed $value): bool;
 
     /**
      * Converts collection to an array type variable.
      */
-    public function to_array(): array {
-        return $this->items;
-    }
+    public function to_array(): array;
 
     /**
      * Joins collection elements with a string.
      */
-    public function implode(string $separator = ', '): string {
-        return implode(
-            separator: $separator,
-            array: $this->items,
-        );
-    }
+    public function implode(string $separator = ', '): string;
 
     /**
      * Counts all elements in the collection.
      */
-    public function count(): int {
-        return count(value: $this->items);
-    }
+    public function count(): int;
 
     /**
+     * {@inheritDoc}
+     *
      * Determines if an item exists at an offset.
      */
-    public function offsetExists(mixed $key): bool {
-        return array_key_exists(
-            key: $key,
-            array: $this->items,
-        );
-    }
+    public function offsetExists(mixed $key): bool;
 
     /**
+     * {@inheritDoc}
+     *
      * Gets an item at a given offset.
      */
-    public function offsetGet(mixed $key): mixed {
-        return $this->items[$key];
-    }
+    public function offsetGet(mixed $key): mixed;
 
     /**
+     * {@inheritDoc}
+     *
      * Sets the item at a given offset.
      */
-    public function offsetSet(mixed $key, mixed $value): void {
-        is_null(value: $key)
-            ? $this->items[]     = $value
-            : $this->items[$key] = $value;
-    }
+    public function offsetSet(mixed $key, mixed $value): void;
 
     /**
+     * {@inheritDoc}
+     *
      * Unsets the item at a given offset.
      */
-    public function offsetUnset(mixed $key): void {
-        unset($this->items[$key]);
-    }
+    public function offsetUnset(mixed $key): void;
 
-    /**
-     * Undocumented function.
-     */
-    public function getIterator(): \ArrayIterator {
-        return new \ArrayIterator(
-            array: $this->items,
-        );
-    }
+    public function getIterator(): \ArrayIterator;
 
     /**
      * {@inheritDoc}
      *
      * Returns as comma separated list: `a, b, c, d`
      */
-    public function __toString(): string {
-        return self::of(...$this->items)->flatten()->implode();
-        // return implode(separator: ', ', array: $this->items);
-    }
+    public function __toString(): string;
 }

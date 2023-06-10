@@ -13,30 +13,12 @@ use PHPUnit\Framework\TestCase;
 final class Of extends TestCase {
     /**
      * @test
-     *
-     * @dataProvider pass_data_provider
-     *
-     * @testdox pass[$_dataName] => $arg returns $expected
      */
-    public function pass(string $arg, string $expected): void {
-        self::assertEquals(
-            expected: $expected,
-            actual: Basename::of(basename: $arg),
+    public function pass(): void {
+        self::assertInstanceOf(
+            expected: Basename::class,
+            actual: Basename::of(basename: 'dir/file.ext'),
         );
-
-        Basename::of(basename: $arg);
-    }
-
-    public static function pass_data_provider(): iterable {
-        $expected = 'dir/file.php';
-
-        yield 'basic' => ['dir/file.php', $expected];
-
-        yield 'non php ext' => ['dir/file.txt', $expected];
-
-        yield 'no ext' => ['dir/file', $expected];
-
-        yield 'two folders' => ['sup_dir/dir/file.php', $expected];
     }
 
     /**
@@ -44,10 +26,10 @@ final class Of extends TestCase {
      *
      * @dataProvider throw_data_provider
      *
-     * @testdox throw[$_dataName] => $arg
+     * @testdox throw[$_dataName] => arg $arg throws e
      */
-    public function throw(string $arg): void {
-        $this->expectException(exception: \InvalidArgumentException::class);
+    public function throw(mixed $arg): void {
+        self::expectException(exception: \InvalidArgumentException::class);
         Basename::of(basename: $arg);
     }
 

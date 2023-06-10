@@ -16,8 +16,7 @@ final class Utility {
     /**
      * Do not instantiate.
      */
-    private function __construct() {
-    }
+    private function __construct() {}
 
     /**
      * Returns term name and appends a hyphen for each level of nesting.
@@ -87,9 +86,9 @@ final class Utility {
                 return $term;
             },
             array: get_terms(args: [
-                'taxonomy'   => $taxonomy,
-                'parent'     => $parent,
-                'orderby'    => $order_by,
+                'taxonomy' => $taxonomy,
+                'parent' => $parent,
+                'orderby' => $order_by,
                 'hide_empty' => false,
             ]),
         );

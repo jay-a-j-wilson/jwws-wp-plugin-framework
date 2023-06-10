@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Template;
 
 use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Dir\Subclasses\Full_Dir\Full_Dir,
-    Sub_Value_Objects\File\Subclasses\PHP_File\PHP_File,
+    Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir,
+    Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File,
     Subclasses\Confirmed_Filepath\Confirmed_Filepath,
 };
 

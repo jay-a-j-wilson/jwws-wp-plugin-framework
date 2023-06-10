@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Loader;
 
@@ -16,7 +16,7 @@ use JWWS\WPPF\{
  */
 final class Loader {
     /**
-     * Creates loader.
+     * Factory method
      */
     public static function of(Plugin $plugin): self {
         return new self(
@@ -25,10 +25,9 @@ final class Loader {
     }
 
     /**
-     * Undocumented function.
+     * @return void
      */
-    private function __construct(private Plugin $plugin) {
-    }
+    private function __construct(private Plugin $plugin) {}
 
     /**
      * Prevent plugin activation if dependant plugins are not active.

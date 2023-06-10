@@ -2,16 +2,11 @@
 
 namespace JWWS\WPPF\Common\Value_Object;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Traits\Log\Log
-};
+use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
 
 /**
- * @codeCoverageIgnore
- *
  * Value object base class.
  */
 interface Value_Object extends \Stringable {

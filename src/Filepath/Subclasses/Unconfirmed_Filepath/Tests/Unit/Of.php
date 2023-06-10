@@ -4,9 +4,7 @@ namespace JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Tests\Unit;
 
 use JWWS\WPPF\Filepath\{
     Sub_Value_Objects\Dir\Dir,
-    Sub_Value_Objects\Dir\Subclasses\Full_Dir\Full_Dir,
     Sub_Value_Objects\File\File,
-    Sub_Value_Objects\File\Subclasses\PHP_File\PHP_File,
     Subclasses\Unconfirmed_Filepath\Unconfirmed_Filepath
 };
 use PHPUnit\Framework\TestCase;

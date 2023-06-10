@@ -6,6 +6,7 @@ use JWWS\WPPF\{
     Assertion\Boolean_Assertion\Boolean_Assertion,
     Assertion\WordPress_Assertion\Id\Id as WordPress_Id_Assertion,
     Collection\Collection,
+    Collection\Standard_Collection\Standard_Collection,
     Common\Security\Security,
     WordPress\Repo\Repo,
 };
@@ -22,7 +23,7 @@ final class User_Repo extends Repo {
      * @return Collection<\WP_User>
      */
     public function list_all(): Collection {
-        return Collection::of(
+        return Standard_Collection::of(
             ...get_users(),
         );
     }

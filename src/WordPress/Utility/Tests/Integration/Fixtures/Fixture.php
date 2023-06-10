@@ -2,9 +2,9 @@
 
 namespace JWWS\WPPF\WordPress\Utility\Tests\Integration\Fixtures;
 
-use JWWS\WPPF\Tests\Traits\{
-    Printable,
-    WordPress\Term_Factory
+use JWWS\WPPF\Tests\{
+    PHPUnit\WordPress\Factory\Term_Factory,
+    Traits\Printable
 };
 
 /**
@@ -12,76 +12,75 @@ use JWWS\WPPF\Tests\Traits\{
  */
 abstract class Fixture extends \WP_UnitTestCase {
     use Printable;
-    use Term_Factory;
 
     /**
      * @throws \InvalidArgumentException
      */
     final public static function create(): void {
-        self::insert_wp_term(
-            term_id: 2, 
-            term_name: 'Vegetable', 
-            taxonomy: 'category'
-        );
-
-        self::insert_wp_term(
-            term_id: 3, 
-            term_name: 'Root', 
+        Term_Factory::insert_wp_term(
+            term_id: 2,
+            term_name: 'Vegetable',
             taxonomy: 'category',
-            parent_id: 2
         );
 
-        self::insert_wp_term(
-            term_id: 4, 
-            term_name: 'Allium', 
+        Term_Factory::insert_wp_term(
+            term_id: 3,
+            term_name: 'Root',
             taxonomy: 'category',
-            parent_id: 2
+            parent_id: 2,
         );
 
-        self::insert_wp_term(
-            term_id: 5, 
-            term_name: 'Legume', 
+        Term_Factory::insert_wp_term(
+            term_id: 4,
+            term_name: 'Allium',
             taxonomy: 'category',
-            parent_id: 2
+            parent_id: 2,
         );
 
-        self::insert_wp_term(
-            term_id: 6, 
-            term_name: 'Fruit', 
-            taxonomy: 'category'
-        );
-
-        self::insert_wp_term(
-            term_id: 7, 
-            term_name: 'Citrus', 
+        Term_Factory::insert_wp_term(
+            term_id: 5,
+            term_name: 'Legume',
             taxonomy: 'category',
-            parent_id: 6
+            parent_id: 2,
         );
 
-        self::insert_wp_term(
-            term_id: 8, 
-            term_name: 'Lemon', 
+        Term_Factory::insert_wp_term(
+            term_id: 6,
+            term_name: 'Fruit',
             taxonomy: 'category',
-            parent_id: 7
         );
 
-        self::insert_wp_term(
-            term_id: 9, 
-            term_name: 'Berry', 
+        Term_Factory::insert_wp_term(
+            term_id: 7,
+            term_name: 'Citrus',
             taxonomy: 'category',
-            parent_id: 6
+            parent_id: 6,
         );
 
-        self::insert_wp_term(
-            term_id: 10, 
-            term_name: 'Stone', 
+        Term_Factory::insert_wp_term(
+            term_id: 8,
+            term_name: 'Lemon',
             taxonomy: 'category',
-            parent_id: 6
+            parent_id: 7,
         );
 
-        self::insert_wp_term(
-            term_id: 11, 
-            term_name: 'Red', 
+        Term_Factory::insert_wp_term(
+            term_id: 9,
+            term_name: 'Berry',
+            taxonomy: 'category',
+            parent_id: 6,
+        );
+
+        Term_Factory::insert_wp_term(
+            term_id: 10,
+            term_name: 'Stone',
+            taxonomy: 'category',
+            parent_id: 6,
+        );
+
+        Term_Factory::insert_wp_term(
+            term_id: 11,
+            term_name: 'Red',
             taxonomy: 'post_tag',
         );
     }
