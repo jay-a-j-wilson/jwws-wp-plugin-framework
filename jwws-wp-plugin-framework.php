@@ -1,8 +1,8 @@
 <?php
 /**
  * Plugin Name:  WP Plugin Framework
- * Description:  Dependencies for JWWS plugins.
- * Version:      3.0.0b
+ * Description:  Framework for JWWS plugins.
+ * Version:      3.0.0
  * Requires PHP: 8.1
  * Author:       Jay Wilson
  * Author URI:   https://jaywilsonwebsolutions.com
@@ -12,5 +12,3 @@
 namespace JWWS\WPPF;
 
 require __DIR__ . '/vendor/autoload.php';
-
-// Tests\Tests::run();
