@@ -6,7 +6,11 @@
     },
     "autoload": {
         "psr-4": {
-            "JWWS\\WPPF\\": "src/",
+            "JWWS\\WPPF\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "JWWS\\WPPF\\Tests\\": "tests/"
         }
     },
