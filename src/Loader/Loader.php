@@ -12,7 +12,10 @@ use JWWS\WPPF\{
 // Security::stop_direct_access();
 
 /**
- * Undocumented class.
+ * Ensures given plugin loads correctly.
+ *
+ * Prevents plugin activation if dependant plugins are not active. Disables a
+ * plugin if dependant plugin is deactivated.
  */
 final class Loader {
     /**
@@ -20,30 +23,24 @@ final class Loader {
      */
     public static function of(Plugin $plugin): self {
         return new self(
-            plugin: $plugin,
+            admin_init: Admin_Init::of(plugin: $plugin),
+            deactivated_plugin: Deactivated_Plugin::of(plugin: $plugin),
         );
     }
 
     /**
      * @return void
      */
-    private function __construct(private Plugin $plugin) {}
+    private function __construct(
+        private Admin_Init $admin_init,
+        private Deactivated_Plugin $deactivated_plugin,
+    ) {}
 
     /**
-     * Prevent plugin activation if dependant plugins are not active.
+     * Hooks into WordPress.
      */
-    public function hook_admin_init(): self {
-        Admin_Init::of(plugin: $this->plugin)->hook();
-
-        return $this;
-    }
-
-    /**
-     * Disables a plugin if dependant plugin is deactivated.
-     */
-    public function hook_deactivated_plugin(): self {
-        Deactivated_Plugin::of(plugin: $this->plugin)->hook();
-
-        return $this;
+    public function hook(): void {
+        $this->admin_init->hook();
+        $this->deactivated_plugin->hook();
     }
 }
