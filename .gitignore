@@ -1,8 +1,14 @@
+# Mac OS
 .DS_Store
-/vendor
-/bin
-/.idea
 
+# Composer
+/composer.lock
+/vendor
+
+# PHPUnit
 /config/phpunit/cache
 /config/phpunit/coverage
 /config/phpunit/logs
+
+#PhpStorm
+/.idea
