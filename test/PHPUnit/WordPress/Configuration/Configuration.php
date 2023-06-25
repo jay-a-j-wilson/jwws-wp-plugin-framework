@@ -1,8 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace JWWS\WPPF\Tests\PHPUnit\WordPress\Configuration;
-
-use WP_User;
+namespace JWWS\WPPF\Test\PHPUnit\WordPress\Configuration;
 
 /**
  * @link https://www.codetab.org/tutorial/wordpress-plugin-development/unit-test/plugin-unit-testing/

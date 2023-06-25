@@ -25,7 +25,10 @@ final class Of extends \WP_UnitTestCase {
     }
 
     public static function pass_data_provider(): iterable {
-        yield 'installed' => ['akismet/akismet.php', 'Akismet Anti-Spam'];
+        yield 'installed' => [
+            'akismet/akismet.php',
+            'Akismet Anti-Spam: Spam Protection'
+        ];
     }
 
     /**

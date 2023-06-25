@@ -18,11 +18,11 @@ final class Name extends \WP_UnitTestCase {
      * @testdox pass[$_dataName] => slug: $arg_1, fallback name: $arg_2, name: $arg_3
      */
     public function pass(string $arg_1, string $arg_2, string $arg_3): void {
-        self::assertSame(
+        $this->assertSame(
             expected: $arg_3,
             actual: Standard_Plugin::of_slug(
                 slug: $arg_1,
-                fallback_name: $arg_2
+                fallback_name: $arg_2,
             )
                 ->name()
                 ->__toString(),
@@ -32,6 +32,10 @@ final class Name extends \WP_UnitTestCase {
     public static function pass_data_provider(): iterable {
         yield 'not installed' => ['plugin', 'Plugin', 'Plugin'];
 
-        yield 'installed' => ['akismet', 'Akismet', 'Akismet Anti-Spam'];
+        yield 'installed' => [
+            'akismet',
+            'Akismet',
+            'Akismet Anti-Spam: Spam Protection',
+        ];
     }
 }

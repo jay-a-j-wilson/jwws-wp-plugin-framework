@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace JWWS\WPPF\Tests\Traits;
+namespace JWWS\WPPF\Test\Traits;
 
 trait Printable {
     /**

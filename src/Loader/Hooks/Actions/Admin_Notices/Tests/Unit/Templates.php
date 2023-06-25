@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Notices\Tests\Unit;
 
-use JWWS\WPPF\Tests\Traits\Templateable;
+use JWWS\WPPF\Test\Traits\Templateable;
 use PHPUnit\Framework\TestCase;
 
 /**

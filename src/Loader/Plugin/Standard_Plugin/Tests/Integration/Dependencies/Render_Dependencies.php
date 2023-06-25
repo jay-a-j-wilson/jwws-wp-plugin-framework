@@ -43,7 +43,7 @@ final class Render_Dependencies extends \WP_UnitTestCase {
         yield 'single: akismet' => [
             Basic_Plugin::create_and_get()
                 ->add_dependencies(plugins: Akismet_Plugin::create_and_get()),
-            "{$prefix}Akismet Anti-Spam",
+            "{$prefix}Akismet Anti-Spam: Spam Protection",
         ];
 
         yield 'multiple' => [
@@ -52,7 +52,7 @@ final class Render_Dependencies extends \WP_UnitTestCase {
                     Basic_Plugin::create_and_get(),
                     Akismet_Plugin::create_and_get(),
                 ),
-            "{$prefix}Plugin, Akismet Anti-Spam",
+            "{$prefix}Plugin, Akismet Anti-Spam: Spam Protection",
         ];
 
         yield 'multiple: reverse' => [
@@ -61,7 +61,7 @@ final class Render_Dependencies extends \WP_UnitTestCase {
                     Akismet_Plugin::create_and_get(),
                     Basic_Plugin::create_and_get(),
                 ),
-            "{$prefix}Akismet Anti-Spam, Plugin",
+            "{$prefix}Akismet Anti-Spam: Spam Protection, Plugin",
         ];
     }
 }

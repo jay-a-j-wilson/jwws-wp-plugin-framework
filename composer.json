@@ -11,7 +11,7 @@
     },
     "autoload-dev": {
         "psr-4": {
-            "JWWS\\WPPF\\Tests\\": "tests/"
+            "JWWS\\WPPF\\Test\\": "test/"
         }
     },
     "require-dev": {

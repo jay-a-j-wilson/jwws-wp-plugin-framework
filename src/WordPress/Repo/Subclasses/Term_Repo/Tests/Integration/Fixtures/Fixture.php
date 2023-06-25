@@ -3,8 +3,8 @@
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Tests\Integration\Fixtures;
 
 use JWWS\WPPF\{
-    Tests\PHPUnit\WordPress\Factory\Term_Factory,
-    Tests\Traits\Printable,
+    Test\PHPUnit\WordPress\Factory\Term_Factory,
+    Test\Traits\Printable,
     WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo
 };
 

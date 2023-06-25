@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\WordPress\Utility\Tests\Integration\Fixtures;
 
-use JWWS\WPPF\Tests\{
+use JWWS\WPPF\Test\{
     PHPUnit\WordPress\Factory\Term_Factory,
     Traits\Printable
 };

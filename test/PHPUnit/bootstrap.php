@@ -1,8 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace JWWS\WPPF\Tests\PHPUnit;
+namespace JWWS\WPPF\Test\PHPUnit;
 
-use JWWS\WPPF\Tests\PHPUnit\WordPress\Configuration\Configuration;
+use JWWS\WPPF\Test\PHPUnit\WordPress\Configuration\Configuration;
 
 require __DIR__ . '/../../vendor/autoload.php';
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    bootstrap="../../tests/PHPUnit/bootstrap.php"
+    bootstrap="../../test/PHPUnit/bootstrap.php"
     backupGlobals="false"
     cacheResultFile="cache/.phpunit.result.cache"
     colors="true"
@@ -119,13 +119,4 @@
     <logging>
         <testdoxHtml outputFile="logs/log.html" />
     </logging>
-    <!-- php -->
-    <php>
-        <ini name="display_errors" value="true" />
-        <ini name="xdebug.mode" value="coverage" />
-        <ini name="xdebug.start_with_request" value="yes" />
-        <ini name="xdebug.client_host" value="localhost" />
-        <ini name="xdebug.client_port" value="9003" />
-        <ini name="xdebug.idekey" value="VSCODE" />
-    </php>
 </phpunit>

@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Tests\Integration\Fixtures;
 
-use JWWS\WPPF\Tests\Traits\Printable;
+use JWWS\WPPF\Test\Traits\Printable;
 
 /**
  * Fixture implementation.

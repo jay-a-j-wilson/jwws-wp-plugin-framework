@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tests\Unit;
 
-use JWWS\WPPF\Tests\Traits\Templateable;
+use JWWS\WPPF\Test\Traits\Templateable;
 use PHPUnit\Framework\TestCase;
 
 /**

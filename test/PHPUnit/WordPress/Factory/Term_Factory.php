@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace JWWS\WPPF\Tests\PHPUnit\WordPress\Factory;
+namespace JWWS\WPPF\Test\PHPUnit\WordPress\Factory;
 
 final class Term_Factory {
     /**
