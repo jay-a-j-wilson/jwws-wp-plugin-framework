@@ -9,14 +9,14 @@ use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Post_Repo;
  *
  * @internal
  */
-final class Create extends \WP_UnitTestCase {
+final class New_Instance extends \WP_UnitTestCase {
     /**
      * @test
      */
     public function pass(): void {
         self::assertInstanceOf(
             expected: Post_Repo::class,
-            actual: Post_Repo::create(),
+            actual: Post_Repo::new_instance(),
         );
     }
 }

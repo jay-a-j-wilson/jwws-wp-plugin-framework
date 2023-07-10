@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Notices\Tests\Integration;
 
 use JWWS\WPPF\Loader\{
     Hooks\Actions\Admin_Notices\Admin_Notices,
-    Tests\Integration\Fixtures\Akismet_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory
 };
 
 /**
@@ -24,8 +24,8 @@ final class Hook extends \WP_UnitTestCase {
         parent::setUpBeforeClass();
 
         self::$sut = Admin_Notices::of(
-            plugin: Basic_Plugin::create_and_get(),
-            dependency: Akismet_Plugin::create_and_get(),
+            plugin: Basic_Plugin_Factory::create_and_get(),
+            dependency: Akismet_Plugin_Factory::create_and_get(),
         );
     }
 

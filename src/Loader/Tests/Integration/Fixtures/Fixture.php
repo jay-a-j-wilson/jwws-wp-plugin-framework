@@ -8,9 +8,9 @@ use JWWS\WPPF\Loader\Plugin\Plugin;
  * @internal
  */
 abstract class Fixture extends \WP_UnitTestCase {
-    protected static Plugin $plugin;
+    protected static Plugin $basic_plugin;
 
-    protected static Plugin $akismet;
+    protected static Plugin $akismet_plugin;
 
     /**
      * Creates plugin for testing.
@@ -18,9 +18,8 @@ abstract class Fixture extends \WP_UnitTestCase {
     final public static function setUpBeforeClass(): void {
         parent::setUpBeforeClass();
 
-        self::$plugin = Basic_Plugin::create_and_get();
-
-        self::$akismet = Akismet_Plugin::create_and_get();
+        self::$basic_plugin = Basic_Plugin_Factory::create_and_get();
+        self::$akismet_plugin = Akismet_Plugin_Factory::create_and_get();
 
         // self::print(self::$plugin);
     }

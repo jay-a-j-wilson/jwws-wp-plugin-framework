@@ -9,14 +9,14 @@ use JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Term_Repo;
  *
  * @internal
  */
-final class Create extends \WP_UnitTestCase {
+final class New_Instance extends \WP_UnitTestCase {
     /**
      * @test
      */
     public function pass(): void {
         self::assertInstanceOf(
             expected: Term_Repo::class,
-            actual: Term_Repo::create(),
+            actual: Term_Repo::new_instance(),
         );
     }
 }

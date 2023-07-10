@@ -23,7 +23,7 @@ final class Find_By_Id extends Fixture {
     public function pass(int $arg): void {
         $this->assertSame(
             expected: $arg,
-            actual: Post_Repo::create()->find_by_id(id: $arg)->ID,
+            actual: Post_Repo::new_instance()->find_by_id(id: $arg)->ID,
         );
     }
 
@@ -48,7 +48,7 @@ final class Find_By_Id extends Fixture {
      */
     public function throw(int $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        Post_Repo::create()->find_by_id(id: $arg);
+        Post_Repo::new_instance()->find_by_id(id: $arg);
     }
 
     public static function throw_data_provider(): iterable {

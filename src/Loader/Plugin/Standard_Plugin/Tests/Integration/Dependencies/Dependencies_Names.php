@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 
 use JWWS\WPPF\Loader\{
     Plugin\Standard_Plugin\Standard_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory,
 };
 
 /**
@@ -21,7 +21,7 @@ final class Dependencies_Names extends \WP_UnitTestCase {
     public function pass(array $arg_1, bool $arg_2): void {
         self::assertSame(
             expected: $arg_2,
-            actual: $arg_1 === Basic_Plugin::create()
+            actual: $arg_1 === Basic_Plugin_Factory::create()
                 ->value
                 ->add_dependencies(
                     Standard_Plugin::of_slug(

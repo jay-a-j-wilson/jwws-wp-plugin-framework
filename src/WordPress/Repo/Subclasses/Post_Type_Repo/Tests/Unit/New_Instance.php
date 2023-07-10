@@ -10,13 +10,13 @@ use PHPUnit\Framework\TestCase;
  *
  * @internal
  */
-final class Create extends TestCase {
+final class New_Instance extends TestCase {
     /**
      * @test
      */
     public function output(): void {
         $this->expectNotToPerformAssertions();
-        echo var_dump(value: Post_Type_Repo::create());
+        echo var_dump(value: Post_Type_Repo::new_instance());
     }
 
     /**
@@ -25,7 +25,7 @@ final class Create extends TestCase {
     public function pass(): void {
         self::assertInstanceOf(
             expected: Post_Type_Repo::class,
-            actual: Post_Type_Repo::create(),
+            actual: Post_Type_Repo::new_instance(),
         );
     }
 }

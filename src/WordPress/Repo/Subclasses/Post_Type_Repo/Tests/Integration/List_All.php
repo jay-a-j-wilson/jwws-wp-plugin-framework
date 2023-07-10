@@ -15,7 +15,7 @@ final class List_All extends \WP_UnitTestCase {
      */
     private function print(): void {
         echo print_r(
-            value: Post_Type_Repo::create()
+            value: Post_Type_Repo::new_instance()
                 ->list_all()
                 ->pluck(key: 'name')
                 ->implode(separator: PHP_EOL),
@@ -29,7 +29,7 @@ final class List_All extends \WP_UnitTestCase {
     public function pass(): void {
         self::assertCount(
             expectedCount: 14,
-            haystack: Post_Type_Repo::create()->list_all(),
+            haystack: Post_Type_Repo::new_instance()->list_all(),
         );
     }
 }

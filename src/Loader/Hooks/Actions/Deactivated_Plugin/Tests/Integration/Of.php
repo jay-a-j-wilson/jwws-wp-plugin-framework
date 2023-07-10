@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Hooks\Action\Deactivated_Plugin\Tests\Integration;
 
 use JWWS\WPPF\Loader\{
     Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory,
 };
 use PHPUnit\Framework\TestCase;
 
@@ -21,7 +21,7 @@ final class Of extends TestCase {
         self::assertInstanceOf(
             expected: Deactivated_Plugin::class,
             actual: Deactivated_Plugin::of(
-                plugin: Basic_Plugin::create_and_get(),
+                plugin: Basic_Plugin_Factory::create_and_get(),
             ),
         );
     }

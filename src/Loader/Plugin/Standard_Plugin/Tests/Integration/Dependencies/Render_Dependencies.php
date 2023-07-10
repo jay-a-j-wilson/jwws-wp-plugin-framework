@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 
 use JWWS\WPPF\Loader\{
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory,
 };
 
 /**
@@ -30,36 +30,36 @@ final class Render_Dependencies extends \WP_UnitTestCase {
         $prefix = '<strong>Requires:</strong> ';
 
         yield 'none' => [
-            Basic_Plugin::create_and_get(),
+            Basic_Plugin_Factory::create_and_get(),
             '',
         ];
 
         yield 'single: basic' => [
-            Basic_Plugin::create_and_get()
-                ->add_dependencies(plugins: Basic_Plugin::create_and_get()),
+            Basic_Plugin_Factory::create_and_get()
+                ->add_dependencies(plugins: Basic_Plugin_Factory::create_and_get()),
             "{$prefix}Plugin",
         ];
 
         yield 'single: akismet' => [
-            Basic_Plugin::create_and_get()
-                ->add_dependencies(plugins: Akismet_Plugin::create_and_get()),
+            Basic_Plugin_Factory::create_and_get()
+                ->add_dependencies(plugins: Akismet_Plugin_Factory::create_and_get()),
             "{$prefix}Akismet Anti-Spam: Spam Protection",
         ];
 
         yield 'multiple' => [
-            Basic_Plugin::create_and_get()
+            Basic_Plugin_Factory::create_and_get()
                 ->add_dependencies(
-                    Basic_Plugin::create_and_get(),
-                    Akismet_Plugin::create_and_get(),
+                    Basic_Plugin_Factory::create_and_get(),
+                    Akismet_Plugin_Factory::create_and_get(),
                 ),
             "{$prefix}Plugin, Akismet Anti-Spam: Spam Protection",
         ];
 
         yield 'multiple: reverse' => [
-            Basic_Plugin::create_and_get()
+            Basic_Plugin_Factory::create_and_get()
                 ->add_dependencies(
-                    Akismet_Plugin::create_and_get(),
-                    Basic_Plugin::create_and_get(),
+                    Akismet_Plugin_Factory::create_and_get(),
+                    Basic_Plugin_Factory::create_and_get(),
                 ),
             "{$prefix}Akismet Anti-Spam: Spam Protection, Plugin",
         ];

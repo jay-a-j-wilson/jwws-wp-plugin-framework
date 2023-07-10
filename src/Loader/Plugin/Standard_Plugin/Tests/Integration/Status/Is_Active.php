@@ -4,13 +4,15 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 
 use JWWS\WPPF\Loader\{
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
 };
 
 /**
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Is_Active extends \WP_UnitTestCase {
     protected static Plugin $akismet_plugin;
@@ -18,13 +20,15 @@ final class Is_Active extends \WP_UnitTestCase {
     public static function setUpBeforeClass(): void {
         parent::setUpBeforeClass();
 
-        self::$akismet_plugin = Akismet_Plugin::create_and_get();
+        self::$akismet_plugin = Akismet_Plugin_Factory::create_and_get();
     }
 
     /**
      * @test
      */
     public function pass(): Plugin {
+        deactivate_plugins(plugins: self::$akismet_plugin->basename());
+
         self::assertFalse(condition: self::$akismet_plugin->is_active());
 
         return self::$akismet_plugin;

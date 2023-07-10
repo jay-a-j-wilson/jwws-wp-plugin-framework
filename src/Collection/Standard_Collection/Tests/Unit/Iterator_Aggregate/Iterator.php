@@ -17,13 +17,13 @@ final class Iterator extends TestCase {
      * @test
      */
     public function pass(): void {
-        $collection = Collection_Factory::create_and_get();
+        $sut = Collection_Factory::create_and_get();
 
         $i = 0;
 
-        foreach ($collection as $key => $value) {
+        foreach ($sut as $key => $value) {
             self::assertEquals(
-                expected: $collection[$key],
+                expected: $sut[$key],
                 actual: $value,
             );
 

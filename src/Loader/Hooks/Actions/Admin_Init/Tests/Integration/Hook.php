@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Tests\Integration;
 
 use JWWS\WPPF\Loader\{
     Hooks\Actions\Admin_Init\Admin_Init,
-    Tests\Integration\Fixtures\Basic_Plugin
+    Tests\Integration\Fixtures\Basic_Plugin_Factory
 };
 
 /**
@@ -23,7 +23,7 @@ final class Hook extends \WP_UnitTestCase {
         parent::setUpBeforeClass();
 
         self::$sut = Admin_Init::of(
-            plugin: Basic_Plugin::create_and_get(),
+            plugin: Basic_Plugin_Factory::create_and_get(),
         );
     }
 

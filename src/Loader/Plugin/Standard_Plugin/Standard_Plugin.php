@@ -49,7 +49,7 @@ final class Standard_Plugin implements Plugin {
         private readonly Basename $basename,
         private readonly Name $name,
     ) {
-        $this->dependencies = Standard_Collection::create();
+        $this->dependencies = Standard_Collection::new_instance();
     }
 
     private readonly Collection $dependencies;

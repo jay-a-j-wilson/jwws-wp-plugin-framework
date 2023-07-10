@@ -16,7 +16,7 @@ final class List_All extends \WP_UnitTestCase {
     public function pass(): void {
         self::assertCount(
             expectedCount: 7,
-            haystack: Taxonomy_Repo::create()->list_all(),
+            haystack: Taxonomy_Repo::new_instance()->list_all(),
         );
     }
 
@@ -25,7 +25,7 @@ final class List_All extends \WP_UnitTestCase {
      */
     private function print(): void {
         echo print_r(
-            value: Taxonomy_Repo::create()
+            value: Taxonomy_Repo::new_instance()
                 ->list_all()
                 ->pluck(key: 'name')
                 ->implode(separator: PHP_EOL),

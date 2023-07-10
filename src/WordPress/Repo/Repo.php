@@ -18,7 +18,7 @@ abstract class Repo {
     /**
      * Factory method.
      */
-    final public static function create(): static {
+    final public static function new_instance(): static {
         return new static();
     }
 
@@ -27,8 +27,7 @@ abstract class Repo {
      *
      * @return void
      */
-    protected function __construct() {
-    }
+    protected function __construct() {}
 
     /**
      * Returns all repository elements.

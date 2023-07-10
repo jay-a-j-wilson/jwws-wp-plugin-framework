@@ -5,7 +5,7 @@ namespace JWWS\WPPF\Loader\Tests\Integration;
 use JWWS\WPPF\Loader\{
     Loader,
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin
+    Tests\Integration\Fixtures\Basic_Plugin_Factory
 };
 use PHPUnit\Framework\TestCase;
 
@@ -21,7 +21,7 @@ final class Of extends TestCase {
     public function pass(): void {
         self::assertInstanceOf(
             expected: Loader::class,
-            actual: Loader::of(plugin: Basic_Plugin::create_and_get()),
+            actual: Loader::of(plugin: Basic_Plugin_Factory::create_and_get()),
         );
     }
 }

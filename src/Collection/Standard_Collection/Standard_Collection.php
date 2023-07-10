@@ -10,7 +10,7 @@ use JWWS\WPPF\{
 // Security::stop_direct_access();
 
 final class Standard_Collection implements Collection {
-    public static function create(): self {
+    public static function new_instance(): self {
         return new self();
     }
 
@@ -34,7 +34,7 @@ final class Standard_Collection implements Collection {
     }
 
     public function clear(): self {
-        return self::create();
+        return self::new_instance();
     }
 
     public function each(callable $callback): self {

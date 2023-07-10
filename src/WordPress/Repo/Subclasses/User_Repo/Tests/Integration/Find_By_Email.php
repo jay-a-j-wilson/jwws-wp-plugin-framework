@@ -21,7 +21,7 @@ final class Find_By_Email extends Fixture {
     public function pass(string $arg): void {
         $this->assertSame(
             expected: $arg,
-            actual: User_Repo::create()->find_by_email(email: $arg)->user_email,
+            actual: User_Repo::new_instance()->find_by_email(email: $arg)->user_email,
         );
     }
 
@@ -42,7 +42,7 @@ final class Find_By_Email extends Fixture {
      */
     public function throw(string $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        User_Repo::create()->find_by_email(email: $arg)->user_email;
+        User_Repo::new_instance()->find_by_email(email: $arg)->user_email;
     }
 
     public static function throw_data_provider(): iterable {

@@ -4,8 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 
 use JWWS\WPPF\Loader\{
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Fixture,
 };
 
 /**
@@ -13,18 +12,7 @@ use JWWS\WPPF\Loader\{
  *
  * @internal
  */
-final class Can_Activate extends \WP_UnitTestCase {
-    protected static Plugin $basic_plugin;
-
-    protected static Plugin $akismet_plugin;
-
-    public static function setUpBeforeClass(): void {
-        parent::setUpBeforeClass();
-
-        self::$basic_plugin   = Basic_Plugin::create_and_get();
-        self::$akismet_plugin = Akismet_Plugin::create_and_get();
-    }
-
+final class Can_Activate extends Fixture {
     /**
      * @test
      */

@@ -19,10 +19,11 @@ use JWWS\WPPF\{
  */
 final class Loader {
     /**
-     * Factory method
+     * Factory method.
      */
     public static function of(Plugin $plugin): self {
         return new self(
+            plugin: $plugin,
             admin_init: Admin_Init::of(plugin: $plugin),
             deactivated_plugin: Deactivated_Plugin::of(plugin: $plugin),
         );
@@ -32,6 +33,7 @@ final class Loader {
      * @return void
      */
     private function __construct(
+        private Plugin $plugin,
         private Admin_Init $admin_init,
         private Deactivated_Plugin $deactivated_plugin,
     ) {}
@@ -42,5 +44,12 @@ final class Loader {
     public function hook(): void {
         $this->admin_init->hook();
         $this->deactivated_plugin->hook();
+    }
+
+    /**
+     * Checks if loader can activate.
+     */
+    public function can_activate(): bool {
+        return $this->plugin->can_activate();
     }
 }

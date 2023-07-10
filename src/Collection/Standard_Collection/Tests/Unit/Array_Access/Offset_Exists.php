@@ -14,12 +14,12 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 final class Offset_Exists extends TestCase {
-    private static Collection $collection;
+    private static Collection $sut;
 
     public static function setUpBeforeClass(): void {
         parent::setUpBeforeClass();
 
-        self::$collection = Collection_Factory::create_and_get();
+        self::$sut = Collection_Factory::create_and_get();
     }
 
     /**
@@ -31,7 +31,7 @@ final class Offset_Exists extends TestCase {
      */
     public function pass_exists(int $arg): void {
         self::assertTrue(
-            condition: self::$collection->offsetExists(key: $arg),
+            condition: self::$sut->offsetExists(key: $arg),
         );
     }
 
@@ -51,6 +51,6 @@ final class Offset_Exists extends TestCase {
      * @test
      */
     public function pass_not_exists(): void {
-        self::assertFalse(condition: self::$collection->offsetExists(key: 5));
+        self::assertFalse(condition: self::$sut->offsetExists(key: 5));
     }
 }

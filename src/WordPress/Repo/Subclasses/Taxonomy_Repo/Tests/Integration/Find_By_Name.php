@@ -20,7 +20,7 @@ final class Find_By_Name extends \WP_UnitTestCase {
     public function pass(string $arg): void {
         self::assertSame(
             expected: $arg,
-            actual: Taxonomy_Repo::create()
+            actual: Taxonomy_Repo::new_instance()
                 ->find_by_name(name: $arg)
                 ->name,
         );
@@ -45,7 +45,7 @@ final class Find_By_Name extends \WP_UnitTestCase {
      */
     public function throw(string $arg): void {
         $this->expectException(exception: \InvalidArgumentException::class);
-        Taxonomy_Repo::create()->find_by_name(name: $arg);
+        Taxonomy_Repo::new_instance()->find_by_name(name: $arg);
     }
 
     public static function throw_data_provider(): iterable {

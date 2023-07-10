@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\WooCommerce;
 
@@ -17,8 +17,7 @@ final class WooCommerce {
     /**
      * Do not instantiate.
      */
-    private function __construct() {
-    }
+    private function __construct() {}
 
     /**
      * Gets the product categories ordered by parent and alphabetized.

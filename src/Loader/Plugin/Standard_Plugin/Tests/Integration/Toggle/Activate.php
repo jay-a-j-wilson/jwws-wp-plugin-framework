@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 
 use JWWS\WPPF\Loader\{
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
 };
 
 /**
@@ -18,7 +18,7 @@ final class Activate extends \WP_UnitTestCase {
     public static function setUpBeforeClass(): void {
         parent::setUpBeforeClass();
 
-        self::$akismet_plugin = Akismet_Plugin::create_and_get();
+        self::$akismet_plugin = Akismet_Plugin_Factory::create_and_get();
     }
 
     /**

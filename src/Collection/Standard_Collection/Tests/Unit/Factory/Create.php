@@ -17,7 +17,7 @@ final class Create extends TestCase {
     public function pass(): void {
         self::assertInstanceOf(
             expected: Standard_Collection::class,
-            actual: Standard_Collection::create(),
+            actual: Standard_Collection::new_instance(),
         );
     }
 }

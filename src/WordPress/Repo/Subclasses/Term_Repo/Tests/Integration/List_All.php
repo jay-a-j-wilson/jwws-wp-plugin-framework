@@ -17,7 +17,7 @@ final class List_All extends Fixture {
     public function pass(): void {
         $this->assertCount(
             expectedCount: 5,
-            haystack: Term_Repo::create()->list_all(),
+            haystack: Term_Repo::new_instance()->list_all(),
         );
     }
 }

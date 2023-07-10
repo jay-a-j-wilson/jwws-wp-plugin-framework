@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 
 use JWWS\WPPF\Loader\{
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory,
 };
 
 /**
@@ -21,8 +21,8 @@ final class Has_Active_Dependencies extends \WP_UnitTestCase {
     public static function setUpBeforeClass(): void {
         parent::setUpBeforeClass();
 
-        self::$basic_plugin   = Basic_Plugin::create_and_get();
-        self::$akismet_plugin = Akismet_Plugin::create_and_get();
+        self::$basic_plugin   = Basic_Plugin_Factory::create_and_get();
+        self::$akismet_plugin = Akismet_Plugin_Factory::create_and_get();
     }
 
     /**
@@ -42,6 +42,8 @@ final class Has_Active_Dependencies extends \WP_UnitTestCase {
      * @depends pass_no_dependencies
      */
     public function pass_inactive_dependencies(Plugin $plugin): Plugin {
+        deactivate_plugins(plugins: self::$akismet_plugin->basename());
+
         self::assertFalse(
             condition: $plugin
                 ->add_dependencies(plugins: self::$akismet_plugin)

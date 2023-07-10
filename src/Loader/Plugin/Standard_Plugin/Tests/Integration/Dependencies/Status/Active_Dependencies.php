@@ -5,14 +5,16 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 use JWWS\WPPF\Loader\{
     Plugin\Plugin,
     Plugin\Standard_Plugin\Standard_Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory,
 };
 
 /**
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Active_Dependencies extends \WP_UnitTestCase {
     protected static Plugin $basic_plugin;
@@ -22,14 +24,16 @@ final class Active_Dependencies extends \WP_UnitTestCase {
     public static function setUpBeforeClass(): void {
         parent::setUpBeforeClass();
 
-        self::$basic_plugin   = Basic_Plugin::create_and_get();
-        self::$akismet_plugin = Akismet_Plugin::create_and_get();
+        self::$basic_plugin = Basic_Plugin_Factory::create_and_get();
+        self::$akismet_plugin = Akismet_Plugin_Factory::create_and_get();
     }
 
     /**
      * @test
      */
     public function pass(): Plugin {
+        deactivate_plugins(plugins: self::$akismet_plugin->basename());
+
         self::assertCount(
             expectedCount: 0,
             haystack: self::$basic_plugin

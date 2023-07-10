@@ -23,7 +23,7 @@ final class Post_Repo extends Repo {
             ...get_posts(args: [
                 'numberposts' => -1,
                 'post_status' => 'publish',
-                'post_type'   => Post_Type_Repo::create()
+                'post_type'   => Post_Type_Repo::new_instance()
                     ->list_all()
                     ->pluck(key: 'name')
                     ->to_array(),

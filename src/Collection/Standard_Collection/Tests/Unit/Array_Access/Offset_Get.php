@@ -17,12 +17,12 @@ final class Offset_Get extends TestCase {
      * @test
      */
     public function pass(): void {
-        $collection = Collection_Factory::create_and_get();
+        $sut = Collection_Factory::create_and_get();
 
-        foreach ($collection as $key => $value) {
+        foreach ($sut as $key => $value) {
             self::assertEquals(
                 expected: $value,
-                actual: $collection[$key],
+                actual: $sut[$key],
             );
         }
     }

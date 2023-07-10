@@ -17,12 +17,12 @@ final class Add extends TestCase {
      * @test
      */
     public function pass(): void {
-        $collection = Collection_Factory::create_and_get();
+        $sut = Collection_Factory::create_and_get();
 
-        $collection->add('six', 'seven');
-        self::assertCount(expectedCount: 7, haystack: $collection);
+        $sut->add('six', 'seven');
+        self::assertCount(expectedCount: 7, haystack: $sut);
         self::assertTrue(
-            condition: $collection->contains_value(value: 'six'),
+            condition: $sut->contains_value(value: 'six'),
         );
     }
 }

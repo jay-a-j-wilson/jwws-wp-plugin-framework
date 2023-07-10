@@ -5,7 +5,7 @@ namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Tests\Integration;
 use JWWS\WPPF\Loader\{
     Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta,
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory
 };
 
 /**

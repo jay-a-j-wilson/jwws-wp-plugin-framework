@@ -4,8 +4,8 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 
 use JWWS\WPPF\Loader\{
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory,
 };
 
 /**
@@ -18,7 +18,7 @@ final class Add_Dependencies extends \WP_UnitTestCase {
      * @test
      */
     public function pass_zero(): Plugin {
-        $sut = Basic_Plugin::create_and_get();
+        $sut = Basic_Plugin_Factory::create_and_get();
 
         self::assertCount(
             expectedCount: 0,
@@ -37,7 +37,7 @@ final class Add_Dependencies extends \WP_UnitTestCase {
         self::assertCount(
             expectedCount: 1,
             haystack: $plugin->add_dependencies(
-                plugins: Akismet_Plugin::create_and_get(),
+                plugins: Akismet_Plugin_Factory::create_and_get(),
             )->dependencies(),
         );
     }

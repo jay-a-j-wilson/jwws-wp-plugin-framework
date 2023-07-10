@@ -5,8 +5,8 @@ namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Notices\Tests\Integration;
 use JWWS\WPPF\Loader\{
     Hooks\Actions\Admin_Notices\Admin_Notices,
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory,
 };
 
 /**
@@ -46,13 +46,13 @@ EOD;
 
     public static function pass_data_provider(): iterable {
         yield 'basic deps akismet' => [
-            Akismet_Plugin::create_and_get(),
-            Basic_Plugin::create_and_get(),
+            Akismet_Plugin_Factory::create_and_get(),
+            Basic_Plugin_Factory::create_and_get(),
         ];
 
         yield 'akismet deps basic' => [
-            Basic_Plugin::create_and_get(),
-            Akismet_Plugin::create_and_get(),
+            Basic_Plugin_Factory::create_and_get(),
+            Akismet_Plugin_Factory::create_and_get(),
         ];
     }
 }

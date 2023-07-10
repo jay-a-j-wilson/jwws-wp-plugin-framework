@@ -5,7 +5,7 @@ namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tes
 use JWWS\WPPF\Loader\{
     Plugin\Plugin,
     Plugin\Standard_Plugin\Standard_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory,
 };
 
 /**
@@ -19,7 +19,7 @@ final class Contains_Dependency extends \WP_UnitTestCase {
     public static function setUpBeforeClass(): void {
         parent::setUpBeforeClass();
 
-        self::$basic_plugin = Basic_Plugin::create_and_get();
+        self::$basic_plugin = Basic_Plugin_Factory::create_and_get();
     }
 
     /**

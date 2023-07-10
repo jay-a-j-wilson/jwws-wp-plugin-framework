@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Hooks\Actions\Deactivated_Plugin\Tests\Integration;
 
 use JWWS\WPPF\Loader\{
     Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin
+    Tests\Integration\Fixtures\Basic_Plugin_Factory
 };
 
 /**
@@ -23,7 +23,7 @@ final class Hook extends \WP_UnitTestCase {
         parent::setUpBeforeClass();
 
         self::$sut = Deactivated_Plugin::of(
-            plugin: Basic_Plugin::create_and_get(),
+            plugin: Basic_Plugin_Factory::create_and_get(),
         );
     }
 

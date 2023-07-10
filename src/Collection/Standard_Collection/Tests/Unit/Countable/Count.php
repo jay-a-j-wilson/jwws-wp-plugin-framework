@@ -19,10 +19,10 @@ final class Count extends TestCase {
      * ? Possibly integration test.
      */
     public function pass(): void {
-        $collection = Collection_Factory::create_and_get();
+        $sut = Collection_Factory::create_and_get();
 
-        self::assertEquals(expected: 5, actual: $collection->count());
-        $collection->add(items: 'six');
-        self::assertEquals(expected: 6, actual: $collection->count());
+        self::assertEquals(expected: 5, actual: $sut->count());
+        $sut->add(items: 'six');
+        self::assertEquals(expected: 6, actual: $sut->count());
     }
 }

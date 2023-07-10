@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Hooks\Action\Admin_Init\Tests\Integration;
 
 use JWWS\WPPF\Loader\{
     Hooks\Actions\Admin_Init\Admin_Init,
-    Tests\Integration\Fixtures\Basic_Plugin
+    Tests\Integration\Fixtures\Basic_Plugin_Factory
 };
 use PHPUnit\Framework\TestCase;
 
@@ -20,7 +20,7 @@ final class Of extends TestCase {
     public function pass(): void {
         self::assertInstanceOf(
             expected: Admin_Init::class,
-            actual: Admin_Init::of(plugin: Basic_Plugin::create_and_get()),
+            actual: Admin_Init::of(plugin: Basic_Plugin_Factory::create_and_get()),
         );
     }
 }

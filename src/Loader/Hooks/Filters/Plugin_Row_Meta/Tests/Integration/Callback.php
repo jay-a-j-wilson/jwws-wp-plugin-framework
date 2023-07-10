@@ -5,8 +5,8 @@ namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Tests\Integration;
 use JWWS\WPPF\Loader\{
     Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta,
     Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin
+    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
+    Tests\Integration\Fixtures\Basic_Plugin_Factory
 };
 
 /**
@@ -46,23 +46,23 @@ final class Callback extends \WP_UnitTestCase {
         ];
 
         yield 'no deps' => [
-            Akismet_Plugin::create_and_get(),
+            Akismet_Plugin_Factory::create_and_get(),
             'akismet/akismet.php',
             $meta_data,
             $meta_data,
         ];
 
         yield 'invalid basename' => [
-            Akismet_Plugin::create_and_get()
-                ->add_dependencies(plugins: Basic_Plugin::create_and_get()),
+            Akismet_Plugin_Factory::create_and_get()
+                ->add_dependencies(plugins: Basic_Plugin_Factory::create_and_get()),
             'plugin/plugin.php',
             $meta_data,
             $meta_data,
         ];
 
         yield 'valid' => [
-            Akismet_Plugin::create_and_get()
-                ->add_dependencies(plugins: Basic_Plugin::create_and_get()),
+            Akismet_Plugin_Factory::create_and_get()
+                ->add_dependencies(plugins: Basic_Plugin_Factory::create_and_get()),
             'akismet/akismet.php',
             $meta_data,
             [...$meta_data, '<strong>Requires:</strong> Plugin'],

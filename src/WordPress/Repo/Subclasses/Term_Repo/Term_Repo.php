@@ -25,7 +25,7 @@ final class Term_Repo extends Repo {
         return Standard_Collection::of(
             ...get_terms(args: [
                 'hide_empty' => false,
-                'taxonomy'   => Taxonomy_Repo::create()
+                'taxonomy'   => Taxonomy_Repo::new_instance()
                     ->list_all()
                     ->pluck(key: 'name')
                     ->to_array(),

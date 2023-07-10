@@ -14,23 +14,23 @@ use PHPUnit\Framework\TestCase;
  * @internal
  */
 final class Offset_Set extends TestCase {
-    private Collection $collection;
+    private Collection $sut;
 
     protected function setUp(): void {
         parent::setUp();
 
-        $this->collection = Collection_Factory::create_and_get();
+        $this->sut = Collection_Factory::create_and_get();
     }
 
     /**
      * @test
      */
     public function pass_end(): void {
-        $this->collection[] = 'six';
+        $this->sut[] = 'six';
 
         self::assertSame(
             expected: ['one', 'two', 'three', 'four', 'five', 'six'],
-            actual: $this->collection->to_array(),
+            actual: $this->sut->to_array(),
         );
     }
 
@@ -38,11 +38,11 @@ final class Offset_Set extends TestCase {
      * @test
      */
     public function pass_n(): void {
-        $this->collection[2] = 'UPDATED';
+        $this->sut[2] = 'UPDATED';
 
         self::assertSame(
             expected: ['one', 'two', 'UPDATED', 'four', 'five'],
-            actual: $this->collection->to_array(),
+            actual: $this->sut->to_array(),
         );
     }
 }

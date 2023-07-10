@@ -14,7 +14,7 @@ interface Collection extends
     /**
      * Factory method.
      */
-    public static function create(): self;
+    public static function new_instance(): self;
 
     /**
      * Factory method.
