@@ -7,3 +7,7 @@ WordPress Plugin Framework
 https://matthiasnoback.nl/2013/01/dependency-injection-smells/
 https://r.je/oop-courier-anti-pattern
 ### PHPUnit 10 / WordPress Integration
+
+### Collection: each() method can use array key
+
+### Meta: add update() method
