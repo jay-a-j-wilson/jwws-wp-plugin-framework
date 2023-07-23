@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    bootstrap="../../test/PHPUnit/WordPress/bootstrap.php"
+    bootstrap="../../test/PHPUnit/bootstrap.php"
     backupGlobals="false"
     cacheResultFile="cache/.phpunit.result.cache"
     colors="true"
