@@ -4,6 +4,11 @@
     "require": {
         "php": ">=8.1"
     },
+    "require-dev": {
+        "yoast/phpunit-polyfills": "^1.0",
+        "phpunit/phpunit": "^9.6",
+        "wp-phpunit/wp-phpunit": "^6.2"
+    },
     "autoload": {
         "psr-4": {
             "JWWS\\WPPF\\": "src/"
@@ -13,9 +18,5 @@
         "psr-4": {
             "JWWS\\WPPF\\Test\\": "test/"
         }
-    },
-    "require-dev": {
-        "yoast/phpunit-polyfills": "^1.0",
-        "phpunit/phpunit": "^9.6"
     }
 }

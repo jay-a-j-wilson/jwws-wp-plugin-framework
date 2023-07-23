@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phpunit
-    bootstrap="../../test/PHPUnit/bootstrap.php"
+    bootstrap="../../test/PHPUnit/WordPress/bootstrap.php"
     backupGlobals="false"
     cacheResultFile="cache/.phpunit.result.cache"
     colors="true"
@@ -119,4 +119,11 @@
     <logging>
         <testdoxHtml outputFile="logs/log.html" />
     </logging>
+    <!-- PHP -->
+    <php>
+        <env
+            name="WP_PHPUNIT__TESTS_CONFIG"
+            value="test/PHPUnit/WordPress/wp-config.php"
+        />
+    </php>
 </phpunit>
