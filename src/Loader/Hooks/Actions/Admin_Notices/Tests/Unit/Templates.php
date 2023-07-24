@@ -7,6 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
+ * @small
+ *
+ * @coversNothing
  */
 final class Templates extends TestCase {
     use Templateable;
@@ -15,7 +19,7 @@ final class Templates extends TestCase {
      * @test
      */
     public function pass(): void {
-        $plugin_name = 'Plugin 1';
+        $plugin_name     = 'Plugin 1';
         $dependency_name = 'Plugin 2';
 
         self::expectOutputString(
@@ -28,7 +32,7 @@ final class Templates extends TestCase {
         echo self::template(
             file: __DIR__ . './../../templates/template.html.php',
             data: [
-                'plugin_name' => $plugin_name,
+                'plugin_name'     => $plugin_name,
                 'dependency_name' => $dependency_name,
             ],
         );

@@ -2,11 +2,9 @@
 
 namespace JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Tests\Unit;
 
-use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Dir\Dir,
-    Sub_Value_Objects\File\File,
-    Subclasses\Confirmed_Filepath\Confirmed_Filepath
-};
+use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Dir;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\File;
+use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
 use PHPUnit\Framework\MockObject\Stub;
 use PHPUnit\Framework\TestCase;
 
@@ -14,6 +12,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends TestCase {
     private Stub|Dir $dir;

@@ -2,16 +2,16 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Tests\Unit;
 
-use JWWS\WPPF\Loader\{
-    Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta,
-    Plugin\Plugin,
-};
+use JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta;
+use JWWS\WPPF\Loader\Plugin\Plugin;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends TestCase {
     /**

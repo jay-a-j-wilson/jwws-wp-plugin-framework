@@ -8,6 +8,8 @@ use JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo;
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo
  *
  * @internal
+ *
+ * @small
  */
 final class Find_By_Name extends \WP_UnitTestCase {
     /**

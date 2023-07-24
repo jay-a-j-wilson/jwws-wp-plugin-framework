@@ -2,14 +2,12 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo;
 
-use JWWS\WPPF\{
-    Assertion\Boolean_Assertion\Boolean_Assertion,
-    Assertion\WordPress_Assertion\Id\Id as WordPress_Id_Assertion,
-    Collection\Collection,
-    Collection\Standard_Collection\Standard_Collection,
-    WordPress\Repo\Repo,
-    WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo,
-};
+use JWWS\WPPF\Assertion\Boolean_Assertion\Boolean_Assertion;
+use JWWS\WPPF\Assertion\WordPress_Assertion\Id\Id as WordPress_Id_Assertion;
+use JWWS\WPPF\Collection\Collection;
+use JWWS\WPPF\Collection\Standard_Collection\Standard_Collection;
+use JWWS\WPPF\WordPress\Repo\Repo;
+use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo;
 
 /**
  * ViewModel Repository.

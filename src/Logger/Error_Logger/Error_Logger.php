@@ -2,19 +2,14 @@
 
 namespace JWWS\WPPF\Logger\Error_Logger;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Common\Utility\Variable,
-    Logger\Logger,
-    Template\Template,
-    Traits\Variable_Handler,
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Common\Utility\Variable;
+use JWWS\WPPF\Logger\Logger;
+use JWWS\WPPF\Template\Template;
+use JWWS\WPPF\Traits\Variable_Handler;
 
 // Security::stop_direct_access();
 
-/**
- * Undocumented class.
- */
 final class Error_Logger extends Logger {
     /**
      * Prints to error log.

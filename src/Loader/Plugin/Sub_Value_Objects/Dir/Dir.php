@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Common\Value_Object\Base_Value_Object\Base_Value_Object
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
 
 // Security::stop_direct_access();
 

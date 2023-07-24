@@ -22,8 +22,7 @@ final class Type_Assertion {
     /**
      * @return void
      */
-    private function __construct(private mixed $type) {
-    }
+    private function __construct(private mixed $type) {}
 
     /**
      * Asserts type is null.

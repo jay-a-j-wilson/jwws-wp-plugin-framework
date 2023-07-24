@@ -2,9 +2,6 @@
 
 namespace JWWS\WPPF\Assertion\String_Assertion\Tests\Unit\Empty;
 
-/**
- * Undocumented class.
- */
 final class Data_Provider {
     /**
      * Values that should be considered empty.

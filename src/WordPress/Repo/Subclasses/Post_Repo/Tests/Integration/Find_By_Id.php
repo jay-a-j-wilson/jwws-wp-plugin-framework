@@ -2,15 +2,15 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Tests\Integration;
 
-use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\{
-    Post_Repo,
-    Tests\Integration\Fixtures\Fixture
-};
+use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Post_Repo;
+use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Tests\Integration\Fixtures\Fixture;
 
 /**
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Post_Repo
  *
  * @internal
+ *
+ * @small
  */
 final class Find_By_Id extends Fixture {
     /**
@@ -21,7 +21,7 @@ final class Find_By_Id extends Fixture {
      * @testdox pass[$_dataName] => $arg
      */
     public function pass(int $arg): void {
-        $this->assertSame(
+        self::assertSame(
             expected: $arg,
             actual: Post_Repo::new_instance()->find_by_id(id: $arg)->ID,
         );

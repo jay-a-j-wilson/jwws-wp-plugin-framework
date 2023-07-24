@@ -1,12 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath;
 
-use JWWS\WPPF\{
-    Assertion\Path_Assertion\Path_Assertion,
-    Common\Security\Security,
-    Filepath\Filepath
-};
+use JWWS\WPPF\Assertion\Path_Assertion\Path_Assertion;
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Filepath\Filepath;
 
 // Security::stop_direct_access();
 

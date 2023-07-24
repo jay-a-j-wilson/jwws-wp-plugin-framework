@@ -8,6 +8,8 @@ use JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin;
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Of_Slug extends \WP_UnitTestCase {
     /**

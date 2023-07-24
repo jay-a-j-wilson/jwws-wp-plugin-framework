@@ -2,13 +2,7 @@
 
 namespace JWWS\WPPF\Assertion\Number_Assertion\Tests\Unit\Parity;
 
-/**
- * Undocumented class.
- */
 final class Data_Provider {
-    /**
-     * Undocumented method.
-     */
     public static function odd_numbers(): iterable {
         yield 'one (int)' => [1];
 
@@ -23,9 +17,6 @@ final class Data_Provider {
         yield 'five (float)' => [5.0];
     }
 
-    /**
-     * Undocumented method.
-     */
     public static function even_numbers(): iterable {
         yield 'zero (int)' => [0];
 

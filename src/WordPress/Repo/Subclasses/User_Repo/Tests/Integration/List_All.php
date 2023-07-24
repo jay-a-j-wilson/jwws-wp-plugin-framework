@@ -2,21 +2,22 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\Tests\Integration;
 
-use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\{
-    User_Repo,
-    Tests\Integration\Fixtures\Fixture
-};
-
+use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\Tests\Integration\Fixtures\Fixture;
+use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo;
 
 /**
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo
+ *
+ * @internal
+ *
+ * @small
  */
 final class List_All extends Fixture {
     /**
      * @test
      */
     public function pass(): void {
-        $this->assertCount(
+        self::assertCount(
             expectedCount: 5,
             haystack: User_Repo::new_instance()->list_all(),
         );

@@ -2,16 +2,11 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Deactivated_Plugin;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Loader\Plugin\Plugin
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Loader\Plugin\Plugin;
 
 // Security::stop_direct_access();
 
-/**
- * Undocumented class.
- */
 final class Deactivated_Plugin {
     /**
      * Factory method.
@@ -25,8 +20,7 @@ final class Deactivated_Plugin {
     /**
      * @return void
      */
-    private function __construct(private Plugin $plugin) {
-    }
+    private function __construct(private Plugin $plugin) {}
 
     /**
      * Hooks into WordPress.

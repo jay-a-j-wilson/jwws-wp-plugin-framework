@@ -2,12 +2,10 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Common\Value_Object\Base_Value_Object\Base_Value_Object,
-    Loader\Plugin\Sub_Value_Objects\Basename\Basename,
-    Loader\Plugin\Sub_Value_Objects\Dir\Dir
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Dir;
 
 // Security::stop_direct_access();
 

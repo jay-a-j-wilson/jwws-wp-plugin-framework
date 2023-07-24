@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Collection\Standard_Collection\Standard_Collection
  *
  * @internal
+ *
+ * @small
  */
 final class Pluck extends TestCase {
     /**
@@ -19,7 +21,7 @@ final class Pluck extends TestCase {
      * @testdox pluck[$_dataName] => $arg $key equals $expected
      */
     public function pass(array $arg, string $key, array $expected): void {
-        self::assertEquals(
+        self::assertSame(
             expected: $expected,
             actual: Standard_Collection::of(...$arg)
                 ->pluck(key: $key)

@@ -11,6 +11,8 @@ use PHPUnit\Framework\TestCase;
  * @link https://www.php.net/manual/en/function.is-numeric.php
  *
  * @internal
+ *
+ * @small
  */
 final class Is_Numeric extends TestCase {
     /**

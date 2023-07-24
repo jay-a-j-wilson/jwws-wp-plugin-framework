@@ -6,7 +6,11 @@ use JWWS\WPPF\Assertion\Type_Assertion\Type_Assertion;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers JWWS\WPPF\Assertion\Type_Assertion\Type_Assertion
+ * @covers \JWWS\WPPF\Assertion\Type_Assertion\Type_Assertion
+ *
+ * @internal
+ *
+ * @small
  */
 final class Is_Not_Null extends TestCase {
     /**

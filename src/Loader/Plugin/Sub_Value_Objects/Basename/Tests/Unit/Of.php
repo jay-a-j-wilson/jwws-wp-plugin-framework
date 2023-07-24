@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends TestCase {
     /**

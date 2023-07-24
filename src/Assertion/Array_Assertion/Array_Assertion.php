@@ -18,8 +18,7 @@ final class Array_Assertion {
     /**
      * @return void
      */
-    private function __construct(private array $array) {
-    }
+    private function __construct(private array $array) {}
 
     /**
      * Asserts array is empty.

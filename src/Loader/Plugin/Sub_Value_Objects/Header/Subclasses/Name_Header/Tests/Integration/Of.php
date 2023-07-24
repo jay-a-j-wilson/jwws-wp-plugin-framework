@@ -8,6 +8,8 @@ use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Name_Header\Name
  * @covers \JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Name_Header\Name_Header
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends \WP_UnitTestCase {
     /**
@@ -18,7 +20,7 @@ final class Of extends \WP_UnitTestCase {
      * @testdox pass[$_dataName] => $arg_1, $arg_2
      */
     public function pass(string $arg_1, string $arg_2): void {
-        self::assertEquals(
+        self::assertSame(
             expected: $arg_2,
             actual: Name_Header::of(basename: $arg_1)->value,
         );
@@ -27,7 +29,7 @@ final class Of extends \WP_UnitTestCase {
     public static function pass_data_provider(): iterable {
         yield 'installed' => [
             'akismet/akismet.php',
-            'Akismet Anti-Spam: Spam Protection'
+            'Akismet Anti-Spam: Spam Protection',
         ];
     }
 

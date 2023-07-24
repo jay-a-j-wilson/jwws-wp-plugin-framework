@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Assertion\Path_Assertion\Path_Assertion
  *
  * @internal
+ *
+ * @small
  */
 final class Is_Dir extends TestCase {
     /**

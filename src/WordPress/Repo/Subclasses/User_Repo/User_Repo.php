@@ -2,14 +2,12 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo;
 
-use JWWS\WPPF\{
-    Assertion\Boolean_Assertion\Boolean_Assertion,
-    Assertion\WordPress_Assertion\Id\Id as WordPress_Id_Assertion,
-    Collection\Collection,
-    Collection\Standard_Collection\Standard_Collection,
-    Common\Security\Security,
-    WordPress\Repo\Repo,
-};
+use JWWS\WPPF\Assertion\Boolean_Assertion\Boolean_Assertion;
+use JWWS\WPPF\Assertion\WordPress_Assertion\Id\Id as WordPress_Id_Assertion;
+use JWWS\WPPF\Collection\Collection;
+use JWWS\WPPF\Collection\Standard_Collection\Standard_Collection;
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\WordPress\Repo\Repo;
 
 // Security::stop_direct_access();
 
@@ -54,10 +52,10 @@ final class User_Repo extends Repo {
      *
      * Retrieve user info by a given field.
      *
-     * @param string     $field The field to retrieve the user with.
-     *                          id | ID | slug | email | login.
-     * @param int|string $value A value for $field.
-     *                          A user ID, slug, email address, or login name.
+     * @param string     $field the field to retrieve the user with
+     *                          id | ID | slug | email | login
+     * @param int|string $value a value for $field
+     *                          A user ID, slug, email address, or login name
      *
      * @throws \InvalidArgumentException if user not found
      */

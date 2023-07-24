@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Collection\Standard_Collection\Standard_Collection
  *
  * @internal
+ *
+ * @small
  */
 final class Flatten extends TestCase {
     /**
@@ -19,7 +21,7 @@ final class Flatten extends TestCase {
      * @testdox pass[$_dataName] => $arg is $expected
      */
     public function pass(array $arg, array $expected): void {
-        self::assertEquals(
+        self::assertSame(
             expected: $expected,
             actual: Standard_Collection::of(...$arg)
                 ->flatten()
@@ -47,7 +49,7 @@ final class Flatten extends TestCase {
      * @testdox pass_levels[$_dataName] => $arg, levels $levels is $expected
      */
     public function pass_levels(array $arg, int $levels, array $expected): void {
-        self::assertEquals(
+        self::assertSame(
             expected: $expected,
             actual: Standard_Collection::of(
                 $arg,

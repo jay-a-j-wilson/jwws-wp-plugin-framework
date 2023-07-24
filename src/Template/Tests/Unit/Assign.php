@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Template\Template
  *
  * @internal
+ *
+ * @small
  */
 final class Assign extends TestCase {
     /**

@@ -2,19 +2,17 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Tests\Unit;
 
-use JWWS\WPPF\Loader\{
-    Hooks\Actions\Admin_Init\Admin_Init,
-    Plugin\Plugin,
-};
-use PHPUnit\Framework\{
-    MockObject\Stub,
-    TestCase
-};
+use JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Admin_Init;
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use PHPUnit\Framework\MockObject\Stub;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Admin_Init
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends TestCase {
     /**

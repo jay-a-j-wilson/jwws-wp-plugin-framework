@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Enums;
 

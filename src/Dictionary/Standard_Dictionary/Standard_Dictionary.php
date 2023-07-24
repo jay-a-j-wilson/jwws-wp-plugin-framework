@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\Dictionary\Standard_Dictionary;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Dictionary\Dictionary
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Dictionary\Dictionary;
 
 // Security::stop_direct_access();
 

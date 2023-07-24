@@ -8,6 +8,8 @@ use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Description_Head
  * @covers \JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Description_Header\Description_Header
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends \WP_UnitTestCase {
     /**

@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Collection\Standard_Collection\Standard_Collection
  *
  * @internal
+ *
+ * @small
  */
 final class Contains_Value extends TestCase {
     /**
@@ -19,7 +21,7 @@ final class Contains_Value extends TestCase {
      * @testdox pluck[$_dataName] => $arg contains $value is $expected
      */
     public function pass(array $arg, mixed $value, bool $expected): void {
-        self::assertEquals(
+        self::assertSame(
             expected: $expected,
             actual: Standard_Collection::of(...$arg)
                 ->contains_value(value: $value),

@@ -2,11 +2,9 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Init;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Loader\Hooks\Actions\Admin_Notices\Admin_Notices,
-    Loader\Plugin\Plugin
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Loader\Hooks\Actions\Admin_Notices\Admin_Notices;
+use JWWS\WPPF\Loader\Plugin\Plugin;
 
 // Security::stop_direct_access();
 
@@ -26,8 +24,7 @@ final class Admin_Init {
     /**
      * @return void
      */
-    public function __construct(private Plugin $plugin) {
-    }
+    public function __construct(private Plugin $plugin) {}
 
     /**
      * Hooks into WordPress.

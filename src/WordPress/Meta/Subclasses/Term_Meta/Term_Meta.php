@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\WordPress\Meta\Subclasses\Term_Meta;
 
-use JWWS\WPPF\{
-    WordPress\Meta\Enums\Type,
-    WordPress\Meta\Meta
-};
+use JWWS\WPPF\WordPress\Meta\Enums\Type;
+use JWWS\WPPF\WordPress\Meta\Meta;
 
 // Security::stop_direct_access();
 

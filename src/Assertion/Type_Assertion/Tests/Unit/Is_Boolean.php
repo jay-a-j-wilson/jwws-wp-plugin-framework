@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Assertion\Type_Assertion\Type_Assertion
  *
  * @internal
+ *
+ * @small
  */
 final class Is_Boolean extends TestCase {
     /**

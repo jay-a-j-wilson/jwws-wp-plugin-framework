@@ -18,8 +18,7 @@ final class Object_Assertion {
     /**
      * @return void
      */
-    private function __construct(private object $object) {
-    }
+    private function __construct(private object $object) {}
 
     /**
      * Assert type is an instance of a class or interface.

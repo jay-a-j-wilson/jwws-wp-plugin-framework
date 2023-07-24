@@ -9,7 +9,6 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Dictionary\Standard_Dictionary\Standard_Dictionary
  *
  * @internal
- *
  * @small
  */
 final class Find_By_Key extends TestCase {

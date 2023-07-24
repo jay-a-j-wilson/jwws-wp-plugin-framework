@@ -2,11 +2,9 @@
 
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name;
 
-use JWWS\WPPF\{
-    Assertion\String_Assertion\String_Assertion,
-    Common\Security\Security,
-    Common\Value_Object\Base_Value_Object\Base_Value_Object
-};
+use JWWS\WPPF\Assertion\String_Assertion\String_Assertion;
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
 
 // Security::stop_direct_access();
 

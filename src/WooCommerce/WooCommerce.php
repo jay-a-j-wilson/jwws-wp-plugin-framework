@@ -2,11 +2,9 @@
 
 namespace JWWS\WPPF\WooCommerce;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Common\Utility\Generic,
-    WordPress\Utility\Utility as WordPress
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Common\Utility\Generic;
+use JWWS\WPPF\WordPress\Utility\Utility as WordPress;
 
 // Security::stop_direct_access();
 

@@ -8,6 +8,8 @@ use JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin;
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Of_Basename extends \WP_UnitTestCase {
     /**
@@ -18,7 +20,7 @@ final class Of_Basename extends \WP_UnitTestCase {
             expected: Standard_Plugin::class,
             actual: Standard_Plugin::of_basename(
                 basename: 'plugin/plugin.php',
-                fallback_name: "Plugin"
+                fallback_name: 'Plugin',
             ),
         );
     }

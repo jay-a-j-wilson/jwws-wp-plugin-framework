@@ -2,19 +2,17 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Tests\Unit;
 
-use JWWS\WPPF\Loader\{
-    Hooks\Actions\Admin_Init\Admin_Init,
-    Plugin\Plugin,
-};
-use PHPUnit\Framework\{
-    MockObject\Rule\InvokedCount,
-    TestCase
-};
+use JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Admin_Init;
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use PHPUnit\Framework\MockObject\Rule\InvokedCount;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Admin_Init
  *
  * @internal
+ *
+ * @small
  */
 final class Callback extends TestCase {
     /**
@@ -44,12 +42,12 @@ final class Callback extends TestCase {
     public static function pass_data_provider(): iterable {
         yield 'true' => [
             true,
-            self::never()
+            self::never(),
         ];
 
         yield 'false' => [
             false,
-            self::once()
+            self::once(),
         ];
     }
 }

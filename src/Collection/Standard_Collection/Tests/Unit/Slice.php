@@ -11,6 +11,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Collection\Standard_Collection\Standard_Collection
  *
  * @internal
+ *
+ * @small
  */
 final class Slice extends TestCase {
     /**
@@ -21,7 +23,7 @@ final class Slice extends TestCase {
      * @testdox pass[$_dataName] => $arg equals $expected
      */
     public function slice(int $arg, array $expected): void {
-        self::assertEquals(
+        self::assertSame(
             expected: $expected,
             actual: Collection_Factory::create_and_get()
                 ->slice(offset: $arg)

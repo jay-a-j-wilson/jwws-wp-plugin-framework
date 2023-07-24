@@ -3,17 +3,12 @@
 namespace JWWS\WPPF\Template;
 
 use JWWS\WPPF\Common\Security\Security;
-use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir,
-    Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File,
-    Subclasses\Confirmed_Filepath\Confirmed_Filepath,
-};
+use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
+use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
 
 // Security::stop_direct_access();
 
-/**
- * Undocumented class.
- */
 final class Template {
     /**
      * Factory method.
@@ -33,8 +28,7 @@ final class Template {
     private function __construct(
         private Confirmed_Filepath $filepath,
         private array $variables = [],
-    ) {
-    }
+    ) {}
 
     /**
      * Assigns a value to a specific key in the template.

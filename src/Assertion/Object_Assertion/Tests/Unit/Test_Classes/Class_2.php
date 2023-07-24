@@ -2,5 +2,4 @@
 
 namespace JWWS\WPPF\Assertion\Object_Assertion\Tests\Unit\Test_Classes;
 
-final class Class_2 {
-}
+final class Class_2 {}

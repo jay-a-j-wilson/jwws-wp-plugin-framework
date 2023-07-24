@@ -8,6 +8,8 @@ use JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo;
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo
  *
  * @internal
+ *
+ * @small
  */
 final class List_All extends \WP_UnitTestCase {
     /**

@@ -1,12 +1,10 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Common\Value_Object\Base_Value_Object\Base_Value_Object,
-    Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Name_Header\Name_Header
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Name_Header\Name_Header;
 
 // Security::stop_direct_access();
 

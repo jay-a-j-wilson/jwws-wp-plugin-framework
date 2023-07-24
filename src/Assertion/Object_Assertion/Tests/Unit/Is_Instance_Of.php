@@ -3,10 +3,8 @@
 namespace JWWS\WPPF\Assertion\Object_Assertion\Tests\Unit;
 
 use JWWS\WPPF\Assertion\Object_Assertion\Object_Assertion;
-use JWWS\WPPF\Assertion\Object_Assertion\Tests\Unit\Test_Classes\{
-    Class_1,
-    Class_2
-};
+use JWWS\WPPF\Assertion\Object_Assertion\Tests\Unit\Test_Classes\Class_1;
+use JWWS\WPPF\Assertion\Object_Assertion\Tests\Unit\Test_Classes\Class_2;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -15,6 +13,8 @@ use PHPUnit\Framework\TestCase;
  * @link https://www.php.net/manual/en/function.is-string.php
  *
  * @internal
+ *
+ * @small
  */
 final class Is_Instance_Of extends TestCase {
     /**

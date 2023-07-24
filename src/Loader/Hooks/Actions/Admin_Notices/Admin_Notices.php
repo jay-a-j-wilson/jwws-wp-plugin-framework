@@ -2,17 +2,12 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Notices;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Loader\Plugin\Plugin,
-    Template\Template
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Template\Template;
 
 // Security::stop_direct_access();
 
-/**
- * Undocumented class.
- */
 final class Admin_Notices {
     /**
      * Factory method.
@@ -30,8 +25,7 @@ final class Admin_Notices {
     private function __construct(
         private Plugin $plugin,
         private Plugin $dependency,
-    ) {
-    }
+    ) {}
 
     /**
      * Hooks into 'admin_notices' filter.

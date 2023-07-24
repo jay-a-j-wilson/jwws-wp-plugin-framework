@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Assertion\Number_Assertion\Number_Assertion
  *
  * @internal
+ *
+ * @small
  */
 final class Is_Positive extends TestCase {
     /**

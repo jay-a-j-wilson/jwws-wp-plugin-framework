@@ -11,13 +11,15 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Collection\Standard_Collection\Standard_Collection
  *
  * @internal
+ *
+ * @small
  */
 final class Map extends TestCase {
     /**
      * @test
      */
     public function pass(): void {
-        self::assertEquals(
+        self::assertSame(
             expected: ['ONE', 'TWO', 'THREE', 'FOUR', 'FIVE'],
             actual: Collection_Factory::create_and_get()
                 ->map(

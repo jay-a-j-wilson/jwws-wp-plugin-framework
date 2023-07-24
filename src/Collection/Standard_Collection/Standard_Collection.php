@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\Collection\Standard_Collection;
 
-use JWWS\WPPF\{
-    Collection\Collection,
-    Common\Security\Security
-};
+use JWWS\WPPF\Collection\Collection;
+use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
 
@@ -178,7 +176,7 @@ final class Standard_Collection implements Collection {
 
     public function offsetSet(mixed $key, mixed $value): void {
         $key === null
-            ? $this->items[] = $value
+            ? $this->items[]     = $value
             : $this->items[$key] = $value;
     }
 

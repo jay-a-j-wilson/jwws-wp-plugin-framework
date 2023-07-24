@@ -2,16 +2,15 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tests\Integration\Toggle;
 
-use JWWS\WPPF\Loader\{
-    Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
-};
-
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Akismet_Plugin_Factory;
 
 /**
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Deactivate extends \WP_UnitTestCase {
     protected static Plugin $akismet_plugin;
@@ -21,7 +20,6 @@ final class Deactivate extends \WP_UnitTestCase {
 
         self::$akismet_plugin = Akismet_Plugin_Factory::create_and_get();
     }
-
 
     /**
      * @test

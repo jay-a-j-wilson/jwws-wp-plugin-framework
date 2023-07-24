@@ -2,16 +2,16 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Tests\Integration;
 
-use JWWS\WPPF\Loader\{
-    Hooks\Actions\Admin_Init\Admin_Init,
-    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
-    Tests\Integration\Fixtures\Basic_Plugin_Factory,
-};
+use JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Admin_Init;
+use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Akismet_Plugin_Factory;
+use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Basic_Plugin_Factory;
 
 /**
  * @covers \JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Admin_Init
  *
  * @internal
+ *
+ * @small
  */
 final class Callback extends \WP_UnitTestCase {
     /**

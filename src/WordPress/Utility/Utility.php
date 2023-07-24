@@ -2,16 +2,11 @@
 
 namespace JWWS\WPPF\WordPress\Utility;
 
-use JWWS\WPPF\{
-    Assertion\Assertion,
-    Common\Security\Security
-};
+use JWWS\WPPF\Assertion\Assertion;
+use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
 
-/**
- * Undocumented class.
- */
 final class Utility {
     /**
      * Do not instantiate.
@@ -86,9 +81,9 @@ final class Utility {
                 return $term;
             },
             array: get_terms(args: [
-                'taxonomy' => $taxonomy,
-                'parent' => $parent,
-                'orderby' => $order_by,
+                'taxonomy'   => $taxonomy,
+                'parent'     => $parent,
+                'orderby'    => $order_by,
                 'hide_empty' => false,
             ]),
         );

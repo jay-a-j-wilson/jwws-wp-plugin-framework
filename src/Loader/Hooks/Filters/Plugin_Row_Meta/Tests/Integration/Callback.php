@@ -2,17 +2,17 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Tests\Integration;
 
-use JWWS\WPPF\Loader\{
-    Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta,
-    Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
-    Tests\Integration\Fixtures\Basic_Plugin_Factory
-};
+use JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta;
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Akismet_Plugin_Factory;
+use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Basic_Plugin_Factory;
 
 /**
  * @covers \JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta
  *
  * @internal
+ *
+ * @small
  */
 final class Callback extends \WP_UnitTestCase {
     /**

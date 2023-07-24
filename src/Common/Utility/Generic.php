@@ -6,9 +6,6 @@ use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
 
-/**
- * Undocumented class.
- */
 final class Generic {
     /**
      * Do not instantiate.

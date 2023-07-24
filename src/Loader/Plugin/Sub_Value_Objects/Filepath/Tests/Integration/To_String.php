@@ -8,6 +8,8 @@ use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath;
  * @covers \JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath
  *
  * @internal
+ *
+ * @small
  */
 final class To_String extends \WP_UnitTestCase {
     /**

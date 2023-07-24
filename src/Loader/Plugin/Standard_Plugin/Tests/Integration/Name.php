@@ -8,6 +8,8 @@ use JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin;
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Name extends \WP_UnitTestCase {
     /**
@@ -18,7 +20,7 @@ final class Name extends \WP_UnitTestCase {
      * @testdox pass[$_dataName] => slug: $arg_1, fallback name: $arg_2, name: $arg_3
      */
     public function pass(string $arg_1, string $arg_2, string $arg_3): void {
-        $this->assertSame(
+        self::assertSame(
             expected: $arg_3,
             actual: Standard_Plugin::of_slug(
                 slug: $arg_1,

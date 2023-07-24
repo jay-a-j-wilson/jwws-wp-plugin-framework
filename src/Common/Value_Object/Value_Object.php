@@ -19,7 +19,7 @@ interface Value_Object extends \Stringable {
      *
      * @return bool true if the objects are equal, false otherwise
      */
-    public function equals(Value_Object $other): bool;
+    public function equals(self $other): bool;
 
     /**
      * {@inheritDoc}

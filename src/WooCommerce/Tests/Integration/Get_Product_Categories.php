@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\WooCommerce\WooCommerce
  *
  * @internal
+ *
+ * @small
  */
 final class Get_Product_Categories extends TestCase {
     /**
@@ -16,6 +18,6 @@ final class Get_Product_Categories extends TestCase {
      */
     public function pass(): void {
         self::expectNotToPerformAssertions();
-        //WooCommerce::get_product_categories();
+        // WooCommerce::get_product_categories();
     }
 }

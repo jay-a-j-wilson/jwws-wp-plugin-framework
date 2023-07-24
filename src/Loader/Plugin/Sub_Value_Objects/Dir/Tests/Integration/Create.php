@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Dir
  *
  * @internal
+ *
+ * @small
  */
 final class Create extends TestCase {
     /**

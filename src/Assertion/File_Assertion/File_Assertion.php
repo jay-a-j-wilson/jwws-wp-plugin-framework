@@ -25,8 +25,7 @@ final class File_Assertion {
     /**
      * @return void
      */
-    private function __construct(private string $filepath) {
-    }
+    private function __construct(private string $filepath) {}
 
     /**
      * Asserts file has the specified file extension.

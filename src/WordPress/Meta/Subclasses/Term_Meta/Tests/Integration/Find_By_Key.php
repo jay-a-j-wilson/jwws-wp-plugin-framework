@@ -17,9 +17,9 @@ final class Find_By_Key extends \WP_UnitTestCase {
      */
     public function pass(): void {
         add_term_meta(
-            term_id: 1, 
-            meta_key: 'key', 
-            meta_value: 'value'
+            term_id: 1,
+            meta_key: 'key',
+            meta_value: 'value',
         );
 
         self::assertSame(

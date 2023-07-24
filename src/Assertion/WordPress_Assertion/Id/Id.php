@@ -18,8 +18,7 @@ final class Id {
     /**
      * @return void
      */
-    private function __construct(private int $id) {
-    }
+    private function __construct(private int $id) {}
 
     /**
      * Asserts value is a valid WordPress slug.

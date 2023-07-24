@@ -2,17 +2,17 @@
 
 namespace JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Tests\Integration;
 
-use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir,
-    Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File,
-    Subclasses\Confirmed_Filepath\Confirmed_Filepath
-};
+use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
+use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends TestCase {
     private function full_path(string $path): string {

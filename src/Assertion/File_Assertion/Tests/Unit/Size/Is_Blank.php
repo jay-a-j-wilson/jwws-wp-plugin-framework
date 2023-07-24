@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Assertion\File_Assertion\File_Assertion
  *
  * @internal
+ *
+ * @small
  */
 final class Is_Blank extends TestCase {
     /**

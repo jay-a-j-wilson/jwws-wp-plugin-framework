@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Assertion\Array_Assertion\Array_Assertion
  *
  * @internal
+ *
+ * @small
  */
 final class Contains_Value extends TestCase {
     /**

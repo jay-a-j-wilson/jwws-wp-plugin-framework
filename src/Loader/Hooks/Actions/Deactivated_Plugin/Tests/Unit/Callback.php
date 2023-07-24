@@ -2,19 +2,17 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Actions\Deactivated_Plugin\Tests\Unit;
 
-use JWWS\WPPF\Loader\{
-    Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin,
-    Plugin\Plugin,
-};
-use PHPUnit\Framework\{
-    MockObject\Rule\InvokedCount,
-    TestCase
-};
+use JWWS\WPPF\Loader\Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin;
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use PHPUnit\Framework\MockObject\Rule\InvokedCount;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Loader\Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Callback extends TestCase {
     private const PLUGIN_BASENAME = 'dir/plugin.php';

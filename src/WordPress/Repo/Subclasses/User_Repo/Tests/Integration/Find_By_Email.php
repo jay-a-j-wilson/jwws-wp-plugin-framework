@@ -2,13 +2,15 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\Tests\Integration;
 
-use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\{
-    Tests\Integration\Fixtures\Fixture,
-    User_Repo
-};
+use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\Tests\Integration\Fixtures\Fixture;
+use JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo;
 
 /**
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo
+ *
+ * @internal
+ *
+ * @small
  */
 final class Find_By_Email extends Fixture {
     /**
@@ -19,7 +21,7 @@ final class Find_By_Email extends Fixture {
      * @testdox pass: ($_dataName) arg $arg returns $arg
      */
     public function pass(string $arg): void {
-        $this->assertSame(
+        self::assertSame(
             expected: $arg,
             actual: User_Repo::new_instance()->find_by_email(email: $arg)->user_email,
         );

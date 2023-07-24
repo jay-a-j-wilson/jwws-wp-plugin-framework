@@ -2,22 +2,17 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin;
 
-use JWWS\WPPF\{
-    Collection\Collection,
-    Collection\Standard_Collection\Standard_Collection,
-    Common\Security\Security,
-    Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta,
-    Loader\Plugin\Plugin,
-    Loader\Plugin\Sub_Value_Objects\Basename\Basename,
-    Loader\Plugin\Sub_Value_Objects\Name\Name,
-    Template\Template
-};
+use JWWS\WPPF\Collection\Collection;
+use JWWS\WPPF\Collection\Standard_Collection\Standard_Collection;
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta;
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name\Name;
+use JWWS\WPPF\Template\Template;
 
 // Security::stop_direct_access();
 
-/**
- * Undocumented class.
- */
 final class Standard_Plugin implements Plugin {
     public static function of_slug(
         string $slug,

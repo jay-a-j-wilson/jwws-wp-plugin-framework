@@ -2,9 +2,6 @@
 
 namespace JWWS\WPPF\Assertion\Boolean_Assertion\Tests\Unit\Boolean;
 
-/**
- * Undocumented class.
- */
 final class Data_Provider {
     /**
      * Truthy values with strict_types enabled.

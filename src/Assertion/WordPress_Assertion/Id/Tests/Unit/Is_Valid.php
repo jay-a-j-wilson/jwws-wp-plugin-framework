@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Assertion\WordPress_Assertion\Id\Id
  *
  * @internal
+ *
+ * @small
  */
 final class Is_Valid extends TestCase {
     /**

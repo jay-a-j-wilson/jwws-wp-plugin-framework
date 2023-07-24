@@ -1,7 +1,5 @@
 <?php declare(strict_types=1);
 
-declare(strict_booleans=1);
-
 namespace JWWS\WPPF\Assertion\Boolean_Assertion;
 
 use JWWS\WPPF\Common\Security\Security;
@@ -24,8 +22,7 @@ final class Boolean_Assertion {
     /**
      * @return void
      */
-    private function __construct(private mixed $boolean) {
-    }
+    private function __construct(private mixed $boolean) {}
 
     /**
      * Asserts boolean is true.

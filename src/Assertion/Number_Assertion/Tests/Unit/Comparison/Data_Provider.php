@@ -2,13 +2,7 @@
 
 namespace JWWS\WPPF\Assertion\Number_Assertion\Tests\Unit\Comparison;
 
-/**
- * Undocumented class.
- */
 final class Data_Provider {
-    /**
-     * Undocumented method.
-     */
     public static function is_equal(): iterable {
         yield 'is equal: positive (int)' => [10, 10];
 
@@ -21,9 +15,6 @@ final class Data_Provider {
         yield 'is equal: negative (float)' => [-10.0, -10.0];
     }
 
-    /**
-     * Undocumented method.
-     */
     public static function is_less(): iterable {
         yield 'is less: positive (int)' => [10, 11];
 
@@ -36,9 +27,6 @@ final class Data_Provider {
         yield 'is less: negative (float)' => [-10.0, -9.0];
     }
 
-    /**
-     * Undocumented method.
-     */
     public static function is_greater(): iterable {
         yield 'is greater: positive (int)' => [10, 9];
 

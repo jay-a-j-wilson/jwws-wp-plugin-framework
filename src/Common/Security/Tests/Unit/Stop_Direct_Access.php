@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Common\Security\Security
  *
  * @internal
+ *
+ * @small
  */
 final class Stop_Direct_Access extends TestCase {
     /**

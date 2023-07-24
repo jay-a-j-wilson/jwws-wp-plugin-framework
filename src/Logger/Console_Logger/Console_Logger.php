@@ -2,11 +2,9 @@
 
 namespace JWWS\WPPF\Logger\Console_Logger;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Logger\Logger,
-    Template\Template,
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Logger\Logger;
+use JWWS\WPPF\Template\Template;
 
 // Security::stop_direct_access();
 

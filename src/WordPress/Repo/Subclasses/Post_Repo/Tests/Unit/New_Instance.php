@@ -8,6 +8,8 @@ use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Post_Repo;
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Post_Repo\Post_Repo
  *
  * @internal
+ *
+ * @small
  */
 final class New_Instance extends \WP_UnitTestCase {
     /**

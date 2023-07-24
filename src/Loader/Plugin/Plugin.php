@@ -3,13 +3,11 @@
 namespace JWWS\WPPF\Loader\Plugin;
 
 // @codeCoverageIgnoreStart
-use JWWS\WPPF\{
-    Collection\Collection,
-    Common\Security\Security,
-    Loader\Plugin\Sub_Value_Objects\Basename\Basename,
-    Loader\Plugin\Sub_Value_Objects\Name\Name,
-};
-// @codeCoverageIgnoreEnd
+use JWWS\WPPF\Collection\Collection;
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name\Name;
+/** @codeCoverageIgnoreEnd */
 
 interface Plugin {
     /**
@@ -86,7 +84,7 @@ interface Plugin {
     /**
      * Adds a plugin dependency.
      */
-    public function add_dependencies(Plugin ...$plugins): static;
+    public function add_dependencies(self ...$plugins): static;
 
     /**
      * Returns the plugin's dependent plugins.

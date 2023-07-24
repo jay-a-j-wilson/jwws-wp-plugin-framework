@@ -6,7 +6,11 @@ use JWWS\WPPF\Assertion\Boolean_Assertion\Boolean_Assertion;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers JWWS\WPPF\Assertion\Boolean_Assertion\Boolean_Assertion
+ * @covers \JWWS\WPPF\Assertion\Boolean_Assertion\Boolean_Assertion
+ *
+ * @internal
+ *
+ * @small
  */
 final class Is_Not_True extends TestCase {
     /**

@@ -18,8 +18,7 @@ final class String_Assertion {
     /**
      * @return void
      */
-    private function __construct(private string $string) {
-    }
+    private function __construct(private string $string) {}
 
     /**
      * Asserts string is alphabetic.

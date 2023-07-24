@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\CSS_File\CSS_File
  *
  * @internal
+ *
+ * @small
  */
 final class To_String extends TestCase {
     /**

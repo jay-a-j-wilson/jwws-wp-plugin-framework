@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\User_Repo\User_Repo
  *
  * @internal
+ *
+ * @small
  */
 final class New_Instance extends TestCase {
     /**

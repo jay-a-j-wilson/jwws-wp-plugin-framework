@@ -18,8 +18,7 @@ final class Slug {
     /**
      * @return void
      */
-    private function __construct(private string $slug) {
-    }
+    private function __construct(private string $slug) {}
 
     /**
      * Asserts value is a valid WordPress slug.

@@ -8,6 +8,8 @@ use JWWS\WPPF\WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo;
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Post_Type_Repo\Post_Type_Repo
  *
  * @internal
+ *
+ * @small
  */
 final class List_All extends \WP_UnitTestCase {
     /**

@@ -2,15 +2,15 @@
 
 namespace JWWS\WPPF\Collection\Standard_Collection\Tests\Unit\Iterator_Aggregate;
 
-use JWWS\WPPF\{
-    Collection\Standard_Collection\Tests\Unit\Fixtures\Collection_Factory
-};
+use JWWS\WPPF\Collection\Standard_Collection\Tests\Unit\Fixtures\Collection_Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Collection\Standard_Collection\Standard_Collection
  *
  * @internal
+ *
+ * @small
  */
 final class Iterator extends TestCase {
     /**
@@ -22,7 +22,7 @@ final class Iterator extends TestCase {
         $i = 0;
 
         foreach ($sut as $key => $value) {
-            self::assertEquals(
+            self::assertSame(
                 expected: $sut[$key],
                 actual: $value,
             );
@@ -30,6 +30,6 @@ final class Iterator extends TestCase {
             $i++;
         }
 
-        self::assertEquals(expected: 5, actual: $i);
+        self::assertSame(expected: 5, actual: $i);
     }
 }

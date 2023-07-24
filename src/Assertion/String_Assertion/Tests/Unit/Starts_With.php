@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Assertion\String_Assertion\String_Assertion
  *
  * @internal
+ *
+ * @small
  */
 final class Starts_With extends TestCase {
     /**

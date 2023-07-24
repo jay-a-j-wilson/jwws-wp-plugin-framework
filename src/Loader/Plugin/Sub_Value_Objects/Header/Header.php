@@ -1,18 +1,14 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Common\Value_Object\Base_Value_Object\Base_Value_Object,
-    Loader\Plugin\Sub_Value_Objects\Filepath\Filepath,
-    Loader\Plugin\Sub_Value_Objects\Header\Enums\Type
-};
-use JWWS\WPPF\Filepath\{
-    Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir,
-    Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File,
-    Subclasses\Confirmed_Filepath\Confirmed_Filepath
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
+use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Enums\Type;
 
 // Security::stop_direct_access();
 
@@ -33,7 +29,7 @@ abstract class Header extends Base_Value_Object {
     final public static function of(string $basename): static {
         return new static(
             value: self::header(
-                path: Filepath::of(basename: $basename),
+                path: Filepath::of(basename: $basename)->__toString(),
             ),
         );
     }

@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\Dictionary\Standard_Dictionary\Tests\Unit\Fixtures;
 
-use JWWS\WPPF\Dictionary\{
-    Dictionary,
-    Standard_Dictionary\Standard_Dictionary
-};
+use JWWS\WPPF\Dictionary\Dictionary;
+use JWWS\WPPF\Dictionary\Standard_Dictionary\Standard_Dictionary;
 
 /**
  * @internal

@@ -2,15 +2,15 @@
 
 namespace JWWS\WPPF\Collection\Standard_Collection\Tests\Unit;
 
-use JWWS\WPPF\{
-    Collection\Standard_Collection\Tests\Unit\Fixtures\Collection_Factory
-};
+use JWWS\WPPF\Collection\Standard_Collection\Tests\Unit\Fixtures\Collection_Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Collection\Standard_Collection\Standard_Collection
  *
  * @internal
+ *
+ * @small
  */
 final class Clear extends TestCase {
     /**

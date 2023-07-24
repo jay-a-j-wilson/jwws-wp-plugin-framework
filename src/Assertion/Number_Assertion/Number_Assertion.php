@@ -22,8 +22,7 @@ final class Number_Assertion {
     /**
      * @return void
      */
-    private function __construct(private int|float $number) {
-    }
+    private function __construct(private int|float $number) {}
 
     /**
      * Asserts number is a positive number.

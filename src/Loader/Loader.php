@@ -2,12 +2,10 @@
 
 namespace JWWS\WPPF\Loader;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Loader\Hooks\Actions\Admin_Init\Admin_Init,
-    Loader\Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin,
-    Loader\Plugin\Plugin
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Loader\Hooks\Actions\Admin_Init\Admin_Init;
+use JWWS\WPPF\Loader\Hooks\Actions\Deactivated_Plugin\Deactivated_Plugin;
+use JWWS\WPPF\Loader\Plugin\Plugin;
 
 // Security::stop_direct_access();
 

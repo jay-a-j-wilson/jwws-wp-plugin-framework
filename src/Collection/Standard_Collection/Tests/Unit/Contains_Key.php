@@ -9,6 +9,8 @@ use PHPUnit\Framework\TestCase;
  * @covers \JWWS\WPPF\Collection\Standard_Collection\Standard_Collection
  *
  * @internal
+ *
+ * @small
  */
 final class Contains_Key extends TestCase {
     /**
@@ -19,7 +21,7 @@ final class Contains_Key extends TestCase {
      * @testdox pluck[$_dataName] => $arg contains $key is $expected
      */
     public function pass(array $arg, mixed $key, bool $expected): void {
-        $this->assertSame(
+        self::assertSame(
             expected: $expected,
             actual: Standard_Collection::of(...$arg)
                 ->contains_key(key: $key),

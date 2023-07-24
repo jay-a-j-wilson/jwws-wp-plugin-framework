@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\WordPress\Repo;
 
-use JWWS\WPPF\{
-    Collection\Collection,
-    Common\Security\Security,
-};
+use JWWS\WPPF\Collection\Collection;
+use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
 

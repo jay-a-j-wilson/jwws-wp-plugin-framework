@@ -2,12 +2,10 @@
 
 namespace JWWS\WPPF\Loader\Hooks\Filters\Plugin_Row_Meta;
 
-use JWWS\WPPF\{
-    Collection\Standard_Collection\Standard_Collection,
-    Common\Security\Security,
-    Loader\Plugin\Plugin,
-    Template\Template
-};
+use JWWS\WPPF\Collection\Standard_Collection\Standard_Collection;
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Template\Template;
 
 // Security::stop_direct_access();
 
@@ -27,8 +25,7 @@ final class Plugin_Row_Meta {
     /**
      * @return void
      */
-    public function __construct(private Plugin $plugin) {
-    }
+    public function __construct(private Plugin $plugin) {}
 
     /**
      * Hooks into WordPress.

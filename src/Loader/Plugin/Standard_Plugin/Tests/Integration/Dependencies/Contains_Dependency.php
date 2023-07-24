@@ -2,16 +2,16 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tests\Integration\Dependencies;
 
-use JWWS\WPPF\Loader\{
-    Plugin\Plugin,
-    Plugin\Standard_Plugin\Standard_Plugin,
-    Tests\Integration\Fixtures\Basic_Plugin_Factory,
-};
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin;
+use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Basic_Plugin_Factory;
 
 /**
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Contains_Dependency extends \WP_UnitTestCase {
     protected static Plugin $basic_plugin;

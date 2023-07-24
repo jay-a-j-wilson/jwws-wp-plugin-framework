@@ -22,8 +22,7 @@ final class Path_Assertion {
     /**
      * @return void
      */
-    private function __construct(private string $path) {
-    }
+    private function __construct(private string $path) {}
 
     /**
      * Asserts path belongs to an existing file or directory.

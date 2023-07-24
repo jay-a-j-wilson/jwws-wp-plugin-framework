@@ -8,6 +8,8 @@ use JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Term_Repo;
  * @covers \JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Term_Repo
  *
  * @internal
+ *
+ * @small
  */
 final class New_Instance extends \WP_UnitTestCase {
     /**

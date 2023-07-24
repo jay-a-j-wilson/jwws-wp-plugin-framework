@@ -2,11 +2,9 @@
 
 namespace JWWS\WPPF\WordPress\Meta;
 
-use JWWS\WPPF\{
-    Assertion\WordPress_Assertion\Id\Id as WordPress_Id_Assertion,
-    Common\Security\Security,
-    WordPress\Meta\Enums\Type
-};
+use JWWS\WPPF\Assertion\WordPress_Assertion\Id\Id as WordPress_Id_Assertion;
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\WordPress\Meta\Enums\Type;
 
 // Security::stop_direct_access();
 

@@ -2,16 +2,16 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tests\Integration\Dependencies\Has\Status;
 
-use JWWS\WPPF\Loader\{
-    Plugin\Plugin,
-    Tests\Integration\Fixtures\Akismet_Plugin_Factory,
-    Tests\Integration\Fixtures\Basic_Plugin_Factory,
-};
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Akismet_Plugin_Factory;
+use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Basic_Plugin_Factory;
 
 /**
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin
  *
  * @internal
+ *
+ * @small
  */
 final class Has_Active_Dependencies extends \WP_UnitTestCase {
     protected static Plugin $basic_plugin;
@@ -30,7 +30,7 @@ final class Has_Active_Dependencies extends \WP_UnitTestCase {
      */
     public function pass_no_dependencies(): Plugin {
         self::assertFalse(
-            condition: self::$basic_plugin->has_active_dependencies()
+            condition: self::$basic_plugin->has_active_dependencies(),
         );
 
         return self::$basic_plugin;

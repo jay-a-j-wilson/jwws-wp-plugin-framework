@@ -2,11 +2,9 @@
 
 namespace JWWS\WPPF\WordPress\Repo\Subclasses\Term_Repo\Tests\Integration\Fixtures;
 
-use JWWS\WPPF\{
-    Test\PHPUnit\WordPress\Factory\Term_Factory,
-    Test\Traits\Printable,
-    WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo
-};
+use JWWS\WPPF\Test\PHPUnit\WordPress\Factory\Term_Factory;
+use JWWS\WPPF\Test\Traits\Printable;
+use JWWS\WPPF\WordPress\Repo\Subclasses\Taxonomy_Repo\Taxonomy_Repo;
 
 /**
  * Fixture implementation.

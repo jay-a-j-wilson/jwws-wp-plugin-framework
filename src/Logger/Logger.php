@@ -8,8 +8,6 @@ use JWWS\WPPF\Common\Security\Security;
 
 /**
  * @codeCoverageIgnore
- *
- * Undocumented class.
  */
 abstract class Logger {
     /**

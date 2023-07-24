@@ -2,15 +2,15 @@
 
 namespace JWWS\WPPF\WordPress\Utility\Tests\Integration;
 
-use JWWS\WPPF\WordPress\Utility\{
-    Tests\Integration\Fixtures\Fixture,
-    Utility
-};
+use JWWS\WPPF\WordPress\Utility\Tests\Integration\Fixtures\Fixture;
+use JWWS\WPPF\WordPress\Utility\Utility;
 
 /**
  * @covers \JWWS\WPPF\WordPress\Utility\Utility
  *
  * @internal
+ *
+ * @small
  */
 final class Get_Term_Name extends Fixture {
     /**

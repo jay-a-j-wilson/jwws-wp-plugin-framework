@@ -5,11 +5,12 @@ namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_Fil
 use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
 use PHPUnit\Framework\TestCase;
 
-
 /**
  * @covers \JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends TestCase {
     /**
@@ -18,7 +19,7 @@ final class Of extends TestCase {
     public function pass(): void {
         self::assertInstanceOf(
             expected: PHP_File::class,
-            actual: PHP_File::of(path: 'path')
+            actual: PHP_File::of(path: 'path'),
         );
     }
 

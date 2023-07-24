@@ -7,6 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @internal
+ *
+ * @small
+ *
+ * @coversNothing
  */
 final class Templates extends TestCase {
     use Templateable;

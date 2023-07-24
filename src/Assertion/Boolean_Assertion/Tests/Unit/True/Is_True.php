@@ -7,6 +7,10 @@ use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Assertion\Boolean_Assertion\Boolean_Assertion
+ *
+ * @internal
+ *
+ * @small
  */
 final class Is_True extends TestCase {
     /**

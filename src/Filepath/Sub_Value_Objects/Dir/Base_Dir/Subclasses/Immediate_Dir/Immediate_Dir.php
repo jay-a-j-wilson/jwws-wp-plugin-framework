@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Immediate_Dir;
 
-use JWWS\WPPF\{
-    Common\Security\Security,
-    Filepath\Sub_Value_Objects\Dir\Base_Dir\Base_Dir
-};
+use JWWS\WPPF\Common\Security\Security;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Base_Dir;
 
 // Security::stop_direct_access();
 

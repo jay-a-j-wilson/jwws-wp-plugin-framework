@@ -8,6 +8,8 @@ use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name\Name;
  * @covers \JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name\Name
  *
  * @internal
+ *
+ * @small
  */
 final class Of extends \WP_UnitTestCase {
     /**
@@ -18,7 +20,7 @@ final class Of extends \WP_UnitTestCase {
      * @testdox pass[$_dataName] => args [$arg_1, $arg_2]
      */
     public function pass(string $arg_1, string $arg_2): void {
-        $this->assertSame(
+        self::assertSame(
             expected: $arg_2,
             actual: Name::of(basename: $arg_1, fallback_name: $arg_2)->value,
         );

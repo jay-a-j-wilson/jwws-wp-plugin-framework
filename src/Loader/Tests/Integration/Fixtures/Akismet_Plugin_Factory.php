@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\Loader\Tests\Integration\Fixtures;
 
-use JWWS\WPPF\Loader\Plugin\{
-    Plugin,
-    Standard_Plugin\Standard_Plugin
-};
+use JWWS\WPPF\Loader\Plugin\Plugin;
+use JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin;
 
 /**
  * @internal

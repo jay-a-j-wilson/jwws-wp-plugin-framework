@@ -2,10 +2,8 @@
 
 namespace JWWS\WPPF\Collection\Standard_Collection\Tests\Unit\Fixtures;
 
-use JWWS\WPPF\Collection\{
-    Collection,
-    Standard_Collection\Standard_Collection
-};
+use JWWS\WPPF\Collection\Collection;
+use JWWS\WPPF\Collection\Standard_Collection\Standard_Collection;
 
 /**
  * @internal
@@ -30,6 +28,5 @@ final class Collection_Factory {
     /**
      * @return void
      */
-    private function __construct(public readonly Collection $value) {
-    }
+    private function __construct(public readonly Collection $value) {}
 }
