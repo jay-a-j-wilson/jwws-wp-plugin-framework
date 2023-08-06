@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader\Plugin\Standard_Plugin\Subclasses\Standard_Plugin\Tests\Integration;
 
 use JWWS\WPPF\Loader\Plugin\Plugin;
-use JWWS\WPPF\Loader\Tests\Integration\Fixtures\Fixture;
+use JWWS\WPPF\Loader\Standard_Loader\Tests\Integration\Fixtures\Fixture;
 
 /**
  * @covers \JWWS\WPPF\Loader\Plugin\Standard_Plugin\Standard_Plugin

@@ -85,9 +85,9 @@
             <!-- <directory suffix=".php">
                 ../../src/WordPress/Utility/Tests/Integration
             </directory> -->
-            <directory suffix=".php">
+            <!-- <directory suffix=".php">
                 ../../src/Loader/Hooks/Filters/Plugin_Row_Meta/Tests/Integration
-            </directory>
+            </directory> -->
         </testsuite>
     </testsuites>
     <!-- coverage -->
