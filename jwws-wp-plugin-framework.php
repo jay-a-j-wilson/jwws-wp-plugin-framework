@@ -2,7 +2,7 @@
 /**
  * Plugin Name:  WP Plugin Framework
  * Description:  Framework for JWWS plugins.
- * Version:      3.5
+ * Version:      3.5b1
  * Requires PHP: 8.1
  * Author:       Jay Wilson
  * Author URI:   https://jaywilsonwebsolutions.com
