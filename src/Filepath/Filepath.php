@@ -15,9 +15,6 @@ use JWWS\WPPF\Filepath\Sub_Value_Objects\File\File;
  * Will always return a directory and a file.
  */
 abstract class Filepath extends Base_Value_Object {
-    /**
-     * Factory method.
-     */
     final public static function of(Dir $dir, File $file): static {
         return new static(
             value: static::validate(
@@ -26,9 +23,6 @@ abstract class Filepath extends Base_Value_Object {
         );
     }
 
-    /**
-     * Undocumented function.
-     */
     protected static function validate(string $filepath): string {
         return $filepath;
     }

@@ -2,6 +2,9 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Tests\Integration;
 
+use InvalidArgumentException;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Factory as Basename_Factory;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Dir;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath;
 use PHPUnit\Framework\TestCase;
 
@@ -19,7 +22,10 @@ final class Of extends TestCase {
     public function pass(): void {
         self::assertInstanceOf(
             expected: Filepath::class,
-            actual: Filepath::of(basename: 'dir/file.ext'),
+            actual: Filepath::of(
+                dir: Dir::new_instance(),
+                factory: Basename_Factory::of(path: 'dir/file.ext'),
+            ),
         );
     }
 
@@ -31,8 +37,11 @@ final class Of extends TestCase {
      * @testdox throw[$_dataName] => arg $arg throws e
      */
     public function throw(mixed $arg): void {
-        self::expectException(exception: \InvalidArgumentException::class);
-        Filepath::of(basename: $arg);
+        self::expectException(exception: InvalidArgumentException::class);
+        Filepath::of(
+            dir: Dir::new_instance(),
+            factory: Basename_Factory::of(path: $arg),
+        );
     }
 
     public static function throw_data_provider(): iterable {

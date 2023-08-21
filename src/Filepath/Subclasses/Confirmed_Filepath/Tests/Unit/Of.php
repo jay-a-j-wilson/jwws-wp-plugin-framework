@@ -2,11 +2,12 @@
 
 namespace JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Tests\Unit;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Dir;
 use JWWS\WPPF\Filepath\Sub_Value_Objects\File\File;
 use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
 use PHPUnit\Framework\MockObject\Stub;
-use PHPUnit\Framework\TestCase;
+use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Tests\Fixtures\Fixture;
 
 /**
  * @covers \JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath
@@ -15,11 +16,14 @@ use PHPUnit\Framework\TestCase;
  *
  * @small
  */
-final class Of extends TestCase {
+final class Of extends Fixture {
     private Stub|Dir $dir;
 
     private Stub|File $file;
 
+    /**
+     * ! Check test_files logic
+     */
     protected function setUp(): void {
         parent::setUp();
 
@@ -58,7 +62,7 @@ final class Of extends TestCase {
      * @testdox throw[$_dataName] => arg $arg not exist.
      */
     public function throw(string $arg): void {
-        $this->expectException(exception: \InvalidArgumentException::class);
+        $this->expectException(exception: InvalidArgumentException::class);
 
         $this->file
             ->method('__toString')

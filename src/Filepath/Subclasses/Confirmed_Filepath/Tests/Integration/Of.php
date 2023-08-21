@@ -2,10 +2,11 @@
 
 namespace JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Tests\Integration;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir;
-use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\Factory\Factory;
 use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
-use PHPUnit\Framework\TestCase;
+use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Tests\Fixtures\Fixture;
 
 /**
  * @covers \JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath
@@ -14,11 +15,7 @@ use PHPUnit\Framework\TestCase;
  *
  * @small
  */
-final class Of extends TestCase {
-    private function full_path(string $path): string {
-        return __DIR__ . "/test_files/{$path}";
-    }
-
+final class Of extends Fixture {
     /**
      * @test
      *
@@ -27,13 +24,14 @@ final class Of extends TestCase {
      * @testdox pass[$_dataName] => arg $arg exists.
      */
     public function pass(string $arg): void {
-        $this->expectNotToPerformAssertions();
-
         $path = $this->full_path(path: $arg);
 
-        Confirmed_Filepath::of(
-            dir: Full_Dir::of(path: $path),
-            file: PHP_File::of(path: $path),
+        self::assertInstanceOf(
+            expected: Confirmed_Filepath::class,
+            actual: Confirmed_Filepath::of(
+                dir: Full_Dir::of(path: $path),
+                file: Factory::of(path: $path)->create(),
+            ),
         );
     }
 
@@ -59,13 +57,13 @@ final class Of extends TestCase {
      * @testdox throw[$_dataName] => arg $arg not exist.
      */
     public function throw(string $arg): void {
-        $this->expectException(exception: \InvalidArgumentException::class);
+        $this->expectException(exception: InvalidArgumentException::class);
 
         $path = $this->full_path(path: $arg);
 
         Confirmed_Filepath::of(
             dir: Full_Dir::of(path: $path),
-            file: PHP_File::of(path: $path),
+            file: Factory::of(path: $path)->create(),
         );
     }
 

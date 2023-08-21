@@ -18,7 +18,7 @@ final class To_String extends \WP_UnitTestCase {
     public function pass(): void {
         self::assertStringEndsWith(
             suffix: '/wp-content/plugins/',
-            string: Dir::create()->__toString(),
+            string: Dir::new_instance()->__toString(),
         );
     }
 }

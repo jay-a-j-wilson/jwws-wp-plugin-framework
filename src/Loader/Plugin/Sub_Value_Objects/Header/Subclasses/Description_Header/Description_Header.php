@@ -12,9 +12,6 @@ use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Header;
  * Represents the plugin's description header value object.
  */
 final class Description_Header extends Header {
-    /**
-     * Undocumented function.
-     */
     protected static function type(): Type {
         return Type::DESCRIPTION;
     }

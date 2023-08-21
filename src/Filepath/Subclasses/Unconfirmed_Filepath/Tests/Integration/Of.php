@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Tests\Integration;
 
 use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir;
-use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\Factory\Factory;
 use JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Unconfirmed_Filepath;
 use PHPUnit\Framework\TestCase;
 
@@ -29,7 +29,7 @@ final class Of extends TestCase {
 
         Unconfirmed_Filepath::of(
             dir: Full_Dir::of(path: $path),
-            file: PHP_File::of(path: $path),
+            file: Factory::of(path: $path)->create(),
         );
     }
 

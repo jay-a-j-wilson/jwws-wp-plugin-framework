@@ -8,9 +8,6 @@ use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Enums\Ext;
 
 // Security::stop_direct_access();
 
-/**
- * PHP File factory.
- */
 final class PHP_File extends Base_File {
     protected static function type(): Ext {
         return Ext::PHP;

@@ -7,6 +7,7 @@ use JWWS\WPPF\Collection\Standard_Collection\Standard_Collection;
 use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
 use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Dir;
+use function dirname;
 
 // Security::stop_direct_access();
 
@@ -23,9 +24,6 @@ abstract class Base_Dir extends Base_Value_Object implements Dir {
      */
     abstract protected static function levels(): int;
 
-    /**
-     * Undocumented function.
-     */
     final public static function of(string $path): static {
         String_Assertion::of(string: $path)->is_not_empty();
 
@@ -48,7 +46,7 @@ abstract class Base_Dir extends Base_Value_Object implements Dir {
     private static function dir(string $path): string {
         return Standard_Collection::of(...explode(
             separator: DIRECTORY_SEPARATOR,
-            string: \dirname(path: $path),
+            string: dirname(path: $path),
         ))
             ->slice(offset: -static::levels())
             ->implode(separator: DIRECTORY_SEPARATOR)

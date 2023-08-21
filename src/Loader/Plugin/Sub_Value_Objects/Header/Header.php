@@ -5,8 +5,9 @@ namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header;
 use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
 use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir;
-use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\Factory\Factory;
 use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Factory\Factory as Filepath_Factory;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Enums\Type;
 
@@ -29,7 +30,9 @@ abstract class Header extends Base_Value_Object {
     final public static function of(string $basename): static {
         return new static(
             value: self::header(
-                path: Filepath::of(basename: $basename)->__toString(),
+                path: Filepath_Factory::of(path: $basename)
+                    ->create()
+                    ->__toString(),
             ),
         );
     }
@@ -41,14 +44,11 @@ abstract class Header extends Base_Value_Object {
         return self::plugin_data(
             path: Confirmed_Filepath::of(
                 dir: Full_Dir::of(path: $path),
-                file: PHP_File::of(path: $path),
+                file: Factory::of(path: $path)->create(),
             ),
         );
     }
 
-    /**
-     * Undocumented function.
-     */
     private static function plugin_data(Confirmed_Filepath $path): string {
         self::ensure_get_plugin_data_func_is_available();
 

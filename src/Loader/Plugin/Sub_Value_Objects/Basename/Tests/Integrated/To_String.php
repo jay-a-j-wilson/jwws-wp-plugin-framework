@@ -1,7 +1,8 @@
 <?php declare(strict_types=1);
 
-namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Tests\Unit;
+namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Tests\Integrated;
 
+use JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Factory\Base_Factory\Subclasses\Immediate_Dir_PHP_Factory\Immediate_Dir_PHP_Factory;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename;
 use PHPUnit\Framework\TestCase;
 
@@ -23,7 +24,10 @@ final class To_String extends TestCase {
     public function pass(string $arg): void {
         self::assertSame(
             expected: 'dir/file.php',
-            actual: Basename::of(basename: $arg)->__toString(),
+            actual: Basename::of(
+                factory: Immediate_Dir_PHP_Factory::of(path: $arg),
+            )
+                ->__toString(),
         );
     }
 

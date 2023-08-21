@@ -3,6 +3,7 @@
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\Tests\Unit;
 
 use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -19,7 +20,9 @@ final class Of extends TestCase {
     public function pass(): void {
         self::assertInstanceOf(
             expected: PHP_File::class,
-            actual: PHP_File::of(path: 'path'),
+            actual: PHP_File::of(
+                path: $this->createStub(originalClassName: Name::class),
+            ),
         );
     }
 

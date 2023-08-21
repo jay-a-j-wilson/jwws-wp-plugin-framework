@@ -3,6 +3,7 @@
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\Tests\Unit;
 
 use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -21,41 +22,22 @@ final class To_String extends TestCase {
      * @testdox pass[$_dataName] => arg $arg returns $expected
      */
     public function pass(string $arg, string $expected): void {
+        $stub = $this->createStub(originalClassName: Name::class);
+        $stub
+            ->method('__toString')
+            ->willReturn(value: $arg)
+        ;
+
         self::assertSame(
             expected: $expected,
-            actual: PHP_File::of(path: $arg)->__toString(),
+            actual: PHP_File::of(path: $stub)->__toString(),
         );
     }
 
     public static function pass_data_provider(): iterable {
         yield 'basic' => [
-            'filename.php',
-            'filename.php',
-        ];
-
-        yield 'no ext' => [
             'filename',
             'filename.php',
-        ];
-
-        yield 'dif ext' => [
-            'filename.css',
-            'filename.php',
-        ];
-
-        yield 'nested dir' => [
-            'dir/sub_dir/filename.php',
-            'filename.php',
-        ];
-
-        yield 'nested dir, dif ext' => [
-            'dir/sub_dir/filename.css',
-            'filename.php',
-        ];
-
-        yield 'nested dir, double ext' => [
-            'dir/sub_dir/filename.html.php',
-            'filename.html.php',
         ];
     }
 }

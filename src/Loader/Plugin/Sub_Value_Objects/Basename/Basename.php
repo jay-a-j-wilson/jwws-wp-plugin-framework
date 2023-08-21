@@ -2,11 +2,8 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename;
 
-use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
-use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Immediate_Dir\Immediate_Dir;
-use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
-use JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Unconfirmed_Filepath;
+use JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Factory\Base_Factory\Subclasses\Immediate_Dir_PHP_Factory\Immediate_Dir_PHP_Factory;
 
 // Security::stop_direct_access();
 
@@ -14,15 +11,9 @@ use JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Unconfirmed_Filepath;
  * Represents a WordPress Plugin's basename.
  */
 final class Basename extends Base_Value_Object {
-    /**
-     * @param string $path the plugin's basename "plugin-folder/plugin-file.php"
-     */
-    public static function of(string $basename): self {
+    public static function of(Immediate_Dir_PHP_Factory $factory): self {
         return new self(
-            value: Unconfirmed_Filepath::of(
-                dir: Immediate_Dir::of(path: $basename),
-                file: PHP_File::of(path: $basename),
-            ),
+            value: $factory->create(),
         );
     }
 }

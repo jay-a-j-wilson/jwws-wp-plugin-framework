@@ -12,14 +12,14 @@ use PHPUnit\Framework\TestCase;
  *
  * @small
  */
-final class Create extends TestCase {
+final class New_Instance extends TestCase {
     /**
      * @test
      */
     public function pass(): void {
         self::assertInstanceOf(
             expected: Dir::class,
-            actual: Dir::create(),
+            actual: Dir::new_instance(),
         );
     }
 }

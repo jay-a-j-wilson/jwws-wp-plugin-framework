@@ -6,6 +6,7 @@ use JWWS\WPPF\Collection\Collection;
 use JWWS\WPPF\Collection\Standard_Collection\Standard_Collection;
 use JWWS\WPPF\Loader\Plugin\Plugin;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Factory as Basename_Factory;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name\Name;
 use JWWS\WPPF\Loader\Standard_Loader\Collabs\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta;
 use JWWS\WPPF\Template\Template;
@@ -28,7 +29,7 @@ final class Standard_Plugin implements Plugin {
         string $fallback_name,
     ): static {
         return new static(
-            basename: Basename::of(basename: $basename),
+            basename: Basename_Factory::of(path: $basename)->create(),
             name: Name::of(
                 basename: $basename,
                 fallback_name: $fallback_name,

@@ -8,9 +8,6 @@ use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Enums\Ext;
 
 // Security::stop_direct_access();
 
-/**
- * CSS File factory.
- */
 final class CSS_File extends Base_File {
     protected static function type(): Ext {
         return Ext::CSS;

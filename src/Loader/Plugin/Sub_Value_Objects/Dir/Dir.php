@@ -14,7 +14,7 @@ final class Dir extends Base_Value_Object {
     /**
      * Factory method.
      */
-    public static function create(): self {
+    public static function new_instance(): self {
         return new self(
             value: WP_PLUGIN_DIR . DIRECTORY_SEPARATOR,
         );

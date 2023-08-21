@@ -31,6 +31,18 @@
             <directory suffix=".php">
                 ../../src/*/*/*/*/*/*/Tests
             </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/Tests
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/Tests
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/*/Tests
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/*/*/Tests
+            </directory>
         </testsuite>
         <!-- unit -->
         <testsuite name="unit">
@@ -52,6 +64,18 @@
             <directory suffix=".php">
                 ../../src/*/*/*/*/*/*/Tests/Unit
             </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/Tests/Unit
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/Tests/Unit
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/*/Tests/Unit
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/*/*/Tests/Unit
+            </directory>
         </testsuite>
         <!-- integration -->
         <testsuite name="integration">
@@ -72,6 +96,18 @@
             </directory>
             <directory suffix=".php">
                 ../../src/*/*/*/*/*/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/*/Tests/Integration
+            </directory>
+            <directory suffix=".php">
+                ../../src/*/*/*/*/*/*/*/*/*/*/Tests/Integration
             </directory>
         </testsuite>
         <!-- debug -->
@@ -109,6 +145,10 @@
             <directory suffix=".php">../../src/*/*/*/*/Tests</directory>
             <directory suffix=".php">../../src/*/*/*/*/*/Tests</directory>
             <directory suffix=".php">../../src/*/*/*/*/*/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/*/*/*/*/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/*/*/*/*/*/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/*/*/*/*/*/*/*/Tests</directory>
+            <directory suffix=".php">../../src/*/*/*/*/*/*/*/*/*/*/Tests</directory>
         </exclude>
         <report>
             <html outputDirectory="coverage/report/html" />

@@ -1,12 +1,13 @@
 <?php declare(strict_types=1);
 
-namespace JWWS\WPPF\Filepath\Sub_Value_Objects\Name\Tests\Unit;
+namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Standard_Name\Tests\Unit;
 
-use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name;
+use InvalidArgumentException;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Standard_Name\Standard_Name;
 use PHPUnit\Framework\TestCase;
 
 /**
- * @covers \JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name
+ * @covers \JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Standard_Name\Standard_Name
  *
  * @internal
  *
@@ -18,8 +19,8 @@ final class Of extends TestCase {
      */
     public function pass(): void {
         self::assertInstanceOf(
-            expected: Name::class,
-            actual: Name::of(path: 'path'),
+            expected: Standard_Name::class,
+            actual: Standard_Name::of(path: 'path'),
         );
     }
 
@@ -30,9 +31,9 @@ final class Of extends TestCase {
      *
      * @testdox throw[$_dataName] => arg $arg throws e
      */
-    public function throw(mixed $arg): void {
-        $this->expectException(exception: \InvalidArgumentException::class);
-        Name::of(path: $arg);
+    public function throw(string $arg): void {
+        $this->expectException(exception: InvalidArgumentException::class);
+        Standard_Name::of(path: $arg);
     }
 
     public static function throw_data_provider(): iterable {
