@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Factory\Tests\Unit;
 
 use InvalidArgumentException;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath;
-use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Factory\Factory;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Factory\Filepath_Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -21,7 +21,7 @@ final class Create extends TestCase {
     public function pass(): void {
         self::assertInstanceOf(
             expected: Filepath::class,
-            actual: Factory::of(path: 'dir/file.ext')->create(),
+            actual: Filepath_Factory::of(path: 'dir/file.ext')->create(),
         );
     }
 
@@ -34,7 +34,7 @@ final class Create extends TestCase {
      */
     public function throw(string $arg): void {
         $this->expectException(exception: InvalidArgumentException::class);
-        Factory::of(path: $arg)->create();
+        Filepath_Factory::of(path: $arg)->create();
     }
 
     public static function throw_data_provider(): iterable {

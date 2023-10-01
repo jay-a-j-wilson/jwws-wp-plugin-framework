@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Tests\Integration;
 
-use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Factory as Basename_Factory;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Basename_Factory;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Dir;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath;
 use WP_UnitTestCase;
@@ -28,7 +28,8 @@ final class To_String extends WP_UnitTestCase {
             string: Filepath::of(
                 dir: Dir::new_instance(),
                 factory: Basename_Factory::of(path: $arg),
-            )->__toString(),
+            )
+                ->__toString(),
         );
     }
 

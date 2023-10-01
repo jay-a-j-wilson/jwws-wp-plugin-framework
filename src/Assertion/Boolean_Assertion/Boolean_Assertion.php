@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Assertion\Boolean_Assertion;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
@@ -30,14 +31,14 @@ final class Boolean_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_true(string $message = ''): self {
         if ($this->boolean == true) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: 'Boolean must be true.',
         );
     }
@@ -48,14 +49,14 @@ final class Boolean_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_not_true(string $message = ''): self {
         if ($this->boolean != true) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: 'Boolean must not be true.',
         );
     }
@@ -66,14 +67,14 @@ final class Boolean_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_false(string $message = ''): self {
         if ($this->boolean == false) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: 'Boolean must be false.',
         );
     }
@@ -84,14 +85,14 @@ final class Boolean_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_not_false(string $message = ''): self {
         if ($this->boolean != false) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: 'Boolean must not be false.',
         );
     }

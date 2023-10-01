@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Assertion\Array_Assertion\Tests\Unit;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Assertion\Array_Assertion\Array_Assertion;
 use PHPUnit\Framework\TestCase;
 
@@ -41,7 +42,7 @@ final class Contains_Value extends TestCase {
      * @testdox throw[$_dataName] => $arg_1 not contains $arg_2
      */
     public function throw(array $arg_1, int|string $arg_2): void {
-        $this->expectException(exception: \InvalidArgumentException::class);
+        $this->expectException(exception: InvalidArgumentException::class);
         Array_Assertion::of(array: $arg_1)->contains_value(value: $arg_2);
     }
 

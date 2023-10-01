@@ -6,7 +6,8 @@ use JWWS\WPPF\Collection\Collection;
 use JWWS\WPPF\Collection\Standard_Collection\Standard_Collection;
 use JWWS\WPPF\Loader\Plugin\Plugin;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename;
-use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Factory as Basename_Factory;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Basename_Factory;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name\Factory\Name_Factory;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name\Name;
 use JWWS\WPPF\Loader\Standard_Loader\Collabs\Hooks\Filters\Plugin_Row_Meta\Plugin_Row_Meta;
 use JWWS\WPPF\Template\Template;
@@ -30,10 +31,11 @@ final class Standard_Plugin implements Plugin {
     ): static {
         return new static(
             basename: Basename_Factory::of(path: $basename)->create(),
-            name: Name::of(
+            name: Name_Factory::of(
                 basename: $basename,
                 fallback_name: $fallback_name,
-            ),
+            )
+                ->create(),
         );
     }
 

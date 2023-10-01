@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Assertion\Array_Assertion\Tests\Unit\Empty;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Assertion\Array_Assertion\Array_Assertion;
 use PHPUnit\Framework\TestCase;
 
@@ -33,7 +34,7 @@ final class Is_Not_Empty extends TestCase {
      * @testdox throw[$_dataName] => $arg
      */
     public function throw(array $arg): void {
-        $this->expectException(exception: \InvalidArgumentException::class);
+        $this->expectException(exception: InvalidArgumentException::class);
         Array_Assertion::of(array: $arg)->is_not_empty();
     }
 }

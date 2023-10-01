@@ -17,14 +17,24 @@ use PHPUnit\Framework\TestCase;
 final class Of extends TestCase {
     /**
      * @test
+     *
+     * @dataProvider pass_data_provider
+     *
+     * @testdox pass[$_dataName] => $arg
      */
-    public function pass(): void {
+    public function pass(string $arg): void {
         self::assertInstanceOf(
             expected: Basename::class,
             actual: Basename::of(
-                factory: Immediate_Dir_PHP_Factory::of(path: 'dir/file.ext'),
+                factory: Immediate_Dir_PHP_Factory::of(path: $arg),
             ),
         );
+    }
+
+    public static function pass_data_provider(): iterable {
+        yield 'basic' => ['dir/file.ext'];
+
+        yield 'parent dir' => ['dir/dir/file.ext'];
     }
 
     /**
@@ -32,9 +42,9 @@ final class Of extends TestCase {
      *
      * @dataProvider throw_data_provider
      *
-     * @testdox throw[$_dataName] => arg $arg throws e
+     * @testdox throw[$_dataName] => $arg
      */
-    public function throw(mixed $arg): void {
+    public function throw(string $arg): void {
         self::expectException(exception: InvalidArgumentException::class);
         Basename::of(factory: Immediate_Dir_PHP_Factory::of(path: $arg));
     }

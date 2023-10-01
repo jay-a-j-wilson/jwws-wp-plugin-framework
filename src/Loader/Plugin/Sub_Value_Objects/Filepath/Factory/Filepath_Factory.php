@@ -2,13 +2,13 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Factory;
 
-use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Factory as Basename_Factory;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Basename_Factory;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Dir;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Filepath;
 
 // Security::stop_direct_access();
 
-final class Factory {
+final class Filepath_Factory {
     public static function of(string $path): self {
         return new self(path: $path);
     }

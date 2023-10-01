@@ -1,8 +1,9 @@
 <?php declare(strict_types=1);
 
-namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Tests\Integration;
+namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Tests\Unit;
 
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Dir;
+use PHPUnit\Framework\TestCase;
 
 /**
  * @covers \JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Dir
@@ -11,14 +12,14 @@ use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Dir\Dir;
  *
  * @small
  */
-final class To_String extends \WP_UnitTestCase {
+final class New_Instance extends TestCase {
     /**
      * @test
      */
     public function pass(): void {
-        self::assertStringEndsWith(
-            suffix: '/wp-content/plugins/',
-            string: Dir::new_instance()->__toString(),
+        self::assertInstanceOf(
+            expected: Dir::class,
+            actual: Dir::new_instance(),
         );
     }
 }

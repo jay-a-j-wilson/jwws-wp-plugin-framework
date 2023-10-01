@@ -7,7 +7,7 @@ use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename;
 
 // Security::stop_direct_access();
 
-final class Factory {
+final class Basename_Factory {
     public static function of(string $path): self {
         return new self(
             path: $path

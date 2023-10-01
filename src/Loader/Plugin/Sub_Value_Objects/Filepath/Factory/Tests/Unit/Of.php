@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Factory\Tests\Unit;
 
 use InvalidArgumentException;
-use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Factory;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Filepath\Factory\Filepath_Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -19,8 +19,8 @@ final class Of extends TestCase {
      */
     public function pass(): void {
         self::assertInstanceOf(
-            expected: Factory::class,
-            actual: Factory::of(path: ''),
+            expected: Filepath_Factory::class,
+            actual: Filepath_Factory::of(path: ''),
         );
     }
 }

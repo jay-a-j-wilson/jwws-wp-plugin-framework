@@ -2,6 +2,8 @@
 
 namespace JWWS\WPPF\Assertion\Array_Assertion;
 
+use InvalidArgumentException;
+
 /**
  * Provides assertion methods related to array values.
  */
@@ -26,14 +28,14 @@ final class Array_Assertion {
      * @param string $message a custom message to include in the exception if
      *                        the assertion fails
      *
-     * @throws \InvalidArgumentException if the value is empty or null
+     * @throws InvalidArgumentException if the value is empty or null
      */
     public function is_empty(string $message = ''): self {
         if (empty($this->array)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: 'Array must be empty.',
         );
     }
@@ -44,14 +46,14 @@ final class Array_Assertion {
      * @param string $message a custom message to include in the exception if
      *                        the assertion fails
      *
-     * @throws \InvalidArgumentException if the value is empty or null
+     * @throws InvalidArgumentException if the value is empty or null
      */
     public function is_not_empty(string $message = ''): self {
         if (! empty($this->array)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: 'Array must not be empty.',
         );
     }
@@ -63,14 +65,14 @@ final class Array_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function contains_value(mixed $value, string $message = ''): self {
         if (in_array(haystack: $this->array, needle: $value, strict: true)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Array must contain '{$value}'.",
         );
     }
@@ -82,14 +84,14 @@ final class Array_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function contains_key(int|string $key, string $message = ''): self {
         if (array_key_exists($key, array: $this->array)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Array must contain '{$key}'.",
         );
     }

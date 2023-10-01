@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Template;
 
 use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Full_Dir\Full_Dir;
-use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\Factory\Factory;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\Factory\PHP_File_Factory;
 use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
 
 // Security::stop_direct_access();
@@ -17,7 +17,7 @@ final class Template {
         return new self(
             filepath: Confirmed_Filepath::of(
                 dir: Full_Dir::of(path: $path),
-                file: Factory::of(path: $path)->create(),
+                file: PHP_File_Factory::of(path: $path)->create(),
             ),
         );
     }

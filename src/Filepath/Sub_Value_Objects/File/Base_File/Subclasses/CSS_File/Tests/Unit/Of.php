@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\CSS_File\Tests\Unit;
 
 use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\CSS_File\CSS_File;
-use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Name_Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -21,7 +21,9 @@ final class Of extends TestCase {
         self::assertInstanceOf(
             expected: CSS_File::class,
             actual: CSS_File::of(
-                path: $this->createStub(originalClassName: Name::class),
+                factory: $this->createStub(
+                    originalClassName: Name_Factory::class,
+                ),
             ),
         );
     }

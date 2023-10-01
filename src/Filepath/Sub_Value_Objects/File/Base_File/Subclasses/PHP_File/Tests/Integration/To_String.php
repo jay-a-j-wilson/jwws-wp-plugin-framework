@@ -3,7 +3,7 @@
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\Tests\Integration;
 
 use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Base_File\Subclasses\PHP_File\PHP_File;
-use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Standard_Name\Standard_Name;
+use JWWS\WPPF\Filepath\Sub_Value_Objects\File\Sub_Value_Objects\Name\Standard_Name\Factory\Standard_Name_Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -24,7 +24,9 @@ final class To_String extends TestCase {
     public function pass(string $arg, string $expected): void {
         self::assertSame(
             expected: $expected,
-            actual: PHP_File::of(path: Standard_Name::of(path: $arg))
+            actual: PHP_File::of(
+                factory: Standard_Name_Factory::of(path: $arg),
+            )
                 ->__toString(),
         );
     }

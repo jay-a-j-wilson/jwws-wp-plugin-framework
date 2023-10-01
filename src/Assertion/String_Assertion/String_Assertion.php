@@ -2,6 +2,8 @@
 
 namespace JWWS\WPPF\Assertion\String_Assertion;
 
+use InvalidArgumentException;
+
 /**
  * Provides assertion methods related to string values.
  */
@@ -26,14 +28,14 @@ final class String_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_alphabetic(string $message = ''): self {
         if (ctype_alpha(text: $this->string)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Value '{$this->string}' must be alphabetic.",
         );
     }
@@ -44,14 +46,14 @@ final class String_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_alphanumeric(string $message = ''): self {
         if (ctype_alnum(text: $this->string)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Value '{$this->string}' must be alphanumeric.",
         );
     }
@@ -62,14 +64,14 @@ final class String_Assertion {
      * @param string $message a custom message to include in the exception if
      *                        the assertion fails
      *
-     * @throws \InvalidArgumentException if the value is empty or null
+     * @throws InvalidArgumentException if the value is empty or null
      */
     public function is_empty(string $message = ''): self {
         if (empty($this->string) && $this->string !== '0') {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "String '{$this->string}' must be empty.",
         );
     }
@@ -80,14 +82,14 @@ final class String_Assertion {
      * @param string $message a custom message to include in the exception if
      *                        the assertion fails
      *
-     * @throws \InvalidArgumentException if the value is empty or null
+     * @throws InvalidArgumentException if the value is empty or null
      */
     public function is_not_empty(string $message = ''): self {
         if (! empty($this->string) || $this->string === '0') {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "String '{$this->string}' must not be empty.",
         );
     }
@@ -99,14 +101,14 @@ final class String_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     public function is_equal(mixed $value, string $message = ''): self {
         if ($this->string == $value) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "String '{$this->string}' must be equal to '{$value}'.",
         );
     }
@@ -118,14 +120,14 @@ final class String_Assertion {
      * @param string $message   Optional. The message to include if the
      *                          assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function contains(string $substring, string $message = ''): self {
         if (str_contains(haystack: $this->string, needle: $substring)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "String '{$this->string}' must contain '{$substring}'.",
         );
     }
@@ -137,14 +139,14 @@ final class String_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function starts_with(string $prefix, string $message = ''): self {
         if (str_starts_with(haystack: $this->string, needle: $prefix)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "String '{$this->string}' must start with '{$prefix}'.",
         );
     }
@@ -156,14 +158,14 @@ final class String_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function ends_with(string $suffix, string $message = ''): self {
         if (str_ends_with(haystack: $this->string, needle: $suffix)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "String '{$this->string}' must end with '{$suffix}'.",
         );
     }

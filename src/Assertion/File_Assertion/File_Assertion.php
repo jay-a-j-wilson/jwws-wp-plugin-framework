@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Assertion\File_Assertion;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Assertion\String_Assertion\String_Assertion;
 use JWWS\WPPF\Common\Security\Security;
 
@@ -35,7 +36,7 @@ final class File_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function has_ext(string $ext, string $message = ''): self {
         $actual_ext = pathinfo(path: $this->filepath, flags: PATHINFO_EXTENSION);
@@ -44,7 +45,7 @@ final class File_Assertion {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Path must have a '{$ext}' file extension type. Type '{$actual_ext}' found.",
         );
     }
@@ -56,14 +57,14 @@ final class File_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function has_size(int $size, string $message = ''): self {
         if (filesize(filename: $this->filepath) === $size) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "File '{$this->filepath}' must have size of '{$size}' bytes.",
         );
     }
@@ -74,14 +75,14 @@ final class File_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_blank(string $message = ''): self {
         if (filesize(filename: $this->filepath) === 0) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "File '{$this->filepath}' must be empty (have no content).",
         );
     }

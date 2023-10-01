@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Assertion\Number_Assertion;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
@@ -30,14 +31,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_positive(string $message = ''): self {
         if ($this->number > 0) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Number {$this->number} must be positive.",
         );
     }
@@ -48,14 +49,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_negative(string $message = ''): self {
         if ($this->number < 0) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Number {$this->number} must be negative.",
         );
     }
@@ -66,14 +67,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_even(string $message = ''): self {
         if ($this->number % 2 == 0) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Number {$this->number} must be even",
         );
     }
@@ -84,14 +85,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_odd(string $message = ''): self {
         if ($this->number % 2 != 0) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Number {$this->number} must be odd",
         );
     }
@@ -102,14 +103,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_equal(int|float $value, string $message = ''): self {
         if ($this->number == $value) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Number {$this->number} must be equal to {$value}.",
         );
     }
@@ -121,14 +122,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_less_or_equal(int|float $max, string $message = ''): self {
         if ($this->number <= $max) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Number {$this->number} must be less than or equal {$max}.",
         );
     }
@@ -140,14 +141,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_greater_or_equal(int|float $min, string $message = ''): self {
         if ($this->number >= $min) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "{$this->number} must be greater than or equal {$min}.",
         );
     }
@@ -158,14 +159,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_less(int|float $max, string $message = ''): self {
         if ($this->number < $max) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Number {$this->number} must be less than {$max}.",
         );
     }
@@ -176,14 +177,14 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_greater(int|float $min, string $message = ''): self {
         if ($this->number > $min) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Number {$this->number} must be greater than {$min}",
         );
     }
@@ -194,7 +195,7 @@ final class Number_Assertion {
      * @param string $message Optional. The message to include if the
      *                        assertion fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_between(
         int|float $min,
@@ -217,7 +218,7 @@ final class Number_Assertion {
             $error_message[] = "{$this->number} cannot be greater than max: {$max}.";
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: implode(separator: ' ', array: $error_message),
         );
     }

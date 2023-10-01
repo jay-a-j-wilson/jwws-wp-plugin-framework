@@ -7,6 +7,8 @@ final class Data_Provider {
      * ! Check logic.
      */
     public static function files(): iterable {
+        yield ['folder/file_1.php'];
+
         yield ['folder/file_1.css'];
 
         yield ['folder/file_1.txt'];

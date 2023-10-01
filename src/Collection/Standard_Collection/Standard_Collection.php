@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Collection\Standard_Collection;
 
+use ArrayIterator;
 use JWWS\WPPF\Collection\Collection;
 use JWWS\WPPF\Common\Security\Security;
 
@@ -59,7 +60,7 @@ final class Standard_Collection implements Collection {
             $result = [
                 ...$result,
                 ...(
-                    \is_array(value: $item) && $levels > 0
+                    is_array(value: $item) && $levels > 0
                         ? self::of(...$item)
                             ->flatten(levels: $levels - 1)
                             ->to_array()
@@ -111,7 +112,7 @@ final class Standard_Collection implements Collection {
     public function pluck(mixed $key): self {
         return self::of(
             ...$this->map(
-                fn (mixed $item): mixed => \is_object(value: $item)
+                fn (mixed $item): mixed => is_object(value: $item)
                     ? $item->{$key}
                     : $item[$key],
             )
@@ -121,7 +122,7 @@ final class Standard_Collection implements Collection {
 
     public function slice(int $offset, ?int $length = null): self {
         return self::of(
-            ...\array_slice(
+            ...array_slice(
                 array: $this->items,
                 offset: $offset,
                 length: $length,
@@ -135,14 +136,14 @@ final class Standard_Collection implements Collection {
     }
 
     public function contains_key(mixed $key): bool {
-        return \array_key_exists(
+        return array_key_exists(
             key: $key,
             array: $this->items,
         );
     }
 
     public function contains_value(mixed $value): bool {
-        return \in_array(
+        return in_array(
             needle: $value,
             haystack: $this->items,
         );
@@ -160,11 +161,11 @@ final class Standard_Collection implements Collection {
     }
 
     public function count(): int {
-        return \count(value: $this->items);
+        return count(value: $this->items);
     }
 
     public function offsetExists(mixed $key): bool {
-        return \array_key_exists(
+        return array_key_exists(
             key: $key,
             array: $this->items,
         );
@@ -184,8 +185,8 @@ final class Standard_Collection implements Collection {
         unset($this->items[$key]);
     }
 
-    public function getIterator(): \ArrayIterator {
-        return new \ArrayIterator(
+    public function getIterator(): ArrayIterator {
+        return new ArrayIterator(
             array: $this->items,
         );
     }

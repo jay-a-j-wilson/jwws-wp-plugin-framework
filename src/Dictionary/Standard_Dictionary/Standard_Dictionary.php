@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Dictionary\Standard_Dictionary;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Dictionary\Dictionary;
 
@@ -26,7 +27,7 @@ final class Standard_Dictionary implements Dictionary {
             return $this->entries[$key];
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: "Entry with key of {$key} not found.",
         );
     }
@@ -47,7 +48,7 @@ final class Standard_Dictionary implements Dictionary {
             );
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: "Entry with key of {$key} not found.",
         );
     }

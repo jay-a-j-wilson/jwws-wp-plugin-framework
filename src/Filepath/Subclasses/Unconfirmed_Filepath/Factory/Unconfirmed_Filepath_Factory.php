@@ -6,7 +6,7 @@ use JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Unconfirmed_Filepath;
 
 // Security::stop_direct_access();
 
-interface Factory {
+interface Unconfirmed_Filepath_Factory {
     public static function of(string $path): self;
 
     public function create(): Unconfirmed_Filepath;

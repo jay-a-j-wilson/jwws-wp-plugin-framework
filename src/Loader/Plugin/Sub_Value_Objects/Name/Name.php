@@ -2,9 +2,10 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Name;
 
+use Exception;
 use JWWS\WPPF\Common\Security\Security;
 use JWWS\WPPF\Common\Value_Object\Base_Value_Object\Base_Value_Object;
-use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Name_Header\Name_Header;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Header\Subclasses\Name_Header\Factory\Name_Header_Factory;
 
 // Security::stop_direct_access();
 
@@ -16,12 +17,12 @@ final class Name extends Base_Value_Object {
      * @param string $fallback_name example "Plugin"
      */
     public static function of(
-        string $basename,
+        Name_Header_Factory $factory,
         string $fallback_name,
     ): self {
         return new self(
             value: self::name(
-                basename: $basename,
+                factory: $factory,
                 fallback_name: $fallback_name,
             ),
         );
@@ -32,12 +33,15 @@ final class Name extends Base_Value_Object {
      * specified fallback name.
      */
     private static function name(
-        string $basename,
+        Name_Header_Factory $factory,
         string $fallback_name,
     ): string {
         try {
-            return Name_Header::of(basename: $basename)->value;
-        } catch (\Exception $e) {
+            return $factory
+                ->create()
+                ->__toString()
+            ;
+        } catch (Exception $e) {
             return $fallback_name;
         }
     }

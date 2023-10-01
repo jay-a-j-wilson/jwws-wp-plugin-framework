@@ -6,7 +6,7 @@ use JWWS\WPPF\Filepath\Subclasses\Confirmed_Filepath\Confirmed_Filepath;
 
 // Security::stop_direct_access();
 
-interface Factory {
+interface Confirmed_Filepath_Factory {
     public static function of(string $path): self;
 
     public function create(): Confirmed_Filepath;

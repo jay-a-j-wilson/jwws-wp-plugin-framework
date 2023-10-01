@@ -2,7 +2,7 @@
 
 namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Tests\Unit;
 
-use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Factory;
+use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Factory\Basename_Factory;
 use PHPUnit\Framework\TestCase;
 
 /**
@@ -18,8 +18,8 @@ final class Of extends TestCase {
      */
     public function pass(): void {
         self::assertInstanceOf(
-            expected: Factory::class,
-            actual: Factory::of(path: ''),
+            expected: Basename_Factory::class,
+            actual: Basename_Factory::of(path: ''),
         );
     }
 }

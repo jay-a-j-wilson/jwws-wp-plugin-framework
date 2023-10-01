@@ -4,7 +4,7 @@ namespace JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Tests\Unit;
 
 use InvalidArgumentException;
 use JWWS\WPPF\Filepath\Filepath;
-use JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Factory\Factory;
+use JWWS\WPPF\Filepath\Subclasses\Unconfirmed_Filepath\Factory\Unconfirmed_Filepath_Factory;
 use JWWS\WPPF\Loader\Plugin\Sub_Value_Objects\Basename\Basename;
 use PHPUnit\Framework\TestCase;
 
@@ -17,6 +17,7 @@ use PHPUnit\Framework\TestCase;
  */
 final class Of extends TestCase {
     /**
+     * ! Fix nested stub
      * @xtest
      */
     public function pass(): void {
@@ -24,7 +25,7 @@ final class Of extends TestCase {
             originalClassName: Filepath::class,
         );
         $stub = $this->createMock(
-            originalClassName: Factory::class,
+            originalClassName: Unconfirmed_Filepath_Factory::class,
         );
         $stub->method('create')
             ->will($this->returnValue($x))

@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Immediate_Dir\Tests\Unit;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Filepath\Sub_Value_Objects\Dir\Base_Dir\Subclasses\Immediate_Dir\Immediate_Dir;
 use PHPUnit\Framework\TestCase;
 
@@ -31,7 +32,7 @@ final class Of extends TestCase {
      * @testdox throw[$_dataName] => arg $arg
      */
     public function throw(mixed $arg): void {
-        self::expectException(exception: \InvalidArgumentException::class);
+        self::expectException(exception: InvalidArgumentException::class);
         Immediate_Dir::of(path: $arg);
     }
 

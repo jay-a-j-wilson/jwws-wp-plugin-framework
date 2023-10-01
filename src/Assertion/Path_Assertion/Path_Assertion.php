@@ -2,6 +2,7 @@
 
 namespace JWWS\WPPF\Assertion\Path_Assertion;
 
+use InvalidArgumentException;
 use JWWS\WPPF\Common\Security\Security;
 
 // Security::stop_direct_access();
@@ -30,14 +31,14 @@ final class Path_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function exists(string $message = ''): self {
         if (file_exists(filename: $this->path)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Path '{$this->path}' does not belong to an existing file or directory.",
         );
     }
@@ -48,14 +49,14 @@ final class Path_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_dir(string $message = ''): self {
         if (is_dir(filename: $this->path)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Path '{$this->path}' must be a directory.",
         );
     }
@@ -66,14 +67,14 @@ final class Path_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_file(string $message = ''): self {
         if (is_file(filename: $this->path)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Path '{$this->path}' must be a file.",
         );
     }
@@ -84,14 +85,14 @@ final class Path_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_readable(string $message = ''): self {
         if (is_readable(filename: $this->path)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "File '{$this->path}' must be readable.",
         );
     }
@@ -102,14 +103,14 @@ final class Path_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_writable(string $message = ''): self {
         if (is_writable(filename: $this->path)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "File '{$this->path}' must be writable.",
         );
     }
@@ -120,14 +121,14 @@ final class Path_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function is_executable(string $message = ''): self {
         if (is_executable(filename: $this->path)) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "File '{$this->path}' must be executable.",
         );
     }
@@ -138,14 +139,14 @@ final class Path_Assertion {
      * @param string $message Optional. The message to include if the assertion
      *                        fails.
      *
-     * @throws \InvalidArgumentException if the assertion fails
+     * @throws InvalidArgumentException if the assertion fails
      */
     public function contains_dir(string $message = ''): self {
         if (str_contains(haystack: $this->path, needle: '/')) {
             return $this;
         }
 
-        throw new \InvalidArgumentException(
+        throw new InvalidArgumentException(
             message: $message ?: "Path '{$this->path}' does not contain a directory.",
         );
     }
